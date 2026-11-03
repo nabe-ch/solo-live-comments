@@ -53,6 +53,8 @@ const jaTime = (t) => String(t || '').replace(/(\d+)\s*(am|pm)/gi, (_, h, m) => 
     ...(await getJson(NORC + 'Insects.json')).map(creature('虫')),
     ...(await getJson(NORC + encodeURIComponent('Sea Creatures.json'))).map(creature('海の幸'))
   ];
+  // データ元で時間が食い違う魚は、断定しない（残りの食い違いは SPEC.md に記録）
+  for (const c of creatures) if (['オオイワナ', 'ヤマメ'].includes(c[0])) c[4] = '時期によって変わる（16時〜9時の時期あり）';
   const apiCreatures = [...await getJson(API + 'fish.json'), ...await getJson(API + 'bugs.json'), ...await getJson(API + 'sea.json')];
   const apiByName = new Map(apiCreatures.map((c) => [c.name['name-JPja'], c]));
   const creatureDiff = [];
