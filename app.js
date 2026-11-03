@@ -130,7 +130,9 @@ function react(text, whole = text) {
     state.lastAnswer = answer;
     state.lastAnswerAt = now;
     endThread();
-    setTimeout(() => post({ text: answer, speaker: ORACLE, cls: 'a' }), 700);
+    // 操作の質問には操作説明係が、それ以外は物知り島民が答える
+    const isGuide = operationAnswer(whole) === answer;
+    setTimeout(() => post({ text: answer, speaker: isGuide ? GUIDE : ORACLE, cls: isGuide ? 'g' : 'a' }), 700);
     throwBack(CATCH.afterAnswer, 3200);
     return;
   }
