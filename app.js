@@ -222,7 +222,7 @@ function startRecognition() {
     if (e.error === 'not-allowed' || e.error === 'service-not-allowed') {
       // 別のアプリから戻った直後にも出るので、画面が表に出ているときだけ止める
       if (document.visibilityState === 'visible') {
-        stop();
+        stop(true);
         setStatus(`許可されていません（${e.error}）。iPhoneの設定でマイクと音声認識を確認`, false);
       }
       return;
@@ -282,8 +282,9 @@ function streamBurst(first, middle, asks) {
   asks.forEach((text, i) => setTimeout(() => { if (state.running) post({ text, isQuestion: true }); }, 900 + (picked.length + i) * 1100));
 }
 
-function stop() {
-  const wasRunning = state.running;
+// silent：エラーで止まったときは、別れのコメントを出さない
+function stop(silent = false) {
+  const wasRunning = state.running && !silent;
   state.running = false;
   endThread();
   clearTimeout(state.reconnectTimer);
