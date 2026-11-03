@@ -16,7 +16,7 @@ function choose(group) {
   const type = pickFrom(['a', 'q', 'q', 'h']); // 拾う練習になるよう、質問を多めにする
   // 質問のうち6割は、話を広げやすいものから選ぶ
   const pool = type === 'q' && group.d && Math.random() < 0.6 ? group.d : group[type];
-  return { text: pickFresh(pool), isQuestion: type === 'q' };
+  return { text: pickFresh(pool), isQuestion: type === 'q', group };
 }
 
 function pickFresh(pool) {
@@ -28,9 +28,12 @@ function pickFresh(pool) {
 }
 
 // 質問が流れたら、答えを待つ（答えの内容までは理解しない。話したら答えたとみなす）
-function startThread() {
-  if (!state.thread) state.thread = { depth: 0, answer: '', timer: null, until: Date.now() + THREAD_TIMEOUT_MS };
+function startThread(group) {
+  if (!state.thread) state.thread = { group, depth: 0, answer: '', timer: null, until: Date.now() + THREAD_TIMEOUT_MS };
 }
+
+// 質問とは別の話題の言葉が出たら、質問を拾わなかったとみなす（soft は答えの中にも出やすい言葉の話題なので除く）
+const changedTopic = (text) => RULES.some((r) => r !== state.thread.group && !r.soft && r.re.test(text));
 
 function endThread() {
   if (state.thread) clearTimeout(state.thread.timer);
@@ -68,7 +71,7 @@ function followUp() {
   post({ text, isQuestion: true });
 }
 
-function post({ text, isQuestion }) {
+function post({ text, isQuestion, group }) {
   const chat = $('chat');
   const li = document.createElement('li');
   if (isQuestion) li.className = 'q';
@@ -79,7 +82,7 @@ function post({ text, isQuestion }) {
   chat.append(li);
   while (chat.children.length > MAX_ROWS) chat.firstChild.remove();
   chat.scrollTop = chat.scrollHeight;
-  if (isQuestion) startThread();
+  if (isQuestion) startThread(group);
 }
 
 // 本物らしく、少し遅れて流す
@@ -90,7 +93,10 @@ function react(text) {
   const now = Date.now();
   state.lastHeard = now;
   // 会話中は、ほかの話題のコメントを止めて、答えを聞く
-  if (state.thread) { listenAnswer(text); return; }
+  if (state.thread) {
+    if (!changedTopic(text)) { listenAnswer(text); return; }
+    endThread();
+  }
   let matched = false;
   for (const rule of RULES) {
     if (!rule.re.test(text)) continue;
