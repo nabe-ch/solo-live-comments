@@ -5,12 +5,14 @@ const toKata = (s) => s.replace(/[ぁ-ゖ]/g, (c) => String.fromCharCode(c.charC
 const toHira = (s) => s.replace(/[ァ-ヶ]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0x60));
 const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-// 名前の判定：3文字以上はひらがな・カタカナ両方。2文字は書かれたとおりのみ。1文字とひらがな2文字は誤反応が多いので使わない
+// 名前の判定：3文字以上はひらがな・カタカナ両方。2文字は書かれたとおりのみ。どちらも長いカタカナ語の一部には反応しない。1文字とひらがな2文字は誤反応が多いので使わない
 function nameRegex(name) {
   if (name.length < 2 || (name.length === 2 && /^[ぁ-ゖ]+$/.test(name))) return null;
-  if (name.length === 2) return new RegExp(escapeRe(name));
+  // 長いカタカナ語の一部（トランプの「ラン」、ランキングの「キング」など）に反応しないよう、前後を見る
+  const alone = (body) => new RegExp(`(^|[^ァ-ヶー])(${body})(?![ァ-ヶー])`);
+  if (name.length === 2) return alone(escapeRe(name));
   const forms = [...new Set([name, toKata(name), toHira(name), ...(ALIASES[name] || [])])];
-  return new RegExp(forms.map(escapeRe).join('|'));
+  return alone(forms.map(escapeRe).join('|'));
 }
 // ゲーム内の呼び名と、ふだんの呼び名が違うもの
 const ALIASES = { Tレックス: ['ティラノサウルス', 'ティラノ'], さんようちゅう: ['三葉虫'], しそちょう: ['始祖鳥'], パキケファロ: ['パキケファロサウルス'] };

@@ -19,8 +19,10 @@ function choose(group) {
   const types = ['a', 'q', 'q', 'h', ...(group.u && group.u.length ? ['u'] : [])].filter((t) => group[t].length);
   const type = pickFrom(types);
   if (type === 'u') return { text: pickFresh(group.u), speaker: SAGE, cls: 'u' };
-  // 質問のうち6割は、話を広げやすいものから選ぶ
-  const pool = type === 'q' && group.d && Math.random() < 0.6 ? group.d : group[type];
+  // 2割は話題を問わない言い方（正統派・ユーモア）を混ぜる。質問の残りの6割は、話を広げやすいものから選ぶ
+  let pool = group[type];
+  if (Math.random() < 0.2) pool = STYLE[type];
+  else if (type === 'q' && group.d && Math.random() < 0.6) pool = group.d;
   return { text: pickFresh(pool), isQuestion: type === 'q', group };
 }
 
