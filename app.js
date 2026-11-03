@@ -4,19 +4,67 @@ const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
 const COOLDOWN_MS = 8000;   // 同じ話題に続けて反応しない時間（聞き取り途中の文字で連発しないため）
 const SILENCE_MS = 15000;   // これだけ黙ると「おーい」系を出す
 const MAX_ROWS = 80;
+const ANSWER_WAIT_MS = 1800;  // 話し終わったとみなすまでの時間
+const THREAD_TIMEOUT_MS = 20000; // 質問に答えなかったら、会話を終わりにする時間
 
-const state = { running: false, rec: null, lastText: '', lastHeard: 0, lastSilence: 0, lastGeneric: 0, ruleAt: new Map(), recent: [], wakeLock: null };
+const state = { running: false, rec: null, lastText: '', lastHeard: 0, lastSilence: 0, lastGeneric: 0, ruleAt: new Map(), recent: [], wakeLock: null, thread: null };
 const pickFrom = (arr) => arr[Math.floor(Math.random() * arr.length)];
 const amount = () => Number($('amount').value);
 
 // 直近に出したコメントを避けて、あおり・質問・ほめから1つ選ぶ
 function choose(group) {
   const type = pickFrom(['a', 'q', 'q', 'h']); // 拾う練習になるよう、質問を多めにする
-  const fresh = group[type].filter((t) => !state.recent.includes(t));
-  const text = pickFrom(fresh.length ? fresh : group[type]);
+  // 質問のうち6割は、話を広げやすいものから選ぶ
+  const pool = type === 'q' && group.d && Math.random() < 0.6 ? group.d : group[type];
+  return { text: pickFresh(pool), isQuestion: type === 'q' };
+}
+
+function pickFresh(pool) {
+  const fresh = pool.filter((t) => !state.recent.includes(t));
+  const text = pickFrom(fresh.length ? fresh : pool);
   state.recent.push(text);
   if (state.recent.length > 30) state.recent.shift();
-  return { text, isQuestion: type === 'q' };
+  return text;
+}
+
+// 質問が流れたら、答えを待つ（答えの内容までは理解しない。話したら答えたとみなす）
+function startThread() {
+  if (!state.thread) state.thread = { depth: 0, answer: '', timer: null, until: Date.now() + THREAD_TIMEOUT_MS };
+}
+
+function endThread() {
+  if (state.thread) clearTimeout(state.thread.timer);
+  state.thread = null;
+}
+
+// 話している間は待ち、話し終わったら続きのコメントを流す
+function listenAnswer(text) {
+  const t = state.thread;
+  t.answer += text;
+  t.until = Date.now() + THREAD_TIMEOUT_MS;
+  clearTimeout(t.timer);
+  t.timer = setTimeout(followUp, ANSWER_WAIT_MS);
+}
+
+function followUp() {
+  const t = state.thread;
+  if (!t) return;
+  t.timer = null;
+  if (t.depth >= 2) { // 3回目で会話を締める
+    endThread();
+    post({ text: pickFresh(FOLLOW.close), isQuestion: false });
+    return;
+  }
+  const said = t.answer.trim();
+  let text;
+  if (t.depth === 1) text = pickFresh(FOLLOW.detail);
+  // 短い答えは、言葉を引用すると会話らしくなる
+  else if (said.length >= 2 && said.length <= 14 && Math.random() < 0.6) text = pickFresh(FOLLOW.echo).replace('{x}', said);
+  else text = pickFresh(FOLLOW.why);
+  t.depth += 1;
+  t.answer = '';
+  t.until = Date.now() + THREAD_TIMEOUT_MS;
+  post({ text, isQuestion: true });
 }
 
 function post({ text, isQuestion }) {
@@ -30,6 +78,7 @@ function post({ text, isQuestion }) {
   chat.append(li);
   while (chat.children.length > MAX_ROWS) chat.firstChild.remove();
   chat.scrollTop = chat.scrollHeight;
+  if (isQuestion) startThread();
 }
 
 // 本物らしく、少し遅れて流す
@@ -39,6 +88,8 @@ const postLater = (group, delay) => setTimeout(() => post(choose(group)), delay)
 function react(text) {
   const now = Date.now();
   state.lastHeard = now;
+  // 会話中は、ほかの話題のコメントを止めて、答えを聞く
+  if (state.thread) { listenAnswer(text); return; }
   let matched = false;
   for (const rule of RULES) {
     if (!rule.re.test(text)) continue;
@@ -105,6 +156,7 @@ function start() {
 
 function stop() {
   state.running = false;
+  endThread();
   if (state.rec) { state.rec.onend = null; state.rec.abort(); state.rec = null; }
   if (state.wakeLock) { state.wakeLock.release().catch(() => {}); state.wakeLock = null; }
   $('toggle').textContent = '開始';
@@ -113,8 +165,9 @@ function stop() {
 
 // 黙っているときと、ときどき流れる雑談コメント
 setInterval(() => {
-  if (!state.running) return;
   const now = Date.now();
+  if (state.thread && !state.thread.timer && now > state.thread.until) endThread(); // 答えがなければ会話を終える
+  if (!state.running || state.thread) return;
   if (now - state.lastHeard > SILENCE_MS && now - state.lastSilence > SILENCE_MS) {
     state.lastSilence = now;
     post(choose(SILENCE));
