@@ -9,9 +9,10 @@ const THREAD_TIMEOUT_MS = 20000; // 質問に答えなかったら、会話を�
 const ANSWER_REPEAT_MS = 15000; // 認識途中の文字で、同じ答えを続けない時間
 const TATOE_COOLDOWN_MS = 5000;
 const VIEWER_COOLDOWN_MS = 5000;
+const STREAM_COOLDOWN_MS = 20000; // 始めと終わりのあいさつを続けて出さない時間
 
 const NO_RESULT_RESTART_MS = 25000; // 声が届かないまま、この時間がたったら音声認識を作り直す
-const state = { reconnects: 0, lastError: '', lastResultAt: 0, recOpenedAt: 0, reconnectTimer: null, running: false, rec: null, lastText: '', lastHeard: 0, lastSilence: 0, lastGeneric: 0, lastAnswer: '', lastAnswerAt: 0, lastTatoe: 0, lastViewerReply: 0, ruleAt: new Map(), recent: [], wakeLock: null, thread: null };
+const state = { reconnects: 0, lastError: '', lastResultAt: 0, recOpenedAt: 0, reconnectTimer: null, running: false, rec: null, lastText: '', lastHeard: 0, lastSilence: 0, lastGeneric: 0, lastAnswer: '', lastAnswerAt: 0, lastTatoe: 0, lastViewerReply: 0, lastStreamWord: 0, ruleAt: new Map(), recent: [], wakeLock: null, thread: null };
 const pickFrom = (arr) => arr[Math.floor(Math.random() * arr.length)];
 const amount = () => Number($('amount').value);
 
@@ -136,6 +137,27 @@ function react(text, whole = text) {
     throwBack(CATCH.afterAnswer, 3200);
     return;
   }
+  // 実況の始めと終わりの言葉には、視聴者があいさつを返す
+  if (now - state.lastStreamWord > STREAM_COOLDOWN_MS) {
+    const said = (text + ' ' + whole.slice(-20));
+    if (STREAM_SUB_RE.test(said)) {
+      state.lastStreamWord = now; endThread();
+      pickSome(STREAM.subscribe, 3).forEach((line, i) => setTimeout(() => post({ text: line }), 600 + i * 800));
+      return;
+    }
+    if (STREAM_CLOSE_RE.test(said)) {
+      state.lastStreamWord = now; endThread();
+      pickSome(STREAM.close, 4).forEach((line, i) => setTimeout(() => post({ text: line }), 600 + i * 800));
+      setTimeout(() => { if (state.lastHeard === now) post({ text: pickFresh(STREAM.closeAsk), isQuestion: true }); }, 4400);
+      return;
+    }
+    if (STREAM_OPEN_RE.test(said)) {
+      state.lastStreamWord = now; endThread();
+      [...pickSome(STREAM.greet, 2), ...pickSome(greetingForNow(), 1)].forEach((line, i) => setTimeout(() => post({ text: line }), 500 + i * 800));
+      setTimeout(() => { if (state.lastHeard === now) post({ text: pickFresh(STREAM.openAsk), isQuestion: true }); }, 3400);
+      return;
+    }
+  }
   // データにない問いかけには、視聴者が返す
   const replies = !answer && now - state.lastViewerReply > VIEWER_COOLDOWN_MS ? viewerReplies(text, whole) : null;
   if (replies) {
@@ -247,9 +269,21 @@ function start() {
   setStatus('● 聞いています', true);
   keepScreenOn();
   startRecognition();
+  streamBurst(pickSome(greetingForNow(), 2), pickSome(STREAM.open, 3), pickSome(STREAM.openAsk, 1));
+}
+
+// 実況の始めや終わりに、視聴者のコメントを少しずつ流す。最後の質問は会話になる
+function pickSome(pool, n) { return [...pool].sort(() => Math.random() - 0.5).slice(0, n); }
+function streamBurst(first, middle, asks) {
+  const lines = [...first, ...middle].map((text) => ({ text }));
+  const count = Math.max(2, Math.round(lines.length * amount()));
+  const picked = lines.slice(0, count);
+  picked.forEach((c, i) => setTimeout(() => post(c), 600 + i * (700 + Math.random() * 700)));
+  asks.forEach((text, i) => setTimeout(() => { if (state.running) post({ text, isQuestion: true }); }, 900 + (picked.length + i) * 1100));
 }
 
 function stop() {
+  const wasRunning = state.running;
   state.running = false;
   endThread();
   clearTimeout(state.reconnectTimer);
@@ -257,6 +291,7 @@ function stop() {
   if (state.wakeLock) { state.wakeLock.release().catch(() => {}); state.wakeLock = null; }
   $('toggle').textContent = '開始';
   setStatus('停止中', false);
+  if (wasRunning) pickSome(STREAM.close, 4).forEach((text, i) => setTimeout(() => post({ text }), 300 + i * 800));
 }
 
 // 黙っているときと、ときどき流れる雑談コメント
