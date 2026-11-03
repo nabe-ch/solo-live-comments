@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
 const dir = path.join(__dirname, '..');
-const files = [...fs.readFileSync(path.join(dir, 'index.html'), 'utf8').matchAll(/<script src="([^"]+)"/g)].map((m) => m[1]).filter((f) => f !== 'app.js');
+const files = [...fs.readFileSync(path.join(dir, 'index.html'), 'utf8').matchAll(/<script src="([^"]+)"/g)].map((m) => m[1].split('?')[0]).filter((f) => f !== 'app.js');
 const ctx = vm.createContext({});
 vm.runInContext(files.map((f) => fs.readFileSync(path.join(dir, f), 'utf8')).join('\n') + ';this.RULES=RULES;this.GENERIC=GENERIC;this.SILENCE=SILENCE;this.FOLLOW=FOLLOW;this.TATOE=TATOE;this.answerAny=answerAny;this.LOOKALIKE=LOOKALIKE;this.SPECIES_LOOKALIKE=SPECIES_LOOKALIKE;this.POKEMON=POKEMON;this.CREATURES=CREATURES;this.lookalikeOf=lookalikeOf;this.fossilGroups=fossilGroups;this.pokeRules=pokeRules;this.lookalike=lookalikeOf;this.gameRules=gameRules;', ctx);
 const { RULES, GENERIC, SILENCE, FOLLOW, TATOE, gameRules } = ctx;

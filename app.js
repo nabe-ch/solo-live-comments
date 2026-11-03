@@ -10,7 +10,8 @@ const ANSWER_REPEAT_MS = 15000; // 認識途中の文字で、同じ答えを続
 const TATOE_COOLDOWN_MS = 5000;
 const VIEWER_COOLDOWN_MS = 5000;
 
-const state = { running: false, rec: null, lastText: '', lastHeard: 0, lastSilence: 0, lastGeneric: 0, lastAnswer: '', lastAnswerAt: 0, lastTatoe: 0, lastViewerReply: 0, ruleAt: new Map(), recent: [], wakeLock: null, thread: null };
+const NO_RESULT_RESTART_MS = 25000; // 声が届かないまま、この時間がたったら音声認識を作り直す
+const state = { reconnects: 0, lastError: '', lastResultAt: 0, recOpenedAt: 0, reconnectTimer: null, running: false, rec: null, lastText: '', lastHeard: 0, lastSilence: 0, lastGeneric: 0, lastAnswer: '', lastAnswerAt: 0, lastTatoe: 0, lastViewerReply: 0, ruleAt: new Map(), recent: [], wakeLock: null, thread: null };
 const pickFrom = (arr) => arr[Math.floor(Math.random() * arr.length)];
 const amount = () => Number($('amount').value);
 
@@ -184,20 +185,44 @@ function startRecognition() {
   rec.continuous = true;
   rec.interimResults = true;
   rec.onresult = (e) => {
+    state.lastResultAt = Date.now();
+    state.lastError = '';
+    setStatus('● 聞いています', true);
     const r = e.results[e.results.length - 1];
     handleTranscript(r[0].transcript);
     if (r.isFinal) state.lastText = '';
   };
+  rec.onstart = () => { state.recOpenedAt = Date.now(); setStatus('● 聞いています', true); };
   rec.onerror = (e) => {
+    state.lastError = e.error;
     if (e.error === 'not-allowed' || e.error === 'service-not-allowed') {
-      stop();
-      setStatus('マイクか音声認識が許可されていません', false);
+      // 別のアプリから戻った直後にも出るので、画面が表に出ているときだけ止める
+      if (document.visibilityState === 'visible') {
+        stop();
+        setStatus(`許可されていません（${e.error}）。iPhoneの設定でマイクと音声認識を確認`, false);
+      }
+      return;
     }
+    if (e.error !== 'no-speech' && e.error !== 'aborted') setStatus(`聞き取りエラー（${e.error}）。つなぎ直します`, false);
   };
   // iPhoneでは途中で止まることがあるので、動かしている間は自動でつなぎ直す
-  rec.onend = () => { state.lastText = ''; if (state.running) setTimeout(() => { if (state.running) startRecognition(); }, 300); };
-  rec.start();
+  rec.onend = () => { state.lastText = ''; if (state.rec === rec) state.rec = null; if (state.running) reconnect(); };
   state.rec = rec;
+  try { rec.start(); } catch (e) { state.lastError = e.name; state.rec = null; reconnect(); }
+}
+
+function reconnect() {
+  state.reconnects += 1;
+  setStatus(`つなぎ直し中（${state.reconnects}回目${state.lastError ? '、' + state.lastError : ''}）`, false);
+  clearTimeout(state.reconnectTimer);
+  state.reconnectTimer = setTimeout(() => { if (state.running && !state.rec) startRecognition(); }, 300);
+}
+
+// 動いているように見えて止まっている場合に備える：声が届かない時間が続いたら、作り直す
+function restartRecognition() {
+  if (!state.running) return;
+  if (state.rec) { const old = state.rec; old.onend = null; state.rec = null; try { old.abort(); } catch (e) { /* すでに止まっている */ } }
+  reconnect();
 }
 
 function setStatus(text, on) {
@@ -212,6 +237,9 @@ async function keepScreenOn() {
 function start() {
   if (!SR) { setStatus('この環境は音声認識に未対応（試し入力は使えます）', false); return; }
   state.running = true;
+  state.reconnects = 0;
+  state.lastError = '';
+  state.lastResultAt = Date.now();
   state.lastHeard = Date.now();
   $('toggle').textContent = '停止';
   setStatus('● 聞いています', true);
@@ -222,7 +250,8 @@ function start() {
 function stop() {
   state.running = false;
   endThread();
-  if (state.rec) { state.rec.onend = null; state.rec.abort(); state.rec = null; }
+  clearTimeout(state.reconnectTimer);
+  if (state.rec) { state.rec.onend = null; try { state.rec.abort(); } catch (e) { /* すでに止まっている */ } state.rec = null; }
   if (state.wakeLock) { state.wakeLock.release().catch(() => {}); state.wakeLock = null; }
   $('toggle').textContent = '開始';
   setStatus('停止中', false);
@@ -232,6 +261,10 @@ function stop() {
 setInterval(() => {
   const now = Date.now();
   if (state.thread && !state.thread.timer && now > state.thread.until) endThread(); // 答えがなければ会話を終える
+  if (state.running && document.visibilityState === 'visible' && now - state.lastResultAt > NO_RESULT_RESTART_MS) {
+    state.lastResultAt = now;
+    restartRecognition();
+  }
   if (!state.running || state.thread) return;
   if (now - state.lastHeard > SILENCE_MS && now - state.lastSilence > SILENCE_MS) {
     state.lastSilence = now;
@@ -251,4 +284,11 @@ $('testForm').addEventListener('submit', (e) => {
   $('testInput').value = '';
 });
 // 別のアプリから戻ったら、画面をつけたままにする設定をかけ直す
-document.addEventListener('visibilitychange', () => { if (state.running && document.visibilityState === 'visible') keepScreenOn(); });
+document.addEventListener('visibilitychange', () => {
+  if (!state.running || document.visibilityState !== 'visible') return;
+  keepScreenOn();
+  state.lastResultAt = Date.now();
+  restartRecognition();
+});
+// プログラムのエラーも画面に出す（読み込みの失敗に気づけるように）
+window.addEventListener('error', (e) => setStatus(`エラー：${e.message}`, false));
