@@ -61,7 +61,15 @@ const TRIVIA = {
   マンモス: ['マンモスは氷河期に暮らしていたゾウの仲間']
 };
 
-const months = (m) => m ? (m.includes('&') ? m.replace(/ & /g, '、').replace(/-/g, '〜') + '月（南半球）' : m.replace('-', '〜') + '月（南半球）') : '一年中';
+// 連続した月を「10〜3月」のようにまとめる（年をまたぐ場合も）
+const months = (list) => {
+  if (!list.length) return '一年中';
+  const set = new Set(list);
+  const starts = list.filter((m) => !set.has(m === 1 ? 12 : m - 1));
+  const parts = starts.map((s) => { let e = s; while (set.has(e === 12 ? 1 : e + 1)) e = e === 12 ? 1 : e + 1; return s === e ? `${s}月` : `${s}〜${e}月`; });
+  return parts.join('、') + '（南半球）';
+};
+const CATCH_VERB = { 魚: '釣る', 虫: '捕まえる', 海の幸: '捕る' };
 
 const villagerRule = ([n, sp, g, per, c, bd, hobby]) => ({
   re: nameRegex(n),
@@ -72,7 +80,7 @@ const villagerRule = ([n, sp, g, per, c, bd, hobby]) => ({
   u: [`ちなみに${n}は${sp}の${g}で、性格は${per}`, ...(c ? [`ちなみに${n}の口癖は「${c}」`] : []), `ちなみに${n}の誕生日は${bd}`, `ちなみに${n}の趣味は${hobby}`]
 });
 
-const creatureRule = ([n, kind, price, place, time, m]) => {
+const creatureRule = ([n, kind, price, place, time, m, , shadow, weather, unlock, extra]) => {
   const buyer = { 魚: 'ジャスティン', 虫: 'レックス' }[kind];
   return {
     re: nameRegex(n),
@@ -80,7 +88,7 @@ const creatureRule = ([n, kind, price, place, time, m]) => {
     q: [`${n}は売る？飾る？`, `${n}って現実で見たことある？`, `${n}は好き？`, `${n}はもう寄贈した？`],
     d: [`${n}に似てる知り合いいる？`, `${n}の思い出ってある？`, `${n}が現実で家に出たらどうする？`],
     h: [`${n}ゲットおめでとう`, `${n}いいね`, `${n}見られて嬉しい`],
-    u: [`ちなみに${n}の売値は${price}ベル`, ...(buyer ? [`ちなみに${n}は${buyer}なら${Math.floor(price * 1.5)}ベルで売れる`] : []), ...(place ? [`ちなみに${n}の場所は${place}`] : []), `ちなみに${n}が出るのは${months(m)}`, ...(time ? [`ちなみに${n}の時間は${time}`] : []), ...(TRIVIA[n] || []).map((t) => `ちなみに${t}`)]
+    u: [`ちなみに${n}の売値は${price}ベル`, ...(buyer ? [`ちなみに${n}は${buyer}なら${Math.floor(price * 1.5)}ベルで売れる`] : []), ...(place ? [`ちなみに${n}の場所は${place}`] : []), `ちなみに${n}が出るのは${months(m)}`, ...(time ? [`ちなみに${n}の時間は${time}`] : []), ...(shadow ? [`ちなみに${n}の影は${shadow}`] : []), ...(weather && weather !== '天気を問わず' ? [`ちなみに${n}は${weather}に出る`] : []), ...(unlock ? [`ちなみに${n}は${kind}を通算${unlock}匹${CATCH_VERB[kind]}と出るようになる`] : []), ...(extra && kind === '魚' ? [`ちなみに${n}は${extra}`] : []), ...(extra && kind === '海の幸' ? [`ちなみに${n}の動きは${extra}`] : []), ...(TRIVIA[n] || []).map((t) => `ちなみに${t}`)]
   };
 };
 
@@ -129,14 +137,8 @@ function rememberName(text) {
   lastName = { vil, cre, fos, at: Date.now() };
   return lastName;
 }
-// 月の範囲（"11-3" や "12-3 & 9-11"、空は一年中）に、その月が入るか
-function inMonth(range, month) {
-  if (!range) return true;
-  return range.split('&').some((part) => {
-    const [a, b = a] = part.trim().split('-').map(Number);
-    return a <= b ? month >= a && month <= b : month >= a || month <= b;
-  });
-}
+// その月に出るか（空は一年中）
+const inMonth = (list, month) => !list.length || list.includes(month);
 const GAME_FAQ = [
   [/(タヌキ商店|たぬき商店|まめきち|つぶきち).*(何時|なんじ|いつまで|いつから)/, 'タヌキ商店は8時〜22時'],
   [/(エイブル).*(何時|なんじ|いつまで|いつから)/, 'エイブルシスターズは9時〜21時'],
@@ -165,9 +167,19 @@ function answerQuestion(rawText) {
   // 今の時期に捕れるもの、一番高いもの
   const kindWord = /海の幸|潜/.test(text) ? '海の幸' : /魚|釣/.test(text) ? '魚' : /虫|捕れる|捕まえ/.test(text) ? '虫' : null;
   if (kindWord && /今月|今の時期|この時期|今.*(何が|なにが|何の|どんな)/.test(text)) {
-    const month = new Date().getMonth() + 1;
-    const names = CREATURES.filter((c) => c[1] === kindWord && inMonth(c[5], month));
-    return `${month}月（南半球）の${kindWord}は${names.length}種類。たとえば${sample(names, 4).map((c) => c[0]).join('、')}（時間帯は別）`;
+    const now = new Date();
+    const month = now.getMonth() + 1;
+    const hour = now.getHours();
+    // 「今月」は月だけ、それ以外は今の時間まで見る
+    const byMonth = /今月|今の時期|この時期/.test(text);
+    const names = CREATURES.filter((c) => c[1] === kindWord && inMonth(c[5], month) && (byMonth || !c[6].length || c[6].includes(hour)));
+    const label = byMonth ? `${month}月（南半球）` : `${month}月の${hour}時台（南半球）`;
+    return `${label}の${kindWord}は${names.length}種類。たとえば${sample(names, 4).map((c) => c[0]).join('、')}`;
+  }
+  // 雨の日だけのもの
+  if (/雨.*(何|なに|どれ|いる|出る|釣れ)/.test(text) && kindWord) {
+    const list = CREATURES.filter((c) => c[1] === kindWord && (c[8] === '雨の日だけ' || c[3].includes('雨')));
+    if (list.length) return `雨の日だけの${kindWord}は${list.map((c) => c[0]).join('、')}`;
   }
   if (kindWord && /一番高い|いちばん高い|最高額|一番売れる/.test(text)) {
     const list = CREATURES.filter((c) => c[1] === kindWord);
@@ -192,11 +204,18 @@ function answerQuestion(rawText) {
     if (ask.who.test(text)) return `${n}は${sp}の${g}で、性格は${per}${c ? `、口癖は「${c}」` : ''}、誕生日は${bd}`;
   }
   if (cre) {
-    const [n, kind, price, place, time, m] = cre.c;
+    const [n, kind, price, place, time, m, , shadow, weather, unlock, extra] = cre.c;
+    if (/条件|詳しく|くわしく|出現|どうやったら|どうすれば|どうやって|コツ/.test(text)) {
+      return [`${n}：${months(m)}`, time || '一日中', place, ...(shadow ? [`影は${shadow}`] : []), ...(weather && weather !== '天気を問わず' ? [weather] : []), ...(unlock ? [`通算${unlock}匹${CATCH_VERB[kind]}と出る`] : []), ...(extra ? [kind === '海の幸' ? `動きは${extra}` : extra] : []), `売値${price}ベル`].join('、');
+    }
+    if (/影|サイズ|大きさ/.test(text)) return shadow ? `${n}の影は${shadow}` : `${n}は影のない${kind}`;
+    if (/天気|雨|晴れ/.test(text)) return weather ? `${n}は${weather}` : (place.includes('雨') ? `${n}は${place}に出る` : `${n}は天気を問わない`);
+    if (/難し|むずかし|釣りやす|速さ|速い|逃げ/.test(text) && extra) return kind === '海の幸' ? `${n}の動きは${extra}` : `${n}は${extra}`;
+    if (/解禁|何匹|なんびき|何回/.test(text)) return unlock ? `${n}は${kind}を通算${unlock}匹${CATCH_VERB[kind]}と出るようになる` : `${n}は最初から出る`;
     if (ask.price.test(text)) return `${n}の売値は${price}ベル`;
-    if (ask.place.test(text)) return place ? `${n}の場所は${place}` : `${n}は海に潜ると捕れる`;
-    if (ask.when.test(text)) return `${n}が出るのは${months(m)}、${time || '一日中'}`;
-    if (ask.who.test(text)) return `${n}は${kind}。売値は${price}ベル、出るのは${months(m)}`;
+    if (ask.place.test(text)) return `${n}の場所は${place}`;
+    if (ask.when.test(text)) return `${n}が出るのは${months(m)}、${time || '一日中'}${weather && weather !== '天気を問わず' ? `、${weather}` : ''}`;
+    if (ask.who.test(text)) return `${n}は${kind}。売値は${price}ベル、出るのは${months(m)}、${time || '一日中'}、場所は${place}`;
   }
   if (fos && (ask.price.test(text) || ask.who.test(text))) {
     const prices = fos.parts.map((p) => p[1]);
