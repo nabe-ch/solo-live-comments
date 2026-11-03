@@ -1,0 +1,50 @@
+K1	ok		https://ja.wikipedia.org/wiki/小倉トースト	B	トーストにバターかマーガリンを塗り小倉あんをのせる。愛知の喫茶店の名物。
+K10	ok		https://www.caa.go.jp/policies/policy/consumer_safety/food_safety/food_safety_portal/other/contents_002/	B	普通にコーヒーを飲む程度なら過剰摂取の可能性は低く、多量摂取は避けるよう呼びかけ。一般論に留める。
+K11	ok		https://en.wikipedia.org/wiki/Saucer	B	カップを支える小皿をソーサーと呼ぶ。
+K19	ok		https://en.wikipedia.org/wiki/Ginger_ale	B	ショウガで風味づけした炭酸飲料。
+K22	ok		https://en.wikipedia.org/wiki/Vacuum_coffee_maker	B	蒸気圧と下室の圧力差で湯を上げ、冷えると戻して抽出する。
+K23	ok		https://en.wikipedia.org/wiki/Coffea	B	コーヒーノキ属はアカネ科。
+G1	ok		https://en.wikipedia.org/wiki/Bow_(music)	B	バイオリン弓の毛は通常馬の尾の毛。安価な弓では合成毛もある。
+G2	ok		https://en.wikipedia.org/wiki/Piano	B	正式名ピアノフォルテは弱い音と強い音の意味。
+G4	ok		https://en.wikipedia.org/wiki/Classical_guitar	B	クラシックギターはナイロン弦、スチール弦のアコースティックは金属弦。
+G5	ok		https://en.wikipedia.org/wiki/Electric_guitar	B	磁石とコイルのピックアップが弦の振動を電流に変える。
+G6	ok		https://en.wikipedia.org/wiki/Drum_stick	B	ヒッコリーが最多、次にメイプル、オークも使われる。
+G8	ok		https://en.wikipedia.org/wiki/Timpani	B	現代はペダル式が主流で、足で音程を変えられる。
+G9	ok		https://en.wikipedia.org/wiki/Oboe	B	ダブルリードの木管楽器。
+G10	ok		https://en.wikipedia.org/wiki/Clarinet	B	シングルリードの木管楽器。
+G11	ok		https://en.wikipedia.org/wiki/Bassoon	B	テナーとバスの音域を担当する。
+G14	ok		https://en.wikipedia.org/wiki/Biwa	B	平家物語の語りで知られ、平家琵琶が主に用いられた。
+G15	fix	ピッコロの名前はイタリア語で「小さい」の意味で、フルートより1オクターブ高い音が出る小型のフルート。	https://en.wikipedia.org/wiki/Piccolo	B	名前の由来と1オクターブ高い点は確認。「木管で最も高い」とする記述は確認できず、控えめに言い換え。
+G16	ok		https://en.wikipedia.org/wiki/Vibraphone	B	金属の板を叩く。ファンを回すモーターで音が揺れる。
+G17	ok		https://en.wikipedia.org/wiki/Theremin	B	非接触で演奏、1920年ロシアのテルミンが発明。
+G18	ok		https://en.wikipedia.org/wiki/Synthesizer	B	電子的に音の信号を作る楽器。
+G21	ok		https://fukuoka-edu.repo.nii.ac.jp/record/1670/files/5-02-Yamanaka-2016.pdf	C	1年で鍵盤ハーモニカ、3年でリコーダーが主流という大学紀要の記述。学習指導要領の条文は未確認。
+P6	ok		https://en.wikipedia.org/wiki/The_Red_Vineyard	B	記録で確実なのは赤い葡萄畑1点。他にも売れた可能性はあり「ごくわずか」と言うのが妥当。
+P10	fix	ミロのヴィーナスは1820年の発見時に両腕のない状態で、近くで腕や手の破片も見つかったが、像のものと確定していない。	https://en.wikipedia.org/wiki/Venus_de_Milo	B	発見時に腕が欠けていたのは確認、破片は近くで出土したが帰属は不確か。「なかった」と単純に言わない。
+P16	fix	風神雷神図屏風は俵屋宗達の作で、尾形光琳が模写し、酒井抱一は光琳の作を模写した。	https://ja.wikipedia.org/wiki/風神雷神図屏風	B	抱一の模写は宗達本ではなく光琳本が元。
+P19	ok		https://ja.wikipedia.org/wiki/伊藤若冲	B	京都錦小路の青物問屋の長男。鶏の絵が得意。
+P20	ok		https://en.wikipedia.org/wiki/The_Gleaners	B	収穫後の落ち穂を拾う農婦3人。貧しい階層を描く。
+P21	fix	岩波書店のマークは、ミレーの「種をまく人」をもとにしたものだ。	https://www.iwanami.co.jp/company/cc1207.html	A	ミレーの絵を題材に創業者が採用。モデルというより図案の元。デザイナーは資料で食い違うため言及しない。
+P22	ok		https://en.wikipedia.org/wiki/Las_Meninas	B	スペイン語で女官たち。
+P23	ok		https://en.wikipedia.org/wiki/A_Bar_at_the_Folies-Berg%C3%A8re	B	鏡像の整合性は当時から議論されている。
+P29	ok		https://ja.wikipedia.org/wiki/国宝	B	文化財保護法に基づき文部科学大臣が指定。
+S2	ok		https://en.wikipedia.org/wiki/Tyrannosaurus	B	白亜紀末期、北アメリカ西部。
+S3	ok		https://en.wikipedia.org/wiki/Triceratops	B	草食、北アメリカ西部の白亜紀末。名は三本角の顔。
+S8	ok		https://en.wikipedia.org/wiki/Iguanodon	B	2番目に命名された恐竜の一つ。親指のとげが特徴（最初は鼻の角と誤解）。
+S9	ok		https://en.wikipedia.org/wiki/Spinosaurus	B	背中の帆状構造。魚を主に食べたが陸の動物も食べたとされる。
+S10	ok		https://en.wikipedia.org/wiki/Deinonychus	B	足に大きな鎌状のかぎ爪。鳥に近い仲間。
+S11	ok		https://en.wikipedia.org/wiki/Parasaurolophus	B	草食。とさかが共鳴室で音を出したという仮説。
+S12	fix	パキケファロサウルスは白亜紀の、頭の骨が厚いおそらく草食（雑食の可能性もある）の恐竜。	https://en.wikipedia.org/wiki/Pachycephalosaurus	B	草食は通説だが断定できず雑食説もある。
+S16	ok		https://en.wikipedia.org/wiki/Ophthalmosaurus	B	名前は大きな目に由来する魚竜。
+S18	ok		https://en.wikipedia.org/wiki/Pteranodon	B	歯のないくちばしで魚が主食。
+S19	ok		https://en.wikipedia.org/wiki/Anomalocaris	B	カンブリア紀最大級の動物で頂点捕食者の一つ。最初の捕食者とは限らない。
+S20	ok		https://en.wikipedia.org/wiki/Dunkleosteus	B	デボン紀後期、頭部が骨の装甲板で覆われた大型魚。
+S24	ok		https://en.wikipedia.org/wiki/Myllokunmingia	B	カンブリア紀、最古級の脊椎動物の一つとされる無顎の魚状動物。分類には議論あり。
+S25	ok		https://en.wikipedia.org/wiki/Megaloceros	B	大きな角を持つ絶滅したシカ、アイルランドヘラジカとも呼ばれる。
+S26	fix	メガセロプスは、種によっては鼻の上の角が二股に分かれた、絶滅した奇蹄類の哺乳類。	https://en.wikipedia.org/wiki/Megacerops	B	二股の角は特定の種（M. kuwagatarhinus）の特徴。
+S30	ok		https://en.wikipedia.org/wiki/Coprolite	B	糞の化石をコプロライトと呼び、恐竜のものにも使う。
+S31	ok		https://en.wikipedia.org/wiki/Trace_fossil	B	足跡や巣穴は生痕化石。
+S33	ok		https://ja.wikipedia.org/wiki/アンモナイト	B	北海道中央部は世界的な産地の一つ。
+S34	ok		https://en.wikipedia.org/wiki/Shark_tooth	B	歯は生え替わり、化石として多く見つかる。
+S37	ok		https://en.wikipedia.org/wiki/Origin_of_birds	B	鳥は獣脚類恐竜の一群というのが現在の定説。
+S38	fix	博物館の骨格標本は、複製の骨や作り物が含まれることが多い。	https://extinctmonsters.net/fossil-mount-faqs/	C	ほぼ全てが少なくとも一部は複製との記述。全部が偽物とも限らず割合は展示ごとに違う。
