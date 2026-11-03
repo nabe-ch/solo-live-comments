@@ -4,7 +4,7 @@
 ゲーム実況を撮りながら、iPhoneが声を聞き取り、配信風のコメントを流す。実況中にコメントを拾って返す練習用。コメントは本人が見るだけで、動画には映さない。
 
 ## 状態
-試作。iPhoneで声の文字化とコメントの反応を確認済み（2026-11-03、ユーザー確認）。ゲーム音がある中での聞き取りと、長時間の動作は未確認。
+運用しながら調整中。iPhoneとあつ森で動作を確認済み（ユーザー確認）。住民の名前への反応とうんちく博士は「結構反応してくれた」「面白い」（2026-11-04）。
 
 - 公開URL：https://nabe-ch.github.io/solo-live-comments/ （GitHub Pages、main / root。pushで更新）
 - GitHub：`nabe-ch/solo-live-comments`（公開）。コミットのメールは nabe-ch@users.noreply.github.com
