@@ -4,7 +4,7 @@ const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
 const COOLDOWN_MS = 8000;   // 同じ話題に続けて反応しない時間（聞き取り途中の文字で連発しないため）
 const SILENCE_MS = 15000;   // これだけ黙ると「おーい」系を出す
 const MAX_ROWS = 80;
-const ANSWER_WAIT_MS = 1800;  // 話し終わったとみなすまでの時間
+const ANSWER_WAIT_MS = 1200;  // 話し終わったとみなすまでの時間
 const THREAD_TIMEOUT_MS = 20000; // 質問に答えなかったら、会話を終わりにする時間
 
 const state = { running: false, rec: null, lastText: '', lastHeard: 0, lastSilence: 0, lastGeneric: 0, ruleAt: new Map(), recent: [], wakeLock: null, thread: null };
@@ -50,14 +50,15 @@ function followUp() {
   const t = state.thread;
   if (!t) return;
   t.timer = null;
-  if (t.depth >= 2) { // 3回目で会話を締める
+  if (t.depth >= 3) { // 4回目で会話を締める
     endThread();
     post({ text: pickFresh(FOLLOW.close), isQuestion: false });
     return;
   }
   const said = t.answer.trim();
   let text;
-  if (t.depth === 1) text = pickFresh(FOLLOW.detail);
+  if (t.depth === 2) text = pickFresh(FOLLOW.deeper);
+  else if (t.depth === 1) text = pickFresh(FOLLOW.detail);
   // 短い答えは、言葉を引用すると会話らしくなる
   else if (said.length >= 2 && said.length <= 14 && Math.random() < 0.6) text = pickFresh(FOLLOW.echo).replace('{x}', said);
   else text = pickFresh(FOLLOW.why);
