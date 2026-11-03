@@ -124,7 +124,7 @@ function react(text, whole = text) {
   const now = Date.now();
   state.lastHeard = now;
   // 質問されたら、データをもとに答える（同じ答えは続けない）
-  const answer = answerQuestion(whole);
+  const answer = answerAny(whole);
   if (answer && (answer !== state.lastAnswer || now - state.lastAnswerAt > ANSWER_REPEAT_MS)) {
     state.lastAnswer = answer;
     state.lastAnswerAt = now;
