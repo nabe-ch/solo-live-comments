@@ -6,14 +6,19 @@ const SILENCE_MS = 15000;   // これだけ黙ると「おーい」系を出す
 const MAX_ROWS = 80;
 const ANSWER_WAIT_MS = 1200;  // 話し終わったとみなすまでの時間
 const THREAD_TIMEOUT_MS = 20000; // 質問に答えなかったら、会話を終わりにする時間
+const ANSWER_REPEAT_MS = 15000; // 認識途中の文字で、同じ答えを続けない時間
+const TATOE_COOLDOWN_MS = 5000;
 
-const state = { running: false, rec: null, lastText: '', lastHeard: 0, lastSilence: 0, lastGeneric: 0, ruleAt: new Map(), recent: [], wakeLock: null, thread: null };
+const state = { running: false, rec: null, lastText: '', lastHeard: 0, lastSilence: 0, lastGeneric: 0, lastAnswer: '', lastAnswerAt: 0, lastTatoe: 0, ruleAt: new Map(), recent: [], wakeLock: null, thread: null };
 const pickFrom = (arr) => arr[Math.floor(Math.random() * arr.length)];
 const amount = () => Number($('amount').value);
 
 // 直近に出したコメントを避けて、あおり・質問・ほめから1つ選ぶ
 function choose(group) {
-  const type = pickFrom(['a', 'q', 'q', 'h']); // 拾う練習になるよう、質問を多めにする
+  // 拾う練習になるよう、質問を多めにする。うんちくがある話題では、うんちく博士も出る
+  const types = ['a', 'q', 'q', 'h', ...(group.u && group.u.length ? ['u'] : [])].filter((t) => group[t].length);
+  const type = pickFrom(types);
+  if (type === 'u') return { text: pickFresh(group.u), speaker: SAGE, cls: 'u' };
   // 質問のうち6割は、話を広げやすいものから選ぶ
   const pool = type === 'q' && group.d && Math.random() < 0.6 ? group.d : group[type];
   return { text: pickFresh(pool), isQuestion: type === 'q', group };
@@ -71,13 +76,14 @@ function followUp() {
   post({ text, isQuestion: true });
 }
 
-function post({ text, isQuestion, group }) {
+function post({ text, isQuestion, group, speaker, cls }) {
   const chat = $('chat');
   const li = document.createElement('li');
   if (isQuestion) li.className = 'q';
+  if (cls) li.className = cls;
   const name = document.createElement('span');
   name.className = 'name';
-  name.textContent = pickFrom(NAMES);
+  name.textContent = speaker || pickFrom(NAMES);
   li.append(name, text);
   chat.append(li);
   while (chat.children.length > MAX_ROWS) chat.firstChild.remove();
@@ -89,18 +95,35 @@ function post({ text, isQuestion, group }) {
 const postLater = (group, delay) => setTimeout(() => post(choose(group)), delay);
 
 // 聞き取った文字に反応する
-function react(text) {
+function react(text, whole = text) {
   const now = Date.now();
   state.lastHeard = now;
+  // 質問されたら、データをもとに答える（同じ答えは続けない）
+  const answer = answerQuestion(whole);
+  if (answer && (answer !== state.lastAnswer || now - state.lastAnswerAt > ANSWER_REPEAT_MS)) {
+    state.lastAnswer = answer;
+    state.lastAnswerAt = now;
+    endThread();
+    setTimeout(() => post({ text: answer, speaker: ORACLE, cls: 'a' }), 700);
+    return;
+  }
+  // たとえボケには、会話の途中でも反応する
+  // 「やってみたい」は、たとえではないので除く
+  if (TATOE.re.test(text.replace(/[てで]みたい/g, '')) && now - state.lastTatoe > TATOE_COOLDOWN_MS) {
+    state.lastTatoe = now;
+    const clause = (whole.replace(/[てで]みたい/g, '').slice(-30).match(/.{2,12}?(みたい|のような|のようだ|かよ|にしか見えない)/) || [''])[0];
+    const line = clause && Math.random() < 0.5 ? pickFresh(TATOE.echo).replace('{x}', clause) : pickFresh(TATOE.say);
+    setTimeout(() => post({ text: line }), 500);
+  }
   // 会話中は、ほかの話題のコメントを止めて、答えを聞く
   if (state.thread) {
     if (!changedTopic(text)) { listenAnswer(text); return; }
     endThread();
   }
-  let matched = false;
-  for (const rule of RULES) {
-    if (!rule.re.test(text)) continue;
-    matched = true;
+  // 細かい話題（住民や生き物の名前）を優先し、一度に反応するのは2つまで
+  const hits = RULES.filter((r) => r.re.test(text)).reverse().slice(0, 2);
+  const matched = hits.length > 0;
+  for (const rule of hits) {
     if (now - (state.ruleAt.get(rule) || 0) < COOLDOWN_MS) continue;
     state.ruleAt.set(rule, now);
     const count = Math.max(1, Math.round((1 + Math.random() * 2) * amount()));
@@ -117,7 +140,7 @@ function handleTranscript(text) {
   const added = text.startsWith(state.lastText) ? text.slice(state.lastText.length) : text;
   state.lastText = text;
   $('heard').textContent = text;
-  if (added.trim()) react(added);
+  if (added.trim()) react(added, text);
 }
 
 function startRecognition() {
