@@ -76,7 +76,20 @@ function followUp() {
   t.depth += 1;
   t.answer = '';
   t.until = Date.now() + THREAD_TIMEOUT_MS;
-  post({ text, isQuestion: true });
+  // 半分は、相づちで受け止めてから次を聞く
+  if (Math.random() < 0.5) {
+    post({ text: pickFresh(CATCH.ack) });
+    setTimeout(() => { if (state.thread === t) post({ text, isQuestion: true }); }, 800);
+  } else post({ text, isQuestion: true });
+}
+
+// 答えたあとは、ボールを実況者へ返す（話し始めていたら、割り込まない）
+function throwBack(pool, delay) {
+  if (Math.random() > 0.7) return;
+  const askedAt = state.lastHeard;
+  setTimeout(() => {
+    if (!state.thread && state.lastHeard === askedAt) post({ text: pickFresh(pool), isQuestion: true });
+  }, delay);
 }
 
 function post({ text, isQuestion, group, speaker, cls }) {
@@ -117,6 +130,7 @@ function react(text, whole = text) {
     state.lastAnswerAt = now;
     endThread();
     setTimeout(() => post({ text: answer, speaker: ORACLE, cls: 'a' }), 700);
+    throwBack(CATCH.afterAnswer, 3200);
     return;
   }
   // データにない問いかけには、視聴者が返す
@@ -125,6 +139,7 @@ function react(text, whole = text) {
     state.lastViewerReply = now;
     endThread();
     replies.forEach((line, i) => setTimeout(() => post({ text: line }), 700 + i * 900));
+    throwBack(CATCH.afterReply, 3200);
     return;
   }
   // たとえボケには、会話の途中でも反応する
