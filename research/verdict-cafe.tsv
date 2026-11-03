@@ -1,0 +1,128 @@
+C1	fix	アラビカ種の原産地はエチオピア高原とされ、ヤギ飼いが発見したという伝説があるが、後世の作り話の可能性が高い。	https://en.wikipedia.org/wiki/Coffee	B	伝説は1671年より前に遡れず、カルディの名も20世紀の付け足しとされる。飲用の最古の証拠は15世紀のイエメン。
+C2	ok		https://en.wikipedia.org/wiki/Coffee	B	栽培の大半（約4分の3）はアラビカ。ロブスタ（カネフォラ）はカフェイン多め。
+C3	fix	赤道をはさむ、おおむね南北の回帰線の間（北緯25度〜南緯25度とする説明も多い）の栽培地帯をコーヒーベルトと呼ぶ。	https://ja.wikipedia.org/wiki/コーヒーベルト	B	範囲の定義は資料で違う。25度は簡易な目安。
+C4	ok		https://en.wikipedia.org/wiki/Coffee	B	2023年の生産量でブラジルが約31％で1位。年や指標（生産・輸出）で割合は変わる。
+C5	drop				この調査では出典を確認できなかった。
+C6	ok		https://coffee-labo.co.jp/blue/	C	山脈の標高800〜1200mの指定地域のみ名乗れる（1953年法）。コーヒー専門店サイトの記述で一次資料は未確認。
+C7	drop				キリマンジャロ=タンザニア産の裏づけを取れなかった。
+C8	ok		https://en.wikipedia.org/wiki/Mocha_(coffee)	B	イエメンの港モカ（モカ港）に由来。チョコ入りのカフェモカの由来は別で、イエメンとの結びつきは不明確。
+C9	ok		https://en.wikipedia.org/wiki/Kona_coffee	B	ハワイ島のコナ地区（フアラライ山・マウナロア山の斜面）。ブレンドは最低10％の表示で販売可なので「100%コナ」表示に注意。
+C10	ok		https://coffee-labo.co.jp/why-is-espresso-bitter/	C	約9気圧・20〜30秒程度が目安。数値は資料で幅があり、公的な定義は未確認。
+C11	ok		https://ja.wikipedia.org/wiki/カプチーノ	B	修道服のフード（cappuccio）由来という説。服の色、泡のふた、剃髪に似るなど複数説あり。
+C12	ok		https://www.delonghi.com/ja-jp/faqs/	C	エスプレッソにスチームミルクを加えたもの。泡は少なめ（カプチーノとの違い）。
+C13	fix	濃いめに淹れたコーヒーと温かい牛乳をほぼ同量混ぜた飲み物。日本ではドリップコーヒーで作る例が多い。	https://ja.wikipedia.org/wiki/カフェ・オ・レ	B	フランスでは現在エスプレッソで作ることも多く、ドリップ限定ではない。
+C14	ok		https://en.wikipedia.org/wiki/Tea	B	茶のカフェインは乾燥重量の約3％。コーヒーのカフェインは個別には未確認だが、Coffeeページでロブスタの含有量の記述あり。
+C15	ok		https://www.ndl.go.jp/kaleido/39/1	B	1888年（明治21年）、下谷西黒門町（現在の上野）。「日本初」は通説で、約4年で閉店。
+C16	ok		https://www.ndl.go.jp/kaleido/39/1	B	鄭永慶（ていえいけい）。
+C17	ok		https://ja.wikipedia.org/wiki/スターバックス	B	1971年、シアトルで創業。
+C18	ok		https://www.starbucks.co.jp/assets/images/ir/images/library/000082851.pdf	B	1996年8月2日、銀座松屋通り店。複数の報道が一致。一次資料の本文は未確認。
+C19	ok		https://ja.wikipedia.org/wiki/ドトールコーヒー	B	1962年に焙煎会社として設立、ドトールコーヒーショップ1号店は1980年4月原宿駅前。Wikipedia側に出典不足タグあり。会社の最初の出店は1972年カフェ コロラド。
+C20	ok		https://ja.wikipedia.org/wiki/コメダ珈琲店	B	1968年2月、名古屋市西区で個人経営として開業。法人設立は1975年。
+C21	ok		https://ja.wikipedia.org/wiki/ナポリタン	B	ホテルニューグランドの入江茂忠考案説が有力だが、証言中心で確証はなく、異説あり（「説」と書くのは妥当）。
+C22	ok		https://ja.wikipedia.org/wiki/モーニングサービス	B	一宮市・豊橋市・広島市が元祖候補で、どれが正しいか不明。豊橋も候補なので「など」が必要。
+C23	drop				この調査では出典を確認できなかった。
+C24	ok		https://ja.wikipedia.org/wiki/プリン・ア・ラ・モード	B	戦後、連合軍に接収中のホテルニューグランドで考案されたとされる。具体的な年は出典に記載なし。
+C25	ok		https://en.wikipedia.org/wiki/Tea	B	紅茶・緑茶・ウーロン茶はいずれもチャノキ（Camellia sinensis）の葉。
+C26	ok		https://en.wikipedia.org/wiki/Tea	B	緑茶は酸化させず、ウーロンは部分酸化、紅茶は完全酸化。品種差もあるので「主に」は妥当。
+C27	ok		https://en.wikipedia.org/wiki/Tea	B	インド北東部。1841年に試験栽培が始まった。
+C28	ok		https://en.wikipedia.org/wiki/Tea	C	アッサムはインド北東部。アッサム種（大葉種）の名前でもある。
+C29	ok		https://en.wikipedia.org/wiki/Tea	B	セイロンはスリランカの旧称。英国が1867年に茶産業を導入。
+C30	ok		https://en.wikipedia.org/wiki/Tea	B	ベルガモットで香りづけした茶。
+C31	ok		https://ja.wikipedia.org/wiki/アフタヌーンティー	B	1840年頃のベッドフォード公爵夫人アンナが始めたと「伝えられる」程度で、確定した史実ではない。
+C32	drop				この調査では出典を確認できなかった。
+C33	ok		https://en.wikipedia.org/wiki/Cocoa_bean	B	カカオ豆から脂肪分（ココアバター）を除いたココアパウダーが原料。
+C34	ok		https://en.wikipedia.org/wiki/Cocoa_bean	B	原産はアマゾン流域（南米）で、のち中米に広まった。「中南米」は妥当。
+C35	fix	2018年に改正された食品衛生法により、2021年6月1日から新しい営業許可制度が始まり、喫茶店営業は飲食店営業に統合された。	https://www.pref.shiga.lg.jp/ippan/kurashi/syokunoanzen/316650.html	B	「2021年の法改正」ではなく、改正は2018年公布で施行が2021年6月。既存の許可は有効期間の満了まで使える経過措置あり。自治体（滋賀・福岡・浜松等）ページで確認。厚労省の一次ページは取得できず。
+C36	ok		https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000168157.html	A	厚労省が1歳未満に与えないよう呼びかけ（1987年通知、2017年に死亡例）。加熱しても芽胞は死なないのでハチミツ入りの菓子・飲料も避ける。1歳を過ぎれば問題ない。
+C37	ok		https://www.alic.go.jp/content/001239565.pdf	A	国内産は北海道のてん菜と南西諸島のさとうきび。国内産糖の約8割がてん菜糖。
+C38	ok		https://coffee-labo.co.jp/about-barista/	C	イタリア語のバール（bar）＋ista。日本ではカフェ店員全般を指すことも多い。専門店サイトのみ。
+C39	ok		https://gigazine.net/news/20140829-what-make-good-latte/	C	エスプレッソにミルクを注いで模様を描く技法。
+C40	ok		https://coffee-labo.co.jp/?p=76	C	焙煎が深いほど酸味が減って苦味が増える。業界統一の基準ではなく専門店の整理。
+C41	ok		https://president.jp/articles/-/93984	B	全日本コーヒー協会の統計で1981年の154,630事業所がピーク、2021年は58,669。
+C42	drop				この調査では出典を確認できなかった。
+C43	drop				この調査では出典を確認できなかった。
+C44	fix	『どうぶつの森』のとたけけは、任天堂の作曲家・戸高一生氏のニックネームと同じ名前。名前の由来やモデルかどうかは確認できていない。	https://ja.wikipedia.org/wiki/とたけけ	B	「モデル」「名前に由来」と言い切れる出典なし。実在の人物の話なので、ニックネームが同じという事実の範囲にとどめる。
+I1	drop				この調査では出典を確認できなかった。
+I2	fix	ピアノはイタリアのクリストフォリが1700年前後に発明したとされる（1700年のメディチ家の目録に記録がある）。	https://en.wikipedia.org/wiki/Piano	B	ブリタニカは1709年頃とし、発明の先後には異論も（二次資料経由）。
+I3	ok		https://en.wikipedia.org/wiki/Piano	B	現代のピアノは88鍵（白52・黒36）。昔の楽器や一部の特殊なピアノは鍵数が違う。
+I4	ok		https://en.wikipedia.org/wiki/Piano	B	フェルトのハンマーが弦を叩いて鳴らす。
+I5	ok		https://en.wikipedia.org/wiki/Violin	B	通常4本。5弦などの例外あり。
+I6	ok		https://en.wikipedia.org/wiki/Violin	B	クレモナ（イタリア）の制作者アントニオ・ストラディバリ。
+I7	drop				この調査では出典を確認できなかった。
+I8	fix	コントラバスはヴァイオリン族の最低音域を受け持つが、ヴィオール属の特徴（なで肩など）も残している。	https://kotobank.jp/word/コントラバス	B	「バイオリン属」と言い切ると分類に異論がある。オーケストラで唯一ヴィオール属の名残を持つとも説明される。
+I9	drop				この調査では出典を確認できなかった。
+I10	drop				この調査では出典を確認できなかった。
+I11	ok		https://en.wikipedia.org/wiki/Ukulele	B	通常は4弦（6・8弦の種類も存在）。1880年代にマデイラ・アゾレス諸島からのポルトガル移民の小型ギター系楽器から発展。
+I12	ok		https://www.gender.go.jp/international/int_kaigi/int_apec/wln/program/cultural/cul03.html	B	3本の弦。棹と胴の構造は個別に未確認。
+I13	ok		https://www.gender.go.jp/international/int_kaigi/int_apec/wln/program/cultural/cul03.html	B	一般的な箏は13弦。17弦などの低音箏もある。
+I14	ok		https://www.jeepe.jp/ja/articles/shakuhachi-music-guide-1640	C	標準の長さが一尺八寸（約54.5cm）で名前の由来。竹製で前4孔・後ろ1孔。
+I15	ok		https://en.wikipedia.org/wiki/Saxophone	B	ベルギーのアドルフ・サックスが1840年代初めに発明、1846年に特許。
+I16	ok		https://en.wikipedia.org/wiki/Saxophone	B	シングルリードの木管楽器で、通常は真鍮製。
+I17	drop				この調査では出典を確認できなかった。
+I18	drop				この調査では出典を確認できなかった。
+I19	drop				この調査では出典を確認できなかった。
+I20	drop				この調査では出典を確認できなかった。
+I21	drop				この調査では出典を確認できなかった。
+I22	ok		https://www.shimamura.co.jp/shop/hamakita/?p=5287	C	イタリア語のoca（ガチョウ）＋rina（小さい）。19世紀イタリア発祥。楽器店サイトのみ。
+I23	drop				語源（スペイン語の栗）の出典を確認できなかった。
+I24	drop				この調査では出典を確認できなかった。
+I25	drop				この調査では出典を確認できなかった。
+I26	drop				この調査では出典を確認できなかった。
+I27	drop				この調査では出典を確認できなかった。
+I28	drop				この調査では出典を確認できなかった。
+I29	drop				この調査では出典を確認できなかった。
+I30	drop				この調査では出典を確認できなかった。
+I31	drop				この調査では出典を確認できなかった。
+I32	drop				この調査では出典を確認できなかった。
+I33	fix	音合わせの基準「ラ」（A4）は国際規格ISO 16で440Hzと定められているが、実際のオーケストラでは442Hz前後で合わせることも多い。	https://www.iso.org/standard/3601.html	A	ウィーン・フィルは443Hz前後。日本の各楽団の実際の値は未確認。
+I34	fix	ドレミは、11世紀の修道士グイード・ダレッツォがラテン語の聖歌の歌詞の頭の音節から作った階名（ウト・レ・ミ…）が元で、イタリア語由来とは言えない。	https://telemail.jp/shingaku/academics-research/lecture/g010074	C	「ド」は後にウトから変わった（時期・由来は諸説）。「シ」の追加も諸説。
+I35	fix	ベートーベンは重い難聴を抱えながら『交響曲第9番』を作曲し、1824年に初演したが、完全に聴力を失ったわけではない。	https://en.wikipedia.org/wiki/Ludwig_van_Beethoven	B	最晩年も低い音や大きな音は聞き分けられたとされる。作曲時期の細部は本調査で未確認。
+I36	ok		https://en.wikipedia.org/wiki/Wolfgang_Amadeus_Mozart	B	1756年ザルツブルク生まれ。5歳で作曲を始めた。
+I37	fix	バッハはドイツの後期バロックの作曲家。	https://en.wikipedia.org/wiki/Johann_Sebastian_Bach	B	「音楽の父」の呼び名は今回の出典で確認できなかったため外した。日本の教育で使われる呼称だが未確認。
+I38	fix	ショパンはポーランド出身の作曲家・ピアニスト。	https://en.wikipedia.org/wiki/Frédéric_Chopin	B	「ピアノの詩人」の呼び名は今回の出典で確認できなかったため外した。
+I39	ok		https://en.wikipedia.org/wiki/Karaoke	B	kara（空）＋oke（オーケストラの略）。発明者は日本・フィリピン双方に説があり論争あり。
+I40	drop				この調査では出典を確認できなかった。
+F1	ok		https://en.wikipedia.org/wiki/Tulip_mania	B	1637年初めに価格が頂点で急落。後世の有名な話は誇張という研究者もいる。
+F2	drop				バラがイングランドの国花という出典を確認できなかった。
+F3	drop				この調査では出典を確認できなかった。
+F4	fix	ユリ（ユリ属）は、花粉・花・葉・花瓶の水まで猫に危険で、少量でも急性腎不全を起こすことがある。猫のいる家には飾らない。	https://www.aspca.org/news/getting-bottom-dangers-easter-lilies	A	「花粉が毒」だけでなく全体が有毒。処置が遅れると致命的になりうる（目安は摂取後18時間以内に受診）。対象はユリ属とワスレグサ属で、スズラン・ピースリリー等は別の植物。毒の成分は未特定。
+F5	ok		https://www.city.ota.tokyo.jp/seikatsu/sumaimachinami/green/18shokuno_midoridukuri/18c_hanamanual.files/15_biora.pdf	B	どちらもスミレ属。花径5cm前後が目安だが明確な区別はない。
+F6	drop				この調査では出典を確認できなかった。
+F7	fix	日本の一般旅券の表紙には、菊の紋章（十六弁の一重表菊）が使われている。	https://ja.wikipedia.org/wiki/日本国旅券	B	八重の菊は大使館などの紋章。外務省の一次ページは未確認。
+F8	ok		https://en.wikipedia.org/wiki/Lily_of_the_valley	B	強心配糖体（コンバラトキシン等）を含み全草が有毒。ギョウジャニンニクと間違えた食中毒が今も出ている。
+F9	drop				この調査では出典を確認できなかった。
+F10	ok		https://www.pref.saitama.lg.jp/omiya-park/ryokukajoho/omiya-someiyoshino.html	B	江戸末期に染井村の植木職人が売り出したとされる。自然交雑か人工交配かは未確定。名前は明治33年。
+F11	drop				この調査では出典を確認できなかった。
+F12	drop				この調査では出典を確認できなかった。
+F13	fix	スギは日本固有とされる針葉樹（中国のものは人が持ち込んだ可能性が高い）で、花粉は花粉症の大きな原因のひとつ。	https://en.wikipedia.org/wiki/Cryptomeria	B	固有種は確認。花粉症の部分は出典に「要出典」の注記があり、一次資料（環境省等）は未確認。
+F14	fix	花言葉は、トルコのセラムという習慣がヨーロッパに伝わり、18〜19世紀に流行したとされる（起源は諸説）。	https://www.pref.chiba.lg.jp/ryuhan/engei/documents/26048-kanwa.pdf	C	17世紀のコンスタンチノープル説など複数説あり。
+L1	ok		https://www.nippon.com/en/japan-data/h01615/	B	2023年に国土地理院が数え直し、14,125島。外周100m以上の自然の島で、人工島は除く。従来は1987年の6,852島。国土地理院の一次ページは取得できず。
+L2	ok		https://en.wikipedia.org/wiki/Greenland	B	大陸ではない島としては最大。
+L3	ok		https://en.wikipedia.org/wiki/Honshu	B	本州は約22.8万平方キロメートルで日本最大の島。
+L4	ok		https://en.wikipedia.org/wiki/Robinson_Crusoe	B	ダニエル・デフォー作、1719年。
+L5	fix	デフォーの『ロビンソン・クルーソー』は、チリ沖の島に約4年4か月ひとりで暮らしたアレキサンダー・セルカークの話などが着想のひとつとされる。	https://en.wikipedia.org/wiki/Alexander_Selkirk	B	モデルと断定はできず、多くの研究者は数ある漂流談の一つとみる。小説の島はカリブ海。
+L6	ok		https://en.wikipedia.org/wiki/88_modern_constellations	B	IAUは88星座。境界は1928年に採択、1930年に公表。
+L7	ok		https://en.wikipedia.org/wiki/Polaris	B	こぐま座α星。歳差のため永久ではなく、2100年ごろ最も極に近づく。
+L8	ok		https://en.wikipedia.org/wiki/Meteoroid	B	大気に突入した小天体が光る現象を流星という。ちりより大きな破片のこともある。
+L9	fix	ハロウィンは、古代ケルトの祭りサウィンがもとになったという説が有力視されるが、キリスト教の万聖節の前夜祭として生まれたという見方もあり、起源は議論が続いている。	https://en.wikipedia.org/wiki/Halloween	B	ケルトの祭りだけが起源とは言い切れない。
+L10	fix	復活祭は、春分（3月21日と固定して扱う）の後の最初の満月（教会暦上の満月）の次の日曜日に行われる。	https://en.wikipedia.org/wiki/Date_of_Easter	B	実際の天文上の満月とずれる年がある（1924年、1943年、1962年など）。
+L11	drop				この調査では出典を確認できなかった。
+L12	ok		https://precious.jp/articles/-/20460	C	星伝説は中国から伝わり、日本の行事と混ざった。織姫はこと座ベガ、彦星はわし座アルタイル。
+L13	drop				この調査では出典を確認できなかった。
+L14	drop				この調査では出典を確認できなかった。
+L15	ok		https://en.wikipedia.org/wiki/Whale_shark	B	現生で最大の魚。最大の確実な記録は約18.8m。
+L16	ok		https://www.city.chuo.lg.jp/kusei/syokai/tyuobunkazai/yubinhasshonoti.html	B	1871年（明治4年）3月1日（新暦4月20日）に東京・京都・大阪間で開始。前島密の建議が契機。全国均一料金は1873年。
+L17	ok		https://en.wikipedia.org/wiki/Penny_Black	B	1840年5月1日発行、6日から有効。公共の郵便で使われた世界初の接着式切手。
+L18	ok		https://en.wikipedia.org/wiki/Library_of_Congress	B	「最大級」は妥当だが「最大」と断定する出典はない。蔵書数は約1.7億点だが数え方で変わる。
+L19	ok		https://en.wikipedia.org/wiki/View_from_the_Window_at_Le_Gras	B	1826年説もあるが現在は1827年。いずれも1820年代。現存最古のカメラ写真だが「最初の写真」とは異論あり。
+L20	ok		https://en.wikipedia.org/wiki/Animal_Crossing_(video_game)	B	『どうぶつの森』は2001年4月14日にNINTENDO64で日本発売。
+L21	ok		https://en.wikipedia.org/wiki/Animal_Crossing:_New_Horizons	B	2020年3月20日。
+L22	ok		https://camphack.nap-camp.com/5294	C	芝生を傷めるなどの理由で直火禁止のキャンプ場が多い。場所ごとに規則が違い、環境省等の公式ルールは未確認。
+L23	ok		https://en.wikipedia.org/wiki/Hammock	B	アメリカ大陸の先住民（コロンブスがバハマのタイノ族で観察）。マヤ古典期には無かったとされる。
+L24	ok		https://en.wikipedia.org/wiki/Owl	B	フクロウは最大約270度首を回せる。ゲーム内のフータの設定自体は未確認。
+L25	ok		https://en.wikipedia.org/wiki/Raccoon_dog	B	タヌキ（ニホンタヌキ）はイヌ科。
+L26	ok		https://www.ana.co.jp/ja/id/japan-travel-planner/nara/0000001.html	C	国の天然記念物。観光案内ページのみで、文化庁の指定情報は未確認。
+L27	ok		https://en.wikipedia.org/wiki/Bat	B	コウモリは哺乳類で、真の飛行ができる唯一の哺乳類。
+L28	ok		https://en.wikipedia.org/wiki/Pelican	B	のど袋は魚をすくう網のように使い、水を切ってから飲み込む。袋に貯めておくというのは俗説。
+L29	ok		https://en.wikipedia.org/wiki/Dodo	B	ドードーはモーリシャス島にだけ生息し絶滅（最後の確かな目撃は1662年）。ただしハトの仲間でオウムではない。
+L30	ok		https://en.wikipedia.org/wiki/Galápagos_tortoise	B	野生で100年以上、飼育下では最大177年とされる。

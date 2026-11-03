@@ -1,0 +1,60 @@
+R1	ok		https://www.fdma.go.jp/publication/hakusho/r7/chapter2/section5/69369.html	B	消防庁白書で119番通報を前提に統計化。携帯電話・固定電話とも119番。
+R2	ok		https://www.fdma.go.jp/publication/hakusho/r7/report4/69209.html	A	令和7年度末で41地域で実施（予定含む）。全国一律ではない。緊急と思えば迷わず119番、の注意書きを併記推奨。
+R3	ok		https://www.fdma.go.jp/publication/hakusho/r7/chapter4/para1/69281.html	A	消防庁が1987年から実施。
+R4	ok		https://www.soumu.go.jp/menu_news/s-news/01shoubo01_02000204.html	A	1982年制定。この日を含む日曜から土曜が救急医療週間。
+R5	ok		https://www.tfd.metro.tokyo.lg.jp/learning/elib/qa/qa_24.html	B	1948年3月7日に消防組織法が施行され自治体消防が始まった。記念日は1950年設定。
+R6	ok		https://jahis.law.nagoya-u.ac.jp/lawdb/l/323a0186/compare/323a0186en	B	昭和23年法律第186号、公布は1948年7月24日。e-Govの原文は未確認。
+R7	ok		https://kuruma-news.jp/post/737544	B	救急車自体は無料。松阪市の例は病院が取る選定療養費で、入院に至らない軽症等が対象。額や運用は変わりうる。
+R8	ok		https://www.fdma.go.jp/publication/hakusho/r7/chapter2/section5/69369.html	A	令和6年は771万8,380件で過去最多。令和5年は763万件。
+R9	fix	現場到着までの全国平均は約9.8分（令和6年）。119番通報から現場に着くまでの時間で、前年は約10.0分。	https://www.fdma.go.jp/publication/hakusho/r7/chapter2/section5/69369.html	A	最新は令和7年版白書（令和6年中）の9.8分。令和5年が約10.0分のため古い値は更新。
+R10	ok		https://webview.isho.jp/journal/detail/abs/10.11477/mf.1404101571	B	1991年（平成3年）に救急救命士法が制定。国家資格。公布日そのものは未確認。
+R11	ok		https://www.pref.kagoshima.jp/aj03/kurashi-kankyo/anzen/shoubou/syoubou_kyuukyuu/kyuukyuu/aed.html	B	Automated External Defibrillatorの略。
+R12	ok		https://www.mhlw.go.jp/shingi/2004/07/s0701-3.html	A	2004年7月1日の厚労省医政局長通知で、居合わせた一般市民のAED使用が医師法違反にならないと示された。
+R13	ok		https://www.info.city.tsu.mie.jp/www/contents/1001000000501/simple/AEDtsukaikata.pdf	B	電源を入れたあとは音声の指示に従って操作。機種差あり。複数の自治体資料で一致。
+R14	ok		https://www.fdma.go.jp/laws/tutatsu/items/20261023_kyuuki_01.pdf	B	市民向けでは質の高い胸骨圧迫が柱（2025年版でも維持）。通報とAEDも同時に重要と添えるのが安全。通知本文の数値は読み取れず、解説記事で確認。
+R15	ok		https://www.jstage.jst.go.jp/article/jsem/21/5/21_638/_article/-char/ja	B	2015〜2020年版は100〜120回/分、深さ約5cm。2025年版の変更点解説に数値変更の記載なし。2025年版原文のテンポ記載は直接確認できていない。
+R16	ok		https://www.hokeniryo.metro.tokyo.lg.jp/shisetsu/jigyosyo/hokenjyo/tamakodaira/topics/necchusho	B	高温多湿で水分や塩分のバランスが崩れ、体温調節がうまく働かなくなる状態。重い症状は救急要請が必要。
+R17	ok		https://toyokeizai.net/articles/-/908756	B	ハチ刺されの死亡は人口動態統計で年15〜21人程度（令和3〜6年）。大半はアナフィラキシー。報道経由の数値。
+R18	ok		https://www.fdma.go.jp/relocation/e-college/cat67/cat49/cat43/1-14.html	B	適応火災は白（普通）・黄（油）・青（電気）の円形マークで表示。
+R19	ok		https://www.city.nagasaki.lg.jp/bousai/220000/226000/p000003.html	B	住宅用は詰め替え不可の構造。
+R20	fix	消火器の基本手順は、安全ピンを抜く、ホースを外して火元に向ける、レバーを握る。使うのは天井に炎が届く前の初期だけで、無理なら避難して119番。	https://www.city.edogawa.tokyo.jp/e008/bosaianzen/bosai/kojo/chiikihaibishoukaki.html	B	3手順は確認できたが「ピン・ホース・レバー」という覚え方が標準かは未確認（川崎市は「ピン・ポン・パン」）。炎が天井に達したら使わない旨を併記。
+R21	ok		https://www.city.nagasaki.lg.jp/bousai/220000/226000/p000003.html	B	業務用おおむね10年、住宅用おおむね5年。製造年と表示の確認が必要。工業会の原典は未確認。
+R22	ok		https://www.fdma.go.jp/singi_kento/kento/items/kento140_25_shiryo2-6.pdf	B	消防庁資料で初期消火手段として消火器・屋内消火栓・スプリンクラーが並ぶ。
+R23	ok		https://www.pref.chiba.lg.jp/kenshidou/documents/tenken-point.doc	B	熱を受けて天井面の散水口から自動で散水。
+R24	ok		https://www.pref.chiba.lg.jp/kenshidou/documents/tenken-point.doc	B	熱や煙を感知して施設内に知らせる設備。
+R25	ok		https://www.fdma.go.jp/laws/tutatsu/assets/060422yo39.pdf	B	避難口誘導灯は緑地に白の図柄。通路誘導灯は白地に緑で、すべて緑一色ではない。
+R26	ok		https://www.city.sapporo.jp/shobo/yobo/jorei/documents/081-53jyo.pdf	B	消防ポンプ自動車が送水口に送水し、隊員が放水口からホースで消火。
+R27	ok		https://www.fdma.go.jp/laws/kokuji/post96/	A	消防水利の基準で貯水量40立方メートル以上などが要件。地下式が多いが地上式もある。
+R28	ok		https://www.pref.miyagi.jp/soshiki/syoubou/syobousetubi.html	B	消防法第17条で用途や規模に応じ設置義務。
+R29	ok		https://www.tfd.metro.tokyo.lg.jp/lfe/office_adv/tenken_houkoku.html	A	消防法17条の3の3。報告は特定防火対象物は年1回、それ以外は3年に1回。
+R30	ok		https://www.fdma.go.jp/singi_kento/kento/items/post-166/01/shiryou7.pdf	A	新築は2006年6月1日。既存は市町村条例で定める日で、遅くとも2011年6月までに全国で義務化。時期は市町村で異なる。
+R31	ok		https://www.fdma.go.jp/singi_kento/kento/items/post-166/01/shiryou7.pdf	B	本体の寿命の目安が10年。設置10年経過で電池切れ・故障の世帯が3%という調査もある。
+R32	ok		https://www.city.kochi.kochi.jp/uploaded/life/172507_pdf1.pdf	B	消防法第8条。収容人員など一定規模以上が対象。
+R33	ok		https://www.tfd.metro.tokyo.lg.jp/learning/elib/qa/qa_65.html	A	保安基準第49条で消防自動車は朱色。法令上は朱色。
+R34	fix	はしご車は30〜40メートル級が代表的で、50メートル級や国内最大の54メートル級もある。	https://www.tfd.metro.tokyo.lg.jp/ts/sa/vehicle.html	B	東京消防庁は30m級・40m級。54m級は金沢市等に配備。「30〜50mが多い」は50m級が少数のため過大。
+R35	ok		https://www.isumi-kouiki.com/isumigun/wp-content/uploads/2024/03/車両の紹介R6.3.pdf	B	消火栓や防火水槽から吸い上げて放水する消防車。
+R36	ok		https://www.city.yokohama.lg.jp/bousai-kyukyu-bohan/shobo/shokainado/sharyo/ponp/02.html	B	水槽1,500L程度。水に限りがあるため長時間は補給が必要。
+R37	drop			C	地下式・地上式の区別は今回の検索で確認できず。
+R38	ok		https://www.tfd.metro.tokyo.lg.jp/tfd/hp-kouhouka/kts/kts_08/data/pdf/08_P03.pdf	B	阪神・淡路大震災の教訓で創設された東京消防庁の消防救助機動部隊。
+R39	ok		https://www.soumu.go.jp/main_content/000051952.pdf	A	他に職業を持つ非常勤特別職の地方公務員。消防組織法で市町村が設置。
+R40	ok		https://www.tfd.metro.tokyo.lg.jp/learning/elib/qa/qa_03.html	A	1718年に町火消設置、いろは47組、1730年に48組。
+R41	ok		https://www.tfd.metro.tokyo.lg.jp/learning/elib/qa/qa_03.html	B	町奉行大岡越前守忠相の時代。南町奉行である点は資料で明示を確認できず。
+R42	ok		https://www.tfd.metro.tokyo.lg.jp/libr/qa/qa_04.htm	A	町火消が組の目印として用いた標具。
+R43	fix	消防職員は全国に約17万人（令和7年4月1日現在で169,730人）。	https://www.fdma.go.jp/publication/hakusho/r7/chapter2/section1/69231.html	A	令和6年版で168,898人、令和7年版で169,730人。約16万人は不正確。消防団員は別で約74万人（令和6年4月）。
+R44	ok		https://www.fdma.go.jp/publication/hakusho/r7/chapter1/section1/para1/69235.html	A	令和6年中はたばこ3,058件、たき火2,781件、こんろ2,718件の順。
+R45	ok		https://www.fdma.go.jp/publication/hakusho/r6/chapter1/section1/para1/67990.html	A	令和5年は放火2,495件、放火の疑い込みで4,111件。
+R46	ok		https://www.city.nagoya.jp/shobo/cmsfiles/contents/0000130/130929/aburanimizu.pdf	B	水をかけると油が飛び散り危険。無理せず119番と避難を併記推奨。
+R47	ok		https://www.nite.go.jp/data/000117533.pdf	A	ほこりや水分で絶縁が劣化し発火。
+R48	ok		https://www.city.kyoto.lg.jp/shobo/cmsfiles/contents/0000151/151279/syokisyouka.pdf	B	三要素とする説明が一般的だが、連鎖反応を加えた四要素とする資料もある。
+R49	ok		https://www.city.kyoto.lg.jp/shobo/cmsfiles/contents/0000151/151279/syokisyouka.pdf	B	冷却・窒息・除去に加え、希釈や負触媒（抑制）を挙げる資料もある。
+R50	ok		https://www.city.sapporo.jp/shobo/shokai/gakko/labo/movie/flashover-backdraft.html	B	札幌市消防科学研究所の再現実験の説明と一致。
+R51	ok		https://www.city.sapporo.jp/shobo/shokai/gakko/labo/movie/flashover-backdraft.html	B	締め切られ酸素不足の室内に空気が入って爆発的に燃える。
+R52	ok		https://bestcarweb.jp/busmagazine/1153546?prd=2	C	乗用車12Vは一般的な説明。弱い資料のみで確度低め。
+R53	ok		https://bestcarweb.jp/busmagazine/1153546?prd=2	C	大型ディーゼル車は24Vが多い。車種により12Vもある。
+R54	drop			C	点火方式の説明を裏付ける資料を今回確認できず。
+R55	ok		https://www.mhlw.go.jp/content/10800000/001726806.pdf	A	厚労省の定義で専門医と看護師等が同乗。
+R56	ok		https://trafficnews.jp/post/128773	B	緊急走行時にサイレンと赤色灯。東京消防庁も出動時は鳴らす必要と回答。「ピーポー」の音自体は車両や地域で異なる。
+R57	ok		https://www.tfd.metro.tokyo.lg.jp/hp-hkkan/mus-kannai.html	A	四谷3-10、入館無料。休館日は月曜等。
+R58	ok		https://www.kensetsu.metro.tokyo.lg.jp/documents/d/kensetsu/080326kbetsumptokyorinkaikouikibousai	B	東京臨海広域防災公園の防災体験学習施設。有明（江東区）。
+R59	ok		https://www.tfd.metro.tokyo.lg.jp/content/000035005.pdf	A	墨田区横川4-6-6、入館無料。
+R60	ok		https://iko-yo.net/facilities/1655	B	神戸市中央区。兵庫県設置、2002年開館。公式サイトは未確認。

@@ -1,0 +1,132 @@
+M1	fix	「世界三大博物館」に公式の定義はなく、数え方は資料によって違う（ルーブル・メトロポリタン・エルミタージュを「三大美術館」と呼ぶ例が多い）	https://allabout.co.jp/gm/gc/473510/	C	定義が無い点は確認。大英博物館を含む三館の組み合わせが一般的という点は確認できず
+M2	fix	エルミタージュ美術館やプラド美術館を三大に数える言い方もあり、顔ぶれは一定しない	https://allabout.co.jp/gm/gc/473510/	C	「大英博物館の代わりに」という言い方は確認できないので書き換え
+M3	ok		https://en.wikipedia.org/wiki/British_Museum	B	
+M4	ok		https://en.wikipedia.org/wiki/British_Museum	B	1753年に法律で設立、1759年1月に一般公開
+M5	ok		https://en.wikipedia.org/wiki/Rosetta_Stone	B	1802年から展示。返還請求が出ている
+M6	ok		https://ja.wikipedia.org/wiki/大英博物館	B	特別展示は有料の場合あり。1970年代に3か月だけ有料だった時期がある
+M7	ok		https://en.wikipedia.org/wiki/British_Museum	B	
+M8	ok		https://en.wikipedia.org/wiki/Louvre	B	
+M9	ok		https://en.wikipedia.org/wiki/Louvre	B	1793年8月10日
+M10	ok		https://en.wikipedia.org/wiki/Louvre	B	3作品とも所蔵
+M11	ok		https://en.wikipedia.org/wiki/Louvre	B	12世紀末に要塞として築かれ、のち王宮
+M12	ok		https://en.wikipedia.org/wiki/Louvre	B	地下ロビーの開業は1989年3月。ピラミッド本体の完成年を示す記述は確認できず
+M13	ok		https://en.wikipedia.org/wiki/Metropolitan_Museum_of_Art	B	
+M14	ok		https://en.wikipedia.org/wiki/Metropolitan_Museum_of_Art	B	
+M15	ok		https://en.wikipedia.org/wiki/Metropolitan_Museum_of_Art	B	1965年に米国へ贈られ、1978年に館内に組み立て
+M16	ok		https://en.wikipedia.org/wiki/Hermitage_Museum	B	
+M17	ok		https://en.wikipedia.org/wiki/Hermitage_Museum	B	1764年にエカテリーナ2世が絵画を購入したのが始まり
+M18	ok		https://en.wikipedia.org/wiki/Hermitage_cats	B	1745年にエリザヴェータ女帝が命じたとされる。第二次大戦中は一度途絶え、新しい猫に入れ替わった
+M19	ok		https://en.wikipedia.org/wiki/Museo_del_Prado	B	
+M20	ok		https://en.wikipedia.org/wiki/Museo_del_Prado	B	1819年11月
+M21	ok		https://en.wikipedia.org/wiki/Las_Meninas	B	制作年は1656年（1656〜57年とする資料もある）
+M22	ok		https://en.wikipedia.org/wiki/Uffizi	B	
+M23	ok		https://en.wikipedia.org/wiki/Uffizi	B	
+M24	ok		https://en.wikipedia.org/wiki/Mus%C3%A9e_d%27Orsay	B	
+M25	ok		https://en.wikipedia.org/wiki/Mus%C3%A9e_d%27Orsay	B	旧オルセー駅（1898〜1900年建設）
+M26	ok		https://en.wikipedia.org/wiki/The_Starry_Night	B	MoMAの略称は一般的だが、今回の資料で略称そのものは確認していない
+M27	ok		https://en.wikipedia.org/wiki/The_Starry_Night	B	1941年から所蔵
+M28	ok		https://en.wikipedia.org/wiki/The_Night_Watch	B	
+M29	fix	レンブラントの『夜警』は、アムステルダム国立美術館に展示されている（所有はアムステルダム市）	https://en.wikipedia.org/wiki/The_Night_Watch	B	所有者は市で、同館には長期貸与の形。「所蔵」は言い過ぎの可能性
+M30	ok		https://en.wikipedia.org/wiki/Girl_with_a_Pearl_Earring	B	
+M31	ok		https://en.wikipedia.org/wiki/Girl_with_a_Pearl_Earring	B	1902年から所蔵
+M32	ok		https://en.wikipedia.org/wiki/Vatican_Museums	B	
+M33	ok		https://en.wikipedia.org/wiki/Vatican_Museums	B	見学ルートの終わりにある
+M34	ok		https://en.wikipedia.org/wiki/Smithsonian_Institution	B	
+M35	ok		https://en.wikipedia.org/wiki/Smithsonian_Institution	B	ほぼすべてが無料、例外はクーパー・ヒューイット
+M36	ok		https://en.wikipedia.org/wiki/Natural_History_Museum,_London	B	サウス・ケンジントン
+M37	ok		https://en.wikipedia.org/wiki/American_Museum_of_Natural_History	B	マンハッタンのアッパー・ウェスト・サイド
+M38	ok		https://en.wikipedia.org/wiki/Night_at_the_Museum_(film)	B	撮影の大半はカナダのスタジオのセット
+M39	ok		https://en.wikipedia.org/wiki/Field_Museum_of_Natural_History	B	
+M40	ok		https://en.wikipedia.org/wiki/Field_Museum_of_Natural_History	B	2000年に公開
+M41	ok		https://en.wikipedia.org/wiki/Palace_Museum	B	
+M42	ok		https://ja.wikipedia.org/wiki/東京国立博物館	B	
+M43	ok		https://ja.wikipedia.org/wiki/東京国立博物館	B	
+M44	ok		https://ja.wikipedia.org/wiki/国立科学博物館	B	
+M45	ok		https://ja.wikipedia.org/wiki/国立科学博物館	B	日本で初めて見つかった首長竜化石
+M46	ok		https://ja.wikipedia.org/wiki/福井県立恐竜博物館	B	
+M47	ok		https://ja.wikipedia.org/wiki/国立民族学博物館	B	
+M48	ok		https://ja.wikipedia.org/wiki/京都国立博物館	B	
+M49	ok		https://ja.wikipedia.org/wiki/奈良国立博物館	B	
+M50	ok		https://ja.wikipedia.org/wiki/九州国立博物館	B	
+M51	ok		https://ja.wikipedia.org/wiki/九州国立博物館	B	2005年10月（15日開館・16日一般公開と記載が分かれる）
+M52	ok		https://ja.wikipedia.org/wiki/国立西洋美術館	B	
+M53	ok		https://ja.wikipedia.org/wiki/国立西洋美術館	B	2016年7月登録。ル・コルビュジエの建築作品群の一つとして
+M54	ok		https://ja.wikipedia.org/wiki/大塚国際美術館	B	
+M55	ok		https://ja.wikipedia.org/wiki/大塚国際美術館	B	陶板による複製であり原画ではない
+M56	ok		https://ja.wikipedia.org/wiki/三鷹の森ジブリ美術館	B	
+M57	ok		https://ja.wikipedia.org/wiki/沖縄美ら海水族館	B	
+M58	ok		https://ja.wikipedia.org/wiki/沖縄美ら海水族館	B	
+M59	ok		https://ja.wikipedia.org/wiki/博物館法	B	法の定義に芸術資料も含まれる。美術館の扱いを明記した条文までは未確認。2022年改正あり
+M60	ok		https://ja.wikipedia.org/wiki/学芸員	B	
+M61	ok		https://en.wikipedia.org/wiki/Rosetta_Stone	B	
+M62	ok		https://en.wikipedia.org/wiki/Rosetta_Stone	B	1799年7月
+M63	ok		https://en.wikipedia.org/wiki/Rosetta_Stone	B	ヒエログリフ・デモティック・ギリシャ文字
+M64	ok		https://en.wikipedia.org/wiki/Rosetta_Stone	B	1822年に発表。完全な解読にはさらに時間がかかった
+M65	ok		https://en.wikipedia.org/wiki/Mona_Lisa	B	
+M66	ok		https://en.wikipedia.org/wiki/Mona_Lisa	B	1911年8月21日に盗難、1913年末に見つかり1914年1月返還
+M67	ok		https://en.wikipedia.org/wiki/Venus_de_Milo	B	
+M68	ok		https://en.wikipedia.org/wiki/Tutankhamun	B	
+M69	ok		https://en.wikipedia.org/wiki/Terracotta_Army	B	
+M70	ok		https://en.wikipedia.org/wiki/Terracotta_Army	B	農民が井戸掘り中に発見
+M71	ok		https://ja.wikipedia.org/wiki/東京国立博物館	B	重要文化財
+M72	ok		https://en.wikipedia.org/wiki/Girl_with_a_Pearl_Earring	B	「北のモナ・リザ」は通称として複数の記事に出るが、記事に出ない資料もある
+M73	ok		https://en.wikipedia.org/wiki/The_Night_Watch	B	
+M74	ok		https://en.wikipedia.org/wiki/The_Starry_Night	B	
+M75	ok		https://en.wikipedia.org/wiki/Sunflowers_(Van_Gogh_series)	B	SOMPO美術館所蔵の一点はあり。連作は1887年のパリ版と1888〜89年のアルル版
+M76	ok		https://en.wikipedia.org/wiki/The_Scream	B	4版（油彩2・パステル2）と版画
+M77	ok		https://en.wikipedia.org/wiki/The_Great_Wave_off_Kanagawa	B	連作の最初の一枚。1831年ごろ
+M78	ok		https://ja.wikipedia.org/wiki/見返り美人図	B	
+M79	ok		https://ja.wikipedia.org/wiki/風神雷神図屏風	B	建仁寺蔵で京都国立博物館に寄託
+M80	ok		https://en.wikipedia.org/wiki/David_(Michelangelo)	B	
+M81	ok		https://en.wikipedia.org/wiki/The_Thinker	B	
+M82	ok		https://en.wikipedia.org/wiki/Uffizi	B	
+M83	ok		https://en.wikipedia.org/wiki/The_Last_Supper_(Leonardo)	B	サンタ・マリア・デッレ・グラツィエ修道院の食堂
+M84	ok		https://en.wikipedia.org/wiki/Field_Museum_of_Natural_History	B	
+M85	ok		https://en.wikipedia.org/wiki/Ammonoidea	B	タコ・イカに近いとされる
+M86	ok		https://en.wikipedia.org/wiki/Trilobite	B	約2億5200万年前のペルム紀末
+M87	ok		https://en.wikipedia.org/wiki/Cretaceous%E2%80%93Paleogene_extinction_event	B	正確には鳥類以外の恐竜。約6600万年前
+M88	ok		https://en.wikipedia.org/wiki/Pteranodon	B	
+M89	ok		https://en.wikipedia.org/wiki/Coelacanth	B	1938年12月、南アフリカ東海岸沖
+M90	ok		https://en.wikipedia.org/wiki/Archaeopteryx	B	分類は議論あり（鳥に近い恐竜とする説）
+A1	fix	ダ・ヴィンチの『ウィトルウィウス的人体図』（1490年ごろ。1487〜91年説あり）	https://en.wikipedia.org/wiki/Vitruvian_Man	B	年代に幅あり。ヴェネツィアのアカデミア美術館所蔵
+A2	ok		https://en.wikipedia.org/wiki/The_Night_Watch	B	所有はアムステルダム市で、同館に貸与
+A3	ok		https://ja.wikipedia.org/wiki/東京国立博物館	B	遮光器土偶は縄文晩期。亀ヶ岡出土のものが東博所蔵
+A4	ok		https://en.wikipedia.org/wiki/The_Blue_Boy	B	1770年ごろ。ハンティントン所蔵
+A5	ok		https://en.wikipedia.org/wiki/Venus_de_Milo	B	紀元前2世紀。1820年発見
+A6	ok		https://en.wikipedia.org/wiki/A_Sunday_Afternoon_on_the_Island_of_La_Grande_Jatte	B	1884〜86年制作。シカゴ美術館
+A7	ok		https://en.wikipedia.org/wiki/The_Gleaners	B	1857年。オルセー
+A8	ok		https://serai.jp/?p=1081331	C	所蔵はプライス・コレクション系との報道。制作は18世紀で年は不明
+A9	ok		https://en.wikipedia.org/wiki/The_Great_Wave_off_Kanagawa	B	1831年ごろ
+A10	ok		https://en.wikipedia.org/wiki/The_Thinker	B	『地獄の門』の一部として構想
+A11	ok		https://en.wikipedia.org/wiki/Mona_Lisa	B	1503〜06年ごろ以降に制作
+A12	ok		https://en.wikipedia.org/wiki/Sunflowers_(Van_Gogh_series)	B	連作は複数点あり、どの一点かは特定していない
+A13	ok		https://en.wikipedia.org/wiki/David_(Michelangelo)	B	1501〜04年。アカデミア美術館
+A14	ok		https://en.wikipedia.org/wiki/The_Fighting_Temeraire	B	1839年。ナショナル・ギャラリー
+A15	ok		https://ja.wikipedia.org/wiki/見返り美人図	B	東京国立博物館
+A16	ok		https://en.wikipedia.org/wiki/Statues_of_Kamehameha_I	B	像は複数あり（ホノルル、カパアウ、ヒロ、米国議会）。作者はゴールド
+A17	ok		https://en.wikipedia.org/wiki/Rosetta_Stone	B	1802年から大英博物館で展示
+A18	ok		https://en.wikipedia.org/wiki/The_Four_Seasons_(Arcimboldo)	B	1563年。原作はウィーン、ルーヴルに複製あり
+A19	ok		https://en.wikipedia.org/wiki/The_Sower_(Millet)	B	山梨県立美術館のほかボストン美術館などに複数版
+A20	ok		https://en.wikipedia.org/wiki/Capitoline_Wolf	B	制作年代に議論（古代説と中世説）。年代は主張に含まれていない
+A21	ok		https://en.wikipedia.org/wiki/Uffizi	B	ウフィツィ所蔵
+A22	ok		https://en.wikipedia.org/wiki/Isle_of_the_Dead_(painting)	B	1880〜86年に複数版あり
+A23	ok		https://en.wikipedia.org/wiki/Nefertiti_Bust	B	ベルリンの新博物館
+A24	ok		https://en.wikipedia.org/wiki/The_Fifer	B	1866年。オルセー
+A25	ok		https://www.musee-orsay.fr/en/artworks/pommes-et-oranges-1470	B	1899年ごろ。オルセー所蔵
+A26	ok		https://en.wikipedia.org/wiki/A_Bar_at_the_Folies-Berg%C3%A8re	B	1882年。コートールド・ギャラリー
+A27	ok		https://en.wikipedia.org/wiki/The_Milkmaid_(Vermeer)	B	1658年ごろ。国立美術館
+A28	ok		https://en.wikipedia.org/wiki/Discobolus	B	原作は失われ、ローマ時代の模刻が現存
+A29	ok		https://en.wikipedia.org/wiki/Olmec_colossal_heads	B	メキシコ湾岸のオルメカ文明
+A30	ok		https://en.wikipedia.org/wiki/T%C5%8Dsh%C5%ABsai_Sharaku	B	1794年の錦絵
+A31	ok		https://en.wikipedia.org/wiki/The_Hunters_in_the_Snow	B	1565年。ウィーン美術史美術館
+A32	ok		https://en.wikipedia.org/wiki/Lady_with_an_Ermine	B	クラクフにある。詳細な所蔵館名は未確認
+A33	ok		https://en.wikipedia.org/wiki/Ophelia_(Millais)	B	1851〜52年。テート・ブリテン
+A34	ok		https://en.wikipedia.org/wiki/Las_Meninas	B	1656年。プラド美術館
+A35	ok		https://en.wikipedia.org/wiki/Houmuwu_ding	B	殷（商）の青銅器。中国国家博物館
+A36	ok		https://en.wikipedia.org/wiki/The_Starry_Night	B	1889年。MoMA
+A37	ok		https://en.wikipedia.org/wiki/Winged_Victory_of_Samothrace	B	紀元前190年ごろ。ルーヴル
+A38	ok		https://en.wikipedia.org/wiki/The_Clothed_Maja	B	1800〜05年ごろ。プラド
+A39	ok		https://en.wikipedia.org/wiki/Terracotta_Army	B	西安近郊
+A40	ok		https://ja.wikipedia.org/wiki/風神雷神図屏風	B	建仁寺蔵、京都国立博物館に寄託中
+A41	ok		https://en.wikipedia.org/wiki/Girl_with_a_Pearl_Earring	B	1902年からマウリッツハイス
+A42	ok		https://en.wikipedia.org/wiki/Liberty_Leading_the_People	B	1830年。ルーヴル

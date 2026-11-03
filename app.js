@@ -9,6 +9,7 @@ const THREAD_TIMEOUT_MS = 20000; // 質問に答えなかったら、会話を�
 const ANSWER_REPEAT_MS = 15000; // 認識途中の文字で、同じ答えを続けない時間
 const TATOE_COOLDOWN_MS = 5000;
 const VIEWER_COOLDOWN_MS = 5000;
+const PERSONA_SHARE = 0.3;
 const STREAM_COOLDOWN_MS = 20000; // 始めと終わりのあいさつを続けて出さない時間
 
 const NO_RESULT_RESTART_MS = 25000; // 声が届かないまま、この時間がたったら音声認識を作り直す
@@ -22,6 +23,12 @@ function choose(group) {
   const types = ['a', 'q', 'q', 'h', ...(group.u && group.u.length ? ['u'] : [])].filter((t) => group[t].length);
   const type = pickFrom(types);
   if (type === 'u') return { text: sageLine(pickFresh(group.u)), speaker: SAGE, cls: 'u' };
+  // 3割は、話し方の決まった常連の視聴者が話す
+  if (PERSONAS.length && Math.random() < PERSONA_SHARE) {
+    const who = pickFrom(PERSONAS);
+    const lines = type === 'q' && who.d.length && Math.random() < 0.5 ? who.d : who[type];
+    if (lines.length) return { text: pickFresh(lines), isQuestion: type === 'q', group, speaker: who.name };
+  }
   // 2割は話題を問わない言い方（正統派・ユーモア）を混ぜる。質問の残りの6割は、話を広げやすいものから選ぶ
   let pool = group[type];
   if (Math.random() < 0.2) pool = STYLE[type];
