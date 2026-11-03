@@ -6,6 +6,9 @@
 ## 状態
 試作。iPhoneでの動作確認の前。
 
+- 公開URL：https://nabe-ch.github.io/solo-live-comments/ （GitHub Pages、main / root。pushで更新）
+- GitHub：`nabe-ch/solo-live-comments`（公開）。コミットのメールは nabe-ch@users.noreply.github.com
+
 ## 技術
 - HTML / CSS / JavaScript のみ（サーバーなし、課金なし）
 - 音声認識：ブラウザの Web Speech API（webkitSpeechRecognition）。iPhoneのマイクはHTTPSのページでしか使えない
