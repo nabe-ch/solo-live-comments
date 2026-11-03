@@ -12,7 +12,7 @@ select, input, button { font: inherit; font-size: 16px; color: var(--text); back
 #chat li { padding: 5px 0; font-size: 18px; line-height: 1.4; overflow-wrap: anywhere; }
 #chat .name { margin-right: 8px; font-size: 14px; color: var(--muted); }
 #chat li.q { color: var(--question); font-weight: 700; }
-#chat li.u { color: #8fd4ff; }
+#chat li.u, #chat li.comeback { color: #8fd4ff; }
 #chat li.a { color: #9fe8a8; font-weight: 700; }
 footer { padding: 8px 16px calc(env(safe-area-inset-bottom) + 8px); background: var(--panel); border-top: 1px solid var(--line); }
 #heard { margin: 0 0 8px; font-size: 13px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

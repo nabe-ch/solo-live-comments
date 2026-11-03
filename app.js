@@ -8,8 +8,9 @@ const ANSWER_WAIT_MS = 1200;  // 話し終わったとみなすまでの時間
 const THREAD_TIMEOUT_MS = 20000; // 質問に答えなかったら、会話を終わりにする時間
 const ANSWER_REPEAT_MS = 15000; // 認識途中の文字で、同じ答えを続けない時間
 const TATOE_COOLDOWN_MS = 5000;
+const VIEWER_COOLDOWN_MS = 5000;
 
-const state = { running: false, rec: null, lastText: '', lastHeard: 0, lastSilence: 0, lastGeneric: 0, lastAnswer: '', lastAnswerAt: 0, lastTatoe: 0, ruleAt: new Map(), recent: [], wakeLock: null, thread: null };
+const state = { running: false, rec: null, lastText: '', lastHeard: 0, lastSilence: 0, lastGeneric: 0, lastAnswer: '', lastAnswerAt: 0, lastTatoe: 0, lastViewerReply: 0, ruleAt: new Map(), recent: [], wakeLock: null, thread: null };
 const pickFrom = (arr) => arr[Math.floor(Math.random() * arr.length)];
 const amount = () => Number($('amount').value);
 
@@ -18,7 +19,7 @@ function choose(group) {
   // 拾う練習になるよう、質問を多めにする。うんちくがある話題では、うんちく博士も出る
   const types = ['a', 'q', 'q', 'h', ...(group.u && group.u.length ? ['u'] : [])].filter((t) => group[t].length);
   const type = pickFrom(types);
-  if (type === 'u') return { text: pickFresh(group.u), speaker: SAGE, cls: 'u' };
+  if (type === 'u') return { text: sageLine(pickFresh(group.u)), speaker: SAGE, cls: 'u' };
   // 2割は話題を問わない言い方（正統派・ユーモア）を混ぜる。質問の残りの6割は、話を広げやすいものから選ぶ
   let pool = group[type];
   if (Math.random() < 0.2) pool = STYLE[type];
@@ -91,6 +92,15 @@ function post({ text, isQuestion, group, speaker, cls }) {
   while (chat.children.length > MAX_ROWS) chat.firstChild.remove();
   chat.scrollTop = chat.scrollHeight;
   if (isQuestion) startThread(group);
+  if (cls === 'u' || cls === 'a') replyToExpert(cls);
+}
+
+// 博士や物知り島民の発言に、ほかの視聴者がツッコむ（ときどき博士が言い返す）
+function replyToExpert(cls) {
+  if (Math.random() > 0.5) return;
+  const pool = cls === 'u' ? TSUKKOMI : ORACLE_TSUKKOMI;
+  setTimeout(() => post({ text: pickFresh(pool) }), 900 + Math.random() * 1200);
+  if (cls === 'u' && Math.random() < 0.15) setTimeout(() => post({ text: pickFresh(SAGE_COMEBACK), speaker: SAGE, cls: 'comeback' }), 2600 + Math.random() * 1000);
 }
 
 // 本物らしく、少し遅れて流す
@@ -107,6 +117,14 @@ function react(text, whole = text) {
     state.lastAnswerAt = now;
     endThread();
     setTimeout(() => post({ text: answer, speaker: ORACLE, cls: 'a' }), 700);
+    return;
+  }
+  // データにない問いかけには、視聴者が返す
+  const replies = !answer && now - state.lastViewerReply > VIEWER_COOLDOWN_MS ? viewerReplies(text, whole) : null;
+  if (replies) {
+    state.lastViewerReply = now;
+    endThread();
+    replies.forEach((line, i) => setTimeout(() => post({ text: line }), 700 + i * 900));
     return;
   }
   // たとえボケには、会話の途中でも反応する

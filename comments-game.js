@@ -10,12 +10,12 @@ function nameRegex(name) {
   if (name.length < 2 || (name.length === 2 && /^[ぁ-ゖ]+$/.test(name))) return null;
   // 長いカタカナ語の一部（トランプの「ラン」、ランキングの「キング」など）に反応しないよう、前後を見る
   const alone = (body) => new RegExp(`(^|[^ァ-ヶー])(${body})(?![ァ-ヶー])`);
-  if (name.length === 2) return alone(escapeRe(name));
+  if (name.length === 2) return alone([name, ...(ALIASES[name] || [])].map(escapeRe).join('|'));
   const forms = [...new Set([name, toKata(name), toHira(name), ...(ALIASES[name] || [])])];
   return alone(forms.map(escapeRe).join('|'));
 }
-// ゲーム内の呼び名と、ふだんの呼び名が違うもの
-const ALIASES = { Tレックス: ['ティラノサウルス', 'ティラノ'], さんようちゅう: ['三葉虫'], しそちょう: ['始祖鳥'], パキケファロ: ['パキケファロサウルス'] };
+// ゲーム内の呼び名と、ふだんの呼び名が違うもの（音声認識は漢字に変換することがある）
+const ALIASES = { Tレックス: ['ティラノサウルス', 'ティラノ'], さんようちゅう: ['三葉虫'], しそちょう: ['始祖鳥'], パキケファロ: ['パキケファロサウルス'], タイ: ['鯛'], サケ: ['鮭'], サメ: ['鮫'], マグロ: ['鮪'], コイ: ['鯉'], アユ: ['鮎'], タコ: ['蛸'], イカ: ['烏賊'], フグ: ['河豚'], アジ: ['鯵'], フナ: ['鮒'], ウニ: ['雲丹'], ハチ: ['蜂'], アリ: ['蟻'], クモ: ['蜘蛛'], ハエ: ['蝿'], ノミ: ['蚤'], スズキ: ['鈴木', '鱸'], ナマズ: ['鯰'], ドジョウ: ['泥鰌'], ニシキゴイ: ['錦鯉'], キンギョ: ['金魚'], ホタル: ['蛍'], セミ: ['蝉'], カブトムシ: ['兜虫'], クワガタ: ['鍬形'] };
 
 // 現実の生き物・化石の豆知識（手書き）
 const TRIVIA = {
@@ -119,6 +119,32 @@ const speciesList = [...new Set(VILLAGERS.map((v) => v[1]))];
 const personalityList = [...new Set(VILLAGERS.map((v) => v[3]))];
 const sample = (arr, n) => [...arr].sort(() => Math.random() - 0.5).slice(0, n);
 
+// 直前に話した住民・生き物・化石を覚えておく
+let lastName = null;
+function rememberName(text) {
+  const vil = villagerByName.find((x) => x.re.test(text));
+  const cre = !vil && creatureByName.find((x) => x.re.test(text));
+  const fos = !vil && !cre && fossilByName.find((x) => x.re.test(text));
+  if (!vil && !cre && !fos) return null;
+  lastName = { vil, cre, fos, at: Date.now() };
+  return lastName;
+}
+// 月の範囲（"11-3" や "12-3 & 9-11"、空は一年中）に、その月が入るか
+function inMonth(range, month) {
+  if (!range) return true;
+  return range.split('&').some((part) => {
+    const [a, b = a] = part.trim().split('-').map(Number);
+    return a <= b ? month >= a && month <= b : month >= a || month <= b;
+  });
+}
+const GAME_FAQ = [
+  [/(タヌキ商店|たぬき商店|まめきち|つぶきち).*(何時|なんじ|いつまで|いつから)/, 'タヌキ商店は8時〜22時'],
+  [/(エイブル).*(何時|なんじ|いつまで|いつから)/, 'エイブルシスターズは9時〜21時'],
+  [/カブ.*(いつ|何曜|どこ|誰).*(買|売)|カブ.*(買|売).*(いつ|何曜|どこ|誰)/, 'カブは日曜の朝5時〜12時にウリから買えて、タヌキ商店で売れる'],
+  [/(住民|島民).*(何人|なんにん|最大)/, '島に住める住民は最大10人'],
+  [/(離島|マイルチケット).*(何マイル|なんマイル|いくら)/, 'マイルチケットは2000マイル']
+];
+
 function answerQuestion(rawText) {
   const text = rawText.slice(-40);
   const listAnswer = (label, names) => `${label}は${names.length}人。たとえば${sample(names, 4).join('、')}`;
@@ -134,7 +160,27 @@ function answerQuestion(rawText) {
     const per = personalityList.find((p) => kata.includes(`${toKata(p)}`));
     if (per) return listAnswer(`性格が${per}の住民`, VILLAGERS.filter((v) => v[3] === per).map((v) => v[0]));
   }
-  const vil = villagerByName.find((x) => x.re.test(text));
+  // ゲームの決まりごと
+  for (const [re, line] of GAME_FAQ) if (re.test(text)) return line;
+  // 今の時期に捕れるもの、一番高いもの
+  const kindWord = /海の幸|潜/.test(text) ? '海の幸' : /魚|釣/.test(text) ? '魚' : /虫|捕れる|捕まえ/.test(text) ? '虫' : null;
+  if (kindWord && /今月|今の時期|この時期|今.*(何が|なにが|何の|どんな)/.test(text)) {
+    const month = new Date().getMonth() + 1;
+    const names = CREATURES.filter((c) => c[1] === kindWord && inMonth(c[5], month));
+    return `${month}月（北半球）の${kindWord}は${names.length}種類。たとえば${sample(names, 4).map((c) => c[0]).join('、')}（時間帯は別）`;
+  }
+  if (kindWord && /一番高い|いちばん高い|最高額|一番売れる/.test(text)) {
+    const list = CREATURES.filter((c) => c[1] === kindWord);
+    const top = Math.max(...list.map((c) => c[2]));
+    return `一番高い${kindWord}は${list.filter((c) => c[2] === top).map((c) => c[0]).join('、')}で、${top}ベル`;
+  }
+  // 名前がなくても「これいくら」なら、直前に話した相手のことと考える
+  const named = rememberName(text);
+  const pointing = /これ|それ|この|その|こいつ|今の|さっきの/.test(text);
+  const last = named || (lastName && Date.now() - lastName.at < 60000 && (pointing || ask.price.test(text)) ? lastName : null);
+  const vil = last && last.vil;
+  const cre = last && last.cre;
+  const fos = last && last.fos;
   if (vil) {
     const [n, sp, g, per, c, bd, hobby] = vil.v;
     if (ask.catch.test(text)) return c ? `${n}の口癖は「${c}」` : `${n}の口癖はデータで食い違っていて、確かなことが言えない`;
@@ -145,7 +191,6 @@ function answerQuestion(rawText) {
     if (ask.hobby.test(text)) return `${n}の趣味は${hobby}`;
     if (ask.who.test(text)) return `${n}は${sp}の${g}で、性格は${per}${c ? `、口癖は「${c}」` : ''}、誕生日は${bd}`;
   }
-  const cre = creatureByName.find((x) => x.re.test(text));
   if (cre) {
     const [n, kind, price, place, time, m] = cre.c;
     if (ask.price.test(text)) return `${n}の売値は${price}ベル`;
@@ -153,7 +198,6 @@ function answerQuestion(rawText) {
     if (ask.when.test(text)) return `${n}が出るのは${months(m)}、${time || '一日中'}`;
     if (ask.who.test(text)) return `${n}は${kind}。売値は${price}ベル、出るのは${months(m)}`;
   }
-  const fos = fossilByName.find((x) => x.re.test(text));
   if (fos && (ask.price.test(text) || ask.who.test(text))) {
     const prices = fos.parts.map((p) => p[1]);
     return fos.parts.length === 1 ? `${fos.parts[0][0]}は${prices[0]}ベルで売れる` : `${fos.base}の化石は${fos.parts.length}つの部位で、${Math.min(...prices)}〜${Math.max(...prices)}ベル`;
