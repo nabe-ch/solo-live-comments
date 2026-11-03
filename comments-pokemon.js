@@ -71,4 +71,4 @@ function pokemonAnswer(rawText) {
   return null;
 }
 // イベントや操作を先に見る（「今の季節」を、直前に話した生き物の話と間違えないように）
-const answerAny = (text) => eventsAnswerAny(text) || answerQuestion(text) || pokemonAnswer(text) || knowledgeAnswer(text);
+const answerAny = (text) => eventsAnswerAny(text) || foodAnswer(text) || answerQuestion(text) || pokemonAnswer(text) || knowledgeAnswer(text);

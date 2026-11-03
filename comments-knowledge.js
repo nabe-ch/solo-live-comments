@@ -4,6 +4,8 @@
 const KNOW_ALIASES = {
   世界三大博物館: ['三大博物館', '3大博物館', '世界3大博物館', '世界三大美術館', '有名な博物館'], ルーブル美術館: ['ルーブル', 'ルーヴル'], メトロポリタン美術館: ['メトロポリタン', 'メット'], エルミタージュ美術館: ['エルミタージュ'], プラド美術館: ['プラド'], ウフィツィ美術館: ['ウフィツィ'], オルセー美術館: ['オルセー'], ニューヨーク近代美術館: ['MoMA', 'モマ', '近代美術館'], バチカン美術館: ['バチカン', 'システィーナ'], スミソニアン博物館: ['スミソニアン'], 大英博物館: ['ブリティッシュミュージアム'], 沖縄美ら海水族館: ['美ら海'], 三鷹の森ジブリ美術館: ['ジブリ美術館'], 東京国立博物館: ['東博', '東京国立'], 国立科学博物館: ['科博', '上野の科学博物館'], 福井県立恐竜博物館: ['恐竜博物館'], 博物館と美術館: ['博物館と美術館の違い'], モナ・リザ: ['モナリザ'], ミロのヴィーナス: ['ミロのビーナス'], ヴィーナスの誕生: ['ビーナスの誕生'], 神奈川沖浪裏: ['富嶽三十六景', '北斎の波'], ダビデ像: ['ダビデ'], コナコーヒー: ['コナコーヒー', 'ハワイコナ'], カフェラテ: ['カフェラテ', 'ラテ'], スターバックス: ['スタバ'], ドトールコーヒー: ['ドトール'], コメダ珈琲店: ['コメダ'], 可否茶館: ['日本初の喫茶店', '最初の喫茶店'], コーヒー: ['珈琲'], バイオリン: ['ヴァイオリン'], サックス: ['サクソフォン'], ベートーベン: ['ベートーヴェン'], モーツァルト: ['モーツアルト'], 'A＝440Hz': ['440ヘルツ', '基準の音'], 箏: ['お琴', '琴'], 世界最大の島: ['一番大きい島'], 日本の島: ['日本の島の数', '日本に島はいくつ'], 救急車: ['救急隊'], 水槽付消防ポンプ車: ['水槽車', '水槽付'], 消防車: ['消防自動車'], 江戸の火消し: ['町火消し', '火消し'], 纏: ['まとい'], 心肺蘇生: ['心臓マッサージ', '胸骨圧迫'], 自動火災報知設備: ['火災報知器', '火災報知設備', '自火報'], 住宅用火災警報器: ['火災警報器', '住警器'], ハチ刺され: ['ハチに刺された', '蜂に刺された'], 天ぷら油: ['天ぷら火災'], 電気火災: ['トラッキング'], 火の三要素: ['燃焼の三要素', '燃える条件'], 消火の原理: ['消火の原理', '消火の三要素', '消す方法'], 消防博物館: ['四谷の消防博物館']
 };
+// 文の中に名前があれば、そのまま使う（「救急の日は、9月9日は…」と重ねない）
+const knowSay = (name, text) => (text.includes(name) ? text : `${name}は、${text}`);
 const knowSkip = new Set(['楽器', '化石', '世界最大の恐竜', 'ゲーム', 'あつ森', 'キャンプ', '釣り', '貝殻', '写真', 'ハト', 'カメ', 'オウム', 'カフェイン']);
 const knowledge = KNOWLEDGE.map(([name, group, what, where, when, real]) => {
   const words = [name, ...(KNOW_ALIASES[name] || [])].map(escapeRe).join('|');
@@ -13,18 +15,18 @@ const knowledge = KNOWLEDGE.map(([name, group, what, where, when, real]) => {
 });
 // 長い名前を先に見る（「スターバックス」と「コーヒー」が両方あるときなど）
 knowledge.sort((a, b) => b.name.length - a.name.length);
-const knowAsk = { where: /どこ|場所|どの国|どの辺/, when: /いつ|何年|何月|何日|どのくらい前/, what: /何|なに|どんな|なんで|なぜ|教えて|知ってる|有名|って誰|とは|違い|どういう|展示|所蔵|詳しく|くわしく/ };
+const knowAsk = { where: /どこ|場所|どの国|どの辺/, when: /いつ|何年|何月|何日|どのくらい前/, what: /何|なに|どんな|なんで|なぜ|教えて|知ってる|有名|って誰|とは|違い|どういう|展示|所蔵|詳しく|くわしく|いくつ|何個|何本|どのくらい/ };
 function knowledgeAnswer(rawText) {
   const text = rawText.slice(-30);
   const hit = knowledge.find((k) => k.re.test(text));
   if (!hit) return null;
-  const line = (list) => (list.length ? `${hit.name}は、${pickRandom(list)}` : null);
+  const line = (list) => (list.length ? knowSay(hit.name, pickRandom(list)) : null);
   if (knowAsk.where.test(text) && hit.where.length) return line(hit.where);
   if (knowAsk.when.test(text) && hit.when.length) return line(hit.when);
   if (hit.real.length && (knowAsk.what.test(text) || /モデル|元ネタ|本物/.test(text))) return `${hit.name}の${hit.real[0]}`;
   if (knowAsk.what.test(text)) {
     const all = [...hit.what, ...hit.where, ...hit.when];
-    return all.length ? `${hit.name}は、${all.slice(0, 2).join('。')}` : null;
+    return all.length ? all.slice(0, 2).map((t, i) => (i === 0 ? knowSay(hit.name, t) : t)).join('。') : null;
   }
   return null;
 }
@@ -32,7 +34,7 @@ const pickRandom = (list) => list[Math.floor(Math.random() * list.length)];
 
 // 話題のコメント
 const knowledgeRules = knowledge.filter((k) => !knowSkip.has(k.name)).map(({ name: n, group, what, where, when, real, re }) => {
-  const facts = [...what, ...where, ...when].map((t) => `ちなみに${n}は、${t}`);
+  const facts = [...what, ...where, ...when].map((t) => `ちなみに${knowSay(n, t)}`);
   const artFacts = real.map((t) => `ちなみに${n}の${t}`);
   const place = { 博物館: `${n}に行ってみたい？`, 美術品: `${n}の本物を見たい？`, 暮らし: `${n}は好き？`, 消防: `${n}って身近にある？` }[group];
   // 救急や消防は、ふざけた質問にしない

@@ -37,6 +37,7 @@
 - `research/`：知識の主張台帳（claims-*.tsv）と独立確認の結果（verdict-*.tsv）。`tools/build-knowledge.js` が、確認を通ったものだけを `knowledge-data.js` にする
 - `comments-knowledge.js`：博物館、美術品、カフェ、楽器、花、島、消防などの知識の答えと話題
 - `comments-persona.js` と `comments-gen-*.js`：話し方の決まった常連の視聴者（コメントの3割）、ユーモアの言い回し、追加の話題
+- `food-data.js`・`comments-food.js`：現実の食べ方と危険性（`tools/build-food.js` で、確認を通ったものだけを取り込む。身近な料理の約55件は個別の出典確認をしていない）
 - `game-data.js`：住民413人、生き物200種（南半球の月と時間、場所、影、天気、解禁の通算数、釣りやすさ・動きの速さ）、化石73件のデータ（`tools/build-data.js` で自動生成。手で書き換えない）
 - `comments-game.js`：データから住民・生き物・化石ごとのコメントを組み立てる。うんちく博士の豆知識、物知り島民の答えもここ
 - `tools/check.js`：件数・重複・誤反応・答えの確認（`--topics` で手書きの話題の判定語だけ表示）

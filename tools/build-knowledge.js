@@ -4,13 +4,16 @@ const fs = require('fs');
 const path = require('path');
 const dir = path.join(__dirname, '..', 'research');
 const readTsv = (f) => fs.readFileSync(path.join(dir, f), 'utf8').replace(/^﻿/, '').split(/\r?\n/).filter(Boolean).map((l) => l.split('\t'));
-const SETS = [['claims-museum.tsv', 'verdict-museum.tsv', '博物館'], ['claims-art.tsv', 'verdict-museum.tsv', '美術品'], ['claims-cafe.tsv', 'verdict-cafe.tsv', '暮らし'], ['claims-fire.tsv', 'verdict-fire.tsv', '消防']];
+const SETS = [['claims-museum.tsv', 'verdict-museum.tsv', '博物館'], ['claims-art.tsv', 'verdict-museum.tsv', '美術品'], ['claims-cafe.tsv', 'verdict-cafe.tsv', '暮らし'], ['claims-fire.tsv', 'verdict-fire.tsv', '消防'], ['claims-more.tsv', 'verdict-more.tsv', '暮らし']];
+// 再確認の結果があれば、最初の判定より優先する（ファイルがなければ使わない）
+const RECHECK = ['verdict-recheck.tsv', 'verdict-more2.tsv'].filter((n) => fs.existsSync(path.join(dir, n))).flatMap(readTsv);
+const recheck = new Map(RECHECK.map(([id, verdict, corrected]) => [id.trim(), { verdict: (verdict || '').trim().toLowerCase(), corrected: (corrected || '').trim() }]));
 const entries = new Map();
 const counts = { ok: 0, fix: 0, drop: 0, missing: [] };
 for (const [claimFile, verdictFile, group] of SETS) {
   const verdicts = new Map(readTsv(verdictFile).map(([id, verdict, corrected]) => [id, { verdict: (verdict || '').trim().toLowerCase(), corrected: (corrected || '').trim() }]));
   for (const [id, topic, field, text] of readTsv(claimFile)) {
-    const v = verdicts.get(id);
+    const v = recheck.get(id) || verdicts.get(id);
     if (!v) { counts.missing.push(id); continue; }
     if (v.verdict === 'drop') { counts.drop += 1; continue; }
     if (v.verdict === 'fix' && !v.corrected) { counts.missing.push(id + '（修正文なし）'); continue; }
