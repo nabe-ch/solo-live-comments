@@ -86,7 +86,7 @@ const mileAnswer = (rawText) => {
   const hit = MILE_FAQ.find(([re]) => re.test(text));
   return hit ? hit[1] : null;
 };
-const eventsAnswerAny = (text) => eventAnswer(text) || mileAnswer(text) || operationAnswer(text);
+const eventsAnswerAny = (text) => profileAnswer(text) || eventAnswer(text) || mileAnswer(text) || operationAnswer(text);
 
 // イベントの話題
 const ev = (name) => EVENTS.find((e) => e.name === name);
