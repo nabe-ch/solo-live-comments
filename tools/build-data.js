@@ -34,14 +34,14 @@ const jaTime = (t) => String(t || '').replace(/(\d+)(am|pm)/g, (_, h, m) => (Num
     const sameSpecies = (x, y) => x.toLowerCase().replace('bear cub', 'cub').replace('rhinoceros', 'rhino') === y.toLowerCase().replace('bear cub', 'cub').replace('rhinoceros', 'rhino');
     if (!sameSpecies(a.species, v.species) || a.gender !== v.gender) diff.push(`種族・性別 ${v.name}: ${a.species}/${a.gender} / ${v.species}/${v.gender}`);
   }
-  const creature = (kind) => (c) => [c.name['name-JPja'], kind, c.price, c.availability.location ? (PLACE[c.availability.location] || c.availability.location) : '', jaTime(c.availability.time), c.availability['month-northern'] || ''];
+  const creature = (kind) => (c) => [c.name['name-JPja'], kind, c.price, c.availability.location ? (PLACE[c.availability.location] || c.availability.location) : '', jaTime(c.availability.time), c.availability['month-southern'] || ''];
   const creatures = [
     ...(await getJson(API + 'fish.json')).map(creature('魚')),
     ...(await getJson(API + 'bugs.json')).map(creature('虫')),
     ...(await getJson(API + 'sea.json')).map(creature('海の幸'))
   ];
   const fossils = (await getJson(API + 'fossils.json')).map((f) => [f.name['name-JPja'], f.price]);
-  const body = `// 自動生成（tools/build-data.js）。手で書き換えない\n// 住民：[名前, 種族, 性別, 性格, 口癖, 誕生日, 趣味]\nconst VILLAGERS = ${JSON.stringify(villagers)};\n// 生き物：[名前, 種類, 売値, 場所, 時間, 月（北半球）]\nconst CREATURES = ${JSON.stringify(creatures)};\n// 化石：[名前, 売値]\nconst FOSSILS = ${JSON.stringify(fossils)};\n`;
+  const body = `// 自動生成（tools/build-data.js）。手で書き換えない\n// 住民：[名前, 種族, 性別, 性格, 口癖, 誕生日, 趣味]\nconst VILLAGERS = ${JSON.stringify(villagers)};\n// 生き物：[名前, 種類, 売値, 場所, 時間, 月（南半球）]\nconst CREATURES = ${JSON.stringify(creatures)};\n// 化石：[名前, 売値]\nconst FOSSILS = ${JSON.stringify(fossils)};\n`;
   fs.writeFileSync(path.join(__dirname, '..', 'game-data.js'), body, 'utf8');
   const unmapped = [...new Set(creatures.map((c) => c[3]).filter((p) => /[A-Za-z]/.test(p)))];
   const empty = villagers.filter((v) => v.some((x) => !x)).length;

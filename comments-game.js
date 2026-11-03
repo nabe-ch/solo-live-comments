@@ -61,7 +61,7 @@ const TRIVIA = {
   マンモス: ['マンモスは氷河期に暮らしていたゾウの仲間']
 };
 
-const months = (m) => m ? (m.includes('&') ? m.replace(/ & /g, '、').replace(/-/g, '〜') + '月（北半球）' : m.replace('-', '〜') + '月（北半球）') : '一年中';
+const months = (m) => m ? (m.includes('&') ? m.replace(/ & /g, '、').replace(/-/g, '〜') + '月（南半球）' : m.replace('-', '〜') + '月（南半球）') : '一年中';
 
 const villagerRule = ([n, sp, g, per, c, bd, hobby]) => ({
   re: nameRegex(n),
@@ -142,7 +142,7 @@ const GAME_FAQ = [
   [/(エイブル).*(何時|なんじ|いつまで|いつから)/, 'エイブルシスターズは9時〜21時'],
   [/カブ.*(いつ|何曜|どこ|誰).*(買|売)|カブ.*(買|売).*(いつ|何曜|どこ|誰)/, 'カブは日曜の朝5時〜12時にウリから買えて、タヌキ商店で売れる'],
   [/(住民|島民).*(何人|なんにん|最大)/, '島に住める住民は最大10人'],
-  [/(離島|マイルチケット).*(何マイル|なんマイル|いくら)/, 'マイルチケットは2000マイル']
+  [/(離島|マイルチケット|マイル旅行).*(何マイル|なんマイル|いくら)/, 'マイル旅行券は2000マイル']
 ];
 
 function answerQuestion(rawText) {
@@ -167,7 +167,7 @@ function answerQuestion(rawText) {
   if (kindWord && /今月|今の時期|この時期|今.*(何が|なにが|何の|どんな)/.test(text)) {
     const month = new Date().getMonth() + 1;
     const names = CREATURES.filter((c) => c[1] === kindWord && inMonth(c[5], month));
-    return `${month}月（北半球）の${kindWord}は${names.length}種類。たとえば${sample(names, 4).map((c) => c[0]).join('、')}（時間帯は別）`;
+    return `${month}月（南半球）の${kindWord}は${names.length}種類。たとえば${sample(names, 4).map((c) => c[0]).join('、')}（時間帯は別）`;
   }
   if (kindWord && /一番高い|いちばん高い|最高額|一番売れる/.test(text)) {
     const list = CREATURES.filter((c) => c[1] === kindWord);

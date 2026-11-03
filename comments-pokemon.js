@@ -70,4 +70,5 @@ function pokemonAnswer(rawText) {
   if (/どんな|何者|って何|ってなに|教えて|知ってる/.test(text)) return `${n}は図鑑${id}番、タイプは${types}、第${gen}世代`;
   return null;
 }
-const answerAny = (text) => answerQuestion(text) || pokemonAnswer(text);
+// イベントや操作を先に見る（「今の季節」を、直前に話した生き物の話と間違えないように）
+const answerAny = (text) => eventsAnswerAny(text) || answerQuestion(text) || pokemonAnswer(text);
