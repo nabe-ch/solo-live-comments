@@ -43,14 +43,16 @@ function askBack(text) {
 
 // 話題の名前では見つからないとき、説明文の中から探す（「スズメバチ」→ハチの説明、など）
 const ASSIST_STOP = new Set(['ゲーム', 'アイテム', 'ボタン', 'イベント', 'データ', 'おすすめ']);
+// 食べ方の説明。うんちくを頼まれたときは使わない（料理の話はうんちくとして出さない）
+const EAT_TEXTS = new Set(FOOD.filter((f) => f[1] === 'eat').map((f) => f[2]));
 const assistFacts = [
   ...knowledge.flatMap((k) => [...k.what, ...k.where, ...k.when, ...k.real].map((t) => [k.name, t])),
   ...FOOD.map(([name, , t]) => [name, t])
 ];
-function searchFacts(text) {
+function searchFacts(text, skipEat = false) {
   const words = (text.match(/[ァ-ヶー]{3,}|[一-龠々]{3,}/g) || []).filter((w) => !ASSIST_STOP.has(w)).sort((a, b) => b.length - a.length);
   for (const word of words) {
-    const hit = assistFacts.find(([, t]) => t.includes(word));
+    const hit = assistFacts.find(([, t]) => t.includes(word) && !(skipEat && EAT_TEXTS.has(t)));
     if (hit) return `関連する話なら、${knowSay(hit[0], hit[1])}`;
   }
   return null;
@@ -62,10 +64,10 @@ const TRIVIA_FILLER = /うんちく|ウンチク|蘊蓄|豆知識|まめちし�
 // 売値や場所より、話のネタになるものを先に出す
 const notGameInfo = (t) => !/売値|ベルで売れる|の場所は|が出るのは|の時間は|の影は|似てるポケモン|通算|誕生日|性格|趣味|口癖|釣りにくい|釣りやすい|動きは|の女の子|の男の子/.test(t);
 const triviaRecent = [];
+const isEatLine = (t) => [...EAT_TEXTS].some((e) => t.includes(e));
 function pickTrivia(pool) {
-  const lines = [...new Set(pool)];
-  const good = lines.filter(notGameInfo);
-  const base = good.length ? good : lines;
+  const base = [...new Set(pool)].filter((t) => notGameInfo(t) && !isEatLine(t));
+  if (!base.length) return null;
   const fresh = base.filter((t) => !triviaRecent.includes(t));
   const line = pickRandom(fresh.length ? fresh : base);
   triviaRecent.push(line);
@@ -82,8 +84,9 @@ function triviaAnswer(said) {
     ...RULES.filter((r) => r.u && r.u.length && r.re.test(asked)).flatMap((r) => r.u),
     ...knowledge.filter((k) => k.re.test(asked)).flatMap((k) => [...k.what, ...k.where, ...k.when].map((t) => knowSay(k.name, t)))
   ];
-  if (pool.length) return { type: 'answer', text: pickTrivia(pool) };
-  const related = searchFacts(topic);
+  const line = pickTrivia(pool);
+  if (line) return { type: 'answer', text: line };
+  const related = pool.length ? null : searchFacts(topic, true);
   return related ? { type: 'answer', text: related } : { type: 'unknown', text: `${topic}のうんちくは、まだ知りません。質問を残しました` };
 }
 

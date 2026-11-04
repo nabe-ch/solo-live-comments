@@ -32,7 +32,7 @@ const badQa = Object.entries(QA).filter(([q, a]) => !String(ctx.answerAny(q)).in
 if (process.argv.includes('--topics')) { console.log(hand.map((r) => r.re.source).join('\n')); process.exit(0); }
 console.log(JSON.stringify({ topics: RULES.length, handTotal, gameTotal, pokeTotal, personaTotal, styleTotal, total: handTotal + gameTotal + pokeTotal + personaTotal + styleTotal, duplicates: dup.length, misfire, badQa, badPoke, badLook, unusedLook }, null, 1));
 // 質問モード：答えに含まれるべき言葉（空文字は「反応しない」）
-const ASSIST = { カツオのうんちく: 'まだ知りません', スズキっていくらで売れるの: '400', すずきのねだん: '400', たらんちゅらのじきは: '5〜10月', シーラカンスっていつ釣れるの: '雨', モナリザってどこにあるの: 'ルーブル', 消火器の使い方教えて: '安全ピン', エビフライってどこの料理: 'まだ知りません', この魚いくら: '名前で', 明日の天気は: 'まだ知りません', たぬきちって誰: 'たぬきち', イーブイの進化先教えて: 'シャワーズ', どうしようかな: '', そうなんですよ: '', ちょっと待って: '', 何か釣れた: '', タランチュラ釣れた: '' };
+const ASSIST = { アジのうんちく: 'まだ知りません', スズキの豆知識: 'まだ知りません', アジの食べ方教えて: '塩焼き', カツオのうんちく: 'まだ知りません', スズキっていくらで売れるの: '400', すずきのねだん: '400', たらんちゅらのじきは: '5〜10月', シーラカンスっていつ釣れるの: '雨', モナリザってどこにあるの: 'ルーブル', 消火器の使い方教えて: '安全ピン', エビフライってどこの料理: 'まだ知りません', この魚いくら: '名前で', 明日の天気は: 'まだ知りません', たぬきちって誰: 'たぬきち', イーブイの進化先教えて: 'シャワーズ', どうしようかな: '', そうなんですよ: '', ちょっと待って: '', 何か釣れた: '', タランチュラ釣れた: '' };
 const badTrivia = ['うんちく', 'うんちく教えて', '何かうんちくある', 'タランチュラのうんちく', 'ピアノの豆知識教えて', 'コーヒーのうんちく聞かせて', '化石のうんちく'].filter((q) => { const r = ctx.assist(q); return !r || r.type !== 'answer'; });
 if (badTrivia.length) console.log('うんちくの誤り', badTrivia.join(' / '));
 const badAssist = Object.entries(ASSIST).filter(([q, a]) => { const r = ctx.assist(q); return a ? !(r && r.text.includes(a)) : r !== null; }).map(([q]) => q);
