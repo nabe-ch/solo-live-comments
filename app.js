@@ -1,6 +1,8 @@
 // ひとり配信コメント：声を聞き取り、配信風のコメントを流す（すべてこの端末の画面だけに表示する）
 const $ = (id) => document.getElementById(id);
 const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+// ホーム画面からアプリとして開いたか（iPhoneでは、この形だと声が使えないことがある）
+const HOME_SCREEN = window.navigator.standalone === true || window.matchMedia('(display-mode: standalone)').matches;
 const COOLDOWN_MS = 8000;   // 同じ話題に続けて反応しない時間（聞き取り途中の文字で連発しないため）
 const SILENCE_MS = 15000;   // これだけ黙ると「おーい」系を出す
 const MAX_ROWS = 80;
@@ -226,6 +228,7 @@ function askNow(question) {
   if (!result) return;
   state.lastAsk = question;
   state.lastAskAt = now;
+  document.querySelectorAll('#chat li.hint').forEach((h) => h.remove());
   showAnswer(question, result);
   if (result.type === 'unknown') addMissed(question);
 }
@@ -259,6 +262,7 @@ function addMissed(question) {
 }
 function renderMissed(list = readMissed()) {
   $('missedCount').textContent = list.length;
+  $('missedCount').dataset.empty = String(list.length === 0);
   $('missedList').replaceChildren(...list.map((q) => { const li = document.createElement('li'); li.textContent = q; return li; }));
 }
 
@@ -266,7 +270,7 @@ function renderMissed(list = readMissed()) {
 function setMode(mode) {
   state.mode = mode;
   document.body.dataset.mode = mode;
-  $('mode').value = mode;
+  document.querySelectorAll('.modeSwitch button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.mode === mode)));
   endThread();
   try { localStorage.setItem('mode', mode); } catch (e) { /* 保存できなくても動く */ }
 }
@@ -304,7 +308,7 @@ function startRecognition() {
       // 別のアプリから戻った直後にも出るので、画面が表に出ているときだけ止める
       if (document.visibilityState === 'visible') {
         stop(true);
-        setStatus(`許可されていません（${e.error}）。iPhoneの設定でマイクと音声認識を確認`, false);
+        setStatus(HOME_SCREEN ? 'ホーム画面から開くと声が使えません。Safariで開いてください' : `許可されていません（${e.error}）。iPhoneの設定でマイクと音声認識を確認`, false);
       }
       return;
     }
@@ -340,13 +344,14 @@ async function keepScreenOn() {
 }
 
 function start() {
-  if (!SR) { setStatus('この環境は音声認識に未対応（試し入力は使えます）', false); return; }
+  if (!SR) { setStatus(HOME_SCREEN ? 'ホーム画面から開くと声が使えません。Safariで開いてください' : 'この環境は声が使えません。文字で聞けます', false); return; }
   state.running = true;
   state.reconnects = 0;
   state.lastError = '';
   state.lastResultAt = Date.now();
   state.lastHeard = Date.now();
-  $('toggle').textContent = '停止';
+  $('toggleLabel').textContent = '停止';
+  document.body.dataset.listening = 'true';
   setStatus('● 聞いています', true);
   keepScreenOn();
   startRecognition();
@@ -371,7 +376,8 @@ function stop(silent = false) {
   clearTimeout(state.reconnectTimer);
   if (state.rec) { state.rec.onend = null; try { state.rec.abort(); } catch (e) { /* すでに止まっている */ } state.rec = null; }
   if (state.wakeLock) { state.wakeLock.release().catch(() => {}); state.wakeLock = null; }
-  $('toggle').textContent = '開始';
+  $('toggleLabel').textContent = '開始';
+  document.body.dataset.listening = 'false';
   setStatus('停止中', false);
   if (wasRunning) pickSome(STREAM.close, 4).forEach((text, i) => setTimeout(() => post({ text }), 300 + i * 800));
 }
@@ -402,7 +408,16 @@ $('testForm').addEventListener('submit', (e) => {
   if (state.mode === 'ask') askNow(text); else react(text);
   $('testInput').value = '';
 });
-$('mode').addEventListener('change', (e) => setMode(e.target.value));
+document.querySelectorAll('.modeSwitch button').forEach((b) => b.addEventListener('click', () => setMode(b.dataset.mode)));
+// 文字で聞く欄の開閉
+$('typeToggle').addEventListener('click', () => {
+  const form = $('testForm');
+  form.hidden = !form.hidden;
+  $('typeToggle').setAttribute('aria-expanded', String(!form.hidden));
+  if (!form.hidden) $('testInput').focus();
+});
+$('missedOpen').addEventListener('click', () => $('missed').showModal());
+$('missedClose').addEventListener('click', () => $('missed').close());
 $('missedCopy').addEventListener('click', async () => {
   try { await navigator.clipboard.writeText(readMissed().join('\n')); setStatus('コピーしました', state.running); } catch (e) { setStatus('コピーできませんでした', state.running); }
 });
@@ -416,7 +431,10 @@ $('missedClear').addEventListener('click', () => { if (confirm('答えられな�
   if (state.mode === 'ask') {
     const hint = document.createElement('li');
     hint.className = 'hint';
-    hint.textContent = '「開始」を押して質問すると、ここに答えが出ます。例：タランチュラっていくら';
+    hint.append('下の丸いボタンを押して、声で聞いてください。');
+    const example = document.createElement('b');
+    example.textContent = '「タランチュラっていくら」';
+    hint.append(example);
     $('chat').append(hint);
   }
 }
@@ -427,5 +445,7 @@ document.addEventListener('visibilitychange', () => {
   state.lastResultAt = Date.now();
   restartRecognition();
 });
+// 2回目から速く開けるようにする
+if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
 // プログラムのエラーも画面に出す（読み込みの失敗に気づけるように）
 window.addEventListener('error', (e) => setStatus(`エラー：${e.message}`, false));

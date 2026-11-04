@@ -3,20 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#0f0f0f">
+<meta name="theme-color" content="#0e3a47">
+<meta name="description" content="ゲームをしながら声で質問すると、その場で答えを表示する実況の相棒">
 <title>ひとり配信コメント</title>
-<link rel="stylesheet" href="style.css?v=202611040632">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icons/favicon-32.png">
+<link rel="stylesheet" href="style.css?v=202611040637">
 </head>
 <body>
 <header>
-  <button id="toggle" type="button">開始</button>
-  <span id="status">停止中</span>
-  <label>使い方
-    <select id="mode">
-      <option value="ask" selected>質問</option>
-      <option value="stream">配信</option>
-    </select>
-  </label>
+  <h1 class="appName">ひとり配信コメント</h1>
   <label id="amountLabel">量
     <select id="amount">
       <option value="0.5">少なめ</option>
@@ -24,59 +20,74 @@
       <option value="2">多め</option>
     </select>
   </label>
+  <div class="modeSwitch" role="group" aria-label="使い方">
+    <button type="button" data-mode="ask" aria-pressed="true">質問</button>
+    <button type="button" data-mode="stream" aria-pressed="false">配信</button>
+  </div>
 </header>
-<ul id="chat" aria-live="off"></ul>
+<ul id="chat" aria-live="polite"></ul>
 <footer>
-  <details id="missed">
-    <summary>答えられなかった質問（<span id="missedCount">0</span>）</summary>
-    <ul id="missedList"></ul>
-    <div class="missedActions"><button id="missedCopy" type="button">コピー</button><button id="missedClear" type="button">消す</button></div>
-  </details>
-  <p id="heard">聞き取った声がここに出ます</p>
-  <form id="testForm">
-    <input id="testInput" type="text" placeholder="試し入力（例：タランチュラいくら）" autocomplete="off">
+  <p id="status">停止中</p>
+  <p id="heard"></p>
+  <div class="controls">
+    <button id="typeToggle" class="sideButton" type="button" aria-expanded="false" aria-controls="testForm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2.5"/><path d="M7 10h.01M11 10h.01M15 10h.01M8 14h8"/></svg>文字で聞く</button>
+    <button id="toggle" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg><span id="toggleLabel">開始</span></button>
+    <button id="missedOpen" class="sideButton" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM9 8h6M9 12h6M9 16h3"/></svg>答えられず<span id="missedCount" data-empty="true">0</span></button>
+  </div>
+  <form id="testForm" hidden>
+    <input id="testInput" type="text" placeholder="例：タランチュラっていくら" autocomplete="off" aria-label="質問を文字で入力">
     <button type="submit">送る</button>
   </form>
 </footer>
-<script src="comments.js?v=202611040632"></script>
-<script src="comments-extra.js?v=202611040632"></script>
-<script src="comments-deep.js?v=202611040632"></script>
-<script src="comments-aruaru.js?v=202611040632"></script>
-<script src="comments-jump.js?v=202611040632"></script>
-<script src="comments-more.js?v=202611040632"></script>
-<script src="comments-more2.js?v=202611040632"></script>
-<script src="comments-more3.js?v=202611040632"></script>
-<script src="comments-more4.js?v=202611040632"></script>
-<script src="comments-sage.js?v=202611040632"></script>
-<script src="comments-more5.js?v=202611040632"></script>
-<script src="comments-style2.js?v=202611040632"></script>
-<script src="comments-stream.js?v=202611040632"></script>
-<script src="comments-persona.js?v=202611040632"></script>
-<script src="comments-gen-persona.js?v=202611040632"></script>
-<script src="comments-gen-humor.js?v=202611040632"></script>
-<script src="comments-gen-humor2.js?v=202611040632"></script>
-<script src="comments-gen-persona2.js?v=202611040632"></script>
-<script src="comments-gen-talk.js?v=202611040632"></script>
-<script src="comments-gen-persona3.js?v=202611040632"></script>
-<script src="comments-gen-scene.js?v=202611040632"></script>
-<script src="comments-gen-daily.js?v=202611040632"></script>
-<script src="comments-auto.js?v=202611040632"></script>
-<script src="game-data.js?v=202611040632"></script>
-<script src="comments-game.js?v=202611040632"></script>
-<script src="comments-profile.js?v=202611040632"></script>
-<script src="comments-events.js?v=202611040632"></script>
-<script src="pokemon-data.js?v=202611040632"></script>
-<script src="comments-pokemon.js?v=202611040632"></script>
-<script src="knowledge-data.js?v=202611040632"></script>
-<script src="comments-knowledge.js?v=202611040632"></script>
-<script src="food-data.js?v=202611040632"></script>
-<script src="comments-food.js?v=202611040632"></script>
-<script src="creature-data.js?v=202611040632"></script>
-<script src="topic-data.js?v=202611040632"></script>
-<script src="howto-data.js?v=202611040632"></script>
-<script src="eco-data.js?v=202611040632"></script>
-<script src="comments-creature.js?v=202611040632"></script>
-<script src="comments-assistant.js?v=202611040632"></script>
-<script src="app.js?v=202611040632"></script>
+<dialog id="missed">
+  <h2>答えられなかった質問</h2>
+  <p>コピーしてClaudeに送ると、次の追加に使えます。この一覧はこのiPhoneの中だけにあります。</p>
+  <ul id="missedList"></ul>
+  <div class="missedActions">
+    <button id="missedCopy" type="button">コピー</button>
+    <button id="missedClear" type="button">消す</button>
+    <button id="missedClose" type="button">閉じる</button>
+  </div>
+</dialog>
+<script src="comments.js?v=202611040637"></script>
+<script src="comments-extra.js?v=202611040637"></script>
+<script src="comments-deep.js?v=202611040637"></script>
+<script src="comments-aruaru.js?v=202611040637"></script>
+<script src="comments-jump.js?v=202611040637"></script>
+<script src="comments-more.js?v=202611040637"></script>
+<script src="comments-more2.js?v=202611040637"></script>
+<script src="comments-more3.js?v=202611040637"></script>
+<script src="comments-more4.js?v=202611040637"></script>
+<script src="comments-sage.js?v=202611040637"></script>
+<script src="comments-more5.js?v=202611040637"></script>
+<script src="comments-style2.js?v=202611040637"></script>
+<script src="comments-stream.js?v=202611040637"></script>
+<script src="comments-persona.js?v=202611040637"></script>
+<script src="comments-gen-persona.js?v=202611040637"></script>
+<script src="comments-gen-humor.js?v=202611040637"></script>
+<script src="comments-gen-humor2.js?v=202611040637"></script>
+<script src="comments-gen-persona2.js?v=202611040637"></script>
+<script src="comments-gen-talk.js?v=202611040637"></script>
+<script src="comments-gen-persona3.js?v=202611040637"></script>
+<script src="comments-gen-scene.js?v=202611040637"></script>
+<script src="comments-gen-daily.js?v=202611040637"></script>
+<script src="comments-auto.js?v=202611040637"></script>
+<script src="game-data.js?v=202611040637"></script>
+<script src="comments-game.js?v=202611040637"></script>
+<script src="comments-profile.js?v=202611040637"></script>
+<script src="comments-events.js?v=202611040637"></script>
+<script src="pokemon-data.js?v=202611040637"></script>
+<script src="comments-pokemon.js?v=202611040637"></script>
+<script src="knowledge-data.js?v=202611040637"></script>
+<script src="comments-knowledge.js?v=202611040637"></script>
+<script src="food-data.js?v=202611040637"></script>
+<script src="comments-food.js?v=202611040637"></script>
+<script src="creature-data.js?v=202611040637"></script>
+<script src="topic-data.js?v=202611040637"></script>
+<script src="howto-data.js?v=202611040637"></script>
+<script src="eco-data.js?v=202611040637"></script>
+<script src="comments-creature.js?v=202611040637"></script>
+<script src="comments-assistant.js?v=202611040637"></script>
+<script src="app.js?v=202611040637"></script>
 </body>
 </html>

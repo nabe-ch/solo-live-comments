@@ -1,34 +1,93 @@
-:root { --bg: #0f0f0f; --panel: #1c1c1c; --line: #333; --text: #f1f1f1; --muted: #aaa; --accent: #ff4e45; --question: #ffd54a; }
+/* 夜の海の色。遊びながら横に置いて、一目で読めることを最優先にする */
+:root {
+  --sea: #0e3a47;
+  --sea-deep: #0a2c37;
+  --tide: #1c5a66;
+  --sand: #fbeec1;
+  --foam: #b9d6d6;
+  --coral: #ff7a8a;
+  --sun: #ffd166;
+  --leaf: #a8ecc0;
+  --sky: #9bd8ff;
+}
 * { box-sizing: border-box; }
 html, body { height: 100%; margin: 0; }
-body { display: flex; flex-direction: column; height: 100dvh; background: var(--bg); color: var(--text); font-family: -apple-system, "Hiragino Sans", "BIZ UDPGothic", sans-serif; }
-header { display: flex; align-items: center; gap: 12px; padding: calc(env(safe-area-inset-top) + 8px) 16px 8px; background: var(--panel); border-bottom: 1px solid var(--line); }
-#status { flex: 1; font-size: 14px; color: var(--muted); min-width: 0; }
-#status.on { color: var(--accent); font-weight: 700; }
-label { font-size: 14px; color: var(--muted); }
-select, input, button { font: inherit; font-size: 16px; color: var(--text); background: #2a2a2a; border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; }
-#toggle { background: var(--accent); border-color: var(--accent); font-weight: 700; color: #fff; }
-#chat { flex: 1; min-height: 0; margin: 0; padding: 8px 16px; list-style: none; overflow-y: auto; }
-#chat li { padding: 5px 0; font-size: 18px; line-height: 1.4; overflow-wrap: anywhere; }
-#chat .name { margin-right: 8px; font-size: 14px; color: var(--muted); }
-#chat li.q { color: var(--question); font-weight: 700; }
-#chat li.u, #chat li.comeback { color: #8fd4ff; }
-#chat li.a, #chat li.g { color: #9fe8a8; font-weight: 700; }
-footer { padding: 8px 16px calc(env(safe-area-inset-bottom) + 8px); background: var(--panel); border-top: 1px solid var(--line); }
-#heard { margin: 0 0 8px; font-size: 13px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-#testForm { display: flex; gap: 8px; }
-#testInput { flex: 1; min-width: 0; }
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  background: var(--sea);
+  color: var(--sand);
+  font-family: "Hiragino Maru Gothic ProN", "Hiragino Sans", "BIZ UDPGothic", "Yu Gothic UI", sans-serif;
+  -webkit-text-size-adjust: 100%;
+  touch-action: manipulation;
+}
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--sun); outline-offset: 2px; }
 
-/* 質問モード：答えを大きく見せる */
+/* 上の帯 */
+header { display: flex; align-items: center; gap: 12px; padding: calc(env(safe-area-inset-top) + 10px) 16px 10px; }
+.appName { flex: 1; min-width: 0; margin: 0; font-size: 15px; font-weight: 400; color: var(--foam); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.modeSwitch { display: flex; padding: 3px; background: var(--sea-deep); border-radius: 999px; }
+.modeSwitch button { min-height: 36px; padding: 0 16px; background: none; border: 0; border-radius: 999px; font-size: 15px; color: var(--foam); }
+.modeSwitch button[aria-pressed="true"] { background: var(--sand); color: var(--sea-deep); font-weight: 700; }
+#amountLabel { display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--foam); }
+#amount { min-height: 36px; padding: 0 6px; background: var(--sea-deep); border: 0; border-radius: 10px; font-size: 16px; }
 body[data-mode="ask"] #amountLabel { display: none; }
-#chat li.card { padding: 10px 0; border-bottom: 1px solid var(--line); }
-#chat .said { display: block; margin-bottom: 4px; font-size: 14px; color: var(--muted); }
-#chat .reply { display: block; font-size: 24px; line-height: 1.4; font-weight: 700; color: #9fe8a8; }
-#chat li.clarify .reply { color: var(--question); }
-#chat li.unknown .reply { font-size: 18px; font-weight: 400; color: var(--muted); }
-#chat li.hint { color: var(--muted); }
-header { flex-wrap: wrap; }
-#missed { margin-bottom: 8px; font-size: 14px; color: var(--muted); }
-body[data-mode="stream"] #missed { display: none; }
-#missedList { max-height: 30dvh; margin: 8px 0; padding-left: 20px; overflow-y: auto; }
-.missedActions { display: flex; gap: 8px; }
+
+/* 答えの流れ */
+#chat { flex: 1; min-height: 0; margin: 0; padding: 8px 20px 16px; list-style: none; overflow-y: auto; overscroll-behavior: contain; }
+#chat li { overflow-wrap: anywhere; }
+#chat li.hint { margin-top: 24vh; font-size: 22px; line-height: 1.6; color: var(--foam); }
+#chat li.hint b { display: block; margin-top: 12px; font-weight: 700; color: var(--sand); }
+
+/* 質問モード：最新の答えだけを大きく、前の答えは小さく薄く */
+#chat li.card { padding: 12px 0; }
+#chat .said { display: block; margin-bottom: 4px; font-size: 14px; line-height: 1.5; color: var(--foam); }
+#chat .reply { display: block; font-size: 17px; line-height: 1.55; color: var(--foam); }
+#chat li.card:last-child { padding-top: 20px; }
+#chat li.card:last-child .said { font-size: 16px; }
+#chat li.card:last-child .reply { font-size: clamp(26px, 7.4vw, 40px); line-height: 1.45; font-weight: 700; color: var(--sand); }
+#chat li.card.clarify:last-child .reply { color: var(--sun); }
+#chat li.card.unknown:last-child .reply { font-size: 21px; font-weight: 400; color: var(--foam); }
+
+/* 配信モード：コメントが流れる */
+#chat li:not(.card):not(.hint) { padding: 5px 0; font-size: 18px; line-height: 1.45; }
+#chat .name { margin-right: 8px; font-size: 13px; color: var(--foam); }
+#chat li.q { color: var(--sun); font-weight: 700; }
+#chat li.u, #chat li.comeback { color: var(--sky); }
+#chat li.a, #chat li.g { color: var(--leaf); font-weight: 700; }
+
+/* 下の操作 */
+footer { padding: 10px 16px calc(env(safe-area-inset-bottom) + 12px); background: var(--sea-deep); border-radius: 28px 28px 0 0; }
+#status { margin: 0; font-size: 14px; text-align: center; color: var(--foam); }
+#status.on { color: var(--coral); font-weight: 700; }
+#heard { min-height: 1.5em; margin: 2px 0 10px; font-size: 14px; text-align: center; color: var(--foam); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.controls { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; }
+.sideButton { justify-self: center; position: relative; display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 64px; min-height: 56px; padding: 6px; background: none; border: 0; border-radius: 16px; font-size: 12px; color: var(--foam); }
+.sideButton svg { width: 26px; height: 26px; }
+.sideButton[aria-expanded="true"] { color: var(--sand); background: var(--tide); }
+#missedCount { position: absolute; top: 0; right: 6px; min-width: 20px; padding: 1px 5px; background: var(--coral); border-radius: 999px; font-size: 12px; font-weight: 700; color: var(--sea-deep); }
+#missedCount[data-empty="true"] { display: none; }
+#toggle { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 88px; height: 88px; background: var(--sand); border: 0; border-radius: 50%; font-size: 14px; font-weight: 700; color: var(--sea-deep); }
+#toggle svg { width: 34px; height: 34px; }
+body[data-listening="true"] #toggle { background: var(--coral); }
+body[data-listening="true"] #toggle::after { content: ""; position: absolute; inset: -8px; border: 3px solid var(--coral); border-radius: 50%; animation: listening 1.8s ease-out infinite; }
+@keyframes listening { from { transform: scale(0.92); opacity: 1; } to { transform: scale(1.2); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { body[data-listening="true"] #toggle::after { animation: none; transform: scale(1.04); } }
+
+#testForm { display: flex; gap: 8px; margin-top: 12px; }
+#testForm[hidden] { display: none; }
+#testInput { flex: 1; min-width: 0; min-height: 44px; padding: 0 14px; background: var(--sea); border: 0; border-radius: 14px; font-size: 16px; color: var(--sand); }
+#testInput::placeholder { color: var(--foam); }
+#testForm button { min-height: 44px; padding: 0 16px; background: var(--sand); border: 0; border-radius: 14px; font-weight: 700; color: var(--sea-deep); }
+
+/* 答えられなかった質問 */
+#missed { width: min(100vw - 32px, 480px); max-height: 75dvh; padding: 20px; background: var(--sea-deep); border: 0; border-radius: 24px; color: var(--sand); }
+#missed::backdrop { background: rgba(5, 25, 32, 0.7); }
+#missed h2 { margin: 0 0 4px; font-size: 18px; }
+#missed p { margin: 0 0 12px; font-size: 14px; line-height: 1.5; color: var(--foam); }
+#missedList { max-height: 40dvh; margin: 0 0 16px; padding-left: 20px; overflow-y: auto; font-size: 16px; line-height: 1.7; }
+.missedActions { display: flex; flex-wrap: wrap; gap: 8px; }
+.missedActions button { flex: 1; min-height: 44px; background: var(--tide); border: 0; border-radius: 14px; }
+.missedActions #missedClose { background: var(--sand); font-weight: 700; color: var(--sea-deep); }
