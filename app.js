@@ -20,7 +20,7 @@ const MISSED_MAX = 100;      // 残しておく「答えられなかった質問
 const START_TIMEOUT_MS = 4000;   // これだけ待っても認識が始まらなければ、作り直す
 const END_TIMEOUT_MS = 1500;     // 終わるのをこれだけ待っても終わらなければ、強制的に終わらせる
 const NO_RESULT_RESTART_MS = 25000; // 声が届かないまま、この時間がたったら音声認識を作り直す
-const state = { reconnects: 0, lastError: '', lastResultAt: 0, recOpenedAt: 0, reconnectTimer: null, running: false, rec: null, lastText: '', lastHeard: 0, lastSilence: 0, lastGeneric: 0, lastAnswer: '', lastAnswerAt: 0, lastTatoe: 0, lastViewerReply: 0, lastStreamWord: 0, ruleAt: new Map(), recent: [], wakeLock: null, thread: null, ending: false, startTimer: null, startRetries: 0, mode: 'ask', askText: '', askDone: '', askFinal: false, askTimer: null, lastAsk: '', lastAskAt: 0 };
+const state = { reconnects: 0, lastError: '', lastResultAt: 0, recOpenedAt: 0, reconnectTimer: null, running: false, rec: null, lastText: '', lastHeard: 0, lastSilence: 0, lastGeneric: 0, lastAnswer: '', lastAnswerAt: 0, lastTatoe: 0, lastViewerReply: 0, lastStreamWord: 0, ruleAt: new Map(), recent: [], wakeLock: null, thread: null, recObj: null, notes: [], gotResult: false, ending: false, startTimer: null, startRetries: 0, mode: 'ask', askText: '', askDone: '', askFinal: false, askTimer: null, lastAsk: '', lastAskAt: 0 };
 const pickFrom = (arr) => arr[Math.floor(Math.random() * arr.length)];
 const amount = () => Number($('amount').value);
 
@@ -291,22 +291,39 @@ function handleTranscript(text, isFinal = false) {
 }
 
 function startRecognition() {
-  const rec = new SR();
+  // 同じ認識を使い回す（毎回作り直すと、iPhoneで2回目が動かないことがあるため）
+  const reused = !!state.recObj;
+  const rec = state.recObj || new SR();
+  state.recObj = rec;
+  note(reused ? '開始（再利用）' : '開始（新規）');
+  rec.onaudiostart = () => note('マイク');
+  rec.onspeechstart = () => note('声');
+  rec.onnomatch = () => note('聞き取れず');
   rec.lang = 'ja-JP';
   rec.continuous = true;
   rec.interimResults = true;
   rec.onresult = (e) => {
     state.lastResultAt = Date.now();
     state.lastError = '';
+    if (!state.gotResult) { state.gotResult = true; note('文字'); }
     setStatus('● 聞いています', true);
     const r = e.results[e.results.length - 1];
     handleTranscript(r[0].transcript, r.isFinal);
     if (r.isFinal) state.lastText = '';
   };
-  rec.onstart = () => { clearTimeout(state.startTimer); state.recOpenedAt = Date.now(); setStatus('● 聞いています', true); };
+  rec.onstart = () => { note('始まった'); clearTimeout(state.startTimer); state.recOpenedAt = Date.now(); setStatus('● 聞いています', true); };
   rec.onerror = (e) => {
     state.lastError = e.error;
+    note(`エラー:${e.error}`);
     if (e.error === 'not-allowed' || e.error === 'service-not-allowed') {
+      // 2回目で断られたときは、作り直して1回だけ試す
+      if (state.running && state.startRetries < 1 && document.visibilityState === 'visible') {
+        state.startRetries += 1;
+        state.recObj = null;
+        state.rec = null;
+        reconnect();
+        return;
+      }
       // 別のアプリから戻った直後にも出るので、画面が表に出ているときだけ止める
       if (document.visibilityState === 'visible') {
         stop(true);
@@ -317,7 +334,7 @@ function startRecognition() {
     if (e.error !== 'no-speech' && e.error !== 'aborted') setStatus(`聞き取りエラー（${e.error}）。つなぎ直します`, false);
   };
   // iPhoneでは途中で止まることがあるので、動かしている間は自動でつなぎ直す
-  rec.onend = () => { if (state.mode === 'ask') { flushAsk(); state.askDone = ''; state.askText = ''; } state.lastText = ''; if (state.rec === rec) state.rec = null; if (state.running) reconnect(); };
+  rec.onend = () => { note('終了'); if (state.mode === 'ask') { flushAsk(); state.askDone = ''; state.askText = ''; } state.lastText = ''; if (state.rec === rec) state.rec = null; if (state.running) reconnect(); };
   state.rec = rec;
   // 始まらないまま止まっているときは、1回作り直し、それでもだめなら案内を出す
   clearTimeout(state.startTimer);
@@ -325,9 +342,11 @@ function startRecognition() {
     if (!state.running || state.rec !== rec) return;
     if (state.startRetries >= 1) { setStatus('声の準備が止まりました。Safariのこのタブを閉じて開き直してください', false); return; }
     state.startRetries += 1;
+    note('始まらない');
+    state.recObj = null;
     restartRecognition();
   }, START_TIMEOUT_MS);
-  try { rec.start(); } catch (e) { state.lastError = e.name; state.rec = null; reconnect(); }
+  try { rec.start(); } catch (e) { note(`開始失敗:${e.name}`); state.lastError = e.name; state.rec = null; state.recObj = null; reconnect(); }
 }
 
 // 認識をきちんと終わらせる。iPhoneでは強制終了（abort）のあとに動かなくなることがあるので、まず stop で頼む
@@ -340,6 +359,7 @@ function endRecognition() {
   const finish = () => {
     if (done) return;
     done = true;
+    note('終了');
     state.ending = false;
     // 終わるのを待っている間に開始されていたら、ここで始める
     if (state.running && !state.rec) startRecognition();
@@ -348,9 +368,12 @@ function endRecognition() {
   rec.onresult = null;
   rec.onerror = null;
   rec.onend = finish;
+  note('停止を依頼');
   try { rec.stop(); } catch (e) { finish(); return; }
   setTimeout(() => {
     if (done) return;
+    note('強制終了');
+    state.recObj = null;
     try { rec.abort(); } catch (e) { /* すでに止まっている */ }
     finish();
   }, END_TIMEOUT_MS);
@@ -372,6 +395,13 @@ function restartRecognition() {
   else if (!state.ending) reconnect();
 }
 
+// 音声認識で起きたことを、順に画面に出す（実機でしか起きない不具合を調べるため）
+function note(text) {
+  state.notes.push(text);
+  if (state.notes.length > 12) state.notes.shift();
+  $('notes').textContent = state.notes.join(' > ');
+}
+
 function setStatus(text, on) {
   $('status').textContent = text;
   $('status').className = on ? 'on' : '';
@@ -391,6 +421,8 @@ function start() {
   $('toggleLabel').textContent = '停止';
   document.body.dataset.listening = 'true';
   state.startRetries = 0;
+  state.gotResult = false;
+  note('ボタン:開始');
   state.askDone = '';
   state.askText = '';
   state.lastText = '';
@@ -500,6 +532,7 @@ window.addEventListener('pagehide', () => {
   const rec = state.rec;
   state.running = false;
   state.rec = null;
+  state.recObj = null;
   if (!rec) return;
   rec.onend = null;
   try { rec.abort(); } catch (e) { /* すでに止まっている */ }

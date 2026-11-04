@@ -91,3 +91,4 @@ body[data-listening="true"] #toggle::after { content: ""; position: absolute; in
 .missedActions { display: flex; flex-wrap: wrap; gap: 8px; }
 .missedActions button { flex: 1; min-height: 44px; background: var(--tide); border: 0; border-radius: 14px; }
 .missedActions #missedClose { background: var(--sand); font-weight: 700; color: var(--sea-deep); }
+#notes { min-height: 1.4em; margin: -6px 0 10px; font-size: 11px; line-height: 1.4; text-align: center; color: var(--foam); overflow-wrap: anywhere; }

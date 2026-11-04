@@ -8,7 +8,7 @@
 <title>ひとり配信コメント</title>
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" href="icons/favicon-32.png">
-<link rel="stylesheet" href="style.css?v=202611040648">
+<link rel="stylesheet" href="style.css?v=202611040658">
 </head>
 <body>
 <header>
@@ -29,6 +29,7 @@
 <footer>
   <p id="status">停止中</p>
   <p id="heard"></p>
+  <p id="notes"></p>
   <div class="controls">
     <button id="typeToggle" class="sideButton" type="button" aria-expanded="false" aria-controls="testForm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2.5"/><path d="M7 10h.01M11 10h.01M15 10h.01M8 14h8"/></svg>文字で聞く</button>
     <button id="toggle" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg><span id="toggleLabel">開始</span></button>
@@ -49,45 +50,45 @@
     <button id="missedClose" type="button">閉じる</button>
   </div>
 </dialog>
-<script src="comments.js?v=202611040648"></script>
-<script src="comments-extra.js?v=202611040648"></script>
-<script src="comments-deep.js?v=202611040648"></script>
-<script src="comments-aruaru.js?v=202611040648"></script>
-<script src="comments-jump.js?v=202611040648"></script>
-<script src="comments-more.js?v=202611040648"></script>
-<script src="comments-more2.js?v=202611040648"></script>
-<script src="comments-more3.js?v=202611040648"></script>
-<script src="comments-more4.js?v=202611040648"></script>
-<script src="comments-sage.js?v=202611040648"></script>
-<script src="comments-more5.js?v=202611040648"></script>
-<script src="comments-style2.js?v=202611040648"></script>
-<script src="comments-stream.js?v=202611040648"></script>
-<script src="comments-persona.js?v=202611040648"></script>
-<script src="comments-gen-persona.js?v=202611040648"></script>
-<script src="comments-gen-humor.js?v=202611040648"></script>
-<script src="comments-gen-humor2.js?v=202611040648"></script>
-<script src="comments-gen-persona2.js?v=202611040648"></script>
-<script src="comments-gen-talk.js?v=202611040648"></script>
-<script src="comments-gen-persona3.js?v=202611040648"></script>
-<script src="comments-gen-scene.js?v=202611040648"></script>
-<script src="comments-gen-daily.js?v=202611040648"></script>
-<script src="comments-auto.js?v=202611040648"></script>
-<script src="game-data.js?v=202611040648"></script>
-<script src="comments-game.js?v=202611040648"></script>
-<script src="comments-profile.js?v=202611040648"></script>
-<script src="comments-events.js?v=202611040648"></script>
-<script src="pokemon-data.js?v=202611040648"></script>
-<script src="comments-pokemon.js?v=202611040648"></script>
-<script src="knowledge-data.js?v=202611040648"></script>
-<script src="comments-knowledge.js?v=202611040648"></script>
-<script src="food-data.js?v=202611040648"></script>
-<script src="comments-food.js?v=202611040648"></script>
-<script src="creature-data.js?v=202611040648"></script>
-<script src="topic-data.js?v=202611040648"></script>
-<script src="howto-data.js?v=202611040648"></script>
-<script src="eco-data.js?v=202611040648"></script>
-<script src="comments-creature.js?v=202611040648"></script>
-<script src="comments-assistant.js?v=202611040648"></script>
-<script src="app.js?v=202611040648"></script>
+<script src="comments.js?v=202611040658"></script>
+<script src="comments-extra.js?v=202611040658"></script>
+<script src="comments-deep.js?v=202611040658"></script>
+<script src="comments-aruaru.js?v=202611040658"></script>
+<script src="comments-jump.js?v=202611040658"></script>
+<script src="comments-more.js?v=202611040658"></script>
+<script src="comments-more2.js?v=202611040658"></script>
+<script src="comments-more3.js?v=202611040658"></script>
+<script src="comments-more4.js?v=202611040658"></script>
+<script src="comments-sage.js?v=202611040658"></script>
+<script src="comments-more5.js?v=202611040658"></script>
+<script src="comments-style2.js?v=202611040658"></script>
+<script src="comments-stream.js?v=202611040658"></script>
+<script src="comments-persona.js?v=202611040658"></script>
+<script src="comments-gen-persona.js?v=202611040658"></script>
+<script src="comments-gen-humor.js?v=202611040658"></script>
+<script src="comments-gen-humor2.js?v=202611040658"></script>
+<script src="comments-gen-persona2.js?v=202611040658"></script>
+<script src="comments-gen-talk.js?v=202611040658"></script>
+<script src="comments-gen-persona3.js?v=202611040658"></script>
+<script src="comments-gen-scene.js?v=202611040658"></script>
+<script src="comments-gen-daily.js?v=202611040658"></script>
+<script src="comments-auto.js?v=202611040658"></script>
+<script src="game-data.js?v=202611040658"></script>
+<script src="comments-game.js?v=202611040658"></script>
+<script src="comments-profile.js?v=202611040658"></script>
+<script src="comments-events.js?v=202611040658"></script>
+<script src="pokemon-data.js?v=202611040658"></script>
+<script src="comments-pokemon.js?v=202611040658"></script>
+<script src="knowledge-data.js?v=202611040658"></script>
+<script src="comments-knowledge.js?v=202611040658"></script>
+<script src="food-data.js?v=202611040658"></script>
+<script src="comments-food.js?v=202611040658"></script>
+<script src="creature-data.js?v=202611040658"></script>
+<script src="topic-data.js?v=202611040658"></script>
+<script src="howto-data.js?v=202611040658"></script>
+<script src="eco-data.js?v=202611040658"></script>
+<script src="comments-creature.js?v=202611040658"></script>
+<script src="comments-assistant.js?v=202611040658"></script>
+<script src="app.js?v=202611040658"></script>
 </body>
 </html>
