@@ -116,8 +116,8 @@ GENERIC.u = gameRules.flatMap((r) => r.u);
 
 // 実況者の質問に、データをもとに答える
 const ask = {
-  catch: /口癖|くちぐせ|語尾/, birthday: /誕生日|いつ生まれ/, species: /種族|何の動物|なんの動物|何の生き物/, gender: /性別|男の子|女の子|オス|メス/, personality: /性格/, hobby: /趣味/,
-  price: /いくら|値段|売値|何ベル|なんベル/, place: /どこ|場所/, when: /いつ|何時|なんじ|時間|何月|なんがつ|季節|時期|シーズン/, who: /誰|だれ|どんな|教えて|知ってる|って何|ってなに/
+  catch: /口癖|くちぐせ|語尾/, birthday: /誕生日|いつ生まれ/, species: /種族|何の動物|なんの動物|何の生き物/, gender: /性別|男|女|オス|メス/, personality: /性格/, hobby: /趣味/,
+  price: /いくら|値段|売値|売り値|何ベル|なんベル|高い|安い|売れる|レア|珍しい/, place: /どこ|場所|生息|出没/, when: /いつ|何時|なんじ|時間|何月|なんがつ|季節|時期|シーズン/, who: /誰|だれ|どんな|教えて|知ってる|って何|ってなに/
 };
 // ひらがな2文字の住民も、質問のときは「たまの」「たまは」の形で探す（全員に答えるため）
 const villagerByName = VILLAGERS.map((v) => ({ v, re: nameRegex(v[0]) || new RegExp(`${escapeRe(v[0])}(の|は|って)`) }));
@@ -141,13 +141,16 @@ function rememberName(text) {
   for (const { key, hit, at } of found) if (at === found[0].at) lastName[key] = hit;
   return lastName;
 }
+// 名前が文にあるか（覚えている名前は変えない）
+const rememberNameOnly = (text) => villagerByName.some((x) => x.re.test(text)) || creatureByName.some((x) => x.re.test(text));
 // その月に出るか（空は一年中）
 const inMonth = (list, month) => !list.length || list.includes(month);
 const GAME_FAQ = [
+  [/カブ(って|とは|は|の).*(何|なに|どんな|教えて|どう|とは)|カブとは/, 'カブは日曜の朝にウリから買って、週の間に値上がりしたらタヌキ商店で売る、株のような遊び'],
   [/カブ.*(売り時|いつ売る|いつ売れば|いつ売った)/, 'カブの決まった売り時はない。値動きに型があるので、上がらない型なら早めに、跳ね上がったらすぐ売るのが基本とされる'],
   [/カブ.*(値段|価格|カブ価).*(変わ|変動|いつ)|カブ価.*(変わ|変動|いつ)/, 'カブの値段は月曜から土曜まで、午前と午後で変わる（週に12回）'],
-  [/(タヌキ商店|たぬき商店|まめきち|つぶきち).*(何時|なんじ|いつまで|いつから)/, 'タヌキ商店は8時〜22時'],
-  [/(エイブル).*(何時|なんじ|いつまで|いつから)/, 'エイブルシスターズは9時〜21時'],
+  [/(タヌキ商店|たぬき商店|まめきち|つぶきち).*(何時|なんじ|いつまで|いつから|営業時間|開店|閉店|閉ま)/, 'タヌキ商店は8時〜22時'],
+  [/(エイブル).*(何時|なんじ|いつまで|いつから|営業時間|開店|閉店|閉ま)/, 'エイブルシスターズは9時〜21時'],
   [/カブ.*(いつ|何曜|どこ|誰).*(買|売)|カブ.*(買|売).*(いつ|何曜|どこ|誰)/, 'カブは日曜の朝5時〜12時にウリから買えて、タヌキ商店で売れる'],
   [/(住民|島民).*(何人|なんにん|最大)/, '島に住める住民は最大10人'],
   [/(離島|マイルチケット|マイル旅行).*(何マイル|なんマイル|いくら)/, 'マイル旅行券は2000マイル']
@@ -172,7 +175,7 @@ function answerQuestion(rawText) {
   for (const [re, line] of GAME_FAQ) if (re.test(text)) return line;
   // 今の時期に捕れるもの、一番高いもの
   const kindWord = /海の幸|潜/.test(text) ? '海の幸' : /魚|釣/.test(text) ? '魚' : /虫|捕れる|捕まえ/.test(text) ? '虫' : null;
-  if (kindWord && /今月|今の時期|この時期|今.*(何が|なにが|何の|どんな)/.test(text)) {
+  if (kindWord && !rememberNameOnly(text) && /今月|今の時期|この時期|今.*(何が|なにが|何の|どんな|釣れる|捕れる|取れる|いる)/.test(text)) {
     const now = new Date();
     const month = now.getMonth() + 1;
     const hour = now.getHours();
@@ -183,11 +186,11 @@ function answerQuestion(rawText) {
     return `${label}の${kindWord}は${names.length}種類。たとえば${sample(names, 4).map((c) => c[0]).join('、')}`;
   }
   // 雨の日だけのもの
-  if (/雨.*(何|なに|どれ|いる|出る|釣れ)/.test(text) && kindWord) {
+  if (/雨/.test(text) && kindWord && !rememberNameOnly(text)) {
     const list = CREATURES.filter((c) => c[1] === kindWord && (c[8] === '雨の日だけ' || c[3].includes('雨')));
     if (list.length) return `雨の日だけの${kindWord}は${list.map((c) => c[0]).join('、')}`;
   }
-  if (kindWord && /一番高い|いちばん高い|最高額|一番売れる/.test(text)) {
+  if (kindWord && !rememberNameOnly(text) && /一番高い|いちばん高い|最高額|一番売れる|高い|高く/.test(text)) {
     const list = CREATURES.filter((c) => c[1] === kindWord);
     const top = Math.max(...list.map((c) => c[2]));
     return `一番高い${kindWord}は${list.filter((c) => c[2] === top).map((c) => c[0]).join('、')}で、${top}ベル`;
@@ -211,7 +214,7 @@ function answerQuestion(rawText) {
   }
   if (cre) {
     const [n, kind, price, place, time, m, , shadow, weather, unlock, extra] = cre.c;
-    if (/条件|詳しく|くわしく|出現|どうやったら|どうすれば|どうやって|コツ/.test(text)) {
+    if (/条件|詳しく|くわしく|出現|どうやったら|どうすれば|どうやって|コツ|釣り方|捕まえ方|取り方|出し方|探し方|見つけ方/.test(text)) {
       return [`${n}：${months(m)}`, time || '一日中', place, ...(shadow ? [`影は${shadow}`] : []), ...(weather && weather !== '天気を問わず' ? [weather] : []), ...(unlock ? [`通算${unlock}匹${CATCH_VERB[kind]}と出る`] : []), ...(extra ? [kind === '海の幸' ? `動きは${extra}` : extra] : []), `売値${price}ベル`].join('、');
     }
     if (/影|サイズ|大きさ/.test(text)) return shadow ? `${n}の影は${shadow}` : `${n}は影のない${kind}`;

@@ -1,0 +1,47 @@
+U168	ok		https://www.doc.surf/wiki/laid-back-camp	C	あfろ作で、まんがタイムきららフォワード2015年7月号から連載とする記述があった。
+U169	fix	山梨県立博物館で、2026年7月から企画展「ゆるキャン△と山梨▲」が開かれた。	https://www.pref.yamanashi.jp/documents/126814/yuruyamapressrelease.pdf	A	山梨県の発表資料に同名の企画展の開催が載っていた（身延町が舞台という記述は確認できず）。
+U170	ok		https://kai-you.net/word/Dr.STONE	B	原作稲垣理一郎、作画Boichiで2017年3月発売のジャンプ14号から連載と報じられていた。
+U171	fix	2017年から2022年までジャンプで連載され、全232話、単行本は26巻になった。	https://www.excite.co.jp/news/article/Animeanime_103768/	B	連載期間と話数・巻数は報道で確認できたが、石化の設定そのものは今回の検索で確認できなかった。
+U172	ok		https://times.abema.tv/articles/-/10163826	B	鈴木祐斗が2020年に週刊少年ジャンプで連載を始めたと紹介されていた。
+U173	fix	2025年1月からテレビアニメが放送された。	https://natalie.mu/comic/news/599198	B	アニメ放送開始の報道を確認したが、あらすじ（殺し屋が商店を営む）は今回の検索で確認できなかった。
+U174	ok		https://www.ticket.co.jp/entx/entertainment/medalist-author/	B	つるまいかだ作のフィギュアスケート漫画で、商業デビュー作と紹介されていた。
+U175	ok		https://www.fujisan.co.jp/product/92/b/1975862/	B	2020年5月25日発売のアフタヌーン2020年7月号が新連載の号と目次に記載されていた。
+U176	ok		https://www.museum.or.jp/event/88637	A	1968年7月に月2回刊の少年ジャンプとして創刊され、のちに週刊化と紹介されていた。
+U177	fix	「友情・努力・勝利」は、創刊時の小学生アンケートから生まれたとされるが、公式の標語ではないという。	https://ja.wikid.org/%E5%8F%8B%E6%83%85%E3%83%BB%E5%8A%AA%E5%8A%9B%E3%83%BB%E5%8B%9D%E5%88%A9	C	由来は小学生アンケートとされ、公式に掲げられたものではないと編集長の発言とともに紹介されていた。
+U178	fix	日本のラーメンは、20世紀初頭の横浜中華街で現れたと最初に記録され、当時は南京そばや支那そばと呼ばれたとされる。	https://www.tokyoweekender.com/ja/art-and-culture/chuka-soba-ramen-chinese-history/	B	起源は定義次第で諸説あり、横浜中華街・浅草来々軒（1910年）などの説が並んでいた。
+U179	ok		https://news.nissyoku.co.jp/today/629349	B	安藤百福が考案したチキンラーメンが1958年に発売されたと日清食品の報道に記載。
+U180	ok		https://media.rakuten-sec.net/articles/-/52341	B	1974年5月15日に東京・豊洲で1号店が開店したと記載。
+U181	ok		https://www.ryutsuu.biz/abroad/m012245.html	B	前身は1927年にテキサスで氷の小売りを始めたサウスランド・アイス社とする記述があった。
+U182	fix	自転車の祖先とされるドライジーネは、1817年にドイツのドライスが考案した、ペダルのない木製の二輪車。	https://www.weblio.jp/content/ドライジーネ	B	1817年にドライスが考案した足で地面を蹴って進む二輪車で、自転車の祖先とされると確認できた。
+U183	fix	自転車は、ジャイロ効果やキャスター効果がなくても、自分で安定して走れることが実験で示された。	https://nd.ics.org.ru/nd1302011/	A	逆回転の車輪とトレール負の自転車でも直立走行に戻る実験が、論文で報告されている。
+U184	ok		https://www.pref.saitama.lg.jp/a0707/onsen-onsen.html	A	源泉の温度が25度以上、または規定の成分を含めば温泉とされると県が説明していた。
+U185	fix	日本三古湯は道後・有馬・白浜が一般的な組み合わせで、白浜の代わりにいわき湯本を挙げる場合もある。	https://tabi-mag.jp/historichotsprings-big3/	C	観光記事で三湯が一般的とされ、いわき湯本を入れる説も併記されていた。
+U186	drop		https://www.walkerplus.com/article/124209/		江戸時代の混浴は今回の検索で確認できなかった。
+U187	fix	銭湯の富士山のペンキ絵は、1912年に神田の銭湯「キカイ湯」で始まったとされる。	https://www.walkerplus.com/article/124209/	C	大正元年に神田猿楽町の銭湯主人が壁にペンキ絵を描かせたのが始まりと紹介されていた。
+U188	fix	香川県は2011年から、県名を「うどん県」に改める設定の観光PRを行っている。	https://travel.watch.impress.co.jp/docs/news/706056.html	B	正式な改名ではなく、2011年開始のPRプロジェクト「うどん県。それだけじゃない香川県」と報じられていた。
+U189	ok		https://macaro-ni.jp/39669	C	日本三大うどんに公式な定義はなく、讃岐は確実で残りは稲庭・水沢・五島など諸説とあった。
+U190	ok		https://delishkitchen.tv/articles/1368	C	味噌は麹の種類で米味噌・麦味噌・豆味噌に分けられ、調合味噌もあると説明されていた。
+U191	fix	八丁味噌の名は、愛知の岡崎城から八丁（約870m）離れた八丁村に由来するとされる。	https://intojapanwaraku.com/gourmet/46130/	C	家康の話は確認できなかったが、八丁村由来の説明が記事にあった。
+U192	ok		https://kotobank.jp/word/%E3%83%91%E3%83%B3-362590	B	パンはポルトガル語のpãoに由来し、さらにラテン語のpanisにさかのぼるとされる。
+U193	fix	あんパンは、1874年に木村屋の木村安兵衛らが考案したといわれ、翌年に桜あんぱんが明治天皇に献上されたとされる。	https://www.satofull.jp/blog/2018/04/180405-2.html	C	考案が1874年、天皇への献上が1875年4月4日と別の出来事として紹介されていた。
+U194	ok		https://kakakumag.com/food/?id=17190	C	辛さの指標スコヴィル値は、1912年に味覚テストを考案したスコヴィルの名に由来すると説明されていた。
+U195	ok		https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6273518/	A	カプサイシンは痛みを伝えるTRPV1受容体を活性化するとする学術論文。
+U196	ok		https://current.ndl.go.jp/car/8215	A	日本では2010年を国民読書年とする決議が国会でなされたと確認できた。
+U197	ok		https://bestcalendar.jp/dates/kinenbi/132932	C	読書週間は毎年10月27日から11月9日までとされる。
+U198	ok		https://allabout.co.jp/gm/gc/423661/	B	取った駒を再利用できる持ち駒は将棋だけの特徴と紹介されていた。
+U199	ok		https://www.nippon.com/ja/japan-topics/g00897/	B	2020年7月16日の棋聖戦で藤井聡太が史上最年少のタイトル保持者になったと報じられた。
+U200	fix	手妻は江戸時代の大道芸にあたる日本の伝統奇術で、手を稲妻のように速く動かすことからその名がついたといわれる。	https://serai.jp/hobby/1038561/2	C	語源説は確認できたが、手妻が「古称」だと明示する記述は見つからなかった。
+U201	fix	フーディーニは本名エリック・ヴァイスで、ハンガリーのブダペスト生まれの脱出王。	https://www.wikidata.org/wiki/Q131545	B	ハンガリー生まれでアメリカで活躍した脱出芸の奇術師と複数の資料で確認できた。
+U202	ok		https://www.pref.hiroshima.lg.jp/site/hiroshimaforpeace/childrens-peace-monument.html	A	広島県の資料で、佐々木禎子さんと折り鶴、原爆の子の像が紹介されていた。
+U203	ok		https://newswitch.jp/p/17751	B	ミウラ折りは1995年に打ち上げられた衛星の太陽電池パネル展開に採用されたと紹介（年は資料により1996の記述もある）。
+U204	fix	じゃんけんの起源は中国とされ、明代の書物『五雑組』に漢代に遡る記述がある。	https://wikiwand.com/en/articles/Rock-paper-scissors	B	日本生まれという記述は確認できず、中国起源から日本に伝わったとされる。
+U205	ok		https://karapaia.com/archives/52144982.html	C	東京大学石川研究室が、相手の手を高速で認識して必ず勝つじゃんけんロボットを開発した。
+U206	ok		https://ipfs.ssi.eecc.de/ipns/en.wikipedia-on-ipfs.org/wiki/ABO_blood_group_system	B	ウィーン大学のラントシュタイナーが1901年にABO式を発表し、1930年にノーベル賞を受賞した。
+U207	fix	血液型と性格の関係は、科学的には裏付けられていない。	https://telemail.jp/shingaku/academics-research/lecture/g009793	B	大学の解説で、関連を探る研究が重ねられてきたが科学的な裏付けは示されていない。
+U208	fix	くしゃみは時速160kmという話は俗説で、高速カメラの測定では時速16km前後とする研究がある。	https://www.popsci.com/science/article/2013-08/fyi-how-forceful-sneeze/	C	測定により約10mph（約16km/h）から約35mphまで報告に幅があり、100mphは間接推定による俗説とされる。
+U209	ok		https://pubmed.ncbi.nlm.nih.gov/27568353/	A	光でくしゃみが出る光くしゃみ反射（ACHOO症候群）はPubMedの研究で扱われ、遺伝性の反射とされる。
+U210	ok		https://www.city.ikoma.lg.jp/cmsfiles/contents/0000021/21086/r8kateikyouiku6gatu.pdf	A	6月4日は「6（む）4（し）」の語呂合わせから虫歯予防デーとされる。
+U211	ok		https://www.city.ikoma.lg.jp/cmsfiles/contents/0000021/21086/r8kateikyouiku6gatu.pdf	B	歯の表層のエナメル質は人体で一番硬い部分と説明されていた。
+U212	ok		https://www.bepal.net/archives/61503	B	1950年代に浅草のホワイトローズが世界初のビニール傘を開発したとされる。
+U213	ok		https://www.gltjp.com/ja/directory/item/18332/	B	和傘の材質は主に和紙と竹材で、柿渋などで防水処理をすると紹介されていた。
+U214	fix	エリシャ・オーチスは1854年のニューヨーク万国博覧会で、ロープを切る安全エレベーターの実演をしたとされる。	https://elevatorworld.com/?p=45708	B	実演の詳細や発明年は資料で食い違いがあり、断定を避けた。
