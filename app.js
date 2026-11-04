@@ -413,6 +413,12 @@ $('missedClear').addEventListener('click', () => { if (confirm('答えられな�
   try { saved = localStorage.getItem('mode'); } catch (e) { /* 読めなければ質問モード */ }
   setMode(saved === 'stream' ? 'stream' : 'ask');
   renderMissed();
+  if (state.mode === 'ask') {
+    const hint = document.createElement('li');
+    hint.className = 'hint';
+    hint.textContent = '「開始」を押して質問すると、ここに答えが出ます。例：タランチュラっていくら';
+    $('chat').append(hint);
+  }
 }
 // 別のアプリから戻ったら、画面をつけたままにする設定をかけ直す
 document.addEventListener('visibilitychange', () => {
