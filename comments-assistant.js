@@ -56,9 +56,41 @@ function searchFacts(text) {
   return null;
 }
 
+// 「うんちく」「○○の豆知識」と頼まれたら、うんちくのデータから返す
+const TRIVIA_ASK = /うんちく|ウンチク|蘊蓄|豆知識|まめちしき|トリビア|雑学|博士/;
+const TRIVIA_FILLER = /うんちく|ウンチク|蘊蓄|豆知識|まめちしき|トリビア|雑学|博士|について|教えて|おしえて|聞かせて|きかせて|ちょうだい|ください|下さい|お願い|おねがい|言って|いって|して|ある|ない|いる|何か|なんか|なにか|何|なに|[のをはがってにもか、。 ？?]/g;
+// 売値や場所より、話のネタになるものを先に出す
+const notGameInfo = (t) => !/売値|ベルで売れる|の場所は|が出るのは|の時間は|の影は|似てるポケモン|通算|誕生日|性格|趣味|口癖|釣りにくい|釣りやすい|動きは|の女の子|の男の子/.test(t);
+const triviaRecent = [];
+function pickTrivia(pool) {
+  const lines = [...new Set(pool)];
+  const good = lines.filter(notGameInfo);
+  const base = good.length ? good : lines;
+  const fresh = base.filter((t) => !triviaRecent.includes(t));
+  const line = pickRandom(fresh.length ? fresh : base);
+  triviaRecent.push(line);
+  if (triviaRecent.length > 30) triviaRecent.shift();
+  return line.replace(/^ちなみに[、 ]*/, '');
+}
+function triviaAnswer(said) {
+  const fixed = fixKana(said);
+  const topic = fixed.replace(TRIVIA_FILLER, '');
+  if (!topic) return { type: 'answer', text: pickTrivia(GENERIC.u) };
+  // 話題の判定は、助詞を消す前の文で行う（ひらがなの名前を崩さないため）
+  const asked = fixed.replace(new RegExp(TRIVIA_ASK.source, 'g'), '');
+  const pool = [
+    ...RULES.filter((r) => r.u && r.u.length && r.re.test(asked)).flatMap((r) => r.u),
+    ...knowledge.filter((k) => k.re.test(asked)).flatMap((k) => [...k.what, ...k.where, ...k.when].map((t) => knowSay(k.name, t)))
+  ];
+  if (pool.length) return { type: 'answer', text: pickTrivia(pool) };
+  const related = searchFacts(topic);
+  return related ? { type: 'answer', text: related } : { type: 'unknown', text: `${topic}のうんちくは、まだ知りません。質問を残しました` };
+}
+
 function assist(raw) {
   const said = tidySpeech(raw);
   if (!said) return null;
+  if (TRIVIA_ASK.test(said)) return triviaAnswer(said);
   const asking = isAsking(said);
   const text = asking ? fixKana(said) : said;
   if (asking) {
