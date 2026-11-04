@@ -1,0 +1,57 @@
+U69	ok		https://www.maff.go.jp/j/pr/aff/1905_06/spe2_01.html	A	農水省の資料に、ももの原産は中国といわれ、中国では邪気を払う力があると考えられてきたとある。
+U70	fix	岡山は「桃太郎伝説の生まれたまちおかやま」として日本遺産に認定されている（2018年）。	https://www.okayama-kanko.jp/feature/momotarou	B	岡山の観光情報に、桃太郎のモデルは吉備津彦命とされ、2018年に日本遺産に認定されたとある。
+U71	ok		https://www.furusato-tax.jp/feature/detail/06000/19167	C	山形県が日本のさくらんぼ収穫量の約7割を占めると紹介されている（県の統計PDFでも作柄は山形が中心）。
+U72	ok		https://www.satofull.jp/blog/2017/12/171214-1.html	C	山形県の佐藤栄助氏が「黄玉」と「ナポレオン」を交配して育てた品種と紹介されている（育成地は東根市とされる）。
+U73	ok		https://www.city.kitakyushu.lg.jp/san-kei/file_0376.html	A	北九州市の資料で、梨はニホンナシ・チュウゴクナシ・セイヨウナシに大別されるとある。
+U74	ok		https://www.city.kitakyushu.lg.jp/san-kei/file_0376.html	A	同資料に、和梨特有の歯ごたえは果肉中の石細胞によるとある。
+U75	fix	ココヤシの実は黒潮に乗って、日本の浜辺にも流れ着くことがある。	https://www.kahaku.go.jp/userguide/book/milsil_sample/milsil85.pdf	A	国立科学博物館の資料に、ココヤシの実は黒潮に乗って日本の浜辺にしばしば漂着するとある。
+U76	drop				ココナッツウォーターの名称を確かめた出典が検索で見つからなかった。
+U77	ok		https://gigazine.net/news/20110111_orange	C	果実の名前が先にあり、あとから色の名前になったと説明されている。
+U78	fix	オレンジの原産は、インド北東部からミャンマー、中国南部にかけての地域とされる。	https://www.weblio.jp/content/オレンジ	B	辞書系サイトに、中国南部・インド北東部・ミャンマーを含む地域が発祥とあり、出典で表現が分かれる。
+U79	fix	法隆寺では、年輪年代測定で金堂の天井板が667〜668年ごろに伐採された木と分かった。	https://repository.nabunken.go.jp/dspace/bitstream/11177/3873/1/AA11740015_2005_024.pdf	A	奈良文化財研究所の年輪年代調査で、金堂の天井板から667年・668年の伐採年が判明したとある。
+U80	fix	法隆寺は、現存する世界最古の木造建築群として知られ、1993年に日本で初めて世界遺産に登録された。	https://hugkum.sho.jp/339141	B	複数の解説が世界最古の木造建築群と紹介し、1993年に日本初の世界文化遺産になったとある。
+U81	ok		https://www.kyoto-u.ac.jp/ja/research-news/2026-05-13	A	京都大学の発表に、地球の核は主に鉄でできているとある。
+U82	fix	体の中の鉄の多くは、血液中のヘモグロビンにあって、酸素を運んでいる。	https://www.weblio.jp/content/鉄	C	体内の鉄の大部分は血液中のヘモグロビンにあり酸素を運ぶと解説されている（赤い色との直接の記述は未確認）。
+U83	fix	金は1グラムで、およそ3000メートルの線にまで延ばせるとされる。	https://www.xetra-gold.com/en/detail/figure-of-the-month-3-kilometres/	B	1グラムの金から最長約3km（3000m）の線が作れると紹介されている。
+U84	fix	地上にある金の量は、2025年末時点で約22万トンと推計されている。	https://gentosha-go.com/articles/-/81331	B	ワールド・ゴールド・カウンシルが約22万トンと推計していると報じられている（プールの杯数は未確認）。
+U85	ok		https://www.gov-online.go.jp/eng/publicity/book/hlj/html/202110/202110_02_jp.html	A	政府広報に、日本鉱物科学会が2016年にひすいを日本の国石に選んだとある。
+U86	ok		https://www.gia.edu/jp/diamond/gem-overview	A	GIAの解説に、ダイヤモンドは炭素でできていて、非常に硬いとある（モース硬度10）。
+U87	fix	粘土は水を含むと粘りが出て、乾くと硬くなるので、陶磁器の材料に使われる。	https://kotobank.jp/word/粘土	B	辞書に、水を加えると粘着性と可塑性を示し、乾くと硬くなり、陶磁器の原料になるとある。
+U88	fix	土壌学では、粒の大きさが0.002ミリ以下の土を粘土とする。	https://kotobank.jp/word/粘土	B	辞書に、土壌学は粒径0.002ミリ以下を基準とするとある（地質学では256分の1ミリ）。
+U89	fix	竹はイネ科の仲間で、タケノコは一晩で30センチ伸びた例もある。	https://weathernews.jp/news/202604/280131/	B	竹はイネ科タケ亜科で、1日1mは言い過ぎだが数十センチ伸びるとされる。
+U90	fix	竹の花は60年や120年に一度ともいわれ、咲いた竹は枯れることが広島大学の調査で分かった。	https://www.hiroshima-u.ac.jp/system/files/211218/Does%20monocarpic%20Phyllostachys%20nigra%20var.%20henonis%20regenerate%20after%20flowering%20in%20Japan.pdf	A	広島大学の研究で、花を咲かせた竹はすべて枯れたと報告され、周期は約60年や約120年とされる。
+U91	fix	デシベルの「ベル」は、電話を発明したグラハム・ベルの名前から来ている。	https://www.etymonline.com/jp/word/decibel	B	デシベルは接頭語deciと単位belの組み合わせで、belはグラハム・ベルの姓に由来するとある。
+U92	ok		https://intojapanwaraku.com/rock/culture-rock/187630/	B	節分はもともと季節の分かれ目を指し、いまは立春の前日だけを呼ぶと解説されている。
+U93	ok		https://intojapanwaraku.com/rock/culture-rock/187630/	B	豆まきは邪気を払う追儺の行事が由来とする説があるが、起源は諸説ある。
+U94	ok		https://hugkum.sho.jp/449987	C	バレンタインの始まりは聖バレンタインの記念日とされると紹介されている。
+U95	fix	女性がチョコを贈る形は、日本ではメリーチョコレートが1958年に始めたフェアが広まりの一つとされる。	https://hugkum.sho.jp/449987	C	メリーチョコレートが1958年に女性から男性へチョコを贈る形を提唱したとされるが、資料で年代に差がある。
+U96	ok		https://www.pref.tottori.lg.jp/238934.htm	A	鳥取県の資料に、盆踊りはお盆に来る死者の霊を慰め歓待し送り出す意味があるとある。
+U97	ok		https://www.mlit.go.jp/tagengo-db/R1-01044.html	A	国交省の資料に、青森ねぶた祭の起源と、眠り流しなど夏の行事との関係が説明されている。
+U98	ok		https://kotobank.jp/word/虹	B	辞書に、主虹は太陽と観測者を結ぶ線の延長（対日点）を中心に見えるとある。
+U99	ok		https://hugkum.sho.jp/288768	C	日本では7色とされるが、英語圏では6色など国によって数え方が違うと紹介されている。
+U100	ok		https://www.data.jma.go.jp/fukuoka/chosa/files/harerun0002.pdf	A	気象台の資料に、光ってから音が聞こえるまでの秒数に約340mをかけると距離の目安になるとある。
+U101	ok		https://dime.jp/genre/949625/	C	気象庁の説明を引いて、雲の中で氷の粒がぶつかり合って静電気がたまり雷になると説明されている。
+U102	ok		https://costep.open-ed.hokudai.ac.jp/like_hokudai/article/11742	A	北大の記事に、雪の研究で知られる中谷宇吉郎の紹介があり、雪の結晶は六角形が共通点とされる。
+U103	ok		https://costep.open-ed.hokudai.ac.jp/like_hokudai/article/11742	A	北大の記事が、この言葉を中谷宇吉郎の言葉として紹介している（原文の随筆名は未確認）。
+U104	ok		https://kids.gakken.co.jp/box/rika/06/pdf/B046307330.pdf	C	ベテルギウスは赤く、リゲルは青白い星としてオリオン座の代表星に挙げられている。
+U105	ok		https://nazology.kusuguru.co.jp/archives/50483	C	オリオンはギリシャ神話の狩りの名手として知られると解説されている。
+U106	ok		https://www.weblio.jp/content/Southern+Cross	B	南十字星は南極点の方向を知る目印として航海に使われたと辞書に載っている。
+U107	ok		https://yomuno.jp/posts/118887	C	オーストラリアとニュージーランドの国旗に南十字星の星が描かれていると解説されている。
+U108	ok		https://www.inside-games.jp/article/2020/06/29/128878.html	B	シリーズ1作目は2001年4月14日にNINTENDO64向けに発売と報じられている。
+U109	ok		https://www.famitsu.com/news/202003/13194525.html	B	『あつまれ どうぶつの森』は2020年3月20日にSwitchで発売と報じられている。
+U110	ok		https://www.nintendo.co.jp/corporate/release/2017/170113.html	A	任天堂の公式リリースで、2017年3月3日発売と告知されている。
+U111	ok		https://www.nintendo.co.jp/corporate/release/2017/170113.html	A	公式資料で、ドックでテレビに映し、外せば携帯機として遊べると説明されている。
+U112	ok		https://www.famitsu.com/news/202002/21193097.html	B	初代ゼルダは1986年2月21日にディスクシステムと同時に登場したと報じられている。
+U113	ok		https://www.famitsu.com/news/202002/21193097.html	B	1作目から、勇者リンクとゼルダ姫が登場する作品と紹介されている。
+U114	fix	初登場は1981年の『ドンキーコング』で、開発者の間では「ジャンプマン」などと呼ばれていた。	https://www.gamebusiness.jp/article/2018/11/05/15097.html	B	初登場時は正式な名前がなく、ジャンプマンなどの通称で呼ばれ、名前がついたのは翌年の『ドンキーコングJR.』とある。
+U115	fix	マリオの名前は、任天堂アメリカの倉庫の大家マリオ・セガールさんにちなむという話がある。	https://www.gamebusiness.jp/article/2018/11/05/15097.html	B	名前の由来は倉庫の大家マリオ・セガール氏と報じられているが、家賃をめぐる逸話は資料で描写が違う。
+U116	ok		https://www.famitsu.com/news/202002/27193330.html	B	『ポケットモンスター 赤・緑』は1996年2月27日にゲームボーイ向けに発売と報じられている。
+U117	fix	ポケモンは、田尻智さんの子どものころの昆虫採集の体験がもとになったといわれている。	https://apps.apple.com/jp/story/id1548902597	B	公式のストーリー記事に、小学生のころの昆虫採集の体験をもとに考案したとある（一つの記事に基づく）。
+U118	ok		https://kotobank.jp/word/ボイコット-3170223	B	ボイコットは、アイルランドの地主の代理人ボイコットの名前に由来すると辞書に載っている。
+U119	fix	サンドイッチは、賭け事の最中にパンで肉を挟んで食べたサンドイッチ伯爵にちなむ、という話がある。	https://www.etymonline.com/jp/word/sandwich	B	語源辞典にサンドイッチ伯爵にちなむと言われるとあるが、歴史学者はこの起源説に懐疑的とされる。
+U120	ok		https://www.bunka.go.jp/seisaku/kokugo_nihongo/kokugo_shisaku/kotoba_shokudo/index.html	A	文化庁がこの慣用句の本来の意味（巡り巡って自分に返る）を取り上げて紹介している。
+U121	fix	「犬も歩けば棒に当たる」は、災難に遭う意味と、思わぬ幸運に出会う意味の両方で辞書に載っている。	https://hugkum.sho.jp/421966	C	国語辞典に、災難に遭うことと幸運に出会うことの両方の意味が載っており、江戸いろはかるたの句として知られる。
+U122	ok		https://kennet.mhlw.go.jp/information/information/keywords/rapid-eye-movement-sleep.html	A	厚労省の用語集に、レム睡眠中には夢をよく見るとある。
+U123	fix	キリンは睡眠がとても短い動物で、1日の睡眠は2〜5時間ほどといわれる。	https://president.jp/articles/-/29899	C	資料により1.9時間や4.6時間と差があるが、どちらも睡眠が特に短い動物としている。
+U124	fix	おしりの大殿筋は、重さで見ると体で最大の筋肉とされる。	https://www.livescience.com/health/anatomy/whats-the-largest-muscle-in-the-body-and-the-smallest	B	解剖学会の元会長が、大殿筋は質量で人体最大の筋肉だと述べている（面積で測ると答えが変わる）。
+U125	ok		https://www.weblio.jp/content/%E8%88%8C%E9%AA%A8%E8%88%8C%E7%AD%8B	B	舌の動きは舌筋と呼ばれる筋肉がつかさどると辞書に載っている。

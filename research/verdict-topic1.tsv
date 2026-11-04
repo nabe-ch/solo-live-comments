@@ -1,0 +1,68 @@
+U1	fix	鳥の骨には、中に空気の入った空洞のあるものがあり、体を軽くするのに役立つと考えられている。	https://www.esc.cam.ac.uk/news/some-birds-have-hollow-bones-and-new-research-helps-us-understand-why	A	ケンブリッジ大の記事が鳥の一部に中空の骨があることを扱い、全部の鳥ではないため弱めた。
+U2	ok		https://www.jstage.jst.go.jp/article/jjo/67/1/67_7/_article/-char/ja	A	日本鳥学会誌の総説が、獣脚類恐竜を鳥類に最も近い恐竜と整理している。
+U3	ok		https://www.gov-online.go.jp/hlj/ja/june_2025/june_2025-12.html	A	政府広報がニホンリスは貯食の場所をすべて覚えておらず、忘れた種が発芽して森を育てると紹介している。
+U4	ok		https://www.wiktionary.com/wiki/%E6%A0%97%E9%BC%A0	B	リスは「栗鼠」と書き、栗とねずみを組み合わせた語と説明されている。
+U5	fix	ブタは寝る場所や餌場と、排泄する場所を分ける、きれい好きな面があるとされる。	https://nazology.kusuguru.co.jp/zukan/ikimono/buta	C	ある解説では自然下で排泄場所を分けるとされるが、見解が分かれる記述もあるため言い切りを避けた。
+U6	fix	ヨーロッパでは昔から、トリュフ探しにブタが使われてきた。	https://en.wikipedia.org/wiki/Truffle_pig	B	イタリアやフランスで15世紀から訓練したブタ（特にメス）がトリュフ探しに使われたと説明されている。
+U7	ok		https://kotobank.jp/word/ゴリラ	B	辞書に、食物はすべて植物質で性質は温和と書かれている。
+U8	fix	ゴリラの胸たたき（ドラミング）は、戦いの宣言というより争いを避けるための行動とされる。	https://president.jp/articles/-/110639	B	山極寿一氏の観察として、ドラミングは争いを避ける行為と紹介されている。
+U9	fix	ミシシッピワニなどでは、卵を温める温度によって生まれる子の性別が決まる。	https://sciencedaily.com/releases/2015/12/151223134112.htm	A	アリゲーターの卵では温度で性が決まり、温度受容タンパク質TRPV4が関わると報告されている。
+U10	fix	ナイルワニの母親は、卵からかえった子を口にくわえて水辺まで運ぶ。	https://kids.nationalgeographic.com/animals/reptiles/nile-crocodile/	A	ナショナルジオグラフィックが、母親が孵化した子を口にくわえて水へ運ぶと説明している。
+U11	fix	コアラはユーカリの葉をほぼそればかり食べ、1日に18時間以上も眠るとされる。	https://australia.com/en/things-to-do/wildlife/facts-about-koalas.html	B	オーストラリア政府観光局が18〜22時間の睡眠と書き、PBSは18〜20時間としているため幅を持たせた。
+U12	fix	コアラの袋の口は、頭の方ではなく後ろ脚の方へ向かって開いている。	https://www.pbs.org/wnet/nature/cracking-the-koala-code-koala-fact-sheet/7681	B	複数の資料が、袋の口は頭側でなく後ろ脚側に開くと説明している（下向きと表す資料もある）。
+U13	fix	ワシは目がとてもよく、高い空から地上の獲物を見つけられるとされる。	https://travellingbirder.com/how-far-can-an-eagle-see/	C	視力は人の数倍とする説明が多いが一次研究の記載は確認できず、倍率は書かずに弱めた。
+U14	fix	ハクトウワシは長くアメリカの象徴とされ、2024年12月に法律で正式に国鳥と定められた。	https://www.bepal.net/archives/720109	B	BE-PALが、正式な指定は2024年12月と伝えている。
+U15	ok		https://kotobank.jp/word/アリクイ	B	辞書に、歯がなく長い舌でアリやシロアリを食べると書かれている。
+U16	ok		https://www.city.shizuoka.lg.jp/documents/58797/20260602004.pdf	A	動物園の資料に、オオアリクイの舌は約60センチとある。
+U17	ok		https://alic.go.jp/koho/kikaku03_001316.html	A	ウシは飲み込んだ草を口に戻してかみ直す反芻をし、胃は複数に分かれると説明されている。
+U18	ok		https://newatlas.com/machine-identifies-cows-by-their-muzzles/38243	B	牛の鼻の模様は1頭ずつ異なり、1920年代から識別に使われ、画像認識でも約94%の精度が出た。
+U19	drop		https://nazology.kusuguru.co.jp/archives/108845	C	ひげの役割を直接述べた出典を検索で確認できなかった。
+U20	fix	古代エジプトでは猫が大切にされ、猫の姿をした女神バステトが親しまれた。	https://motitown.com/vocabulary/word/Bastet	C	バステトは獅子の姿から家庭を守る猫の女神へ変化したと説明されている。
+U21	fix	ウマは立ったまま休めるが、深く眠るときは横になる必要があるとされる。	https://nazology.kusuguru.co.jp/zukan/ikimono/uma	C	立ったままは浅い休息が中心で、レム睡眠には横になる必要があるとされる。
+U22	fix	ウマは目が顔の横にあり、視野は350度ほどとされるが、真正面と真後ろは見えにくい。	https://www.kyoto-u.ac.jp/ja/research-news/2015-11-26	A	ほぼ全方向とは言えず死角があり、両眼で立体的に見える範囲は狭いとされる。
+U23	ok		https://kotobank.jp/word/ハムスター	B	ハムスターは頭からアゴにかけて両側にほお袋を持ち、餌を蓄える。
+U24	fix	ハムスターは主に夜に活動し、野生では明け方と夕暮れにも餌を探しに出るとされる。	https://kids.gakken.co.jp/box/nazenani/pdf/01_doubutu/X1020043.pdf	B	学研の資料は夜に活動するとし、百科事典系は明け方と夕暮れの活動に触れている。
+U25	drop		https://nazology.kusuguru.co.jp/archives/127857	C	子が小さく生まれ袋で育つ点を直接述べた出典を検索で確認できなかった。
+U26	ok		https://scrippsnews.com/stories/kangaroos-use-their-tails-as-a-fifth-leg-new-study-says/	B	アカカンガルーの研究で、しっぽが前後の足を合わせたより強く体を前へ進めており、5本目の足のようだとされた。
+U27	drop		https://kotobank.jp/word/おおかみ-3146013	C	群れでの協力した狩りを具体的に述べた出典を検索で確認できなかった。
+U28	ok		https://www.shizenhaku.wakayama-c.ed.jp/pdf/26ookami.pdf	A	1905年に奈良県で捕獲された個体を最後に確認記録がなく、絶滅したと考えられている。
+U29	ok		https://blog.padi.com/jp/top-three-places-to-dive-with-penguins/	C	ペンギンの翼は飛ぶためでなく、水中で推進力を生む器官として働くと説明されている。
+U30	ok		https://kotobank.jp/word/ペンギン	B	辞典に、南半球に分布しガラパゴスペンギンが最北と書かれている。
+U31	ok		https://pmc.ncbi.nlm.nih.gov/articles/PMC7395088/	A	2020年のゲノム研究が、ニワトリはセキショクヤケイの亜種から家畜化されたと結論している。
+U32	fix	ニワトリの卵の殻の色は、品種によって決まる。	https://morgridge.org/blue-sky/why-do-chickens-lay-different-colored-eggs/	A	殻の色は色素によるもので、アローカナのように品種で青い卵を産むものがある。
+U33	ok		https://www.city.sendai.jp/zoo/sns/documents/20240710_zouhanahonenashi.pdf	A	動物園の解説に、ゾウの鼻には骨の代わりにたくさんの筋肉があるとある。
+U34	fix	ゾウは、人の耳に聞こえにくい低い音で仲間と話していると言われる。	https://zoo.city.kyoto.lg.jp/zoo/uploads/image/anone169.pdf	A	京都市動物園の回答が低周波で会話していると言われると述べるが、伝聞の形で断定はされていない。
+U35	ok		https://www.city.sendai.jp/zoo/sns/documents/20241106_saitsuno_nanidedekiteru.pdf	A	動物園の資料に、サイの角は髪の毛と同じ成分のケラチンでできているとある。
+U36	drop		https://www.sanparks.org/conservation/parks/marakele-national-park/primary-consumers-herbivores/black-rhino	B	サイの視力は悪いという通説に、クロサイはウサギ並みに悪くないとする反論もあり言い切れない。
+U37	fix	羊毛が伸びすぎるので、毛刈りをしないと健康を損なう品種のヒツジがいる。	https://www.afpbb.com/articles/fp/3059248	B	オーストラリアで見つかったメリノ種は、刈らないと健康に問題が出ると報じられた。
+U38	drop		https://www.hobbyfarms.com/farm-resources/livestock-resources/sheep-breed-profiles.aspx	C	群れで行動する習性を直接述べた出典を検索で確認できなかった。
+U39	fix	トラのしま模様は、毛をそると皮膚にも見える。	https://karapaia.com/?p=32329	C	皮膚の縞は、色のついた毛包が皮膚の下に埋もれているために生じると説明されている。
+U40	fix	トラは泳ぎが得意で、水に入って体を冷やしたり、川を渡ったりする。	https://a-z-animals.com/blog/can-tigers-swim/	C	トラは泳げるという記述が複数あるが距離などの数字は資料でばらつくため数値は避けた。
+U41	ok		https://www.env.go.jp/nature/choju/effort/effort5/effort5-3d/syokyu/kuma.pdf	A	環境省の資料に、メスは冬眠中の1月下旬から2月上旬に出産するとある。
+U42	fix	クマの子は、母親と1年半から2年半ほどいっしょに過ごす（ツキノワグマは約1年半、ヒグマは1〜2年半）。	https://www.env.go.jp/nature/choju/effort/effort12/kuma-habitat.pdf	A	環境省の資料に、ツキノワグマは1年半、ヒグマは1〜2年半の子育てとある。
+U43	ok		https://pmc.ncbi.nlm.nih.gov/articles/PMC8697952/	A	査読論文が、イヌの鼻の模様は個体ごとに異なり時間が経っても変わらないと報告している。
+U44	fix	日本犬のゲノムには、ニホンオオカミの祖先に由来する部分が2〜4%含まれている。	https://www.gifu-u.ac.jp/about/publication/press/20240301_1.pdf	A	岐阜大などの2024年の研究が、ニホンオオカミは犬に最も近いオオカミで日本犬に2〜4%含まれると報告している。
+U45	ok		https://www.env.go.jp/nature/choju/effort/effort12/kuma-habitat.pdf	A	環境省の資料が日本のクマとしてヒグマとツキノワグマを扱っている。
+U46	ok		https://www.pref.nagano.lg.jp/yasei/documents/aki_kuma.pdf	A	長野県の資料に、ドングリなどの木の実を大量に食べて冬眠に備えるとある。
+U47	ok		https://www.nature.com/news/2004/040524/full/news040524-7.html	A	カバの赤い分泌物は赤と橙の酸性化合物で、紫外線を吸収し日焼け止めのように働くと報じられた。
+U48	ok		https://www.afpbb.com/articles/-/3040701	B	2021年の研究で、現存のカバに最も近い近縁種はクジラ類と確認されたと報じられた。
+U49	ok		https://kotobank.jp/word/%E3%82%A2%E3%83%92%E3%83%AB-761139	B	辞典に、アヒルはマガモを飼いならした家禽とある。
+U50	fix	カモやガンのひなは、生まれて最初に見た動くものを親と思って追う「刷り込み」を示す。	https://honcierge.jp/articles/shelf_story/6294	C	刷り込みの記述はガンやカルガモが中心で、アヒルでの残り方は確認できなかったので範囲を広げた。
+U51	ok		https://nazology.kusuguru.co.jp/archives/75709	B	ヤギの横長の瞳孔は、広い範囲を見渡すのに役立つと考えられている。
+U52	ok		https://nazology.kusuguru.co.jp/zukan/ikimono/yagi	B	ヤギは急な崖や木にも登ると紹介されている。
+U53	ok		https://www.afpbb.com/articles/-/3630544	B	ダチョウは現存する最大の鳥で、走る速さは時速70キロに達するとされる。
+U54	ok		https://www.britannica.com/animal/ostrich	B	ダチョウの卵は現生の鳥で最大とされる（最大長約15センチ）。
+U55	ok		https://www.city.sendai.jp/zoo/sns/documents/20240703_usagi_mimiyakunitattsu.pdf	A	ウサギは汗腺が発達せず、長い耳の血管から熱を逃がすと説明されている。
+U56	fix	ウサギは、自分の盲腸糞（もうちょうふん）を食べて栄養を取り直す。	https://ja.wikid.org/%E3%82%A6%E3%82%B5%E3%82%AE	C	未消化の繊維を含む糞を再び食べる食糞行動は異常ではないと説明されている。
+U57	ok		https://www.city.sapporo.jp/zoo/011-b.html	A	ライオンはネコ科で最も社会性が高く、プライドという群れで暮らすとされる。
+U58	ok		https://www.city.sapporo.jp/zoo/011-b.html	A	ライオンの狩りは群れのメスが協力して行うのが中心と説明されている。
+U59	ok		https://guinnessworldrecords.com/world-records/83025-most-northerly-primate	A	ギネス世界記録が、ニホンザルを人間以外で最も北にすむ霊長類としている。
+U60	ok		https://www.go-nagano.net/nature-and-outdoors/id12212	B	長野県の地獄谷野猿公苑は、温泉に入る野生のニホンザルで知られる。
+U61	drop		https://motitown.com/vocabulary/ja/%E5%81%B4%E7%B7%9A	C	えらと酸素の関係を直接述べた出典を検索で確認できなかった。
+U62	ok		https://www.weblio.jp/content/lateral+line	B	側線は魚の体側に沿う感覚器官で、水流や圧力の変化を感じ取る。
+U63	ok		https://nh.kanagawa-museum.jp/assets/icp/contents/1599810351554/simple/tobira18_2tojyo.pdf	B	昆虫は体が頭・胸・腹に分かれ、脚が6本あると説明されている。
+U64	ok		https://en.wikipedia.org/wiki/Insect_biodiversity	B	昆虫は記載された種の半分以上を占めるとされる（算出法で半分から7割と幅がある）。
+U65	fix	花には、虫を蜜のありかへ導く「蜜標（ネクターガイド）」と呼ばれる模様をもつものがある。	https://www.weblio.jp/content/Nectar+guide	B	蜜標は受粉を助ける虫を報酬へ導く花の模様と説明されている。
+U66	fix	ミツバチは紫外線が見えるので、人には見えない花の模様を手がかりにしていると考えられている。	https://ja.wikipedia.com/wiki/%E8%9C%9C%E6%A8%99	B	ヒマワリなど紫外線でだけ見える蜜標があり、紫外線を見られる昆虫を引きつけると考えられている。
+U67	fix	青森県は日本一のリンゴの産地で、国内生産量の6割ほどを占める。	https://www.gov-online.go.jp/eng/publicity/book/hlj/html/201611/201611_05_jp.html	A	政府広報が、青森県の生産量は国内の6割弱と伝えている（年により変動）。
+U68	fix	ニュートンがリンゴの落ちるのを見て万有引力を思いついたという話は、のちに脚色された逸話とされる。	https://www.gizmodo.jp/article/newton/	C	晩年のニュートンの話に尾ひれがついたもので、史実として確定はできないとされる。

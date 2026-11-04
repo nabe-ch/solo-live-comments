@@ -47,7 +47,9 @@ const ASSIST_STOP = new Set(['ゲーム', 'アイテム', 'ボタン', 'イベ�
 const EAT_TEXTS = new Set(FOOD.filter((f) => f[1] === 'eat').map((f) => f[2]));
 const assistFacts = [
   ...knowledge.flatMap((k) => [...k.what, ...k.where, ...k.when, ...k.real].map((t) => [k.name, t])),
-  ...FOOD.map(([name, , t]) => [name, t])
+  ...FOOD.map(([name, , t]) => [name, t]),
+  ...CREATURE_TRIVIA,
+  ...TOPIC_TRIVIA
 ];
 function searchFacts(text, skipEat = false) {
   const words = (text.match(/[ァ-ヶー]{3,}|[一-龠々]{3,}/g) || []).filter((w) => !ASSIST_STOP.has(w)).sort((a, b) => b.length - a.length);
@@ -74,6 +76,24 @@ function pickTrivia(pool) {
   if (triviaRecent.length > 30) triviaRecent.shift();
   return line.replace(/^ちなみに[、 ]*/, '');
 }
+// 話題の名前が文にあるか（カタカナは長い言葉の一部に反応させない。漢字1文字は、その言葉だけのときに限る）
+function topicHit(name, topic, asked) {
+  if (/^[ァ-ヶー]+$/.test(name)) return new RegExp(`(^|[^ァ-ヶー])${name}(?![ァ-ヶー])`).test(asked);
+  return name.length === 1 ? topic === name : asked.includes(name);
+}
+const speciesNames = new Set(VILLAGERS.map((v) => v[1]));
+const kindOf = new Map(CREATURES.map((c) => [c[0], c[1]]));
+// 「魚のうんちく」のように分野で頼まれたときの候補
+function triviaCategory(asked) {
+  const byKind = (kind) => CREATURE_TRIVIA.filter(([n]) => kindOf.get(n) === kind).map(([n, t]) => knowSay(n, t));
+  if (/海の幸|うみのさち/.test(asked)) return byKind('海の幸');
+  if (/魚|さかな/.test(asked)) return [...byKind('魚'), ...TOPIC_TRIVIA.filter(([n]) => n === '魚').map(topicSay)];
+  if (/虫|むし/.test(asked)) return [...byKind('虫'), ...TOPIC_TRIVIA.filter(([n]) => n === '虫').map(topicSay)];
+  if (/動物|どうぶつ|住民/.test(asked)) return TOPIC_TRIVIA.filter(([n]) => speciesNames.has(n)).map(topicSay);
+  if (/花|はな/.test(asked)) return [...TOPIC_TRIVIA.filter(([n]) => n === '花').map(topicSay), ...knowledge.filter((k) => ['チューリップ', 'バラ', 'コスモス', 'ユリ', 'パンジー', 'ヒヤシンス', 'キク', 'スズラン', 'アネモネ', 'ソメイヨシノ', '花言葉'].includes(k.name)).flatMap((k) => k.what.map((t) => knowSay(k.name, t)))];
+  if (/島|しま/.test(asked)) return knowledge.filter((k) => /島/.test(k.name)).flatMap((k) => k.what.map((t) => knowSay(k.name, t)));
+  return [];
+}
 function triviaAnswer(said) {
   const fixed = fixKana(said);
   const topic = fixed.replace(TRIVIA_FILLER, '');
@@ -82,9 +102,11 @@ function triviaAnswer(said) {
   const asked = fixed.replace(new RegExp(TRIVIA_ASK.source, 'g'), '');
   const pool = [
     ...RULES.filter((r) => r.u && r.u.length && r.re.test(asked)).flatMap((r) => r.u),
-    ...knowledge.filter((k) => k.re.test(asked)).flatMap((k) => [...k.what, ...k.where, ...k.when].map((t) => knowSay(k.name, t)))
+    ...knowledge.filter((k) => k.re.test(asked)).flatMap((k) => [...k.what, ...k.where, ...k.when].map((t) => knowSay(k.name, t))),
+    ...TOPIC_TRIVIA.filter(([n]) => topicHit(n, topic, asked)).map(topicSay)
   ];
-  const line = pickTrivia(pool);
+  // 話題で見つからなければ、分野で探す
+  const line = pickTrivia(pool) || pickTrivia(triviaCategory(asked));
   if (line) return { type: 'answer', text: line };
   const related = pool.length ? null : searchFacts(topic, true);
   return related ? { type: 'answer', text: related } : { type: 'unknown', text: `${topic}のうんちくは、まだ知りません。質問を残しました` };
@@ -109,6 +131,12 @@ function assist(raw) {
   // 聞き方に合う項目がなくても、話題が分かれば、持っている情報を出す
   const general = knowledgeAnswer(`${text.slice(-24)}。教えて`);
   if (general) return { type: 'answer', text: /いつ|何年/.test(text) && !/[0-9]|年|時代|世紀/.test(general) ? `いつかは確認できていません。${general}` : general };
+  // 話題の名前があれば、持っているうんちくを出す（「ネコって何」など）
+  const topicLines = TOPIC_TRIVIA.filter(([n]) => n.length > 1 && topicHit(n, '', text)).map(topicSay);
+  // 「どこ」と聞かれたら、場所の話を先に出す
+  const placeLines = /どこ|場所/.test(text) ? topicLines.filter((t) => /すむ|半球|原産|産地|県|国/.test(t)) : [];
+  const known = pickTrivia(placeLines.length ? placeLines : topicLines);
+  if (known) return { type: 'answer', text: known };
   const related = searchFacts(text);
   if (related) return { type: 'answer', text: related };
   return { type: 'unknown', text: 'それはまだ知りません。質問を残しました' };
