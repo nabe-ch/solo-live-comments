@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const dir = path.join(__dirname, '..', 'research');
 const readTsv = (f) => (fs.existsSync(path.join(dir, f)) ? fs.readFileSync(path.join(dir, f), 'utf8').replace(/^\uFEFF/, '').split(/\r?\n/).filter(Boolean).map((l) => l.split('\t')) : []);
-const verdicts = new Map(['verdict-eco1.tsv', 'verdict-eco2.tsv', 'verdict-eco3.tsv', 'verdict-eco4.tsv'].flatMap(readTsv).map(([id, verdict, corrected]) => [id.trim(), { verdict: (verdict || '').trim().toLowerCase(), corrected: (corrected || '').trim() }]));
+const verdicts = new Map(['verdict-eco1.tsv', 'verdict-eco2.tsv', 'verdict-eco3.tsv', 'verdict-topic7.tsv', 'verdict-topic8.tsv'].flatMap(readTsv).map(([id, verdict, corrected]) => [id.trim(), { verdict: (verdict || '').trim().toLowerCase(), corrected: (corrected || '').trim() }]));
 const list = [];
 const counts = { ok: 0, fix: 0, drop: 0, missing: [] };
 for (const [id, name, text] of readTsv('claims-eco.tsv')) {

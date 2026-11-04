@@ -81,6 +81,7 @@ function pickTrivia(pool) {
 // 話題の名前が文にあるか（カタカナは長い言葉の一部に反応させない。漢字1文字は、その言葉だけのときに限る）
 // ふだんの呼び方や、音声認識の表記ゆれ
 const TOPIC_ALIASES = {
+  始祖鳥: ['しそちょう'], 足跡の化石: ['あしあと'], コプロライト: ['ウンコ', 'うんこの化石', 'ふんの化石'], パキケファロサウルス: ['パキケファロ'], Tレックス: ['ティラノサウルス', 'ティラノ'], フタバサウルス: ['フタバスズキリュウ', 'フタバ竜'], 三葉虫: ['さんようちゅう'], サメの歯: ['サメのは'], 幽霊: ['ゆうたろう'], かぼちゃ: ['パンプキング'], サンタクロース: ['ジングル', 'サンタ'],
   ワンピース: ['ONE PIECE', 'one piece'], 僕のヒーローアカデミア: ['ヒロアカ', 'ヒーローアカデミア'], BLEACH: ['ブリーチ'], 鬼滅の刃: ['鬼滅', 'きめつ'], 呪術廻戦: ['呪術', 'じゅじゅつ'],
   チェンソーマン: ['チェーンソーマン', 'チェンソー'], 進撃の巨人: ['進撃'], 'SPY×FAMILY': ['スパイファミリー', 'スパイ×ファミリー', 'スパイ家族'], 葬送のフリーレン: ['フリーレン'], 推しの子: ['おしのこ'],
   薬屋のひとりごと: ['薬屋'], NARUTO: ['ナルト'], 名探偵コナン: ['コナン'], ジョジョの奇妙な冒険: ['ジョジョ'], 'HUNTER×HUNTER': ['ハンターハンター', 'ハンタ'], 'ゆるキャン△': ['ゆるキャン'],
@@ -120,17 +121,14 @@ function triviaAnswer(said) {
     ...TOPIC_TRIVIA.filter(([n]) => topicHit(n, topic, asked)).map(topicSay)
   ];
   // 登場キャラなら、その動物のうんちくも候補にする
-  const npcName = [...NPC_ANIMAL.keys()].find((n) => asked.includes(n));
-  if (npcName) {
-    const animal = NPC_ANIMAL.get(npcName);
-    pool.push(...TOPIC_TRIVIA.filter(([n, t]) => n === animal && !/^動物は/.test(t)).map(topicSay), ...ECOLOGY.filter(([n]) => n === animal).map(([n, t]) => knowSay(n, t)), ...knowledge.filter((k) => k.name === animal).flatMap((k) => k.what.map((t) => knowSay(k.name, t))));
-  }
+  const npcLine = npcAnimalAnswer(asked);
+  if (npcLine) return { type: 'answer', text: npcLine };
   // 話題で見つからなければ、分野で探す
   // うんちくを頼まれたら、話題の生態も添える
   const eco = ecoHit(asked);
   if (eco) {
-    const trivia = pickTrivia(pool.filter((t) => !t.includes(eco[1])));
-    return { type: 'answer', text: joinLines(trivia || knowSay(eco[0], eco[1]), trivia ? knowSay(eco[0], eco[1]) : null) };
+    const trivia = pickTrivia(pool.filter((t) => !t.includes(eco[1]) && !overlaps(t, eco[1], eco[0])));
+    return { type: 'answer', text: joinLines(trivia || knowSay(eco[0], eco[1]), trivia ? knowSay(eco[0], eco[1]) : null, eco[0]) };
   }
   const line = pickTrivia(pool) || pickTrivia(triviaCategory(asked));
   if (line) return { type: 'answer', text: line };
@@ -206,19 +204,49 @@ function howtoAnswer(text) {
 // 現実の生態を聞かれたら、ゲームの情報より先に答える（「○○の生態」「○○は何を食べるの」）
 // 文の中の名前から、生態のデータを探す（長い名前を優先）
 function ecoHit(text) {
-  const hits = ECOLOGY.filter(([n]) => (n.length === 1 ? text.startsWith(`${n}の`) || text.startsWith(`${n}は`) || text.startsWith(`${n}って`) : new RegExp(`(^|[^ァ-ヶー])${n}(?![ァ-ヶー])`).test(text)));
+  const hits = ECOLOGY.filter(([n]) => (TOPIC_ALIASES[n] || []).some((a) => text.includes(a)) || (n.length === 1 ? text.startsWith(`${n}の`) || text.startsWith(`${n}は`) || text.startsWith(`${n}って`) : new RegExp(`(^|[^ァ-ヶー])${n}(?![ァ-ヶー])`).test(text)));
   return hits.length ? hits.sort((a, b) => b[0].length - a[0].length)[0] : null;
 }
-const joinLines = (a, b) => (b ? `${a.replace(/。$/, '')}。${b}` : a);
+// 2つの文をつなぐ。同じ主語は繰り返さない
+const joinLines = (a, b, name = '') => {
+  if (!b) return a;
+  const second = name && b.startsWith(`${name}は`) ? b.slice(name.length + 1).replace(/^、/, '') : b;
+  return `${a.replace(/。$/, '')}。${second}`;
+};
+// 2文字ずつ見て、内容が重なる文かどうかを調べる（「南半球にすむ」が2回出ないように）
+const pairsOf = (t) => { const s = new Set(); for (let i = 0; i < t.length - 1; i++) s.add(t.slice(i, i + 2)); return s; };
+const overlaps = (a, b, name = '') => {
+  const clean = (t) => t.split(name).join('').replace(/[、。は]/g, '');
+  const x = pairsOf(clean(a)), y = pairsOf(clean(b));
+  const same = [...x].filter((p) => y.has(p)).length;
+  // 同じ言葉が3文字以上続いて2回あるか、全体の3割が同じなら重なりとみなす
+  const a2 = clean(a), b2 = clean(b);
+  let runs = 0;
+  for (let i = 0; i < a2.length - 2; i++) if (b2.includes(a2.slice(i, i + 3))) runs += 1;
+  return runs >= 2 || same / Math.min(x.size || 1, y.size || 1) > 0.3;
+};
+// 登場キャラなら、動物の種類に、その動物のうんちくと生態を添える
+function npcAnimalAnswer(text) {
+  const npc = [...NPC_ANIMAL.keys()].find((n) => text.includes(n));
+  if (!npc) return null;
+  const animal = NPC_ANIMAL.get(npc);
+  const eco = ECOLOGY.find(([n]) => n === animal);
+  const known = knowledge.filter((k) => k.name === animal).flatMap((k) => k.what.map((t) => knowSay(k.name, t)));
+  const trivia = pickTrivia([...TOPIC_TRIVIA.filter(([n, t]) => n === animal && !/^動物は/.test(t)).map(topicSay), ...known].filter((t) => !eco || !overlaps(t, eco[1], animal)));
+  const head = `${npc}の動物は${animal}`;
+  return joinLines(joinLines(head, trivia), eco ? knowSay(animal, eco[1]) : null, trivia && trivia.startsWith(animal) ? animal : '');
+}
 const ECO_ASK = /生態|暮らし|何を?食べ|なに(を)?食べ|何食べ|餌|エサ|えさ|肉食|草食|雑食|すんでる|住んでる|棲んでる|すみか|現実|リアル|本物|実際/;
 function ecoAnswer(text) {
   if (!ECO_ASK.test(text) || /食べ方|食べられる|おいし|うまい/.test(text)) return null;
+  const npcLine = npcAnimalAnswer(text);
+  if (npcLine) return npcLine;
   const hit = ecoHit(text);
   if (!hit) return null;
   const eco = knowSay(hit[0], hit[1]);
   // うんちくがあれば添える
-  const extra = pickTrivia([...RULES.filter((r) => r.u && r.u.length && r.re.test(hit[0])).flatMap((r) => r.u), ...TOPIC_TRIVIA.filter(([n]) => n === hit[0]).map(topicSay)].filter((t) => !t.includes(hit[1])));
-  return joinLines(eco, extra);
+  const extra = pickTrivia([...RULES.filter((r) => r.u && r.u.length && r.re.test(hit[0])).flatMap((r) => r.u), ...TOPIC_TRIVIA.filter(([n]) => n === hit[0]).map(topicSay)].filter((t) => !t.includes(hit[1]) && !overlaps(t, hit[1], hit[0])));
+  return joinLines(eco, extra, hit[0]);
 }
 
 function assist(raw) {

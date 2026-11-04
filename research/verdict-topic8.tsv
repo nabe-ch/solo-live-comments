@@ -1,0 +1,39 @@
+U289	ok		https://en.wikipedia.org/wiki/Hedgehog	B	針は硬化した毛で、脅威には丸まり主に夜行性と確認。
+U290	ok		https://en.wikipedia.org/wiki/Sloth	B	中南米の熱帯林で木にぶら下がり葉を食べ、移動は毎分約4mと確認。
+U292	ok		https://en.wikipedia.org/wiki/Kappa_(folklore)	B	日本各地の水の妖怪で頭の皿に水があると確認。
+U293	fix	適応力が高くさまざまな環境にすみ、ネズミなどの小動物や昆虫を食べる。日本では稲荷神の使いとされる	https://ja.wikipedia.org/wiki/キツネ	B	日本語版で稲荷の神使と記載、ただし森や草原に限る記述はなく環境は幅広い。
+U294	ok		https://en.wikipedia.org/wiki/Leopard	B	アフリカとアジアにすみ獲物を木の上へ運ぶと確認。
+U296	ok		https://en.wikipedia.org/wiki/Wild_boar	B	森にすむ雑食で鼻で土を掘り根を食べると確認。
+U297	ok		https://en.wikipedia.org/wiki/Beaver	B	川に木でダムを作り水辺に巣(ロッジ)を作ると確認。
+U298	ok		https://en.wikipedia.org/wiki/Chameleon	B	目が独立して動き、長い舌で虫を捕らえると確認。
+U299	ok		https://en.wikipedia.org/wiki/Gull	B	海辺に群れで営巣し魚や貝や残り物を食べると確認。
+U300	ok		https://ja.wikipedia.org/wiki/トナカイ	B	北極圏周辺のシカ科で雌雄とも角を持つと確認。
+U301	ok		https://en.wikipedia.org/wiki/Indian_peafowl	B	飾り羽(尾羽)を広げるのはオスで南アジアにすむと確認。
+U304	ok		https://en.wikipedia.org/wiki/Iron_ore	B	鉄の原料で主産地はオーストラリアとブラジルと確認。
+U305	ok		https://en.wikipedia.org/wiki/Gold	B	金は石英などとともに岩の脈で産出すると確認。
+U307	ok		https://en.wikipedia.org/wiki/Coral	B	サンゴは動物で体内の褐虫藻から栄養を得ると確認。
+U343	ok		https://nookipedia.com/wiki/Zipper_T._Bunny	B	ぴょんたろうはウサギと確認。
+U344	ok		https://nookipedia.com/wiki/Gullivarrr	B	かいぞくの種類はカモメと確認。
+U345	ok		https://nookipedia.com/wiki/Wisp	B	ゆうたろうは幽霊で散らばった魂を集めさせると確認。
+U346	ok		https://nookipedia.com/wiki/Jack	B	パンプキングはかぼちゃ頭のハロウィンの住人と確認。
+E268	ok		https://en.wikipedia.org/wiki/Shih_Tzu	B	チベット起源で中国の宮廷で愛された小型の愛玩犬と確認。
+E269	fix	ヨーロッパやアジア、アフリカの草地や林にすみ、夜に虫や小動物、果実などを食べる	https://en.wikipedia.org/wiki/Hedgehog	B	食べ物は雑食で、ミミズは出典に記載なし。
+E270	ok		https://en.wikipedia.org/wiki/Sloth	B	木にぶら下がり葉を食べ、消化に非常に長い時間(1か月以上とも)かかると確認。
+E271	ok		https://en.wikipedia.org/wiki/Poodle	B	もとは水鳥猟で獲物を水から回収する犬として作られたと確認。
+E272	fix	さまざまな環境に適応してすみ、ネズミなどの小動物や昆虫、果実を食べる	https://ja.wikipedia.org/wiki/キツネ	B	森や草原や巣穴は出典で確認できず、環境は幅広いとされる。
+E273	ok		https://en.wikipedia.org/wiki/Leopard	B	アフリカとアジアで単独行動し獲物を木に運ぶと確認。
+E274	ok		https://en.wikipedia.org/wiki/Camel	B	乾燥地にすみこぶは脂肪の貯蔵で水なしで長く過ごせると確認。
+E275	ok		https://en.wikipedia.org/wiki/Wild_boar	B	森にすむ雑食で鼻で土を掘ると確認。
+E276	ok		https://en.wikipedia.org/wiki/Beaver	B	北米とユーラシアの川で木を倒しダムとロッジを作り草や樹皮を食べると確認。
+E277	fix	アフリカやマダガスカルなどの森や草原にすみ、左右の目を別々に動かし、長い舌で虫を捕らえる	https://en.wikipedia.org/wiki/Chameleon	B	生息地は森だけでなく林地や草原など幅広い。
+E278	ok		https://en.wikipedia.org/wiki/Gull	B	海辺の群れで魚や貝や人の残り物を食べると確認。
+E279	fix	北極圏の周辺に群れですみ、地衣類(コケに似たもの)や草を食べ、オスもメスも角を持つ	https://ja.wikipedia.org/wiki/トナカイ	B	冬の主食は地衣類でコケそのものではない。
+E280	ok		https://en.wikipedia.org/wiki/Indian_peafowl	B	南アジアにすみ雑食で飾り羽はオスと確認。
+E281	ok		https://en.wikipedia.org/wiki/Turkey_(bird)	B	北米の林にすみ種や虫を食べ地上で過ごすと確認。
+E282	ok		https://en.wikipedia.org/wiki/Dodo	B	モーリシャス島固有の飛べない鳥で17世紀に絶滅と確認。
+U347	ok		https://en.wikipedia.org/wiki/Kappa_(folklore)	B	川や沼にすみ頭の皿の水がこぼれると弱ると確認。
+U348	ok		https://ja.wikipedia.org/wiki/幽霊	B	応挙きっかけ説は俗説とも指摘されるが、説として言及されている。
+U349	ok		https://en.wikipedia.org/wiki/Jack-o'-lantern	B	ハロウィンのランタンはもとアイルランドや英国でカブなどで作られたと確認。
+U350	ok		https://en.wikipedia.org/wiki/Santa_Claus	B	聖ニコラウスが原型で1823年の詩がトナカイのそりを広めたと確認。
+U351	ok		https://en.wikipedia.org/wiki/Sand	B	砂は粒状の鉱物や岩片で、地質学で粒径は約0.0625〜2mmと確認。
+U352	ok		https://en.wikipedia.org/wiki/Great_Barrier_Reef	B	世界最大のサンゴ礁群でオーストラリアにあると確認。

@@ -1,0 +1,70 @@
+U308	ok		https://en.wikipedia.org/wiki/Acanthostega	B	英語版Wikipediaに、手に8本の指があり東グリーンランドで化石が見つかったとある。
+E233	ok		https://en.wikipedia.org/wiki/Acanthostega	B	後期デボン紀の水辺で、陸を歩くには向かず水中生活だったとある。
+U309	ok		https://en.wikipedia.org/wiki/Amber	B	琥珀は樹脂の化石で、虫などが内包されることがあるとある。
+E234	ok		https://en.wikipedia.org/wiki/Amber	B	琥珀は木の樹脂が化石になったものとある。
+U310	fix	殻の中が部屋に分かれていて、恐竜と同じ白亜紀の終わりごろに絶滅した	https://en.wikipedia.org/wiki/Ammonoidea	B	室に分かれた殻で、約6600万年前の白亜紀末の大量絶滅の前後に消えたとある（恐竜との同時期は同じ境界事件による）。
+E235	ok		https://en.wikipedia.org/wiki/Ammonoidea	B	海にすみ、殻の部屋の水を調節して浮き沈みしたとある。
+U311	ok		https://en.wikipedia.org/wiki/Ankylosaurus	B	全身を骨の板で覆い、尾のこぶは防御の武器だった可能性が高いとある。
+E236	ok		https://en.wikipedia.org/wiki/Ankylosaurus	B	後期白亜紀（マーストリヒト期）の北アメリカにいた草食恐竜とある。
+U312	ok		https://en.wikipedia.org/wiki/Anomalocaris	B	名前は「他のエビに似ない」の意で、体の部品が別々の動物と誤解されていたとある。
+E237	ok		https://en.wikipedia.org/wiki/Anomalocaris	B	カンブリア紀に遊泳し、前方の1対の付属肢で獲物をつかんだとある。
+U313	ok		https://en.wikipedia.org/wiki/Archaeopteryx	B	羽毛と歯を持ち、恐竜と鳥の移行化石として重要とある。
+E238	ok		https://en.wikipedia.org/wiki/Archaeopteryx	B	後期ジュラ紀の南ドイツにいて、短い距離を飛んだ程度とみられるとある。
+U314	fix	これまでに知られた中で最大のカメとされ、甲羅は骨の板が薄く、軽い作りだった	https://en.wikipedia.org/wiki/Archelon	B	記録された最大のカメで、骨の板は薄く軽量化されていたとある（骨格全体が軽いわけではない）。
+E239	fix	白亜紀の北アメリカの内海にすみ、貝やエビカニのほか、イカやクラゲも食べたかもしれない	https://en.wikipedia.org/wiki/Archelon	B	主に硬い殻の貝類や甲殻類を食べ、イカ・クラゲは可能性にとどまるとある。
+U315	ok		https://en.wikipedia.org/wiki/Lucy_(Australopithecus)	B	キャンプで流れていたビートルズの曲にちなんで名付けられたとある。
+E240	fix	約420万〜190万年前のアフリカにいて、2本の足で歩いたとされる	https://en.wikipedia.org/wiki/Australopithecus	B	最古の種が約420万年前、属の絶滅は約190万年前で、二足歩行の証拠もあるとある。
+U316	ok		https://en.wikipedia.org/wiki/Brachiosaurus	B	前脚が後脚より長くキリンに似た体形とある。
+E241	ok		https://en.wikipedia.org/wiki/Brachiosaurus	B	後期ジュラ紀の北アメリカにいて、高い所の植物を食べたとある。
+U317	ok		https://en.wikipedia.org/wiki/Coprolite	B	食べ物など動物の行動が分かる痕跡化石とある。
+E242	ok		https://en.wikipedia.org/wiki/Coprolite	B	糞の化石で、骨などが含まれる例があるとある。
+U318	ok		https://en.wikipedia.org/wiki/Deinonychus	B	名前は「恐ろしい爪」で、オストロムの研究が鳥の恐竜起源説の復活につながったとある。
+E243	ok		https://en.wikipedia.org/wiki/Deinonychus	B	前期白亜紀の北アメリカの肉食恐竜で、群れ狩りは仮説で議論があるとある。
+U319	ok		https://en.wikipedia.org/wiki/Dimetrodon	B	恐竜の出現より約4000万年前に絶えたペルム紀の生き物とある。
+E244	fix	ペルム紀の肉食動物で、背中の帆は体温調節に使ったという説と、見せ合いに使ったという説がある	https://en.wikipedia.org/wiki/Dimetrodon	B	体温調節説は古くからあるが、近年は性選択（見せ合い）説も有力とある。
+U320	fix	歩幅などから、大昔の動物の歩く速さを推定する研究がある	https://en.wikipedia.org/wiki/Fossil_track	B	足跡から歩行・疾走の速さを分析するとあるが、方法の詳細は記載がない。
+E245	ok		https://en.wikipedia.org/wiki/Fossil_track	B	足跡から二足か四足か、群れで動いたかなどが分かるとある。
+U321	ok		https://en.wikipedia.org/wiki/Diplodocus	B	尾をむちのように使ったという説が提案されているとある。
+E246	ok		https://en.wikipedia.org/wiki/Diplodocus	B	後期ジュラ紀の北アメリカにいて、枝や葉を食べたとされる。
+U322	ok		https://en.wikipedia.org/wiki/Dunkleosteus	B	普通の歯の代わりに骨の刃状の縁を持っていたとある。
+E247	ok		https://en.wikipedia.org/wiki/Dunkleosteus	B	後期デボン紀の外洋にいた最初期の頂点捕食者の一つとある。
+U323	ok		https://en.wikipedia.org/wiki/Eusthenopteron	B	魚から四肢動物への移行の研究で重要とある。
+E248	fix	デボン紀後期の海にすみ、小さな魚を食べたと考えられる魚だった	https://en.wikipedia.org/wiki/Eusthenopteron	B	海にすむ肉鰭類で、小魚を食べた可能性があるという推定にとどまる。
+U324	ok		https://en.wikipedia.org/wiki/Iguanodon	B	初期の復元では親指のとげが鼻に置かれたが、後に親指と分かったとある。
+E249	ok		https://en.wikipedia.org/wiki/Iguanodon	B	前期白亜紀のベルギー・ドイツ・スペインなどにいた草食恐竜とある。
+U325	ok		https://www.popsci.com/science/article/2011-08/jurassic-mammal-fossil-hints-at-earlier-split-between-placental-mammals-and-marsupials/	B	Jura=ジュラ紀、maia=母の意で、中国のジュラ紀後期の地層から見つかったとある（検索結果の抜粋で確認）。
+E250	fix	トガリネズミに似た小さな哺乳類で、木の上で暮らしたと考えられている	https://en.wikipedia.org/wiki/Juramaia	B	小型で前肢の骨が樹上生活への適応を示すとあるが、虫食いの記載はない。
+U326	fix	角を広げた幅は4メートルを超えることがある	https://en.wikipedia.org/wiki/Irish_elk	B	最大の角は端から端まで約4.26メートルとある。
+E251	fix	氷河期のユーラシアにすみ、草や草花、葉などを食べたとされる	https://en.wikipedia.org/wiki/Irish_elk	B	草や草本を主に、時に葉も食べる柔軟な食性だったとある。
+U327	ok		https://en.wikipedia.org/wiki/Pteranodon	B	基本種の翼開長は6メートルを超えるとある。
+E252	ok		https://en.wikipedia.org/wiki/Pteranodon	B	後期白亜紀の北アメリカの内海にいて、主に魚を食べたとある。
+U328	ok		https://en.wikipedia.org/wiki/Quetzalcoatlus	B	属名はアステカの羽毛の蛇の神ケツァルコアトルにちなむとある。
+E253	ok		https://en.wikipedia.org/wiki/Quetzalcoatlus	B	白亜紀末のテキサスにいて、地上で小動物を狩ったとする研究があるとある。
+U329	ok		https://en.wikipedia.org/wiki/Woolly_mammoth	B	シベリアなどの凍結した遺体に軟組織や毛が残るとある。
+E254	fix	氷河期の草原にすみ、草や草花を食べ、長い毛で寒さをしのいだ	https://en.wikipedia.org/wiki/Woolly_mammoth	B	糞の分析で草花が約63%、草が約27%とあり、長い保護毛と下毛を持っていた。
+U330	fix	ブロントテリウムの仲間で、サイに似ているが、似ているのは見た目だけの奇蹄類	https://en.wikipedia.org/wiki/Megacerops	B	サイに似るのは収斂進化による見た目だけで、ウマに近いと断定はされていないとある。
+E255	ok		https://en.wikipedia.org/wiki/Megacerops	B	後期始新世の北アメリカにすみ、葉や果実を食べたとみられるとある。
+U331	fix	中国の昆明の近くで化石が見つかった、最古級の脊椎動物の一つ	https://en.wikipedia.org/wiki/Myllokunmingia	B	雲南省昆明の海口で見つかり、最古級の脊椎動物とあるが、澄江とは明記されていない。
+E256	ok		https://en.wikipedia.org/wiki/Myllokunmingia	B	約5億1800万年前のカンブリア紀で、全長は約2.8センチとある。
+U332	ok		https://en.wikipedia.org/wiki/Ophthalmosaurus	B	名前はギリシャ語の「目」と「トカゲ」で、眼がとても大きかったとある。
+E257	fix	ジュラ紀の海にすみ、流線形の体で、小さな獲物を食べたとされる	https://en.wikipedia.org/wiki/Ophthalmosaurus	B	流線形で、多様な小型の獲物を食べる捕食者とされ、イカやイルカへの言及はない。
+U333	fix	頭の骨のドームは20センチを超える厚さがあった	https://en.wikipedia.org/wiki/Pachycephalosaurus	B	頭骨は22〜25センチの厚さとあるが、名前の意味はそのページに記載がない。
+E258	fix	白亜紀の終わりごろの北アメリカにいて、頭をぶつけ合ったという説があるが異論もある	https://en.wikipedia.org/wiki/Pachycephalosaurus	B	頭突き説は長く唱えられたが、頭骨の強度などから議論があるとある。
+U334	fix	とさかの中は空洞で、管楽器のように音が出たという説がある	https://en.wikipedia.org/wiki/Parasaurolophus	B	とさかは空洞で低い音の共鳴室だったと提案されているが、仮説である。
+E259	ok		https://en.wikipedia.org/wiki/Parasaurolophus	B	後期白亜紀の北アメリカにいて、くちばしを持つ草食とある。
+U335	fix	フタバスズキリュウの名で知られ、学名は2006年についた	https://en.wikipedia.org/wiki/Futabasaurus	B	2006年に命名され、以前の非公式名が「フタバスズキリュウ」系統とある。
+E260	fix	白亜紀後期の海にすんだ首長竜の仲間で、福島県で化石が見つかった	https://en.wikipedia.org/wiki/Futabasaurus	B	福島の後期白亜紀の首長竜（エラスモサウルス類）とあり、食べ物の記載はない。
+U336	ok		https://en.wikipedia.org/wiki/Smilodon	B	かむ力はライオンの約3分の1とする分析があるとある。
+E261	fix	更新世の南北アメリカにすみ、バイソンやラクダ、ナマケモノなどの大型の草食動物を狩った	https://en.wikipedia.org/wiki/Smilodon	B	北米ではバイソンやラクダ、南米ではナマケモノなどを獲物にしたとある。
+U337	ok		https://en.wikipedia.org/wiki/Shark_tooth	B	サメは歯を絶えず生え替わらせ、歯が化石として多いとある。
+E262	fix	メガロドンは歯の化石がよく見つかる絶滅したサメで、体長は最大約18メートルとされる	https://en.wikipedia.org/wiki/Shark_tooth	B	歯が最大級で体長は最大約60フィートとあるが、歯から推定したとは明記されていない。
+U338	ok		https://en.wikipedia.org/wiki/Spinosaurus	B	最初の化石は第二次世界大戦中のミュンヘンの博物館への爆撃で失われたとある。
+E263	ok		https://en.wikipedia.org/wiki/Spinosaurus	B	魚などを食べ、半水生の生活が広く支持されているとある（アフリカの後期白亜紀）。
+U339	ok		https://en.wikipedia.org/wiki/Stegosaurus	B	体重4.5トン超に対し脳は80グラム以下とある。
+E264	ok		https://en.wikipedia.org/wiki/Stegosaurus	B	後期ジュラ紀で、頭が低く、低い茂みを食べたとみられるとある。
+U340	ok		https://en.wikipedia.org/wiki/Tyrannosaurus	B	「暴君のトカゲの王」の意味で、かむ力は陸上動物で最大と推定されるとある。
+E265	fix	白亜紀末の北アメリカにいた肉食の恐竜で、獲物を狩ったとされる	https://en.wikipedia.org/wiki/Tyrannosaurus	B	頂点捕食者とされ、主に死肉食という説は否定されているとある。
+U341	fix	頭のフリルは、仲間へのアピールや体温調節の役割があったという説がある	https://en.wikipedia.org/wiki/Triceratops	B	見せ合い説が最有力で、体温調節説もあるとある。
+E266	ok		https://en.wikipedia.org/wiki/Triceratops	B	後期白亜紀末の北アメリカにいて、くちばしで植物をつかみ取ったとある。
+U342	fix	目の化石が残っていて、複雑な複眼を持っていたことが分かる	https://en.wikipedia.org/wiki/Trilobite	B	高度に複雑な複眼とあるが、「最古級」という記載は確認できなかった。
+E267	ok		https://en.wikipedia.org/wiki/Trilobite	B	古生代の海にすみ、多くは海底生活で、体を丸める仕組みがあったとある。
