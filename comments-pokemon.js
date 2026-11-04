@@ -66,6 +66,10 @@ function pokemonAnswer(rawText) {
   if (/タイプ|属性/.test(text)) return `${n}のタイプは${types}`;
   if (/世代|何作目|いつの/.test(text)) return `${n}は第${gen}世代`;
   if (/何番|番号|図鑑/.test(text)) return `${n}は図鑑${id}番`;
+  if (/進化先|進化後|何に進化|なにに進化/.test(text)) {
+    const next = pokeList.filter((p) => p.from === n).map((p) => p.name);
+    return next.length ? `${n}の進化先は${next.join('、')}` : `${n}は、これ以上進化しない`;
+  }
   if (/進化/.test(text)) return from ? `${n}は${from}から進化する` : `${n}は進化前がいない（タマゴから最初の姿）`;
   if (/どんな|何者|って何|ってなに|教えて|知ってる/.test(text)) return `${n}は図鑑${id}番、タイプは${types}、第${gen}世代`;
   return null;

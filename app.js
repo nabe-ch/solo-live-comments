@@ -11,9 +11,12 @@ const TATOE_COOLDOWN_MS = 5000;
 const VIEWER_COOLDOWN_MS = 5000;
 const PERSONA_SHARE = 0.3;
 const STREAM_COOLDOWN_MS = 20000; // 始めと終わりのあいさつを続けて出さない時間
+const ASK_PAUSE_MS = 900;    // 質問モードで、話し終わったとみなすまでの時間
+const ASK_REPEAT_MS = 5000;  // 同じ質問に続けて答えない時間
+const MISSED_MAX = 100;      // 残しておく「答えられなかった質問」の数
 
 const NO_RESULT_RESTART_MS = 25000; // 声が届かないまま、この時間がたったら音声認識を作り直す
-const state = { reconnects: 0, lastError: '', lastResultAt: 0, recOpenedAt: 0, reconnectTimer: null, running: false, rec: null, lastText: '', lastHeard: 0, lastSilence: 0, lastGeneric: 0, lastAnswer: '', lastAnswerAt: 0, lastTatoe: 0, lastViewerReply: 0, lastStreamWord: 0, ruleAt: new Map(), recent: [], wakeLock: null, thread: null };
+const state = { reconnects: 0, lastError: '', lastResultAt: 0, recOpenedAt: 0, reconnectTimer: null, running: false, rec: null, lastText: '', lastHeard: 0, lastSilence: 0, lastGeneric: 0, lastAnswer: '', lastAnswerAt: 0, lastTatoe: 0, lastViewerReply: 0, lastStreamWord: 0, ruleAt: new Map(), recent: [], wakeLock: null, thread: null, mode: 'ask', askText: '', askDone: '', askFinal: false, askTimer: null, lastAsk: '', lastAskAt: 0 };
 const pickFrom = (arr) => arr[Math.floor(Math.random() * arr.length)];
 const amount = () => Number($('amount').value);
 
@@ -202,8 +205,79 @@ function react(text, whole = text) {
   }
 }
 
+// 質問モード：話し終わるのを待ってから、まだ処理していない部分に答える
+function scheduleAsk(text, isFinal) {
+  state.askText = text;
+  state.askFinal = isFinal;
+  clearTimeout(state.askTimer);
+  state.askTimer = setTimeout(flushAsk, isFinal ? 0 : ASK_PAUSE_MS);
+}
+function flushAsk() {
+  clearTimeout(state.askTimer);
+  const text = state.askText;
+  const question = text.startsWith(state.askDone) ? text.slice(state.askDone.length) : text;
+  state.askDone = state.askFinal ? '' : text;
+  if (question.trim()) askNow(question.trim());
+}
+function askNow(question) {
+  const now = Date.now();
+  if (question === state.lastAsk && now - state.lastAskAt < ASK_REPEAT_MS) return;
+  const result = assist(question);
+  if (!result) return;
+  state.lastAsk = question;
+  state.lastAskAt = now;
+  showAnswer(question, result);
+  if (result.type === 'unknown') addMissed(question);
+}
+function showAnswer(question, { type, text }) {
+  const chat = $('chat');
+  const li = document.createElement('li');
+  li.className = `card ${type}`;
+  const said = document.createElement('span');
+  said.className = 'said';
+  said.textContent = `「${question}」`;
+  const reply = document.createElement('span');
+  reply.className = 'reply';
+  reply.textContent = text;
+  li.append(said, reply);
+  chat.append(li);
+  while (chat.children.length > MAX_ROWS) chat.firstChild.remove();
+  chat.scrollTop = chat.scrollHeight;
+}
+
+// 答えられなかった質問は、この端末の中にだけ残す（あとでデータを足す材料にする）
+function readMissed() {
+  try { return JSON.parse(localStorage.getItem('missedQuestions')) || []; } catch (e) { return []; }
+}
+function writeMissed(list) {
+  try { localStorage.setItem('missedQuestions', JSON.stringify(list)); } catch (e) { /* 保存できない環境では画面に出すだけ */ }
+  renderMissed(list);
+}
+function addMissed(question) {
+  const list = readMissed().filter((q) => q !== question);
+  writeMissed([...list, question].slice(-MISSED_MAX));
+}
+function renderMissed(list = readMissed()) {
+  $('missedCount').textContent = list.length;
+  $('missedList').replaceChildren(...list.map((q) => { const li = document.createElement('li'); li.textContent = q; return li; }));
+}
+
+// 使い方の切り替え（質問／配信）
+function setMode(mode) {
+  state.mode = mode;
+  document.body.dataset.mode = mode;
+  $('mode').value = mode;
+  endThread();
+  try { localStorage.setItem('mode', mode); } catch (e) { /* 保存できなくても動く */ }
+}
+
 // 認識途中の文字は何度も届くので、増えた部分だけを見る
-function handleTranscript(text) {
+function handleTranscript(text, isFinal = false) {
+  if (state.mode === 'ask') {
+    $('heard').textContent = text;
+    scheduleAsk(text, isFinal);
+    return;
+  }
   const added = text.startsWith(state.lastText) ? text.slice(state.lastText.length) : text;
   state.lastText = text;
   $('heard').textContent = text;
@@ -220,7 +294,7 @@ function startRecognition() {
     state.lastError = '';
     setStatus('● 聞いています', true);
     const r = e.results[e.results.length - 1];
-    handleTranscript(r[0].transcript);
+    handleTranscript(r[0].transcript, r.isFinal);
     if (r.isFinal) state.lastText = '';
   };
   rec.onstart = () => { state.recOpenedAt = Date.now(); setStatus('● 聞いています', true); };
@@ -237,7 +311,7 @@ function startRecognition() {
     if (e.error !== 'no-speech' && e.error !== 'aborted') setStatus(`聞き取りエラー（${e.error}）。つなぎ直します`, false);
   };
   // iPhoneでは途中で止まることがあるので、動かしている間は自動でつなぎ直す
-  rec.onend = () => { state.lastText = ''; if (state.rec === rec) state.rec = null; if (state.running) reconnect(); };
+  rec.onend = () => { if (state.mode === 'ask') { flushAsk(); state.askDone = ''; state.askText = ''; } state.lastText = ''; if (state.rec === rec) state.rec = null; if (state.running) reconnect(); };
   state.rec = rec;
   try { rec.start(); } catch (e) { state.lastError = e.name; state.rec = null; reconnect(); }
 }
@@ -276,7 +350,7 @@ function start() {
   setStatus('● 聞いています', true);
   keepScreenOn();
   startRecognition();
-  streamBurst(pickSome(greetingForNow(), 2), pickSome(STREAM.open, 3), pickSome(STREAM.openAsk, 1));
+  if (state.mode === 'stream') streamBurst(pickSome(greetingForNow(), 2), pickSome(STREAM.open, 3), pickSome(STREAM.openAsk, 1));
 }
 
 // 実況の始めや終わりに、視聴者のコメントを少しずつ流す。最後の質問は会話になる
@@ -291,7 +365,7 @@ function streamBurst(first, middle, asks) {
 
 // silent：エラーで止まったときは、別れのコメントを出さない
 function stop(silent = false) {
-  const wasRunning = state.running && !silent;
+  const wasRunning = state.running && !silent && state.mode === 'stream';
   state.running = false;
   endThread();
   clearTimeout(state.reconnectTimer);
@@ -310,7 +384,7 @@ setInterval(() => {
     state.lastResultAt = now;
     restartRecognition();
   }
-  if (!state.running || state.thread) return;
+  if (!state.running || state.thread || state.mode === 'ask') return;
   if (now - state.lastHeard > SILENCE_MS && now - state.lastSilence > SILENCE_MS) {
     state.lastSilence = now;
     post(choose(SILENCE));
@@ -325,9 +399,21 @@ $('testForm').addEventListener('submit', (e) => {
   const text = $('testInput').value.trim();
   if (!text) return;
   $('heard').textContent = text;
-  react(text);
+  if (state.mode === 'ask') askNow(text); else react(text);
   $('testInput').value = '';
 });
+$('mode').addEventListener('change', (e) => setMode(e.target.value));
+$('missedCopy').addEventListener('click', async () => {
+  try { await navigator.clipboard.writeText(readMissed().join('\n')); setStatus('コピーしました', state.running); } catch (e) { setStatus('コピーできませんでした', state.running); }
+});
+$('missedClear').addEventListener('click', () => { if (confirm('答えられなかった質問の一覧を消しますか？')) writeMissed([]); });
+// 前回の使い方を復元する（初めては質問モード）
+{
+  let saved = null;
+  try { saved = localStorage.getItem('mode'); } catch (e) { /* 読めなければ質問モード */ }
+  setMode(saved === 'stream' ? 'stream' : 'ask');
+  renderMissed();
+}
 // 別のアプリから戻ったら、画面をつけたままにする設定をかけ直す
 document.addEventListener('visibilitychange', () => {
   if (!state.running || document.visibilityState !== 'visible') return;

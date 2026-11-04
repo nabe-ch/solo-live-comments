@@ -23,10 +23,13 @@ function foodAnswer(rawText) {
   const hit = foodEntries.find((f) => f.re.test(text));
   if (hit) {
     const pool = wantDanger && hit.danger.length ? hit.danger : wantEat && hit.eat.length ? hit.eat : [];
-    return pool.length ? knowSay(hit.name, pool[Math.floor(Math.random() * pool.length)]) : null;
+    if (pool.length) return knowSay(hit.name, pool[Math.floor(Math.random() * pool.length)]);
+    // 聞かれたことのデータがなければ、そう伝えて、持っている情報を添える
+    const other = [...hit.eat, ...hit.danger][0];
+    return `${hit.name}の${wantEat ? '食べ方' : '危険性'}は、確認できた情報がありません。${other ? knowSay(hit.name, other) : ''}`;
   }
   // 「これ食べられる？」は直前に話した生き物のこと
-  if (/これ|それ|この|その|こいつ/.test(text) && lastName && lastName.cre && Date.now() - lastName.at < 60000) {
+  if (/これ|それ(?!ぞれ)|(?<!ど)この|その|こいつ/.test(text) && lastName && lastName.cre && Date.now() - lastName.at < 60000) {
     const name = lastName.cre.c[0];
     const f = foodByName.get(name);
     const pool = f && (wantDanger && f.danger.length ? f.danger : wantEat && f.eat.length ? f.eat : []);

@@ -117,7 +117,7 @@ GENERIC.u = gameRules.flatMap((r) => r.u);
 // 実況者の質問に、データをもとに答える
 const ask = {
   catch: /口癖|くちぐせ|語尾/, birthday: /誕生日|いつ生まれ/, species: /種族|何の動物|なんの動物|何の生き物/, gender: /性別|男の子|女の子|オス|メス/, personality: /性格/, hobby: /趣味/,
-  price: /いくら|値段|売値|何ベル|なんベル/, place: /どこ|場所/, when: /いつ|何時|なんじ|時間|何月|なんがつ|季節/, who: /誰|だれ|どんな|教えて|知ってる|って何|ってなに/
+  price: /いくら|値段|売値|何ベル|なんベル/, place: /どこ|場所/, when: /いつ|何時|なんじ|時間|何月|なんがつ|季節|時期|シーズン/, who: /誰|だれ|どんな|教えて|知ってる|って何|ってなに/
 };
 // ひらがな2文字の住民も、質問のときは「たまの」「たまは」の形で探す（全員に答えるため）
 const villagerByName = VILLAGERS.map((v) => ({ v, re: nameRegex(v[0]) || new RegExp(`${escapeRe(v[0])}(の|は|って)`) }));
@@ -130,16 +130,22 @@ const sample = (arr, n) => [...arr].sort(() => Math.random() - 0.5).slice(0, n);
 // 直前に話した住民・生き物・化石を覚えておく
 let lastName = null;
 function rememberName(text) {
-  const vil = villagerByName.find((x) => x.re.test(text));
-  const cre = !vil && creatureByName.find((x) => x.re.test(text));
-  const fos = !vil && !cre && fossilByName.find((x) => x.re.test(text));
-  if (!vil && !cre && !fos) return null;
-  lastName = { vil, cre, fos, at: Date.now() };
+  // 文の中で先に出た名前を選ぶ（「マグロっていくらになるの」の「なるの」を住民と間違えないように）
+  const found = [['vil', villagerByName], ['cre', creatureByName], ['fos', fossilByName]]
+    .map(([key, list]) => { const hit = list.find((x) => x.re.test(text)); return hit && { key, hit, at: text.search(hit.re) }; })
+    .filter(Boolean)
+    .sort((x, y) => x.at - y.at);
+  if (!found.length) return null;
+  // 住民と生き物で同じ名前（マグロなど）は両方残し、聞かれた内容で答え分ける
+  lastName = { vil: false, cre: false, fos: false, at: Date.now() };
+  for (const { key, hit, at } of found) if (at === found[0].at) lastName[key] = hit;
   return lastName;
 }
 // その月に出るか（空は一年中）
 const inMonth = (list, month) => !list.length || list.includes(month);
 const GAME_FAQ = [
+  [/カブ.*(売り時|いつ売る|いつ売れば|いつ売った)/, 'カブの決まった売り時はない。値動きに型があるので、上がらない型なら早めに、跳ね上がったらすぐ売るのが基本とされる'],
+  [/カブ.*(値段|価格|カブ価).*(変わ|変動|いつ)|カブ価.*(変わ|変動|いつ)/, 'カブの値段は月曜から土曜まで、午前と午後で変わる（週に12回）'],
   [/(タヌキ商店|たぬき商店|まめきち|つぶきち).*(何時|なんじ|いつまで|いつから)/, 'タヌキ商店は8時〜22時'],
   [/(エイブル).*(何時|なんじ|いつまで|いつから)/, 'エイブルシスターズは9時〜21時'],
   [/カブ.*(いつ|何曜|どこ|誰).*(買|売)|カブ.*(買|売).*(いつ|何曜|どこ|誰)/, 'カブは日曜の朝5時〜12時にウリから買えて、タヌキ商店で売れる'],
@@ -188,8 +194,8 @@ function answerQuestion(rawText) {
   }
   // 名前がなくても「これいくら」なら、直前に話した相手のことと考える
   const named = rememberName(text);
-  const pointing = /これ|それ|この|その|こいつ|今の|さっきの/.test(text);
-  const last = named || (lastName && Date.now() - lastName.at < 60000 && (pointing || ask.price.test(text)) ? lastName : null);
+  const pointing = /これ|それ(?!ぞれ)|(?<!ど)この|その|こいつ|今の|さっきの/.test(text);
+  const last = named || (lastName && Date.now() - lastName.at < 60000 && (pointing || /^(いくら|値段)/.test(text)) ? lastName : null);
   const vil = last && last.vil;
   const cre = last && last.cre;
   const fos = last && last.fos;
@@ -212,9 +218,15 @@ function answerQuestion(rawText) {
     if (/天気|雨|晴れ/.test(text)) return weather ? `${n}は${weather}` : (place.includes('雨') ? `${n}は${place}に出る` : `${n}は天気を問わない`);
     if (/難し|むずかし|釣りやす|速さ|速い|逃げ/.test(text) && extra) return kind === '海の幸' ? `${n}の動きは${extra}` : `${n}は${extra}`;
     if (/解禁|何匹|なんびき|何回/.test(text)) return unlock ? `${n}は${kind}を通算${unlock}匹${CATCH_VERB[kind]}と出るようになる` : `${n}は最初から出る`;
+    if (/今|いま/.test(text) && /いる|釣れ|捕れ|取れ|出る|出て|いつ/.test(text)) {
+      const now = new Date();
+      const inSeason = inMonth(m, now.getMonth() + 1);
+      const inTime = !cre.c[6].length || cre.c[6].includes(now.getHours());
+      return `${n}は今の${now.getMonth() + 1}月${now.getHours()}時台（南半球）なら${inSeason && inTime ? '出る' : '出ない'}。出るのは${months(m)}、${time || '一日中'}`;
+    }
     if (ask.price.test(text)) return `${n}の売値は${price}ベル`;
     if (ask.place.test(text)) return `${n}の場所は${place}`;
-    if (ask.when.test(text)) return `${n}が出るのは${months(m)}、${time || '一日中'}${weather && weather !== '天気を問わず' ? `、${weather}` : ''}`;
+    if (ask.when.test(text)) return `${n}が出るのは${months(m)}、${time || '一日中'}${weather && weather !== '天気を問わず' ? `、${weather}` : ''}${place.includes('雨') ? `、${place}` : ''}`;
     if (ask.who.test(text)) return `${n}は${kind}。売値は${price}ベル、出るのは${months(m)}、${time || '一日中'}、場所は${place}`;
   }
   if (fos && (ask.price.test(text) || ask.who.test(text))) {

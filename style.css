@@ -18,3 +18,17 @@ footer { padding: 8px 16px calc(env(safe-area-inset-bottom) + 8px); background: 
 #heard { margin: 0 0 8px; font-size: 13px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 #testForm { display: flex; gap: 8px; }
 #testInput { flex: 1; min-width: 0; }
+
+/* 質問モード：答えを大きく見せる */
+body[data-mode="ask"] #amountLabel { display: none; }
+#chat li.card { padding: 10px 0; border-bottom: 1px solid var(--line); }
+#chat .said { display: block; margin-bottom: 4px; font-size: 14px; color: var(--muted); }
+#chat .reply { display: block; font-size: 24px; line-height: 1.4; font-weight: 700; color: #9fe8a8; }
+#chat li.clarify .reply { color: var(--question); }
+#chat li.unknown .reply { font-size: 18px; font-weight: 400; color: var(--muted); }
+#chat li.hint { color: var(--muted); }
+header { flex-wrap: wrap; }
+#missed { margin-bottom: 8px; font-size: 14px; color: var(--muted); }
+body[data-mode="stream"] #missed { display: none; }
+#missedList { max-height: 30dvh; margin: 8px 0; padding-left: 20px; overflow-y: auto; }
+.missedActions { display: flex; gap: 8px; }

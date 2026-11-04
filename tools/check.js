@@ -6,7 +6,7 @@ const vm = require('vm');
 const dir = path.join(__dirname, '..');
 const files = [...fs.readFileSync(path.join(dir, 'index.html'), 'utf8').matchAll(/<script src="([^"]+)"/g)].map((m) => m[1].split('?')[0]).filter((f) => f !== 'app.js');
 const ctx = vm.createContext({});
-vm.runInContext(files.map((f) => fs.readFileSync(path.join(dir, f), 'utf8')).join('\n') + ';this.RULES=RULES;this.GENERIC=GENERIC;this.SILENCE=SILENCE;this.FOLLOW=FOLLOW;this.TATOE=TATOE;this.answerAny=answerAny;this.LOOKALIKE=LOOKALIKE;this.SPECIES_LOOKALIKE=SPECIES_LOOKALIKE;this.POKEMON=POKEMON;this.CREATURES=CREATURES;this.lookalikeOf=lookalikeOf;this.fossilGroups=fossilGroups;this.PERSONAS=PERSONAS;this.STYLE=STYLE;this.pokeRules=pokeRules;this.lookalike=lookalikeOf;this.gameRules=gameRules;', ctx);
+vm.runInContext(files.map((f) => fs.readFileSync(path.join(dir, f), 'utf8')).join('\n') + ';this.RULES=RULES;this.GENERIC=GENERIC;this.SILENCE=SILENCE;this.FOLLOW=FOLLOW;this.TATOE=TATOE;this.answerAny=answerAny;this.LOOKALIKE=LOOKALIKE;this.SPECIES_LOOKALIKE=SPECIES_LOOKALIKE;this.POKEMON=POKEMON;this.CREATURES=CREATURES;this.lookalikeOf=lookalikeOf;this.fossilGroups=fossilGroups;this.PERSONAS=PERSONAS;this.STYLE=STYLE;this.pokeRules=pokeRules;this.lookalike=lookalikeOf;this.gameRules=gameRules;this.assist=assist;', ctx);
 const { RULES, GENERIC, SILENCE, FOLLOW, TATOE, gameRules } = ctx;
 const KEYS = ['a', 'q', 'h', 'd', 'u'];
 const n = (g) => KEYS.reduce((s, k) => s + (g[k] ? g[k].length : 0), 0);
@@ -31,4 +31,8 @@ const badQa = Object.entries(QA).filter(([q, a]) => !String(ctx.answerAny(q)).in
 // --topics：手書きの話題の判定語だけを表示する（新しい話題を考えるとき、全ファイルを読まずに済むように）
 if (process.argv.includes('--topics')) { console.log(hand.map((r) => r.re.source).join('\n')); process.exit(0); }
 console.log(JSON.stringify({ topics: RULES.length, handTotal, gameTotal, pokeTotal, personaTotal, styleTotal, total: handTotal + gameTotal + pokeTotal + personaTotal + styleTotal, duplicates: dup.length, misfire, badQa, badPoke, badLook, unusedLook }, null, 1));
-if (misfire.length || badQa.length || badPoke.length || badLook.length) process.exit(1);
+// 質問モード：答えに含まれるべき言葉（空文字は「反応しない」）
+const ASSIST = { スズキっていくらで売れるの: '400', すずきのねだん: '400', たらんちゅらのじきは: '5〜10月', シーラカンスっていつ釣れるの: '雨', モナリザってどこにあるの: 'ルーブル', 消火器の使い方教えて: '安全ピン', エビフライってどこの料理: 'まだ知りません', この魚いくら: '名前で', 明日の天気は: 'まだ知りません', たぬきちって誰: 'たぬきち', イーブイの進化先教えて: 'シャワーズ', どうしようかな: '', そうなんですよ: '', ちょっと待って: '', 何か釣れた: '', タランチュラ釣れた: '' };
+const badAssist = Object.entries(ASSIST).filter(([q, a]) => { const r = ctx.assist(q); return a ? !(r && r.text.includes(a)) : r !== null; }).map(([q]) => q);
+if (badAssist.length) console.log('質問モードの誤り', badAssist.join(' / '));
+if (misfire.length || badQa.length || badPoke.length || badLook.length || badAssist.length) process.exit(1);
