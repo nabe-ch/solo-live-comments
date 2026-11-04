@@ -4,7 +4,7 @@ const ASSIST_FILLER = /^(えー+と?|えーっと|えっと|あのー+さ?|あ�
 const NOT_ASK_WORDS = /そうなんです|なんですよ|なんですけど|なんでも|何か|何も|何回も|何度も|なんか|なんて|いつも|いつか|どこか|誰か|だれか|どうも|どうぞ|どうせ|どうしても|どうでもいい/g;
 // 独り言は質問として扱わない
 const SELF_TALK = /(今日|きょう|ご飯|ごはん|昼|夜|朝|晩).*(何|なに)を?食べ|(何|なに)を?食べよう|どうしよう|ようかな|なんでだよ|何でだよ|なにこれ|何これ|なにそれ|何それ|なんだこれ|なんだそれ|なんだよ|なんでやねん|何(して|やって)ん|どこ行こう|どこいこう|どうなってん/;
-const ASK_RE = /いくら|何|なに|なんで|なんじ|なんの|なぜ|いつ|どこ|誰|だれ|どう|どれ|どの|どんな|教えて|おしえて|知ってる|だっけ|ですか|ますか|ねだん|値段|とは$|[ァ-ヶー]って$|(食べ|使い|やり|釣り|捕まえ|取り|出し|探し|見つけ|行き|増やし|貯め)方|[ぁ-ん]方$|方法|仕方|対処|するには|行くには|止めたい|好きな|肉食|草食|雑食|生態|暮らし|何を?食べ|なに(を)?食べ|餌|エサ|えさ|すんでる|住んでる|棲んでる|すみか|イベント$|について|のこと|の話|の情報|の詳細|くわしく|詳しく|知りたい|聞きたい|聞かせて|わかる|分かる|ですか$|とは|すごいの|有名なの|人気あるの|高いの|安いの|レアなの|珍しいの|(る|い|た)の$|(の|って)[^、。 ]{1,8}は$|(今|いま).*(釣れる|捕れる|取れる|いる)$|[?？]$/;
+const ASK_RE = /いくら|何|なに|なんで|なんじ|なんの|なぜ|いつ|どこ|誰|だれ|どう|どれ|どの|どんな|教えて|おしえて|知ってる|だっけ|ですか|ますか|ねだん|値段|とは$|[ァ-ヶー]って$|(食べ|使い|やり|釣り|捕まえ|取り|出し|探し|見つけ|行き|増やし|貯め)方|[ぁ-ん]方$|方法|仕方|対処|するには|行くには|止めたい|好きな|大きさ|体長|全長|体重|生息|肉食|草食|雑食|生態|暮らし|何を?食べ|なに(を)?食べ|餌|エサ|えさ|すんでる|住んでる|棲んでる|すみか|イベント$|について|のこと|の話|の情報|の詳細|くわしく|詳しく|知りたい|聞きたい|聞かせて|わかる|分かる|ですか$|とは|すごいの|有名なの|人気あるの|高いの|安いの|レアなの|珍しいの|(る|い|た)の$|(の|って)[^、。 ]{1,8}は$|(今|いま).*(釣れる|捕れる|取れる|いる)$|[?？]$/;
 const isAsking = (text) => !SELF_TALK.test(text) && ASK_RE.test(text.replace(NOT_ASK_WORDS, ''));
 
 // 音声認識がひらがなで書いた言葉を、データの表記にそろえる
@@ -128,7 +128,7 @@ function triviaAnswer(said) {
   const eco = ecoHit(asked);
   if (eco) {
     const trivia = pickTrivia(pool.filter((t) => !t.includes(eco[1]) && !overlaps(t, eco[1], eco[0]) && !otherNpcLine(eco[0], t)));
-    return { type: 'answer', text: joinLines(trivia || knowSay(eco[0], eco[1]), trivia ? knowSay(eco[0], eco[1]) : null, eco[0]) };
+    return { type: 'answer', text: joinLines(joinLines(trivia || knowSay(eco[0], eco[1]), trivia ? knowSay(eco[0], eco[1]) : null, eco[0]), sizeLine(eco[0])) };
   }
   const line = pickTrivia(pool) || pickTrivia(triviaCategory(asked));
   if (line) return { type: 'answer', text: line };
@@ -234,21 +234,33 @@ function npcAnimalAnswer(text) {
   const known = knowledge.filter((k) => k.name === animal).flatMap((k) => k.what.map((t) => knowSay(k.name, t)));
   const trivia = pickTrivia([...TOPIC_TRIVIA.filter(([n, t]) => n === animal && !/^動物は/.test(t)).map(topicSay), ...known].filter((t) => !eco || !overlaps(t, eco[1], animal)));
   const head = `${npc}の動物は${animal}`;
-  return joinLines(joinLines(head, trivia), eco ? knowSay(animal, eco[1]) : null, trivia && trivia.startsWith(animal) ? animal : '');
+  return joinLines(joinLines(joinLines(head, trivia), eco ? knowSay(animal, eco[1]) : null, trivia && trivia.startsWith(animal) ? animal : ''), sizeLine(animal));
 }
 // 名前の一部がキャラと同じとき（Tレックスとレックス）、そのキャラの話は除く
 const otherNpcLine = (name, line) => Object.keys(NPC_ROLE).some((n) => n !== name && name.includes(n) && line.includes(`${n}は`) && !line.includes(`${name}は`));
-const ECO_ASK = /生態|暮らし|何を?食べ|なに(を)?食べ|何食べ|餌|エサ|えさ|肉食|草食|雑食|すんでる|住んでる|棲んでる|すみか|現実|リアル|本物|実際/;
+// 現実の主な生息地と体の大きさの一文（「体の大きさ」の中に種名が入っていれば、そのまま使う）
+const sizeByName = new Map(SIZE_DATA.map(([n, p, s]) => [n, [p, s]]));
+function sizeLine(name) {
+  const row = sizeByName.get(name);
+  if (!row) return '';
+  const [place, size] = row;
+  return [place && `主な生息地は${place}`, size && `大きさは${size}`].filter(Boolean).join('。');
+}
+const ECO_ASK = /大きさ|体長|全長|体重|生息|生態|暮らし|何を?食べ|なに(を)?食べ|何食べ|餌|エサ|えさ|肉食|草食|雑食|すんでる|住んでる|棲んでる|すみか|現実|リアル|本物|実際/;
 function ecoAnswer(text) {
   if (!ECO_ASK.test(text) || /食べ方|食べられる|おいし|うまい/.test(text)) return null;
   const npcLine = npcAnimalAnswer(text);
   if (npcLine) return npcLine;
   const hit = ecoHit(text);
   if (!hit) return null;
+  // 大きさや生息地だけを聞かれたら、そこを答える
+  const row = sizeByName.get(hit[0]);
+  if (row && row[1] && /大きさ|体長|全長|体重/.test(text)) return `${hit[0]}の大きさは${row[1]}`;
+  if (row && row[0] && /生息/.test(text)) return `${hit[0]}の主な生息地は${row[0]}`;
   const eco = knowSay(hit[0], hit[1]);
   // うんちくがあれば添える
   const extra = pickTrivia([...RULES.filter((r) => r.u && r.u.length && r.re.test(hit[0])).flatMap((r) => r.u), ...TOPIC_TRIVIA.filter(([n]) => n === hit[0]).map(topicSay)].filter((t) => !t.includes(hit[1]) && !overlaps(t, hit[1], hit[0]) && !otherNpcLine(hit[0], t)));
-  return joinLines(eco, extra, hit[0]);
+  return joinLines(joinLines(eco, extra, hit[0]), sizeLine(hit[0]));
 }
 
 function assist(raw) {
