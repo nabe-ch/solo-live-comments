@@ -1,0 +1,236 @@
+T1	fix	大きな群れを作る	https://en.wikipedia.org/wiki/Anchovy	B	Wikipediaは「巨大な群れを作る」とあるが、海面近くとは書いていない。
+T2	fix	下あごが上あごより短く、口が片側にしかないように見えることから「片口」の名がついたとされる	https://kotobank.jp/word/%E3%82%AB%E3%82%BF%E3%82%AF%E3%83%81%E3%82%A4%E3%83%AF%E3%82%B7-3147380	B	検索結果の要約では、上あごだけに見えることが名の由来と説明され、由来は「とされる」形が妥当。
+T3	ok		https://en.wikipedia.org/wiki/Freshwater_angelfish	B	原産はアマゾン川流域などの南米で、最もよく飼われる淡水魚の一つと書かれている。
+T4	ok		https://en.wikipedia.org/wiki/Freshwater_angelfish	B	両親が卵と稚魚の世話をすると書かれている。
+T5	fix	化石の記録が古く、近い仲間は白亜紀にさかのぼるとされる	https://en.wikipedia.org/wiki/Arowana	B	Wikipediaは「生きた化石」とは呼ばず、化石記録が長いことのみ記す。
+T6	fix	アロワナの仲間は、水面から跳びはねて、枝の上の虫や小鳥を捕ることがある	https://en.wikipedia.org/wiki/Arowana	B	オステオグロッサム属で、1.8m以上跳んで枝の虫や鳥を捕ると書かれている。
+T7	fix	老成すると縞が消え、口のまわりだけが黒くなり「クチグロ」と呼ばれる（主にオス）	https://www.pref.niigata.lg.jp/sec/sado_nourinsuisan/1356763635891.html	A	新潟県の資料などで、老成した雄が口先だけ黒くなりクチグロと呼ばれるとされる（検索要約で確認）。
+T8	drop		-	-	歯の記述を出典で確かめられなかった。
+T9	ok		https://en.wikipedia.org/wiki/Siamese_fighting_fish	B	オスは縄張り意識が強く、同居させると争うと書かれている。
+T10	ok		https://en.wikipedia.org/wiki/Siamese_fighting_fish	B	ラビリンス器官で空気呼吸でき、低酸素に非常に強いと書かれている。
+T11	ok		https://kotobank.jp/word/%E3%82%BF%E3%83%8A%E3%82%B4-93868	B	多くの種がイシガイ科などの二枚貝の中に産卵すると検索結果で確認（例外あり）。
+T12	ok		https://www.city.fukuyama.hiroshima.jp/uploaded/attachment/235050.pdf	B	繁殖期にオスが鮮やかな婚姻色を出すと検索結果で確認。
+T13	fix	カジキの仲間は、長く伸びた上あごを振って、魚の群れを切りつけ獲物を弱らせることがあるとされる（観察はバショウカジキで多い）	https://www.nationalgeographic.com/science/phenomena/2014/04/22/sailfish-use-inescapable-face-swords-to-wound-then-kill/	B	群れを切りつける行動はバショウカジキで確認され、マカジキ類での直接観察は見つからなかった。
+T14	fix	海の魚の中でも速く泳ぐ部類とされるが、極端な速度の話は誇張が多い	https://en.wikipedia.org/wiki/Marlin	B	「最も速い」とは断定されず、誇張された速度が流布していると明記されている。
+T15	fix	目を横切る黒い帯や、体の側面に目玉模様をもつ種が多い	https://en.wikipedia.org/wiki/Butterflyfish	B	目の帯と側面の目玉模様は書かれるが、敵をまどわす効果や尾の近くの模様は書かれていない。
+T16	fix	サンゴ礁に多く、サンゴを食べる種はつがいで縄張りを持つことが多い	https://en.wikipedia.org/wiki/Butterflyfish	B	サンゴ食の種はつがいで縄張りを持ち、プランクトン食は群れると書かれている。
+T17	ok		https://en.wikipedia.org/wiki/Common_carp	B	ひげは2対、最長寿命は64年の記録と書かれている。
+T18	fix	「鯉の滝登り」は、黄河の急流「竜門」を登りきった鯉は竜になるという中国の伝説に由来し、「登竜門」の語のもとにもなった	https://hugkum.sho.jp/326339	B	検索要約で、竜門の鯉の伝説と後漢書の李膺の逸話が登竜門の由来とされている。
+T19	drop		-	-	イワナの生息域の記述を出典で確かめられなかった。
+T20	drop		-	-	ヘビまで食べるという記述を確かめられなかった。
+T21	fix	脱皮を繰り返して大きくなり、脱いだ殻を食べてカルシウムなどを取り戻す	https://en.wikipedia.org/wiki/Crayfish	B	脱皮殻を食べてカルシウムを回収すると書かれているが、はさみの再生は確認できなかった。
+T22	fix	胃の壁に「胃石」ができ、脱皮後に新しい殻を固めるカルシウムの貯蔵に使われるとされる（種によって異なる）	https://pubmed.ncbi.nlm.nih.gov/27612582/	A	学術論文の要約で、胃石が脱皮前に作られカルシウムの貯蔵になると確認（検索要約）。
+T23	drop		-	-	ふなずしの原料魚を確認できなかった。
+T24	drop		-	-	ギンブナの単為生殖を確認できなかった。
+T25	drop		-	-	目の移動を確認できなかった。
+T26	drop		-	-	左右の例外の程度を確認できなかった。
+T27	ok		https://www.pref.ibaraki.jp/nourinsuisan/naisuishi/gyogancho/documents/021_ugui.pdf	A	繁殖期に赤い縦帯が出て、地方名でアカハラとも呼ばれると検索結果で確認。
+T28	ok		https://tabi-mag.jp/ao0175/	C	酸性に強く、宇曽利湖にすむと紹介されている（「世界一」の断定は避けること）。
+T29	drop		-	-	名前の意味を確かめられなかった。
+T30	drop		-	-	呼び名を確かめられなかった。
+T31	drop		-	-	ドンコの系統と習性を確かめられなかった。
+T32	drop		-	-	食性を確かめられなかった。
+T33	fix	北米を中心にすむ古い系統の魚で、化石は白亜紀前期にさかのぼる	https://en.wikipedia.org/wiki/Gar	B	化石は白亜紀前期から知られる古い系統と書かれているが、口やうろこの記述は確認できなかった。
+T34	ok		https://en.wikipedia.org/wiki/Gar	B	うきぶくろが肺として働き、空気を吸って呼吸を補うと書かれている。
+T35	ok		https://en.wikipedia.org/wiki/Giant_trevally	B	最大170cmで、英名はGiant trevally。
+T36	fix	ファークハー環礁で、海面から跳んでアジサシのひなを捕らえる行動が記録されている	https://en.wikipedia.org/wiki/Giant_trevally	B	他では観察されていないとも書かれ、一般化は避ける。
+T37	ok		https://en.wikipedia.org/wiki/Golden_trout	B	1947年からカリフォルニア州の公式の淡水魚とされている。
+T38	fix	シエラネバダ山脈南部のカーン川水系の高地の川が原産の、金色のマス	https://en.wikipedia.org/wiki/Golden_trout	B	原産はゴールデントラウト・クリークなどカーン川水系と書かれている。
+T39	drop		-	-	起源の記述を確かめられなかった。
+T40	drop		-	-	伝来時期を確かめられなかった。
+T41	drop		-	-	確認していない。
+T42	drop		-	-	名前の由来を確かめられなかった。
+T43	fix	太平洋のサケ類で最大の種類で、標準和名はマスノスケ	https://en.wikipedia.org/wiki/Chinook_salmon	B	太平洋サケ類で最大と確認。標準和名は未確認。
+T44	fix	多くは生まれた川に戻って産卵し、その後に死ぬ	https://en.wikipedia.org/wiki/Chinook_salmon	B	故郷の川に戻って産卵し、産卵後に死ぬと書かれている。
+T45	fix	新潟県の山古志（長岡市）や小千谷市あたりで生まれたとされ、「泳ぐ宝石」と呼ばれる	https://niigata-kankou.or.jp/spot/41310	B	小千谷市と旧山古志村が発祥地とされ、泳ぐ宝石の呼称も紹介されている。
+T46	ok		https://niigata-kankou.or.jp/spot/41310	B	2017年5月5日に新潟県の鑑賞魚に指定と検索結果で確認。
+T47	drop		-	-	確認していない。
+T48	drop		-	-	確認していない。
+T49	fix	アマゾン川の西部・北部（コロンビア南東部、ペルー東部、ブラジル西部）が原産で、青く光る帯がある	https://en.wikipedia.org/wiki/Neon_tetra	B	原産地は「上流」ではなく西部・北部の流域と書かれている。
+T50	fix	光って見えるのは、体の細胞にあるグアニンの結晶が光を反射するため	https://en.wikipedia.org/wiki/Neon_tetra	B	グアニン結晶が光を反射すると書かれている。
+T51	drop		-	-	確認していない。
+T52	drop		-	-	確認していない。
+T53	drop		-	-	確認していない。
+T54	drop		-	-	確認していない。
+T55	drop		-	-	確認していない。
+T56	drop		-	-	確認していない。
+T57	drop		-	-	確認していない。
+T58	drop		-	-	確認していない。
+T59	drop		-	-	確認していない。
+T60	drop		-	-	確認していない。
+T61	fix	養殖のマダイは、餌の色素（アスタキサンチン）が足りないと赤みが褪せて黒っぽくなりやすい	https://ir.lib.hiroshima-u.ac.jp/00041192	A	広島大学の研究に、養殖マダイが褪色し黒味を帯びるとあり、餌にアスタキサンチンを加えて改善できるとされる。
+T62	drop		-	-	語呂合わせの扱いを確かめられなかった。
+T63	drop		-	-	確認していない。
+T64	drop		-	-	確認していない。
+T65	drop		-	-	呼び名は地域差があり確かめられなかった。
+T66	drop		-	-	確認していない。
+T67	drop		-	-	確認していない。
+T68	drop		-	-	確認していない。
+T69	fix	頭の上の吸盤（背びれが変化したもの）で、サメやクジラなど大きな動物に貼りつく	https://en.wikipedia.org/wiki/Remora	B	検索要約で、吸盤は第一背びれが変化したもので、宿主にサメや鯨類を含むと確認。
+T70	ok		https://en.wikipedia.org/wiki/Remora	B	コバンザメ科（Echeneidae）はスズキ系の魚類で、吸盤は背びれが変化したもの。
+T71	drop		-	-	確認していない。
+T72	drop		-	-	確認していない。
+T73	drop		-	-	確認していない。
+T74	drop		-	-	確認していない。
+T75	drop		-	-	確認していない。
+T76	drop		-	-	確認していない。
+T77	fix	世界最大級のガで、羽を広げると25〜30センチほどになる	https://en.wikipedia.org/wiki/Attacus_atlas	B	翅開張は250〜300mmと書かれるが、最大のガとは書かれていない。
+T78	fix	成虫は口が発達せず、幼虫のときにためた栄養で1〜2週間ほど生きる	https://en.wikipedia.org/wiki/Attacus_atlas	B	成虫は口が不完全で食べないと確認。天然記念物の指定は確認できなかった。
+T79	fix	マダガスカルにだけすむガで、「最も美しいガの一つ」と言われる	https://en.wikipedia.org/wiki/Chrysiridia_rhipheus	B	マダガスカル固有で、「最も印象的で美しいチョウ目の一つ」とされ、最上級の断定は避ける。
+T80	drop		-	-	昼行性・チョウと間違えられる点は検索で確認できなかった
+T81	drop		-	-	赤い首もと・緑の帯・東南アジアの記述を原文で確認できなかった
+T82	fix	マレーシアの国蝶とされ、名前はサラワクを治めたイギリス人ジェームズ・ブルックにちなむ	https://says.com/my/lifestyle/malaysia-s-national-butterfly-facts	B	国蝶であり、ジェームズ・ブルック(1841-1868年サラワク統治)にちなむと書かれていたが、「総督」は不正確
+T83	drop		-	-	ミイロタテハの羽の表の色を確認できなかった
+T84	drop		-	-	名前の由来・模様を確認できなかった
+T85	drop		-	-	幼虫の巣作りの詳細は今回直接確認できなかった
+T86	fix	ミノガの仲間には、メスに羽も脚もなく、みのの中で羽化して卵を産み、そこで一生を終える種類がいる	https://kotobank.jp/word/%E3%83%9F%E3%83%8E%E3%82%AC	B	日本大百科全書の記述では、メスは蓑の中で羽化し産卵後に死に、翅も脚もない種がある
+T87	fix	日本最大のトンボで、体長は9〜11センチほどになる	https://www.honda.co.jp/outdoor/adventure/oniyanma.html	A	複数資料で日本最大、体長90〜110mmとされ、10センチは目安として一致
+T88	ok		https://www.honda.co.jp/outdoor/adventure/oniyanma.html	A	黄色と黒のしま模様、生きた個体の複眼が緑という点は資料で一致
+T89	fix	鳴くのは主にオスで、羽をこすり合わせて音を出す	https://www.pref.kyoto.jp/biodic/news/documents/nakumushi_a3.pdf	A	京都府の資料に「多くはオスだけが発音」とあり「だけ」は言い過ぎ
+T90	fix	コオロギの仲間なので、耳(鼓膜)は前脚のすねにある	https://www.metro.ed.jp/kagakugijyutu-h/assets/科高生物記vol12ツヅレサセコオロギ.pdf	B	前脚の鼓膜はコオロギ(別種)での記述で、スズムシ自体の確認はできていない
+T91	drop		-	-	ホウセキゾウムシの記述は検索で確認できなかった
+T92	drop		-	-	鳥に食べられにくいとする根拠を確認できなかった
+T93	fix	羽が茶色く不透明な、日本では身近な大型のセミ	https://www.honda.co.jp/outdoor/adventure/aburazemi.html	B	褐色で不透明な翅は確認できたが「世界的に珍しい」は裏付けなし
+T94	ok		https://www.honda.co.jp/outdoor/adventure/aburazemi.html	A	鳴き声が油を熱する音に似るのが由来といわれる、と説として書かれている
+T95	ok		https://www.phar.kindai.ac.jp/yakusouen/seasons-letter/vol_10.pdf	A	近畿大学薬用植物園の資料で、蝉退はセミの抜け殻の生薬とされる
+T96	drop		-	-	自然観察での使われ方を確認できなかった
+T97	ok		https://www.honda.co.jp/outdoor/adventure/aosujiageha.html	A	幼虫はクスノキ科の葉を食べ、青緑の帯がある点は資料で一致
+T98	fix	夏、オスが水たまりや湿った地面に集まって水を吸うことがある	https://www.honda.co.jp/outdoor/adventure/aosujiageha.html	A	吸水するのは主にオスと資料に書かれている
+T99	drop		-	-	今回の検索では直接確認していない
+T100	fix	モンシロチョウは、オスとメスで羽の紫外線の反射がちがい、見分ける目印になっていると考えられている	https://www.edu-ctr.pref.nagano.lg.jp/kjouhou/kyouka/data/rika/bhtml/pdf/rinpun.pdf	A	「考えられる」段階で、紫外線の反射は季節や産地でも差がある
+T101	ok		https://www.metro.ed.jp/kagakugijyutu-h/assets/科高生物記vol12ツヅレサセコオロギ.pdf	B	前脚の鼓膜と、オスが羽をこすって鳴くことが資料で確認できた
+T102	fix	昔は、いまのコオロギを「きりぎりす」と呼んでいたとされる	https://kotobank.jp/word/コオロギ-63506	B	古語のコオロギとキリギリスは時代により指す虫が入れ替わっていたと解説されている
+T103	drop		-	-	今回の検索では確認していない
+T104	drop		-	-	羽の閉じ方には例外があり、確認できなかった
+T105	fix	オスは腹のつけ根が水色で、体長7センチほどの大型のトンボ	https://www.honda.co.jp/outdoor/adventure/ginyanma.html	A	オスの水色は確認できたが「オニヤンマに次ぐ」は根拠なし
+T106	fix	産卵は、オスとメスがつながったままのこともあれば、メスだけで水面の植物に行うこともある	https://kotobank.jp/word/%E3%81%8E%E3%82%93%E3%82%84%E3%82%93%E3%81%BE-3149558	B	辞典に連結または単独の雌が水面の植物体に産卵すると書かれている
+T107	drop		-	-	呼吸の仕組みは今回の検索で確認できなかった
+T108	fix	数が減っていて、環境省のレッドリスト(2012年の第4次)で絶滅危惧II類とされた	https://www.wwf.or.jp/activities/files/20140325pdf02_ishiii.pdf	B	NTから絶滅危惧II類へ上がった旨の資料。最新版の区分は未確認
+T109	ok		https://www.pref.tottori.lg.jp/item/1299851.htm	A	鳥取県の資料で、コナラなどの樹液が好物とされる
+T110	fix	名前は、金属のような光沢(金)と、ブンブン飛ぶ音に由来するとされる	https://www.pref.tottori.lg.jp/item/1299851.htm	B	漢字「金蚉」の説明であり語源の確定ではない
+T111	ok		https://www.sci.news/biology/article00844.html	B	糞玉を運ぶ(転がす)行動は研究報道で確認できた
+T112	fix	夜は天の川の光を頼りに、まっすぐ糞玉を転がす種類がいることが研究で分かった	https://www.sci.news/biology/article00844.html	A	Dacke et al. 2013(Current Biology)の報道。対象はScarabaeus satyrus
+T113	fix	動物のふんに集まるコガネムシの仲間で、瑠璃色や緑、赤など金属のように輝く色がある	https://digitalpr.jp/r/110295	B	近畿で赤・緑・瑠璃の色の違いがあると研究発表で説明されている
+T114	fix	奈良公園では、シカのふんを分解する糞虫として知られる	https://digitalpr.jp/r/110295	B	奈良のシカとの関係が発表で扱われている。「見られる」の詳細は未確認
+T115	drop		-	-	出典のページを確認できなかった
+T116	drop		-	-	繊維・塗料の研究に使われた点は確認できなかった
+T117	fix	「カナカナ」とかん高い声で鳴くセミ	https://www.pref.shimane.lg.jp/tourism/nature/shizen/shimane/sizennkansatu/yae/yae-musi.html	B	鳴き声は確認できたが「カナカナゼミ」の呼称は確認できなかった
+T118	ok		https://www.kobe-np.co.jp/rentoku/insects/reference/39.html	B	夕方と早朝に鳴くと書かれている(曇りの日は昼間も鳴く)
+T119	fix	関東以西にすむ日本最大級のセミで、午前中によく鳴く	https://www.kobe-np.co.jp/rentoku/insects/reference/18.html	B	資料により北限の記述に差があるため「本州以南」を弱めた
+T120	ok		https://www.rd.ntt/as/history/pdf/media/me0122.pdf	A	NTT資料に、クマゼミによる光ファイバの被害と対策が書かれている
+T121	ok		https://en.wikipedia.org/wiki/Goliathus	B	地球最大級の昆虫(大きさ・重さ)とされる甲虫の仲間と書かれている
+T122	ok		https://en.wikipedia.org/wiki/Goliathus	B	聖書の巨人ゴリアテにちなむ名と書かれている
+T123	drop		-	-	食性の記述を確認できなかった
+T124	fix	イソップ童話「アリとキリギリス」は、もとはセミの話だったとされる	https://honcierge.jp/articles/shelf_story/6977	C	二次情報のみで学術的な確認はできていない
+T125	drop		-	-	国蝶の指定について確認できなかった
+T126	ok		https://www.kobe-np.co.jp/rentoku/insects/reference/11.html	B	幼虫はエノキ、成虫はクヌギなどの樹液と複数資料で一致
+T127	drop		-	-	今回の検索では確認していない
+T128	drop		-	-	今回の検索では確認していない
+T129	drop		-	-	今回の検索では確認していない
+T130	drop		-	-	気性についての根拠を確認できなかった
+T131	fix	中南米にすむ大型のカブトムシで、重さでは世界最大級の甲虫の一つとされる	https://www.guinnessworldrecords.com/world-records/444921-heaviest-adult-beetle	A	ギネスは最重量種を特定しておらず、複数種が候補
+T132	fix	体がとても重く、大きなオスは50グラム以上になるとされる	https://museumcollections.manchester.ac.uk/collections/item/2c26af3e-ebbf-3675-84f0-e790215b06b0	A	博物館資料に50〜70gを超えうるとある
+T133	ok		https://www.sci-museum.jp/wp-content/themes/scimuseum2021/pdf/study/universe/2014/07/201407_16-17.pdf	A	玉虫厨子の飾りに羽が使われたと科学博物館の資料にある
+T134	fix	輝きは色素ではなく、羽の細かな構造が光に働いて生まれる構造色	https://www.sci-museum.jp/wp-content/themes/scimuseum2021/pdf/study/universe/2014/07/201407_16-17.pdf	A	構造色の説明は確認できたが「薄い層」の詳細は確認できなかった
+T135	fix	日本最大級のバッタで、メスは5〜8センチほどになるとされる	https://www.pref.aichi.jp/uploaded/attachment/506306.pdf	B	資料により45〜57mmから80mmまで数値が分かれる
+T136	fix	オスが飛ぶときに「キチキチ」と音を出すので、キチキチバッタとも呼ばれたとされる	https://kotobank.jp/word/%E3%81%97%E3%82%88%E3%81%86%E3%82%8A%E3%82%88%E3%81%86%E3%81%B0%E3%81%A4%E3%81%9F-3154671	B	現在はこの呼び名が使われないとする記述もある
+T137	drop		-	-	今回の検索では確認していない
+T138	drop		-	-	今回の検索では確認していない
+T139	ok		https://gigazine.net/news/20110927_mantis_devours_her_partner/	B	共食いは起こるが全例ではなく、飼育下で起きやすいとも報じられる
+T140	drop		-	-	卵鞘の泡が固まる点は確認できなかった
+T141	ok		https://www.natureasia.com/ja-jp/life-sci/research/9019	A	密度で孤独相から群生相に変わり、飛翔力の高い群れになると研究で説明される
+T142	drop		-	-	「飛蝗」の呼称と被害は今回確認できなかった
+T143	ok		https://kids.rurubu.jp/article/55646/	C	シャベルのような前脚で土を掘るコオロギの仲間と書かれている
+T144	drop		-	-	語源の説は検索で確認できなかった
+T145	ok		https://archive.journeynorth.org/node/503.html	B	最大約3000マイル(約4800km)を渡る
+T146	ok		https://atlasobscura.com/articles/monarch-butterfly-poisonous-milkweed-science	B	トウワタの毒を取り込み、鳥に嫌われると説明されている
+T147	drop		-	-	今回の検索では確認していない
+T148	drop		-	-	今回の検索では確認していない
+T149	ok		https://ryukyushimpo.jp/living-style/entry-313474.html	B	日本最大級の蝶で、金色のさなぎとされる
+T150	ok		https://ryukyushimpo.jp/living-style/entry-313474.html	B	幼虫はホウライカガミを食べ、毒のある食草と紹介されている
+T151	drop		-	-	今回の検索では確認していない
+T152	drop		-	-	今回の検索では確認していない
+T153	ok		https://www.honda.co.jp/outdoor/adventure/akiakane.html	A	夏は高地へ移動し、秋に平地へ戻ると書かれている
+T154	fix	童謡「赤とんぼ」のトンボは、アキアカネだという見方が根強い(諸説あり)	https://www.kobe-np.co.jp/news/sougou/202006/0013468623.shtml	B	断定せず諸説あるとされている
+T155	drop		-	-	今回の検索では確認していない
+T156	drop		-	-	今回の検索では確認していない
+T157	drop		-	-	体色の記述を確認できなかった
+T158	ok		https://www.honda.co.jp/outdoor/adventure/minminzemi.html	A	東日本は平地にもいて、西日本は主に山地という記述で一致
+T159	fix	鮮やかな青い体に黒い斑点があり、日本を代表する美しい甲虫とされる	https://ja.wikipedia.org/wiki/ルリボシカミキリ	B	「日本一」の根拠は確認できず、美しい甲虫と紹介する記述のみ確認。
+T160	ok		https://ja.wikipedia.org/wiki/ルリボシカミキリ	B	日本固有種で、枯れたブナ・ナラ類などに集まると記載。
+T161	fix	中米にすみ、銀色の金属のように輝くコガネムシ	https://www.smithsonianmag.com/science-nature/the-gold-and-silver-beetles-of-costa-rica-167378107/	A	Chrysina limbataはコスタリカなど中米産と報じられ、南米までは確認できず。
+T162	ok		https://www.scientificamerican.com/article/bug-alchemy-gold-and-silver-beetles-shine-with-structural-color	A	輝きは色素や金属でなく、キチンの多層構造による構造色と報告。
+T163	ok		https://ja.wikipedia.org/wiki/カタツムリ	B	雌雄同体で同一個体が卵子と精子の両方を持つと記載。
+T164	ok		https://ja.wikipedia.org/wiki/カタツムリ	B	殻は体の器官で外せず、無理に取ると死ぬと記載。
+T165	drop				前脚で味見する点は出典で確認できなかった。
+T166	fix	幼虫は、強い刺激を受けると、強いにおいのある角（臭角）を出す	https://ja.wikipedia.org/wiki/アゲハチョウ	B	臭角は衝撃で突き出し強い臭いを出すと記載、頭からとは断定できず。
+T167	ok		https://en.wikipedia.org/wiki/Mormolyce_phyllodes	B	Mormolyce phyllodesは東南アジアの熱帯雨林にすむ大型の地上性甲虫。
+T168	fix	身を守るために、有毒とされる酪酸を分泌するとされる	https://en.wikipedia.org/wiki/Mormolyce_phyllodes	B	防御に酪酸を分泌とあるが、おしりからかは未確認。
+T169	ok		https://kotobank.jp/word/%E3%83%84%E3%82%AF%E3%83%84%E3%82%AF%E3%83%9C%E3%82%A6%E3%82%B7	B	鳴き声は「オーシンツクツク」で始まる聞きなしで知られる夏の終わりのセミ。
+T170	drop				寒蝉と呼ばれる理由が鳴き声由来という根拠は確認できず。
+T171	ok		https://ja.wikipedia.org/wiki/コノハムシ	B	南アジアから東南アジア・豪州の森にすみ、メスは葉そっくり。
+T172	fix	葉が風に揺れるように体を前後に揺らして歩き、翅に葉脈のような模様がある	https://ja.wikipedia.org/wiki/コノハムシ	B	揺れ方は前後で、葉脈状の翅脈があると記載。
+T173	ok		https://ja.wikipedia.org/wiki/ナナフシ	B	枝や葉に似た姿で身を隠すと記載。
+T174	ok		https://ja.wikipedia.org/wiki/ナナフシ	B	多くの種がオスと交尾せずメスだけで増える単為生殖を行う。
+T175	ok		https://ja.wikipedia.org/wiki/フナムシ	B	等脚目でダンゴムシと同じ目の甲殻類。
+T176	fix	海岸で、死んだ生き物などを食べる腐食性の強い生き物とされる	https://ja.wikipedia.org/wiki/フナムシ	B	腐食性と記載されるが、海藻や掃除屋の表現は出典になし。
+T177	drop				名前の由来の説明を確認できなかった。
+T178	fix	幼虫は、ムラサキウマゴヤシなどマメ科の植物を食べる	https://ja.wikipedia.org/wiki/モンキチョウ	B	食草はマメ科と記載、クローバーは確認できず。
+T179	ok		https://en.wikipedia.org/wiki/Dungeness_crab	B	ワシントン州のダンジネスの砂州にちなんで名付けられたと記載。
+T180	ok		https://en.wikipedia.org/wiki/Dungeness_crab	B	オレゴン州が2009年に州の甲殻類に指定したと記載。
+T181	ok		https://ja.wikipedia.org/wiki/カイロウドウケツ	B	ガラス質骨格の海綿で、偕老同穴は夫婦の契りの固さを表す詩経由来の語。
+T182	ok		https://ja.wikipedia.org/wiki/カイロウドウケツ	B	体内にドウケツエビが雌雄一対で住み着くと記載。
+T183	ok		https://ja.wikipedia.org/wiki/アワビ	B	巻貝で、殻の穴から取り込んだ水などを出すと記載。
+T184	ok		https://ja.wikipedia.org/wiki/アワビ	B	殻の内側は真珠光沢があり螺鈿細工に使われる。
+T185	ok		https://ja.wikipedia.org/wiki/フジツボ	B	エビやカニと同じ甲殻類に分類される。
+T186	fix	進化論のダーウィンが、フジツボの分類を研究したことで知られる	https://ja.wikipedia.org/wiki/フジツボ	B	19世紀半ばにフジツボの系統的研究を行ったと記載、長年かは未確認。
+T187	fix	「生きた化石」と呼ばれ、殻の部屋の中の液体の量を調整して浮き沈みする	https://en.wikipedia.org/wiki/Nautilus	B	浮力は気室内の液体の浸透バランスで調整され、気体を調整するわけではない。
+T188	fix	頭足類で、イカやタコの遠い仲間。殻はアンモナイトに似るが、近い仲間ではない	https://en.wikipedia.org/wiki/Nautilus	B	アンモナイトとは遠縁と記載。
+T189	fix	ワタリガニとも呼ばれ、最後の脚が平たい遊泳脚になっていて泳げる	https://www.pref.okayama.jp/uploaded/attachment/141907.pdf	B	最後尾の板状の脚を遊泳脚といい泳ぎに使う。
+T190	drop				前後に泳ぎが得意という点は確認できず。
+T191	ok		https://ja.wikipedia.org/wiki/ダイオウグソクムシ	B	深海の等脚目で、ダンゴムシと同じ目の甲殻類。
+T192	ok		https://ja.wikipedia.org/wiki/ダイオウグソクムシ	B	鳥羽水族館の個体が約5年（1869日）絶食した。
+T193	ok		https://ja.wikipedia.org/wiki/シャコガイ	B	最大種のオオシャコガイは殻長2m近くに達し、世界最大の二枚貝とされる。
+T194	ok		https://ja.wikipedia.org/wiki/シャコガイ	B	外套膜に共生する褐虫藻の光合成に栄養の多くを頼る。
+T195	fix	成長するには脱皮を続ける必要があり、寿命がとても長いとされる	https://ja.wikipedia.org/wiki/ロブスター	B	脱皮し続けて成長し長寿と記載、歳をとっても大きくなるとは未確認。
+T196	drop				はさみの砕く・切るの使い分けは、確認した出典に記載なし。
+T197	ok		https://ja.wikipedia.org/wiki/ムラサキイガイ	B	足糸で固着し、その強い接着力が研究対象。
+T198	fix	足糸の強力な水中接着力は、接着剤の研究の題材になっている	https://ja.wikipedia.org/wiki/ムラサキイガイ	B	水中接着剤の研究対象とあるが、医療用とは確認できず。
+T199	drop				性転換の点は確認できず。
+T200	drop				濾過量の点は確認できず。
+T201	fix	真珠の養殖に使われる貝として知られる	https://ja.wikipedia.org/wiki/アコヤガイ	B	真珠養殖用の貝と記載、御木本幸吉は確認できず。
+T202	ok		https://ja.wikipedia.org/wiki/アコヤガイ	B	殻の内側に入った異物を核に真珠層を巻く性質がある。
+T203	ok		https://ja.wikipedia.org/wiki/タラバガニ	B	カニではなくヤドカリの仲間（異尾類）に分類される。
+T204	fix	脚は実際は5対だが、最後の1対が小さく隠れているため、4対に見える	https://ja.wikipedia.org/wiki/タラバガニ	B	第5脚が小さく鰓室内に隠れるため8本に見えると記載。
+T205	ok		https://ja.wikipedia.org/wiki/クビレズタ	B	標準和名はクビレズタで緑藻の海藻。
+T206	ok		https://ja.wikipedia.org/wiki/クビレズタ	B	国内生産の大半は沖縄で、green caviarとも呼ばれる。
+T207	ok		https://ja.wikipedia.org/wiki/センジュナマコ	B	深海底を歩くように移動するナマコ。
+T208	ok		https://ja.wikipedia.org/wiki/センジュナマコ	B	英名はsea pig。
+T209	fix	マボヤは「海のパイナップル」とも呼ばれ、貝ではなく、幼生に脊索をもつ仲間	https://ja.wikipedia.org/wiki/ホヤ	B	マボヤの別名で、幼生は脊索をもつ尾索動物。
+T210	ok		https://ja.wikipedia.org/wiki/ホヤ	B	幼生はオタマジャクシ状で泳ぎ、成体は岩などに固着する。
+T211	ok		https://ja.wikipedia.org/wiki/ウミウシ	B	貝殻が縮小・埋没・消失した後鰓類の総称。
+T212	fix	カラフルな色が、毒があることを知らせる警戒色になっているとされる種類がいる	https://ja.wikipedia.org/wiki/ウミウシ	B	警戒色の可能性が記載、隠蔽色の場合もあり未確定。
+T213	ok		https://ja.wikipedia.org/wiki/ワカメ	B	褐藻で、加熱で色素が壊れ緑色になる。
+T214	ok		https://ja.wikipedia.org/wiki/ワカメ	B	世界の侵略的外来種ワースト100に挙げられている。
+T215	drop				トゲの見た目の例えを確認できず。
+T216	drop				石筆に使われた記述は別種のみで、パイプウニは確認できず。
+T217	fix	地域によって、オスは松葉ガニや越前ガニという名で売られる	https://ja.wikipedia.org/wiki/ズワイガニ	B	両者はオスのブランド名で、メスは含まない。
+T218	ok		https://ja.wikipedia.org/wiki/ズワイガニ	B	メスはオスの半分ほどで、香箱ガニ（石川）やセコガニ（兵庫）と呼ばれる。
+T219	fix	脚を広げると最大で3メートル台後半になる、現生の節足動物で最大級のカニ	https://ja.wikipedia.org/wiki/タカアシガニ	B	鋏脚を広げ最大約3.8mで現生節足動物で最大とされる。
+T220	fix	駿河湾などの深海にすみ、以前は日本近海の固有種と考えられていた	https://ja.wikipedia.org/wiki/タカアシガニ	B	1989年に台湾東方沖でも見つかったと記載。
+T221	fix	名前は、伊勢で多くとれたことに由来するとされる（諸説あり）	https://www.pref.tokushima.lg.jp/file/attachment/503877.pdf	B	由来は地名説が有力だが、威勢がよいなど複数説がある。
+T222	ok		https://en.wikipedia.org/wiki/Japanese_spiny_lobster	B	第2触角の付け根をこすって音を出せると記載。
+T223	ok		https://ja.wikipedia.org/wiki/チンアナゴ	B	体の後半を巣穴に入れ頭を出してプランクトンを食べる。
+T224	ok		https://ja.wikipedia.org/wiki/チンアナゴ	B	和名は顔つきが狆に似ることに由来。
+T225	ok		https://ja.wikipedia.org/wiki/ホッコクアカエビ	B	標準和名はホッコクアカエビで別名アマエビ。
+T226	ok		https://ja.wikipedia.org/wiki/ホッコクアカエビ	B	雄から雌へ性転換する雄性先熟。
+T227	ok		https://ja.wikipedia.org/wiki/クルマエビ	B	腹を丸めると縞が車輪に見えることが名前の由来。
+T228	drop				世界初の記述は出典不十分で、年代も資料間で食い違う。
+T229	drop				角の有無は環境と遺伝が関与とあり、外海との関係は未確認。
+T230	drop				フタの硬さを確認できる出典を読めていない。
+T231	fix	深海にすむタコで、胴体のひれは泳ぐより姿勢の制御に使われると考えられている	https://ja.wikipedia.org/wiki/メンダコ	B	耳のようなひれという表現は出典になし。
+T232	ok		https://ja.wikipedia.org/wiki/メンダコ	B	深海に住むため墨袋がなく墨を吐けないと記載。
+T233	fix	イカともタコとも明確に分類できない、現生1種のみの深海の頭足類	https://ja.wikipedia.org/wiki/コウモリダコ	B	分子系統ではタコに近いとされる。
+T234	fix	「生きた化石」とされ、足の膜を裏返して体を包み、身を守る	https://ja.wikipedia.org/wiki/コウモリダコ	B	古い祖先型を残す生きた化石で、膜で体を包んで防御と記載。
+T235	fix	「ベーゴマ」は、バイ貝の殻で作った貝独楽が語源とされる	https://cavac.at/cavacopedia/Beigoma	B	バイの殻で作った独楽が由来との辞書説明。
+T236	drop				殻の形状の主張を確認できなかった。

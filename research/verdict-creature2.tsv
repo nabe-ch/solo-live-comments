@@ -1,0 +1,66 @@
+T19	fix	川の最上流部にもすむ渓流の魚で、エサが乏しい環境に適応している	https://www.honda.co.jp/fishing/picture-book/iwana/trap01/	B	釣り情報サイトが、川の最上流部にすみエサの乏しい環境に適応した魚と紹介している。
+T20	fix	ネズミや小鳥、コウモリまで食べていた記録がある	https://www.honda.co.jp/fishing/picture-book/iwana/trap01/	B	同サイトにその記録があるとの記述があり、ヘビを食べるという記述は確認できなかった。
+T23	ok		https://www.pref.shiga.lg.jp/ippan/shigotosangyou/suisan/18670.html	A	滋賀県の資料に、ニゴロブナは琵琶湖固有種で古くからふなずしの材料とされてきたとある。
+T24	fix	3倍体のギンブナはすべてメスで、近縁種の精子の刺激だけで卵が育ち、母親と同じクローンの子を産む	https://az.repo.nii.ac.jp/record/3151/files/diss_dv_kou0094_jab%26rev.pdf	A	学位論文に、3倍体は雌のみで雌性発生により母親とクローン関係の娘を産むとある（2倍体には雌雄がいる）。
+T25	fix	ふ化して1か月ほどで変態が起こり、片方の目が反対側へ移動して左右非対称の姿になる	https://kaken.nii.ac.jp/report/KAKENHI-PROJECT-14540614/145406142004jisseki	A	科研費報告書に、ふ化後約1か月で甲状腺ホルモンによる変態が起こり一方の眼が移動するとある。
+T26	fix	「左ヒラメに右カレイ」と言うが、名前がカレイでも目が左側の種もいて、名前だけでは区別できない	https://kotobank.jp/word/%E3%83%92%E3%83%A9%E3%83%A1-121629	B	ヒラメ類にはヤリガレイなどカレイの名を持つ種が多く、和名では区別できないと説明されている。
+T29	fix	学名は「ブラジルのサケ」という意味だが、サケの仲間ではない	https://en.wikipedia.org/wiki/Salminus_brasiliensis	B	英語版Wikipediaに、名前にSalminusとあるがサケとは無関係と書かれている。
+T30	ok		https://en.wikipedia.org/wiki/Salminus_brasiliensis	B	同記事に、別名としてriver tigerが挙げられている。
+T31	fix	初夏に石や倒木の下のすきまに産卵し、産卵期にはオスがグーグーと鳴く	https://www.maff.go.jp/j/nousin/keityo/kankyo/attach/pdf/suiden_seibi_kaisetu-11.pdf	A	農林水産省系資料に、ドンコは初夏に緩流域の石や倒木の下に産卵し、オスが鳴くと記されている。
+T32	drop		https://www.maff.go.jp/j/nousin/keityo/kankyo/attach/pdf/suiden_seibi_kaisetu-11.pdf	A	待ち伏せ捕食の記述は検索で確認できなかった。
+T39	fix	中国でフナの突然変異をもとに飼育・改良されたのが始まりとされる	https://www.ndl.go.jp/imagebank/column/kingyo	A	国立国会図書館のコラムが、中国で見つかった赤いフナの飼育・改良に由来すると説明している。
+T40	fix	日本には室町時代の1502年に大坂・堺へ伝わったという説がある	https://www.city.edogawa.tokyo.jp/e032/shigotosangyo/jigyosha_oen/nogyo_suisan/kingyo/furusato/history.html	B	1502年説は「言う人もある」という伝承的な説で、末期に何度か渡来したとする解説もある。
+T41	ok		https://kotobank.jp/word/グッピー	B	辞典でカダヤシ科の卵胎生淡水魚と説明されている。
+T42	fix	名前は、トリニダードの博物学者ロバート・ジョン・レッチミア・グッピーにちなむ	https://ttao.ca/news--info/a-fish-called-guppy-named-after-a-trinidadian	B	トリニダード・トバゴの博物学者がグッピーの名の由来になった人物と説明されている（標本をイギリスに送った経緯は未確認）。
+T47	ok		https://ja.wikibooks.org/wiki/%E6%96%99%E7%90%86%E6%9C%AC/%E3%82%B7%E3%82%A4%E3%83%A9	C	オスは頭部が大きく額が張り出しているのが特徴と記されている。
+T48	ok		https://www.daiwa.com/dyfc/manabu/suisangaku/shiira/	B	流木の陰に集まる習性があると解説されている（理由は分かっていない）。
+T51	fix	繁殖期のオスは体の横が赤と青緑色に染まり、頭が黒くなる	https://www.pref.nagano.lg.jp/suisan/joho/sakanatachi/oikawa.html	A	長野県水産試験場が、産卵期の雄の体側が赤と青緑に染まり頭部が真っ黒になると解説している。
+T52	fix	「ハヤ」の呼び名は地域で違い、長野ではオイカワ、関東ではウグイを指すことが多い	https://www.pref.nagano.lg.jp/suisan/joho/sakanatachi/oikawa.html	A	長野県の資料と釣り情報サイトで、ハヤが指す魚が地域により異なると説明されている。
+T53	fix	シシャモと同じキュウリウオ科の魚で、サケの仲間ではない	https://www.honda.co.jp/fishing/enjoy/season/season-201010/	B	釣り情報サイトがシシャモと同じキュウリウオ科の魚と説明している（穴釣りの有名さ自体は主張に使わない）。
+T54	fix	霞ヶ浦などでは、漁協が人工ふ化させた稚魚を放流して数を増やしている	https://www.pref.ibaraki.jp/nourinsuisan/suishi/shigen/documents/2023-r5_wakasagi-kasumi.pdf	A	茨城県の資料に、漁協が親魚から採卵しふ化・放流する増殖事業が記されている（海と川を行き来する点は確認できず）。
+T55	ok		https://www.wikiwand.com/en/articles/Demekin	B	目が突き出ていることが特徴の観賞用金魚と説明されている。
+T56	fix	出目金は中国で作られた品種で、中国では「龍睛」と呼ばれる	https://www.wikiwand.com/en/articles/Demekin	B	英語版記事に、中国で作出されDragon Eyeと呼ばれたとある（元の変異や年代の一次資料は未確認）。
+T57	ok		https://www.weblio.jp/content/rainbowfish	B	オーストラリア大陸やニューギニア島などに分布し50種ほどが知られると説明されている。
+T58	fix	オスは成熟するにつれて色が出てきて、水槽でも特に色鮮やかな魚になる	https://thetropicaltank.co.uk/keeping_rainbowfish.htm	C	飼育解説が、成熟とともに発色し大きい成魚ほど色が良いと述べている。
+T59	ok		https://www.city.edogawa.tokyo.jp/e032/shigotosangyo/jigyosha_oen/nogyo_suisan/kingyo/kingyonishitashimo.html	A	江戸川区の解説に、背びれがなく頭に肉瘤があり、金魚の王様とも言われるとある。
+T60	drop		https://www.city.edogawa.tokyo.jp/e032/shigotosangyo/jigyosha_oen/nogyo_suisan/kingyo/kingyonishitashimo.html	A	上から眺める飼い方が伝統的という記述は確認できなかった。
+T63	fix	ポリプテルスの仲間で、英名は「サドルド・ビチャー」。ビチャーはアフリカ西部・中央部の川や湖にすむ	https://en.wikipedia.org/wiki/Bichir	B	種一覧にP. endlicheriがsaddled bichirとして載り、属はアフリカの淡水域に分布するとある。
+T64	fix	ポリプテルスの仲間は一対の肺を持ち、水面の空気を吸える（浮き袋ではなく肺）	https://en.wikipedia.org/wiki/Bichir	B	属全体が食道につながる一対の肺を持ち、頭の呼吸孔から空気を吸うと説明されている（本種単独の研究は未確認）。
+T65	fix	成長で名前が変わる出世魚で、関東ではセイゴ、フッコ、スズキ、関西ではセイゴ、ハネ、スズキと呼ぶ	https://www.honda.co.jp/fishing/picture-book/suzuki/	B	呼び名は地方で異なり統一的な定義はないとされる。
+T66	fix	若魚は川や汽水湖など淡水に近い所にも入り、涸沼などが稚魚の大切な育つ場所になっている	https://www.pref.ibaraki.jp/nourinsuisan/naisuishi/gyogancho/documents/048_suzuki.pdf	A	茨城県の資料に、春から秋は内湾や河川内で過ごし汽水湖の涸沼が稚魚の成育場とある（川のかなり上流までは未確認）。
+T67	fix	心臓は3つ（2つのエラ心臓＋1つ）あり、血は銅を含むヘモシアニンのため酸素と結びつくと青くなる	https://www.digirika.tym.ed.jp/wp-content/uploads/ika_kaibou.pdf	B	解剖教材にエラ心臓を含め3つの心臓とあり、一般向け解説でヘモシアニンの青い血が説明されている。
+T68	drop		https://www.digirika.tym.ed.jp/wp-content/uploads/ika_kaibou.pdf	B	墨を使った目くらましで逃げるという記述自体は今回の検索で確認できなかった。
+T71	ok		https://www.metro.tokyo.lg.jp/documents/d/tosei/10_01_409	A	東京都の資料で、アユの寿命は1年で秋に産卵して一生を終えるとある。
+T72	ok		https://www.pref.shimane.lg.jp/industry/suisan/shinkou/kawa_mizuumi/tomodachi/sakana02_tyuryu1.html	A	島根県の資料で、縄張りに入る他のアユを追い払う習性を利用した友釣りが説明されている。
+T73	ok		https://nazology.kusuguru.co.jp/zukan/ikimono/kaeru	C	オタマジャクシはえらで呼吸し、カエルになると肺呼吸に移ると説明されている。
+T74	fix	変態では、手足が出るのと同じころにえらが消え、しっぽも失われる	https://nazology.kusuguru.co.jp/zukan/ikimono/kaeru	C	手足の出現と内えらの消失がほぼ同時に進み尾も失われるとある（尾が体に吸収されるかは未確認）。
+T75	fix	口の中で卵を守って育てる種類がいる（多くはメス）	https://www.weblio.jp/content/%E3%83%86%E3%82%A3%E3%83%A9%E3%83%94%E3%82%A2	B	雌が卵を口の中で守りふ化させる口内保育の種が多いと説明されている。
+T76	fix	アフリカと中東が原産で、日本でも一時「いずみ鯛」として各地で養殖された	https://www.weblio.jp/content/%E3%83%86%E3%82%A3%E3%83%A9%E3%83%94%E3%82%A2	B	原産地とイズミダイとしての養殖の経緯が記されている（世界各地での養殖は未確認）。
+T83	fix	ミイロタテハの仲間は南米・中米にすむタテハチョウで、種によって翅に金属的な緑の帯がある	https://species.wikimedia.org/wiki/Agrias	B	属の分布と、記載論文に金属的な緑色の帯の記述があるが、和名の由来は確認できなかった。
+T84	drop		https://species.wikimedia.org/wiki/Agrias	B	名前の「三色」や帯の色についての記述は確認できなかった。
+T91	fix	ニューギニアとその周辺の島々にすむゾウムシで、体が青緑などに輝く	https://www.wikipedia.org/wiki/Eupholus_azureus	B	Eupholus属はパプアニューギニア周辺に分布し、青緑色が鱗片に由来するとある（フィリピンは確認できず）。
+T92	fix	輝く色は色素ではなく、鱗の中のダイヤモンド型の微細構造による構造色とされる	https://pmc.ncbi.nlm.nih.gov/articles/PMC2586663	A	Eupholus属の鱗にダイヤモンド型の3次元フォトニック結晶があるとする研究が報告されている（鳥に食べられにくい点は未確認）。
+T103	fix	イトトンボは、前翅と後翅がほぼ同じ形で腹部が細長い「均翅亜目」の仲間	https://kotobank.jp/word/トンボ	B	辞典に均翅亜目の特徴として記されている。
+T104	drop		https://kotobank.jp/word/トンボ	B	翅を閉じて止まるという記述は検索で確認できなかった。
+T115	fix	翅の青は色素ではなく、表面の微細構造による光の干渉（構造色）で生まれる	https://www.kagiken.co.jp/new/kojimachi/20151012_ishikawa_Insectary.html	A	石川県ふれあい昆虫館の解説が、色素色ではなく微細構造による構造色と説明している。
+T116	fix	色素を使わずモルフォチョウの青を再現した構造発色シートが2016年に発表された	https://eetimes.itmedia.co.jp/ee/articles/1608/15/news023.html	B	凸版印刷が2016年に「モルフォシート」を発表したと報じられている（繊維・塗料の手本という点は未確認）。
+T127	ok		https://www.lifesci.tohoku.ac.jp/media/images/uploads/2011/06/1_3yadokari.pdf	A	東北大学の資料に、柔らかい腹部を守るため貝殻に収まっているとある。
+T128	ok		https://ryukyushimpo.jp/news/entry-1124495.html	B	体が大きくなると窮屈になり、体に合う殻へ移ると説明されている。
+T129	ok		https://dime.jp/genre/2145404/	C	東南アジアに広く分布し、アジア最大のカブトムシで角は3本と紹介されている。
+T130	fix	オス同士で激しく争うことで知られる	https://dime.jp/genre/2145404/	C	記事に3本の角で相手を挟み込み激しく争うとある。
+T137	fix	英名は「man-faced stink bug」で、インドからインドネシアにかけて分布する	https://apps.lucidcentral.org/pppw_v13/text/web_full/entities/manfaced_stink_bug_404.htm	B	太平洋地域の害虫資料に、英名と東南アジアに分布することが記されている。
+T138	fix	黄・オレンジ・赤などの色の型があり、背に黒い大きな斑点が2対ある	https://apps.lucidcentral.org/pppw_v13/text/web_full/entities/manfaced_stink_bug_404.htm	B	同資料に、色の違う型があり、それぞれ背に2対の大きな黒斑があると書かれている。
+T147	ok		https://nazology.kusuguru.co.jp/archives/58455	C	ランなどの花に擬態し、近寄る虫を捕らえると紹介されている。
+T148	fix	生まれたばかりの幼虫は赤と黒の2色で、地域のカメムシに似ているとされる	https://nazology.kusuguru.co.jp/archives/58455	C	記事にその記述があるが、アリに似るという記述は確認できなかった。
+T151	fix	カラスザンショウなどの食草があれば、市街地でも見られる	https://www.honda.co.jp/outdoor/adventure/karasuageha.html	B	図鑑ページに、食草さえあれば市街地でも見られ、北海道から沖縄に分布すると書かれている。
+T152	fix	幼虫はコクサギ、キハダ、サンショウなどミカン科の葉を食べる	https://www.city.nagano.nagano.jp/museum/sizensi/04_nature4b1.html	A	長野市自然史館の解説に、食草としてコクサギ・キハダ・サンショウ（ミカン科）とある。
+T155	fix	田んぼにはコバネイナゴなどが多い	https://honcierge.jp/articles/shelf_story/6501	C	記事に、甘露煮に主にコバネイナゴとハネナガイナゴが使われ田んぼに集まるとある。
+T156	drop		https://honcierge.jp/articles/shelf_story/6501	C	農薬による減少と回復を直接示す資料は確認できなかった。
+T199	fix	マガキは、オスとメスが入れ替わる双方向の性転換をする種として知られる	https://sites.google.com/view/kattoshifriends/軟体/二枚貝綱/マガキ	C	生態学で双方向性転換で有名と紹介されているが、二次情報で原論文は未確認。
+T200	drop		https://www.derwentestuary.org.au/species/pacific-oyster/	C	1日あたりの濾過量は確かめられず、1時間約7.2リットルとする一般記事も学術確認はできなかった。
+T215	drop		https://en.wikipedia.org/wiki/Heterocentrotus_mamillatus	B	パイプウニ自体の記述が確認できなかった（石筆ウニは別種）。
+T216	drop		https://en.wikipedia.org/wiki/Heterocentrotus_mamillatus	B	石筆として使われた記述が確認できず、石筆ウニは別種のため混同の恐れがある。
+T229	ok		https://www.city.funabashi.lg.jp/shisetsu/shiminkatsudo/0003/0001/0005/p004328.html	A	船橋市の資料に、波の荒い海域にすむものは角が出やすいとある。
+T230	ok		https://kotobank.jp/word/%E3%82%B5%E3%82%B6%E3%82%A8-68890	B	辞典に、ふたは厚い石灰質で小さなとげが密に生えるとある。
+T237	ok		https://wikiwand.com/ja/articles/ぜんご	B	ぜんごはアジ類の尾に近い側線の硬い鱗（稜鱗）で、ぜいごとも呼ぶとある。
+T238	fix	名前の由来は「味がよいから」という説もあるが、はっきりしない	https://dic.pixiv.net/a/%E9%AF%B5	C	「味が良い事に由来するといわれる」とあるが、語源は確定していない。
