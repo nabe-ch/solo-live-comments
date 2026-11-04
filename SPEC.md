@@ -102,6 +102,7 @@
 - 日付と時刻、今月と次のイベント（MONTH_EVENTS）、有名な○○の一覧（LIST_ANSWERS）に答える
 - 遊び方25項目：research/claims-howto.tsv、verdict-howto.tsv → tools/build-howto.js → howto-data.js。質問との対応は comments-assistant.js の HOWTO_RE
 - 話題のうんちく：research/claims-topic.tsv、verdict-topic1〜5.tsv → tools/build-topic.js → topic-data.js。漫画、日常の物、遊び、お金、体などを追加。略称は TOPIC_ALIASES
+- 生態を聞くとうんちくを、うんちくを聞くと生態を添えて、1つの答えで返す（joinLines）
 - 生態：生き物200種と住民の34種族。research/claims-eco.tsv、verdict-eco1〜3.tsv → tools/build-eco.js → eco-data.js。「○○の生態」「何を食べるの」「すんでる」などはゲームの情報より先に答える（ecoAnswer）。データの出典は百科事典が中心
 
 ### 登場キャラの動物（2026-11-04）

@@ -126,6 +126,12 @@ function triviaAnswer(said) {
     pool.push(...TOPIC_TRIVIA.filter(([n, t]) => n === animal && !/^動物は/.test(t)).map(topicSay), ...ECOLOGY.filter(([n]) => n === animal).map(([n, t]) => knowSay(n, t)), ...knowledge.filter((k) => k.name === animal).flatMap((k) => k.what.map((t) => knowSay(k.name, t))));
   }
   // 話題で見つからなければ、分野で探す
+  // うんちくを頼まれたら、話題の生態も添える
+  const eco = ecoHit(asked);
+  if (eco) {
+    const trivia = pickTrivia(pool.filter((t) => !t.includes(eco[1])));
+    return { type: 'answer', text: joinLines(trivia || knowSay(eco[0], eco[1]), trivia ? knowSay(eco[0], eco[1]) : null) };
+  }
   const line = pickTrivia(pool) || pickTrivia(triviaCategory(asked));
   if (line) return { type: 'answer', text: line };
   // うんちくがなければ、持っている情報を出す
@@ -198,13 +204,21 @@ function howtoAnswer(text) {
 }
 
 // 現実の生態を聞かれたら、ゲームの情報より先に答える（「○○の生態」「○○は何を食べるの」）
+// 文の中の名前から、生態のデータを探す（長い名前を優先）
+function ecoHit(text) {
+  const hits = ECOLOGY.filter(([n]) => (n.length === 1 ? text.startsWith(`${n}の`) || text.startsWith(`${n}は`) || text.startsWith(`${n}って`) : new RegExp(`(^|[^ァ-ヶー])${n}(?![ァ-ヶー])`).test(text)));
+  return hits.length ? hits.sort((a, b) => b[0].length - a[0].length)[0] : null;
+}
+const joinLines = (a, b) => (b ? `${a.replace(/。$/, '')}。${b}` : a);
 const ECO_ASK = /生態|暮らし|何を?食べ|なに(を)?食べ|何食べ|餌|エサ|えさ|肉食|草食|雑食|すんでる|住んでる|棲んでる|すみか|現実|リアル|本物|実際/;
 function ecoAnswer(text) {
   if (!ECO_ASK.test(text) || /食べ方|食べられる|おいし|うまい/.test(text)) return null;
-  const hits = ECOLOGY.filter(([n]) => (n.length === 1 ? text.startsWith(`${n}の`) || text.startsWith(`${n}は`) || text.startsWith(`${n}って`) : new RegExp(`(^|[^ァ-ヶー])${n}(?![ァ-ヶー])`).test(text)));
-  if (!hits.length) return null;
-  const [name, line] = hits.sort((a, b) => b[0].length - a[0].length)[0];
-  return knowSay(name, line);
+  const hit = ecoHit(text);
+  if (!hit) return null;
+  const eco = knowSay(hit[0], hit[1]);
+  // うんちくがあれば添える
+  const extra = pickTrivia([...RULES.filter((r) => r.u && r.u.length && r.re.test(hit[0])).flatMap((r) => r.u), ...TOPIC_TRIVIA.filter(([n]) => n === hit[0]).map(topicSay)].filter((t) => !t.includes(hit[1])));
+  return joinLines(eco, extra);
 }
 
 function assist(raw) {
