@@ -104,6 +104,9 @@
 - 話題のうんちく：research/claims-topic.tsv、verdict-topic1〜5.tsv → tools/build-topic.js → topic-data.js。漫画、日常の物、遊び、お金、体などを追加。略称は TOPIC_ALIASES
 - 生態：生き物200種と住民の34種族。research/claims-eco.tsv、verdict-eco1〜3.tsv → tools/build-eco.js → eco-data.js。「○○の生態」「何を食べるの」「すんでる」などはゲームの情報より先に答える（ecoAnswer）。データの出典は百科事典が中心
 
+### 登場キャラの動物（2026-11-04）
+キャラ26人の動物の種類を追加（NPC_ANIMAL）。うんちくを頼むと、その動物の話も候補になる。research/verdict-topic6.tsv のうち、出典のURLがない14件（U289、U290、U292〜U294、U296〜U301、U304、U305、U307）は tools/build-topic.js で入れていない。枠の更新後に確認し直す。かっぺいは資料でカッパとカメが併記される（確度C）。
+
 ## 開発方針
 - 質問に答える役割を標準にする。データを増やす前に、聞き方の幅を直す。足すものは「答えられなかった質問」を優先する（2026-11-04）
 - 知らないことは「知らない」と出し、推測で埋めない

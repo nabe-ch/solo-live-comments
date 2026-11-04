@@ -119,6 +119,12 @@ function triviaAnswer(said) {
     ...knowledge.filter((k) => k.re.test(asked)).flatMap((k) => [...k.what, ...k.where, ...k.when].map((t) => knowSay(k.name, t))),
     ...TOPIC_TRIVIA.filter(([n]) => topicHit(n, topic, asked)).map(topicSay)
   ];
+  // 登場キャラなら、その動物のうんちくも候補にする
+  const npcName = [...NPC_ANIMAL.keys()].find((n) => asked.includes(n));
+  if (npcName) {
+    const animal = NPC_ANIMAL.get(npcName);
+    pool.push(...TOPIC_TRIVIA.filter(([n, t]) => n === animal && !/^動物は/.test(t)).map(topicSay), ...ECOLOGY.filter(([n]) => n === animal).map(([n, t]) => knowSay(n, t)), ...knowledge.filter((k) => k.name === animal).flatMap((k) => k.what.map((t) => knowSay(k.name, t))));
+  }
   // 話題で見つからなければ、分野で探す
   const line = pickTrivia(pool) || pickTrivia(triviaCategory(asked));
   if (line) return { type: 'answer', text: line };
@@ -141,7 +147,7 @@ function hasKnownName(text) {
 function explainName(text) {
   const asked = text.slice(-24);
   const npc = Object.keys(NPC_ROLE).find((n) => text.includes(n));
-  if (npc) return `${npc}は、${NPC_ROLE[npc]}`;
+  if (npc) return `${npc}は、${NPC_ROLE[npc]}${NPC_ANIMAL.has(npc) ? `。動物は${NPC_ANIMAL.get(npc)}` : ''}`;
   if (/カブ(?!ト)/.test(text) && !/カブト/.test(text)) { const faq = answerAny(`カブとは${text.includes('値段') ? 'カブの値段いつ' : ''}`); if (faq) return faq; }
   const direct = answerAny(`${asked}。教えて`) || answerAny(`${asked}。どんな`);
   if (direct) return direct;
@@ -213,7 +219,7 @@ function assist(raw) {
   }
   // ゲームの登場人物は、役割で答える
   const npc = asking && /誰|だれ|何者|って何|ってなに|どんな/.test(text) && Object.keys(NPC_ROLE).find((n) => text.includes(n));
-  if (npc) return { type: 'answer', text: `${npc}は、${NPC_ROLE[npc]}` };
+  if (npc) return { type: 'answer', text: /動物|種族|生き物/.test(text) && NPC_ANIMAL.has(npc) ? `${npc}の動物は${NPC_ANIMAL.get(npc)}` : `${npc}は、${NPC_ROLE[npc]}${NPC_ANIMAL.has(npc) ? `。動物は${NPC_ANIMAL.get(npc)}` : ''}` };
   const special = asking ? ecoAnswer(text) || clockAnswer(text) || calendarAnswer(text) || listAnswer(text) || howtoAnswer(text) : null;
   if (special) return { type: 'answer', text: special };
   const answer = answerAny(text);

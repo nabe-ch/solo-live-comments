@@ -12,7 +12,9 @@ for (const [name, text] of ECOLOGY) {
   if (rule) rule.u.push(line);
   GENERIC.u.push(line);
 }
+// 登場キャラの動物（「動物はタヌキ」の形のデータ）
+const NPC_ANIMAL = new Map(TOPIC_TRIVIA.filter(([, t]) => /^動物は/.test(t)).map(([n, t]) => [n, t.replace(/^動物は/, '')]));
 // 話題のうんちくは、文に自分の主語があれば、そのまま使う（「ネコは、古代エジプトでは猫が」と重ねない）
-const topicSay = ([name, text]) => (/^[^、]{1,16}?は/.test(text) && !/^(名前|鼻|耳|胃|卵|舌|角|体|袋|親)/.test(text) ? text : knowSay(name, text));
+const topicSay = ([name, text]) => (/^動物は/.test(text) ? `${name}の${text}` : /^[^、]{1,16}?は/.test(text) && !/^(名前|鼻|耳|胃|卵|舌|角|体|袋|親)/.test(text) ? text : knowSay(name, text));
 // 動物、果物、空、行事などの話題のうんちくも、ときどき流れる雑談に混ぜる
 for (const row of TOPIC_TRIVIA) GENERIC.u.push(`ちなみに${topicSay(row)}`);

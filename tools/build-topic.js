@@ -3,12 +3,14 @@ const fs = require('fs');
 const path = require('path');
 const dir = path.join(__dirname, '..', 'research');
 const readTsv = (f) => (fs.existsSync(path.join(dir, f)) ? fs.readFileSync(path.join(dir, f), 'utf8').replace(/^\uFEFF/, '').split(/\r?\n/).filter(Boolean).map((l) => l.split('\t')) : []);
-const verdicts = new Map([...readTsv('verdict-topic1.tsv'), ...readTsv('verdict-topic2.tsv'), ...readTsv('verdict-topic3.tsv'), ...readTsv('verdict-topic4.tsv'), ...readTsv('verdict-topic5.tsv')].map(([id, verdict, corrected]) => [id.trim(), { verdict: (verdict || '').trim().toLowerCase(), corrected: (corrected || '').trim() }]));
+const verdicts = new Map([...readTsv('verdict-topic1.tsv'), ...readTsv('verdict-topic2.tsv'), ...readTsv('verdict-topic3.tsv'), ...readTsv('verdict-topic4.tsv'), ...readTsv('verdict-topic5.tsv'), ...readTsv('verdict-topic6.tsv')].map(([id, verdict, corrected, url]) => [id.trim(), { verdict: (verdict || '').trim().toLowerCase(), corrected: (corrected || '').trim(), url: (url || '').trim() }]));
 const list = [];
 const counts = { ok: 0, fix: 0, drop: 0, missing: [] };
 for (const [id, name, text] of readTsv('claims-topic.tsv')) {
   const v = verdicts.get(id);
   if (!v || !['ok', 'fix', 'drop'].includes(v.verdict) || (v.verdict === 'fix' && !v.corrected)) { counts.missing.push(id); continue; }
+  // 出典のURLがない判定は、確認済みとして扱わない（再確認を待つ）
+  if (v.verdict !== 'drop' && !/^https?:/.test(v.url)) { counts.missing.push(id); continue; }
   counts[v.verdict] += 1;
   if (v.verdict !== 'drop') list.push([name.trim(), v.verdict === 'fix' ? v.corrected : text.trim()]);
 }
