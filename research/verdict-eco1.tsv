@@ -1,0 +1,75 @@
+E1	ok		https://en.wikipedia.org/wiki/Humphead_wrasse	B	貝類・ウニ・魚・甲殻類などを食べる日和見的な捕食者で、インド洋と太平洋に分布すると書かれている。
+E2	ok		https://www.pref.mie.lg.jp/common/content/001192315.pdf	A	カタクチイワシ類は沿岸の表層で大きな群れをつくり、プランクトンを食べるとされる。
+E3	ok		https://pedia.3rd-in.co.jp/wiki/エンゼルフィッシュ	B	アマゾン水系の流れの緩い水域にすみ、昆虫や小魚などを捕食するとある。
+E4	ok		https://www.afpbb.com/articles/-/3001501	B	アマゾン川流域にすみ、約15分おきに水面へ浮上して空気呼吸する肉食魚と報じられている。
+E5	ok		https://scholars.cityu.edu.hk/en/publications/aerial-and-aquatic-feeding-in-the-silver-arawana-osteoglossum-bic/	A	シルバーアロワナは水面近くで水中と空中の獲物(魚や昆虫)を食べると論文で扱われている。
+E6	ok		https://www.honda.co.jp/fishing/picture-book/ishidai/	B	成魚は岩礁帯の海底で貝やウニ、甲殻類を食べ、強いくちばし状の歯で殻を割る。
+E7	ok		https://www.newsweekjapan.jp/articles/-/45945	B	頭部が透明で、その中で筒状の目が上向きから前向きまで回転すると報じられている。
+E8	fix	東南アジアの水田や浅い沼にすみ、昆虫の幼虫や小さな甲殻類を食べる。	https://bettabotanicals.com/blogs/bens-aquarium/wild-betta-fish-diet-comprehensive-guide	C	野生ベタの食べ物は小型の昆虫・甲殻類・幼虫とされ、水面の虫に限るとは確認できなかった。
+E9	fix	日本の川や池にすみ、雑食で、卵を淡水の二枚貝のえらの中に産む。	https://www.pref.kanagawa.jp/docs/a4y/images/miyakotanago.html	A	タナゴ類は雑食性で、淡水二枚貝のえらに産卵するのが特徴で、藻を主食とは確認できなかった。
+E10	ok		https://www.city.iwaki.lg.jp/www/contents/1001000001892/files/ookutibasu.pdf	A	北米原産で、成長すると魚類やエビ・ザリガニなどの甲殻類を食べる肉食魚と整理されている。
+E11	fix	世界の海にすみ、貝やエビなどを4枚の硬い歯でかじって食べる。	https://dlab.epfl.ch/wikispeedia/wpcd/wp/f/Fugu.htm	B	フグ類は海水域に広く分布し、藻や貝、無脊椎動物、時に甲殻類を食べ、「暖かい海に多い」とは確認できなかった。
+E12	ok		https://ja.wikipedia.org/wiki/カジキ	B	暖かい外洋の表層を泳ぎ、イワシなどの小魚やイカ・タコの仲間を食べるとある。
+E13	ok		https://www.pref.nagano.lg.jp/suisan/joho/sakanatachi/bluegill.html	A	北米原産で、流れの少ない池や湖にすみ、小魚・エビ・昆虫などを食べるとされる。
+E14	fix	暖かい海のサンゴ礁などにすみ、サンゴのポリプや小さな底の生き物を食べる種が多い。	https://ryukyushimpo.jp/news/entry-1203063.html	B	チョウチョウウオ科にはサンゴのポリプを食べる種がいるが、全種ではなく種ごとに食べ物が違う。
+E15	ok		https://www.ktr.mlit.go.jp/ktr_content/content/000941098.pdf	A	河川の資料でコイは強い雑食性で水草・昆虫・貝などの底生動物を食べるとされる。
+E16	ok		https://www.daiwa.com/dyfc/manabu/suisangaku/namazu	B	基本的に夜行性で、小魚・甲殻類・昆虫・カエルなどを食べ、河川や池沼の底にすむ。
+E17	fix	イワナの仲間は川の最上流の冷たい水にすみ、川虫や水面に落ちた虫を食べる。	https://www.env.go.jp/info/iken/h180317a/a-2.pdf	B	「オオイワナ」という種の記述は確認できず、イワナ類全般の食性と生息環境のみ確認できた。
+E18	ok		https://www.kankyo.pref.hyogo.lg.jp/download_file/view/2091/20724	A	ヤマメは上流で水生昆虫や落下昆虫を食べ、降海型がサクラマスと呼ばれる。
+E19	ok		https://pedia.3rd-in.co.jp/wiki/クマノミ亜科	B	イソギンチャクと共生し、群れで最大の個体がメスで、メスが消えるとオスがメスに性転換する。
+E20	ok		https://en.wikipedia.org/wiki/Latimeria	B	インド洋とインドネシア周辺にすみ、夜に魚やイカなどを流れに乗って狙う夜行性の捕食者とされる。
+E21	ok		https://www.env.go.jp/nature/amezari_info.html	A	アメリカザリガニは雑食で水草・水生昆虫・小型魚類などを食べる。
+E22	ok		https://www2.city.fuji.shizuoka.jp/kankyomap/image/pdf/tansui_gyorui/ginbuna.pdf	B	フナ(ギンブナ)は雑食で、藻類やプランクトン、底生動物を食べる。
+E23	fix	砂や泥の海底にすみ、小魚や海底の小さな生き物を食べる。	https://ja.wikipedia.org/wiki/カレイ	B	砂や泥の海底にすみ、主に小魚や無脊椎動物を食べるとされ、ゴカイや貝を名指しする記述は確認できなかった。
+E24	ok		https://www.weblio.jp/content/鰄	B	ウグイは雑食で、降海型と一生を川で過ごす型がいる。
+E25	ok		https://en.wikipedia.org/wiki/Salminus_brasiliensis	B	南米の川にすむ大型の捕食魚で、成魚はほぼ魚を食べる。
+E26	ok		https://www.u-tokyo.ac.jp/focus/ja/features/z1304_00191.html	A	頭の誘引突起の先の発光器で、エビや小魚をおびき寄せるとされる。
+E27	fix	川の中下流の流れのよどんだ砂泥底にすみ、夜に小魚や小さなエビを食べる。	https://cir.nii.ac.jp/crid/1390282681395492736?lang=en	A	ドンコの食べ物は小魚や小型のエビ類とされ、昆虫が主とする記述は確認できなかった。
+E28	ok		https://ja.wikipedia.org/wiki/カエル	B	幼生は水中、成体は水辺や陸で暮らし、多くが肉食で舌を伸ばして昆虫を捕らえる。
+E29	fix	北米などの川や湖にすみ、魚を主に食べる。	https://www.pref.nagano.lg.jp/shizenhogo/kurashi/shizen/hogo/gairai/documents/13_gaa.pdf	A	ガー類は魚食性が強く北米南東部の緩い流れにすむが、待ち伏せ型と書いた資料は確認できなかった。
+E30	ok		https://www.pref.kanagawa.jp/docs/a4y/images/kamuruti.html	A	上鰓器官で空気呼吸ができ、魚・カエル・ザリガニなどを食べる。
+E31	fix	内湾やサンゴ礁などの沿岸にすみ、肉食で魚などを襲って食べる。	https://www.honda.co.jp/fishing/picture-book/rouninaji/	B	成魚は内湾やサンゴ礁の沿岸にすむ肉食魚と確認でき、甲殻類を食べる記述は確認できなかった。
+E32	ok		https://www.fws.gov/species/little-kern-golden-trout-oncorhynchus-mykiss-whitei	A	高地の非常に冷たい川や湖にすみ、水面や水中の小さな昆虫を主に食べる。
+E33	fix	中国で野生のフナの仲間から人が改良してできた魚で、藻や虫、人工の餌なども食べる。	https://www.kagiken.co.jp/new/kojimachi/fish-kingyo_large.html	C	原種は中国南部の野生のフナで、選別を繰り返して生まれたと確認でき、「自然にはいない」とは言い切れない。
+E34	ok		https://www.churashima.okinawa/userfiles/files/topics/event/2021/20210804neta_umi01.pdf	A	サメの食べ物は種で違い、ジンベエザメはプランクトン、ホホジロザメはアシカなどを食べる。
+E35	fix	南米北部などの温かい小川や河川にすみ、小さな動物や藻などを食べる雑食。	https://www.nies.go.jp/biodiversity/invasive/DB/detail/50240e.html	A	自然分布はベネズエラ周辺で、温かい流れの緩い水域にすみ、雑食と整理されている。
+E36	ok		https://www.daiwa.com/dyfc/manabu/suisangaku/akashumokuzame	B	頭の形のおかげでロレンチーニ器官を広く配置でき、アカエイ類などを好んで食べる。
+E37	fix	沿岸から沖合で群れて泳ぎ、小さな魚や甲殻類を食べる。	https://www.pref.kanagawa.jp/docs/mx7/cnt/f430693/zukan-maaji.html	A	マアジは群れで回遊し、春夏は小型魚類、秋は甲殻類をよく食べるとされる。
+E38	ok		https://www.env.go.jp/guide/info/ecojin/quiz/20210915.html	A	メダカは雑食で、プランクトンや水面に落ちた小さな虫を食べ、水面近くを泳ぐ。
+E39	fix	北太平洋で育って大きくなり、産卵のために生まれた川に戻る。	https://alaskapublic.org/2015/02/24/southeast-alaska-king-salmon-head-north-in-search-of-cooler-waters/	B	海で育ち川に戻って産卵する遡河回遊魚と確認でき、イカを食べる記述は確認できなかった。
+E40	fix	人が観賞用に選んで育ててきたコイで、新潟県などで江戸時代から改良されてきた。	https://kotobank.jp/word/ニシキゴイ-3162263	B	観賞用に選抜されたコイの総称で、雑食と書いた資料は確認できなかった。
+E41	ok		https://www.bepal.net/archives/301693	B	ドジョウはえら呼吸に加えて腸や皮膚でも呼吸でき、田んぼの泥の中でも生きられる。
+E42	ok		https://www.honda.co.jp/fishing/picture-book/shiira/	B	暖かい海の表層にすみ、トビウオ類やイワシ類、イカ類を食べる魚食性の魚。
+E43	fix	川で育ち、大人になると海に下って産卵する。	https://www.env.go.jp/nature/intro/4document/data/sentei/05/ref01_6.pdf	A	川と海を行き来する回遊型の生活史は確認でき、雑食とする記述は確認できなかった。
+E44	fix	暖かい海の岩のすき間にすみ、夜に魚やタコ、カニなどを食べる。	https://ir.lib.hiroshima-u.ac.jp/00024683?locale=en	A	ウツボ類は岩礁にすむ夜行性の肉食で、胃の中身ではカニ類と魚類が多かった。
+E45	fix	南米の川の木陰の暗い水にすみ、小さな虫や藻などを食べる。	https://kotobank.jp/word/ネオンテトラ-3162684	C	アマゾン上流の密林の細流にすみ、野生では昆虫の幼虫や藻などを食べる雑食とされる。
+E46	ok		https://pedia.3rd-in.co.jp/wiki/ドクターフィッシュ	B	トルコなど西アジアの川や温泉にすみ、石についた藻などを食べる。
+E47	ok		https://ja.wikipedia.org/wiki/リュウグウノツカイ	B	深海の中層を漂い、胃の中身からオキアミなどを食べると推測され、まれに浜に打ち上がる。
+E48	fix	世界の温帯から熱帯の海にすみ、クラゲなどを食べる。	https://nagasaki-u.repo.nii.ac.jp/records/27394	A	温帯から熱帯の海に分布し、クラゲ類のほか小魚やプランクトンも食べると確認できた。
+E49	ok		https://www.pref.ibaraki.jp/nourinsuisan/suishi/teichaku/documents/r7hirame.pdf	A	水深100mより浅い砂地にすみ、成長すると強い魚食性を示す。
+E50	ok		https://www2.city.fuji.shizuoka.jp/kankyomap/image/pdf/tansui_gyorui/oikawa.pdf	B	川の中流から下流にすみ、藻類や水生昆虫を食べる雑食性。
+E51	ok		https://www.env.go.jp/nature/intro/4document/data/sentei/05/ref01_4.pdf	A	北半球の亜寒帯から温帯の湖や川にすみ、水草の陰で待ち伏せして魚などを食べる。
+E52	fix	南米の川にすみ、主に魚や小さな水生動物を食べる。	https://kotobank.jp/word/ピラニア	B	肉食の淡水魚の総称で、魚や甲殻類、昆虫などを食べるとされる。
+E53	fix	湖や河口、内湾にすみ、動物プランクトンを食べる。	https://www.kankyo.pref.hyogo.lg.jp/download_file/view/2037/20724	A	河口から内湾や湖にすみ、動物プランクトンを食べる。
+E54	fix	人が改良した金魚で、目が左右に大きく飛び出し、視力が弱く動きもゆっくりしている。	https://ja.wikipedia.org/wiki/デメキン	B	突き出た眼球が特徴で、視力が弱く動作も緩慢なため泳ぎの強い金魚との混泳を避けるとある。
+E55	ok		https://kotobank.jp/word/ハリセンボン	B	浅い海の岩礁付近にすみ、強い歯でカニや貝を砕いて食べる。
+E56	ok		https://lazoo.org/explore-your-zoo/our-animals/fish/australian-rainbowfish/	A	オーストラリアなどの川や湖にすみ、藻類や昆虫の幼虫などを食べる雑食。
+E57	fix	人が改良した金魚で、背びれがなく、頭にこぶ(肉瘤)がある。	https://www.city.edogawa.tokyo.jp/e032/shigotosangyo/jigyosha_oen/nogyo_suisan/kingyo/kingyonishitashimo.html	A	背びれがなく頭に肉瘤があることは確認でき、泳ぎがゆっくりという記述は確認できなかった。
+E58	fix	内湾の砂や泥の海底にすみ、甲殻類や貝などを食べる(アカエイの場合)。	https://www.pref.aichi.jp/uploaded/attachment/46068.pdf	A	アカエイは内湾の砂泥底にすみ甲殻類を主食とし、貝類も食べる可能性が示されている。
+E59	ok		https://hinatamafin.pref.miyazaki.lg.jp/material/files/group/13/000084790.pdf	A	マダイは岩礁やその周りの砂底にすみ、エビ・カニ・貝などを食べる(水深30〜200m)。
+E60	ok		https://ja.wikipedia.org/wiki/ハナヒゲウツボ	B	インド洋から西太平洋のサンゴ礁や岩礁で砂底の穴や岩の隙間にすみ、小魚を食べ、成長でオスからメスに変わり色も変わる。
+E61	fix	アフリカの川や沼にすみ、夜に魚を主に食べる。	https://en.wikipedia.org/wiki/Polypterus_endlicheri	B	主に夜行性で魚を主に食べるとされ、昆虫を食べるという記述は確認できなかった。
+E62	ok		https://www.spf.org/opri/newsletter/477_2.html	A	川で生まれた稚魚は海に下って育ち、成熟すると生まれた川に戻って産卵する。
+E63	fix	海底近くにすみ、吻の下のひげや電気を感じる孔で砂の中のエビやカニなどを探して食べる。	https://kotobank.jp/word/ノコギリザメ	B	吻の下のひげと電気を感じる孔で砂の中のエビやカニを探して掘り起こすという説明がある。
+E64	ok		https://www.pref.fukushima.lg.jp/uploaded/attachment/767094.pdf	A	沿岸から河口にすみ、成魚は魚類やエビ類を食べる。
+E65	ok		https://honcierge.jp/articles/shelf_story/5911	C	ハダカカメガイ科の貝の仲間で、冷たい海にすみ、近縁の遊泳性の貝ミジンウキマイマイを食べるとされる。
+E66	fix	温帯から熱帯の沿岸の藻場やサンゴ礁にすみ、オスの育児嚢(いくじのう)で卵を稚魚になるまで育てる。	https://www.businessinsider.jp/post-280596	B	藻場やサンゴ礁にすみ、オスの袋にメスが卵を産み付けてオスが育てると説明されている。
+E67	ok		https://www.city.iwaki.lg.jp/www/contents/1001000001892/files/kamitsukigame.pdf	A	北米原産で雑食、魚・カエル・甲殻類などと水草も食べると整理されている。
+E68	ok		https://www.weblio.jp/content/すっぽん	B	水底の泥や砂に潜んで魚や貝などを食べ、鼻先を水面に出して呼吸する。
+E69	ok		https://nazology.kusuguru.co.jp/zukan/ikimono/ika	B	小魚やエビを2本の触腕でつかまえ、8本の腕で抱えて食べる。
+E70	ok		https://www.nies.go.jp/biology/pdfs/taimen.pdf	A	北海道の川や湖にすむ日本最大級の淡水魚で、成長すると魚類や両生類を食べる。
+E71	fix	川や海にすみ、口を伸ばして海底の貝や甲殻類、小魚などを吸い込んで食べる。	https://ja.wikipedia.org/wiki/チョウザメ	B	底にすむ貝や甲殻類、小魚を口を伸ばして吸い込むように食べるとある。
+E72	ok		https://honcierge.jp/articles/shelf_story/11563	C	大きな魚などに吸着し、宿主の食べ残しや皮膚の寄生虫を食べることもある。
+E73	fix	インド太平洋のサンゴ礁に群れですみ、主に動物プランクトンを食べる。	https://ja.wikipedia.org/wiki/ナンヨウハギ	B	野生では主に動物プランクトンを食べるとされ、藻を食べるのは飼育下の記述だった。
+E74	ok		https://www.pref.yamaguchi.lg.jp/uploaded/attachment/59679.pdf	A	川をのぼった後は石の付着藻類(珪藻など)を食べてなわばりを持つ。
+E75	fix	水中で暮らし、水草や藻、小さなプランクトンなどを食べて育つ。	https://kids.gakken.co.jp/box/nazenani/pdf/01_doubutu/X1020086.pdf	B	石や泥についた藻や水草、プランクトンを食べるとあり、死骸を食べる記述は確認できなかった。

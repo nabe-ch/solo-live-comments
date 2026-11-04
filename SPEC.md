@@ -96,6 +96,14 @@
 ### うんちくの分野（2026-11-04）
 「魚」「虫」「海の幸」「花」「島」「動物（住民）」のように分野でも頼める（comments-assistant.js の triviaCategory）。住民の種族30種、果物、素材、行事、空と天気、シリーズの歴史、語源、ことわざ、体の話を追加。下書き125件を別の担当者が確認し、そのまま70件、修正48件、除外7件で、118件・63話題が入った。データは research/claims-topic.tsv、verdict-topic1.tsv、verdict-topic2.tsv から tools/build-topic.js で topic-data.js を作る。確認は検索結果の要約が中心で、ページを開いていないものを含む。
 
+### 聞き方の幅、遊び方、生態（2026-11-04）
+- 聞き方：「○○について」「○○の情報」「○○の話して」「○○は」なども質問とみなす。知っている名前があれば、細かい言い回しによらず説明する（hasKnownName、explainName）。「○○は」「○○って」だけの言葉は、知っている名前のときに限る
+- 独り言への反応を避ける確認は tools/check.js の項目。「今日何食べよう」「ちょっと待って」「ネコかわいい」などには答えない
+- 日付と時刻、今月と次のイベント（MONTH_EVENTS）、有名な○○の一覧（LIST_ANSWERS）に答える
+- 遊び方25項目：research/claims-howto.tsv、verdict-howto.tsv → tools/build-howto.js → howto-data.js。質問との対応は comments-assistant.js の HOWTO_RE
+- 話題のうんちく：research/claims-topic.tsv、verdict-topic1〜5.tsv → tools/build-topic.js → topic-data.js。漫画、日常の物、遊び、お金、体などを追加。略称は TOPIC_ALIASES
+- 生態：生き物200種と住民の34種族。research/claims-eco.tsv、verdict-eco1〜3.tsv → tools/build-eco.js → eco-data.js。「○○の生態」「何を食べるの」「すんでる」などはゲームの情報より先に答える（ecoAnswer）。データの出典は百科事典が中心
+
 ## 開発方針
 - 質問に答える役割を標準にする。データを増やす前に、聞き方の幅を直す。足すものは「答えられなかった質問」を優先する（2026-11-04）
 - 知らないことは「知らない」と出し、推測で埋めない

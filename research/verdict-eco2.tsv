@@ -1,0 +1,75 @@
+E76	fix	アフリカや中東が原産で、淡水や汽水にすみ、植物も動物も口に入るものを何でも食べる雑食	https://ja.wikipedia.org/wiki/ティラピア	B	藻類やプランクトンの記述はなく雑食とされる
+E77	ok		https://ja.wikipedia.org/wiki/マグロ	B	外洋を回遊し魚や甲殻類・頭足類を食べると書かれている
+E78	ok		https://ja.wikipedia.org/wiki/ジンベイザメ	B	プランクトンを主食とし小魚も食べるろ過摂食
+E79	ok		https://en.wikipedia.org/wiki/Yellow_perch	B	北米の湖や川にすみ小型無脊椎動物や小魚を食べる
+E80	fix	日本では沿岸の岩礁にすみ、夜に小魚や甲殻類を食べる。背びれなどのトゲに毒がある	https://ja.wikipedia.org/wiki/ミノカサゴ	B	主な生息場所は岩礁で夜行性の捕食者とされる
+E81	ok		https://ja.wikipedia.org/wiki/ヨナグニサン	B	日本では八重山諸島の森にすみ幼虫の食草にアカギが挙がる
+E82	ok		https://ja.wikipedia.org/wiki/ニシキオオツバメガ	B	マダガスカル固有でOmphalea属を幼虫が食べる
+E83	fix	パプアニューギニアの熱帯雨林にすむ大きなチョウで、幼虫はウマノスズクサ科を食べる	https://ja.wikipedia.org/wiki/アレキサンドラトリバネアゲハ	B	同国東部の熱帯雨林に限って分布し食草はウマノスズクサ科
+E84	ok		https://ja.wikipedia.org/wiki/トリバネアゲハ	B	東南アジアの熱帯雨林にすみ成虫は花の蜜を吸う
+E85	fix	中南米の森にすみ、腐った果物などの汁を吸う	https://ja.wikipedia.org/wiki/ミイロタテハ	B	中南米の熱帯雨林で腐った果実から吸汁する
+E86	fix	多くは地中に巣を作り、女王を中心に暮らす社会性昆虫で、小さな虫や甘い蜜を食べる	https://ja.wikipedia.org/wiki/アリ	B	巣は地中が多く蜜や甘露と小動物を食べる
+E87	fix	木の枝にぶら下がった蓑(みの)の中で暮らし、葉を食べて育つ	https://ja.wikipedia.org/wiki/ミノムシ	B	蓑の中で暮らし食樹の葉を食べる
+E88	ok		https://ja.wikipedia.org/wiki/オニヤンマ	B	小川周辺で見られ幼虫は約5年水中で育つ
+E89	fix	草むらの地面や物陰にすみ、草や虫の死骸などを食べる雑食	https://ja.wikipedia.org/wiki/スズムシ	B	野生では草木の葉や昆虫の死骸を食べる雑食
+E90	drop				百科事典・検索で確かめられず
+E91	ok		https://ja.wikipedia.org/wiki/セミ	B	幼虫は地中で道管から樹液を吸い成虫も樹液を吸う
+E92	ok		https://ja.wikipedia.org/wiki/ムカデ	B	落ち葉や石の裏にすむ夜行性の肉食
+E93	ok		https://ja.wikipedia.org/wiki/セミ	B	幼虫が羽化した後に残る脱皮殻
+E94	fix	幼虫は生きた木の幹の中を食べて育ち、成虫は葉や若い枝の樹皮を食べる	https://ja.wikipedia.org/wiki/ゴマダラカミキリ	B	幼虫は生木の材部を成虫は葉や若枝の樹皮を食べる
+E95	ok		https://ja.wikipedia.org/wiki/アオスジアゲハ	B	公園や街路樹で見られ幼虫はクスノキ科の葉を食べる
+E96	ok		https://ja.wikipedia.org/wiki/モンシロチョウ	B	畑など身近な環境にすみ花を訪れる
+E97	ok		https://ja.wikipedia.org/wiki/コオロギ	B	草地や石の下にすむ雑食
+E98	fix	東南アジアの森にすみ、樹液より草の花などに集まり、若芽の汁も吸う	https://ja.wikipedia.org/wiki/ホソアカクワガタ	B	樹液ではなく草本の花に集まり若芽の汁を吸うとされる
+E99	fix	池や沼の水辺の草の間を低く飛び、はねをゆっくり動かす	https://ja.wikipedia.org/wiki/イトトンボ	B	水辺を離れず草の間を低く飛ぶ
+E100	fix	池や沼など流れのない水にすみ、幼虫は水中でミジンコや小魚などを食べる	https://ja.wikipedia.org/wiki/ギンヤンマ	B	止水域にすみヤゴは小動物や小魚を食べる
+E101	ok		https://ja.wikipedia.org/wiki/ゲンゴロウ	B	止水にすみ成虫も幼虫も肉食
+E102	fix	低地から山地にすみ、樹液や発酵した果実を食べる	https://ja.wikipedia.org/wiki/カナブン	B	広葉樹の樹液や腐った果実を餌にする
+E103	fix	動物のふんを丸めて運び、安全な場所で食べる	https://ja.wikipedia.org/wiki/フンコロガシ	B	糞を球にして運び食べる
+E104	fix	山や林にすみ、獣のふんや動物の死骸を食べる	https://ja.wikipedia.org/wiki/オオセンチコガネ	B	成虫も幼虫も糞や死骸に集まる
+E105	fix	中南米の森にすみ、腐った果実などの汁を吸う	https://ja.wikipedia.org/wiki/モルフォチョウ	B	腐敗した果実や死骸などを好む
+E106	fix	広葉樹林やスギ・ヒノキの林にすみ、幼虫は土の中で木の根の汁を吸う	https://ja.wikipedia.org/wiki/ヒグラシ	B	林にすみ幼虫は地中で根から汁を吸う
+E107	fix	水辺にすむ種の幼虫はカワニナなどの巻貝を食べ、成虫は光で仲間と合図する	https://ja.wikipedia.org/wiki/ホタル	B	水生種の幼虫は巻貝を食べ成虫は発光で交信する
+E108	ok		https://ja.wikipedia.org/wiki/ノミ	B	成虫は動物の体表で血を吸う
+E109	fix	世界中にすみ、花の蜜や果物、腐った物、動物のふんなどから栄養をとる	https://ja.wikipedia.org/wiki/ハエ	B	成虫は蜜・甘露のほか死肉や糞などを摂る
+E110	ok		https://ja.wikipedia.org/wiki/クマゼミ	B	暖かい地域の木にすみ幼虫は地中で数年過ごす
+E111	fix	平地から低山の雑木林にすみ、幼虫は枯れ木や朽ち木を食べて育つ	https://ja.wikipedia.org/wiki/オオクワガタ	B	平地〜低山の雑木林で幼虫は朽ち木を食べる
+E112	ok		https://ja.wikipedia.org/wiki/タガメ	B	田んぼや池で魚やカエルを捕り消化液で溶かして吸う
+E113	ok		https://ja.wikipedia.org/wiki/ギラファノコギリクワガタ	B	東南アジアの熱帯雨林にすみ世界最大級とされる
+E114	fix	ジャワ島西部の高地の森にすみ、体が金色に輝く	https://ja.wikipedia.org/wiki/オウゴンオニクワガタ	B	ジャワ島西部の高地固有で金色の外骨格
+E115	fix	アフリカの森にすみ、成虫は樹液を吸う大きなハナムグリ	https://kotobank.jp/word/%E3%81%AF%E3%81%AA%E3%82%80%E3%81%90%E3%82%8A-3163537	B	アフリカ産で成虫は日中に樹液を吸うとされる
+E116	fix	日当たりのよい草原にすみ、昆虫などを捕らえて食べ、オスが羽をこすって鳴く	https://ja.wikipedia.org/wiki/キリギリス	B	草原で肉食が不可欠でオスは前翅をこすって鳴く
+E117	ok		https://ja.wikipedia.org/wiki/オオムラサキ	B	雑木林にすみ幼虫はエノキの葉を食べる
+E118	ok		https://ja.wikipedia.org/wiki/ヤドカリ	B	海辺の雑食で藻類や遺骸を食べる
+E119	ok		https://ja.wikipedia.org/wiki/ミツバチ	B	女王を中心に暮らし蜜と花粉を集める
+E120	ok		https://ja.wikipedia.org/wiki/コーカサスオオカブト	B	東南アジアの高地の森にすみ成虫は樹液を吸う
+E121	ok		https://ja.wikipedia.org/wiki/カブトムシ	B	雑木林にすみ幼虫は腐葉土成虫は樹液
+E122	fix	中南米にすむ大型のカブトムシで、幼虫は2〜3年かけて育つ	https://ja.wikipedia.org/wiki/ゾウカブト	B	南北アメリカに分布し幼虫期間は2〜3年
+E123	ok		https://en.wikipedia.org/wiki/Dynastes_hercules	B	中南米の森にすみ幼虫は朽ち木成虫は樹液や果実
+E124	fix	エノキやケヤキの生える林を飛び、幼虫は木の幹の中を食べて育つ	https://ja.wikipedia.org/wiki/タマムシ	B	成虫はエノキ・ケヤキの林で幼虫は幹内を食べる
+E125	fix	ナナホシテントウはアブラムシを食べる。冬は草の根元などで小さな集団で越冬する	https://ja.wikipedia.org/wiki/ナナホシテントウ	B	アブラムシを食べ小集団で越冬する
+E126	ok		https://ja.wikipedia.org/wiki/ショウリョウバッタ	B	イネ科の草原にすみイネ科の葉を食べる
+E127	fix	東南アジアにすむカメムシ	https://ja.wikipedia.org/wiki/ジンメンカメムシ	B	分布以外の食性は確かめられず
+E128	ok		https://ja.wikipedia.org/wiki/カマキリ	B	草むらなどで待ち伏せする肉食
+E129	ok		https://ja.wikipedia.org/wiki/トノサマバッタ	B	草原や河川敷にすみイネ科の草を食べる
+E130	fix	涼しい山地の広葉樹林にすみ、樹液を吸う	https://ja.wikipedia.org/wiki/ミヤマクワガタ	B	低山〜山地の涼しい広葉樹林にすみ樹液を吸う
+E131	ok		https://ja.wikipedia.org/wiki/ケラ	B	土中にトンネルを掘り根や虫を食べる雑食
+E132	ok		https://ja.wikipedia.org/wiki/オオカバマダラ	B	北米からメキシコへ渡り幼虫はトウワタを食べる
+E133	ok		https://ja.wikipedia.org/wiki/蚊	B	吸血するのは産卵前のメスでオスは蜜を吸う
+E134	ok		https://ja.wikipedia.org/wiki/ガ	B	夜行性が多いが昼行性もいて種数はチョウより多い
+E135	ok		https://ja.wikipedia.org/wiki/ハナカマキリ	B	東南アジアの熱帯雨林で花に似て虫を待ち伏せる
+E136	ok		https://ja.wikipedia.org/wiki/オオゴマダラ	B	南西諸島などにすみふわふわとゆっくり飛ぶ
+E137	fix	北海道から九州の林などにすみ、成虫は花の蜜を吸う	https://ja.wikipedia.org/wiki/カラスアゲハ	B	食草のある林にすみ吸蜜する
+E138	ok		https://ja.wikipedia.org/wiki/ダンゴムシ	B	落ち葉を食べ土壌の分解を助ける
+E139	ok		https://ja.wikipedia.org/wiki/アメンボ	B	足先の毛で水面に浮き獲物の体液を吸う
+E140	fix	オーストラリア北東部の熱帯雨林にすみ(ニューギニアにも分布)、体が虹色に輝く	https://ja.wikipedia.org/wiki/ニジイロクワガタ	B	クイーンズランド州の熱帯雨林に分布し虹色の光沢
+E141	ok		https://ja.wikipedia.org/wiki/アキアカネ	B	田んぼで育ち夏は高地へ移り秋に平地へ戻る
+E142	ok		https://ja.wikipedia.org/wiki/イナゴ	B	田んぼにすみイネを食べる
+E143	ok		https://ja.wikipedia.org/wiki/ミンミンゼミ	B	森や公園の木にすみ幼虫は土の中で育つ
+E144	ok		https://ja.wikipedia.org/wiki/ルリボシカミキリ	B	ブナなどの林にすみ幼虫は枯れ木を食べる
+E145	ok		https://ja.wikipedia.org/wiki/ノコギリクワガタ	B	雑木林で樹液を吸い幼虫は朽ち木を食べる
+E146	fix	中南米の山の森にすみ、成虫は葉を食べる	https://ja.wikipedia.org/wiki/プラチナコガネ	B	中南米の雲霧林にすみ成虫は食葉性
+E147	ok		https://ja.wikipedia.org/wiki/サソリ	B	夜行性で隠れて待ち伏せし節足動物を食べる
+E148	ok		https://ja.wikipedia.org/wiki/カタツムリ	B	湿った場所で植物や藻を食べコンクリートのカルシウムも摂る
+E149	ok		https://ja.wikipedia.org/wiki/クモ	B	毒と糸で捕らえ消化液で体外消化する
+E150	ok		https://ja.wikipedia.org/wiki/カメムシ	B	植食性が多く刺激で臭いを出す

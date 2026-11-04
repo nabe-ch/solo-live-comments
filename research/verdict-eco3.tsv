@@ -1,0 +1,82 @@
+E151	fix	地中に掘った巣穴などにすみ、大きな昆虫などの節足動物を待ち伏せして食べる	https://en.wikipedia.org/wiki/Tarantula	B	地中の巣穴に暮らし主に節足動物を待ち伏せで捕るが、夜行性かは確かめられなかった。
+E152	ok		https://ja.wikipedia.org/wiki/ハンミョウ	B	成虫は小型昆虫を捕食し、人が近づくと短く飛ぶと書かれている。
+E153	ok		https://www.honda.co.jp/outdoor/adventure/namiageha.html	A	幼虫はミカン科の葉を食べ、成虫は花の蜜を吸うと図鑑にある。
+E154	fix	インドネシアやマレーシアの熱帯雨林にすみ、サルノコシカケなどのキノコに穴をあけて食べ、集まる虫も捕らえる	https://ja.wikipedia.org/wiki/バイオリンムシ	B	木や落ち葉ではなく、キノコに潜って食べる生態と書かれている。
+E155	ok		https://ja.wikipedia.org/wiki/ツクツクボウシ	B	平地から山地の森林にすみ、8月下旬から9月上旬に最もよく鳴く。
+E156	ok		https://ja.wikipedia.org/wiki/コノハムシ	B	南アジアから東南アジアのジャングルにすむ草食性とある。
+E157	ok		https://ja.wikipedia.org/wiki/ナナフシ	B	樹上にすみ、成虫は主に夜に活動して葉を食べると書かれている。
+E158	ok		https://ja.wikipedia.org/wiki/ハチ	B	社会性のハチは少数派で、多くは単独性と書かれている。
+E159	fix	海辺の岩場や護岸にすみ、死んだ生き物などの有機物を食べる	https://ja.wikipedia.org/wiki/フナムシ	B	基本は腐食性で、海藻を食べるのは一部の種に限られる。
+E160	ok		https://ja.wikipedia.org/wiki/モンキチョウ	B	日当たりのよい草地や河原で見られ、成虫は花の蜜を吸う。
+E161	fix	北米の太平洋岸の砂底などにすみ、貝やほかの甲殻類、小魚を食べる	https://en.wikipedia.org/wiki/Dungeness_crab	B	砂底に多く、餌は二枚貝や甲殻類、小魚とある。
+E162	ok		https://ja.wikipedia.org/wiki/カイロウドウケツ	B	深海の砂泥底に固着し、取り込んだ海水中のプランクトンなどを捕食する。
+E163	ok		https://ja.wikipedia.org/wiki/アワビ	B	岩礁にすみ、アラメやワカメなどの褐藻を食べる。
+E164	ok		https://ja.wikipedia.org/wiki/フジツボ	B	岩や船底に固着し、蔓脚で海水中のプランクトンをこしとる。
+E165	fix	南太平洋からオーストラリア近海の水深200〜600mほどの深い海にすみ、死んだ魚介類や脱皮殻を食べる	https://ja.wikipedia.org/wiki/オウムガイ	B	主な餌は死んだ魚介類などで、生きた獲物は捕れないとされる。
+E166	fix	ふだんは深い海にすみ、産卵期には夜に浅い所へ上がってきて、体の光る器官で光を出す	https://ja.wikipedia.org/wiki/ホタルイカ	B	浮上するのは主に産卵期で、発光器は腹側などにある。
+E167	fix	磯の石の下や海底にすみ、貝の隙間から入って貝の身を食べる種が多い肉食の生き物	https://ja.wikipedia.org/wiki/ヒラムシ	B	肉食性が多く貝の身を食べるが、ホヤを食べるという記述は確かめられなかった。
+E168	ok		https://ja.wikipedia.org/wiki/ガザミ	B	内湾の砂泥底にすみ、小魚やゴカイ、貝類を捕食する。
+E169	ok		https://ja.wikipedia.org/wiki/ダイオウグソクムシ	B	水深200〜1000mの深海底にすみ、大型生物の死骸などを食べる。
+E170	ok		https://ja.wikipedia.org/wiki/オオシャコガイ	B	サンゴ礁にすみ、共生する褐虫藻から栄養の多くを得る。
+E171	fix	日本では瀬戸内海や九州北部の干潟などにすむ	https://ja.wikipedia.org/wiki/カブトガニ	B	生息地は確かめられたが、ゴカイや貝を食べるという記述は確認できなかった。
+E172	fix	北米の大西洋岸の、岩の多い冷たい浅い海にすみ、貝やウニの仲間、ゴカイ、カニなどを食べる	https://en.wikipedia.org/wiki/American_lobster	B	餌は軟体動物や棘皮動物、多毛類が中心でカニも食べるとある。
+E173	fix	内湾の泥底に掘ったU字形の巣穴にすみ、鎌状の前脚で小魚やゴカイ、甲殻類、貝などを捕らえて食べる	https://ja.wikipedia.org/wiki/シャコ	B	ニホンのシャコは突き刺しと打ち砕きの中間型で、小型個体は硬い貝を割れない。
+E174	fix	沿岸の海を漂い、傘を開閉して動物プランクトンを食べる	https://ja.wikipedia.org/wiki/ミズクラゲ	B	主な餌は動物プランクトンだが、分布は環太平洋と書かれ世界の沿岸とは言い切れない。
+E175	ok		https://en.wikipedia.org/wiki/Mussel	B	足糸で岩に付着し、鰓でプランクトンをこしとって食べる。
+E176	fix	海底の巣穴にすみ、夜に出てきて主に貝を食べる	https://ja.wikipedia.org/wiki/マダコ	B	マダコは巣穴から夜に出て、主に貝類を食べるとある。
+E177	fix	浅い海の岩や貝殻などに貼りつき、水中の植物プランクトンをこしとって食べる	https://ja.wikipedia.org/wiki/カキ_(貝)	B	硬い基盤に着生し植物プランクトンを食べるが、河口近くという記述は確かめられなかった。
+E178	ok		https://ja.wikipedia.org/wiki/アコヤガイ	B	足糸で岩に固定し、鰓でプランクトンなどをこしとる。
+E179	ok		https://ja.wikipedia.org/wiki/タラバガニ	B	冷たい海にすみ、貝やゴカイなど小動物を捕食する。
+E180	ok		https://ja.wikipedia.org/wiki/ホタテガイ	B	浅い海の砂底にすみ、襲われると殻を開閉して泳ぐ。
+E181	ok		https://ja.wikipedia.org/wiki/イソギンチャク	B	岩に固着し、触手の刺胞の毒で獲物を麻痺させて食べる。
+E182	ok		https://ja.wikipedia.org/wiki/ナマコ	B	海底の有機物を、種によっては砂ごと集めて食べる。
+E183	ok		https://ja.wikipedia.org/wiki/クビレズタ	B	九州南部から南西諸島の海に生える緑藻とある。
+E184	ok		https://ja.wikipedia.org/wiki/センジュナマコ	B	深海底にすみ、沈んできた有機物の粒を食べる。
+E185	ok		https://en.wikipedia.org/wiki/Tunicate	B	ホヤは岩などに固着し、海水をこして中のプランクトンを食べる。
+E186	ok		https://ja.wikipedia.org/wiki/ウミウシ	B	浅い海底に多く、海綿やコケムシなどを食べる種が多い。
+E187	ok		https://ja.wikipedia.org/wiki/ヒトデ	B	貝を腕で押さえ、反転させた胃を差し込んで体外で消化する。
+E188	ok		https://ja.wikipedia.org/wiki/ウニ	B	岩などにすみ、多くは海藻を食べる。
+E189	fix	日本近海の岩に生え、冬から春に育って、夏までに枯れる一年生の海藻	https://ja.wikipedia.org/wiki/ワカメ	B	一年生で冬から夏の生活環とされ、春に育つとだけは言い切れない。
+E190	fix	インド洋から西太平洋のサンゴ礁にすみ、昼は岩のすき間に隠れて夜に活動する	https://ja.wikipedia.org/wiki/パイプウニ	B	夜行性なのは確かめられたが、餌の具体的な記載はなかった。
+E191	fix	日本海などの水深200〜600mほどの砂泥底にすみ、貝やゴカイ、死骸などを食べる	https://ja.wikipedia.org/wiki/ズワイガニ	B	雑食で貝類や多毛類、死骸を食べ、深い砂泥底を好むとある。
+E192	fix	日本近海の水深150〜800mの深い砂泥底にすみ、貝などを大きなハサミで砕いて食べる	https://ja.wikipedia.org/wiki/タカアシガニ	B	動物食の強い雑食で貝をハサミで砕くが、魚の死骸という記述は確かめられなかった。
+E193	fix	暖かい海の岩礁にすみ、昼は岩穴に隠れ、夜に貝やウニなどを食べる	https://ja.wikipedia.org/wiki/イセエビ	B	夜に活発に動き、貝類やウニを大顎で砕いて食べるとあり、カニは挙がっていない。
+E194	ok		https://ja.wikipedia.org/wiki/チンアナゴ	B	サンゴ礁外縁の砂底に群れ、流れてくる動物プランクトンを食べる。
+E195	ok		https://ja.wikipedia.org/wiki/ホッコクアカエビ	B	北の水深200〜600mの砂泥底にすみ、小型の貝や甲殻類などを捕食する。
+E196	ok		https://ja.wikipedia.org/wiki/クルマエビ	B	内湾の砂泥底にすみ、夜行性で貝や小魚などを食べる雑食。
+E197	ok		https://ja.wikipedia.org/wiki/サザエ	B	岩礁にすみ、夜に海藻を歯舌で削って食べる。
+E198	ok		https://ja.wikipedia.org/wiki/メンダコ	B	水深200〜1000mの海底近くにすみ、ヨコエビなどの小型甲殻類を食べる。
+E199	fix	深海の酸素が少ない層にすみ、海中を降ってくるマリンスノーを粘液で丸めて食べる	https://ja.wikipedia.org/wiki/コウモリダコ	B	主食はマリンスノーで、生きた獲物を食べるかは不明とされる。
+E200	ok		https://ja.wikipedia.org/wiki/バイ	B	浅い海の砂泥にもぐってすみ、死んだ動物を食べる腐肉食。
+E201	ok		https://ja.wikipedia.org/wiki/鳥類	B	7大陸に分布し、羽毛に覆われ硬い殻の卵を産む。
+E202	ok		https://ja.wikipedia.org/wiki/リス	B	多くは草食で木の実や種子を食べ、環境は森から草原まで広い。
+E203	ok		https://ja.wikipedia.org/wiki/ブタ	B	イノシシを家畜化した動物で雑食。
+E204	ok		https://ja.wikipedia.org/wiki/ゴリラ	B	アフリカ中部・西部の森に群れですみ、葉や茎、果実を食べる。
+E205	ok		https://ja.wikipedia.org/wiki/ワニ	B	熱帯から亜熱帯の水辺にすみ、魚や水辺に来た動物を食べる。
+E206	ok		https://ja.wikipedia.org/wiki/コアラ	B	オーストラリア東部の森にすみ、ユーカリなどの葉を食べる。
+E207	ok		https://en.wikipedia.org/wiki/Eagle	B	ユーラシアとアフリカを中心に分布し、強い爪で魚や中型の脊椎動物を捕らえる。
+E208	ok		https://ja.wikipedia.org/wiki/アリクイ	B	中南米の森林や草原にすみ、アリやシロアリを食べる。
+E209	ok		https://ja.wikipedia.org/wiki/ウシ	B	家畜で、草をかみ直す反芻動物。
+E210	fix	ほぼ世界中にすみ、穀物などを食べる	https://ja.wikipedia.org/wiki/ネズミ	B	穀物を食べるとあるが、種のことや雑食とは書かれていなかった。
+E211	fix	人に飼われるほか、野生では小動物を待ち伏せして狩る肉食の習性を持つ	https://ja.wikipedia.org/wiki/ネコ	B	肉食で待ち伏せ型の捕食者だが、夜行性とは明記されていなかった。
+E212	ok		https://ja.wikipedia.org/wiki/ウマ	B	家畜で草食、社会性が強く群れで暮らす。
+E213	fix	ヨーロッパからアジアの乾いた土地で地中の巣穴にすみ、穀物や木の実を中心に食べる	https://ja.wikipedia.org/wiki/ハムスター	B	分布は乾燥地帯とあり、中東や東欧に限った記述ではなかった。
+E214	fix	オーストラリアやニューギニアにすみ、草の葉を食べる	https://ja.wikipedia.org/wiki/カンガルー	B	草食だが、すみかが草原とは書かれていなかった。
+E215	fix	北半球に広くすみ、家族の群れでシカなどを狩る	https://ja.wikipedia.org/wiki/オオカミ	B	森や草原といったすみかの記述はなく、獲物は有蹄類が中心とされる。
+E216	ok		https://ja.wikipedia.org/wiki/ペンギン	B	主に南半球に分布し、魚や甲殻類、頭足類を捕食する。
+E217	ok		https://en.wikipedia.org/wiki/Chicken	B	家畜化された鳥で、種や虫なども食べる雑食。
+E218	ok		https://ja.wikipedia.org/wiki/ゾウ	B	アフリカとアジアにすみ、草や葉、果実を大量に食べる。
+E219	ok		https://ja.wikipedia.org/wiki/サイ	B	アフリカとアジアの草原や森にすむ草食動物。
+E220	ok		https://en.wikipedia.org/wiki/Sheep	B	家畜で、短い草を食べ、群れで暮らす。
+E221	ok		https://ja.wikipedia.org/wiki/シカ	B	森林などにすむ草食で、基本的にオスだけが枝角を持つ。
+E222	ok		https://ja.wikipedia.org/wiki/トラ	B	アジアの森などにすみ、イノシシやシカを茂みから襲い、基本は単独で生活する。
+E223	ok		https://ja.wikipedia.org/wiki/クマ	B	冬ごもり中に子を産み、子は1歳半から2歳半ごろまで母親と過ごす。
+E224	ok		https://ja.wikipedia.org/wiki/イヌ	B	基本は肉食の仲間だが雑食性が強い。
+E225	ok		https://ja.wikipedia.org/wiki/クマ	B	植物中心の雑食で、8種のうち4種が冬眠する。
+E226	ok		https://ja.wikipedia.org/wiki/カバ	B	昼は水中で過ごし、夜に陸へ上がって草などを食べる。
+E227	ok		https://ja.wikipedia.org/wiki/アヒル	B	マガモを家畜化した家禽で、雑食。
+E228	fix	人が飼う家畜で、岩場や急斜面も得意で、山地や乾燥地でも飼われる	https://ja.wikipedia.org/wiki/ヤギ	B	山岳や乾燥地に強い点は確かめられたが、餌についての記述はなかった。
+E229	fix	アフリカのサバンナや砂漠にすみ、草や根、種を食べ、昆虫を食べることもある	https://ja.wikipedia.org/wiki/ダチョウ	B	すみかはサバンナや砂漠、低木林と書かれ、草原に限らない。
+E230	ok		https://ja.wikipedia.org/wiki/ウサギ	B	多くは草や木の葉を食べる植物食で、草原や森林にすむ。
+E231	ok		https://ja.wikipedia.org/wiki/ライオン	B	サバンナや草原にプライドで暮らし、ヌーやシマウマなどを狩る。
+E232	fix	アジアやアフリカ、中南米などにすみ、木の上で暮らす種が多く、果実や葉などを食べる	https://en.wikipedia.org/wiki/Monkey	B	食べ物は果実や葉などだが、すむ地域は暖かい地域に限らず、森とは明記されていなかった。

@@ -3,8 +3,8 @@ const ASSIST_FILLER = /^(えー+と?|えーっと|えっと|あのー+さ?|あ�
 // 質問の言葉に見えるが、質問ではないもの
 const NOT_ASK_WORDS = /そうなんです|なんですよ|なんですけど|なんでも|何か|何も|何回も|何度も|なんか|なんて|いつも|いつか|どこか|誰か|だれか|どうも|どうぞ|どうせ|どうしても|どうでもいい/g;
 // 独り言は質問として扱わない
-const SELF_TALK = /どうしよう|ようかな|なんでだよ|何でだよ|なにこれ|何これ|なにそれ|何それ|なんだこれ|なんだそれ|なんだよ|なんでやねん|何(して|やって)ん|どこ行こう|どこいこう|どうなってん/;
-const ASK_RE = /いくら|何|なに|なんで|なんじ|なんの|なぜ|いつ|どこ|誰|だれ|どう|どれ|どの|どんな|教えて|おしえて|知ってる|だっけ|ですか|ますか|ねだん|値段|とは$|[ァ-ヶー]って$|(食べ|使い|やり|釣り|捕まえ|取り|出し|探し|見つけ|行き|増やし|貯め)方|[ぁ-ん]方$|方法|仕方|対処|するには|行くには|止めたい|好きな|イベント$|について|のこと|の話|の情報|の詳細|くわしく|詳しく|知りたい|聞きたい|聞かせて|わかる|分かる|ですか$|とは|すごいの|有名なの|人気あるの|高いの|安いの|レアなの|珍しいの|(る|い|た)の$|(の|って)[^、。 ]{1,8}は$|(今|いま).*(釣れる|捕れる|取れる|いる)$|[?？]$/;
+const SELF_TALK = /(今日|きょう|ご飯|ごはん|昼|夜|朝|晩).*(何|なに)を?食べ|(何|なに)を?食べよう|どうしよう|ようかな|なんでだよ|何でだよ|なにこれ|何これ|なにそれ|何それ|なんだこれ|なんだそれ|なんだよ|なんでやねん|何(して|やって)ん|どこ行こう|どこいこう|どうなってん/;
+const ASK_RE = /いくら|何|なに|なんで|なんじ|なんの|なぜ|いつ|どこ|誰|だれ|どう|どれ|どの|どんな|教えて|おしえて|知ってる|だっけ|ですか|ますか|ねだん|値段|とは$|[ァ-ヶー]って$|(食べ|使い|やり|釣り|捕まえ|取り|出し|探し|見つけ|行き|増やし|貯め)方|[ぁ-ん]方$|方法|仕方|対処|するには|行くには|止めたい|好きな|肉食|草食|雑食|生態|暮らし|何を?食べ|なに(を)?食べ|餌|エサ|えさ|すんでる|住んでる|棲んでる|すみか|イベント$|について|のこと|の話|の情報|の詳細|くわしく|詳しく|知りたい|聞きたい|聞かせて|わかる|分かる|ですか$|とは|すごいの|有名なの|人気あるの|高いの|安いの|レアなの|珍しいの|(る|い|た)の$|(の|って)[^、。 ]{1,8}は$|(今|いま).*(釣れる|捕れる|取れる|いる)$|[?？]$/;
 const isAsking = (text) => !SELF_TALK.test(text) && ASK_RE.test(text.replace(NOT_ASK_WORDS, ''));
 
 // 音声認識がひらがなで書いた言葉を、データの表記にそろえる
@@ -49,7 +49,8 @@ const assistFacts = [
   ...knowledge.flatMap((k) => [...k.what, ...k.where, ...k.when, ...k.real].map((t) => [k.name, t])),
   ...FOOD.map(([name, , t]) => [name, t]),
   ...CREATURE_TRIVIA,
-  ...TOPIC_TRIVIA
+  ...TOPIC_TRIVIA,
+  ...ECOLOGY
 ];
 function searchFacts(text, skipEat = false) {
   const words = (text.match(/[ァ-ヶー]{3,}|[一-龠々]{3,}/g) || []).filter((w) => !ASSIST_STOP.has(w)).sort((a, b) => b.length - a.length);
@@ -190,6 +191,16 @@ function howtoAnswer(text) {
   return hit ? hit[1] : null;
 }
 
+// 現実の生態を聞かれたら、ゲームの情報より先に答える（「○○の生態」「○○は何を食べるの」）
+const ECO_ASK = /生態|暮らし|何を?食べ|なに(を)?食べ|何食べ|餌|エサ|えさ|肉食|草食|雑食|すんでる|住んでる|棲んでる|すみか|現実|リアル|本物|実際/;
+function ecoAnswer(text) {
+  if (!ECO_ASK.test(text) || /食べ方|食べられる|おいし|うまい/.test(text)) return null;
+  const hits = ECOLOGY.filter(([n]) => (n.length === 1 ? text.startsWith(`${n}の`) || text.startsWith(`${n}は`) : new RegExp(`(^|[^ァ-ヶー])${n}(?![ァ-ヶー])`).test(text)));
+  if (!hits.length) return null;
+  const [name, line] = hits.sort((a, b) => b[0].length - a[0].length)[0];
+  return knowSay(name, line);
+}
+
 function assist(raw) {
   const said = tidySpeech(raw);
   if (!said) return null;
@@ -203,7 +214,7 @@ function assist(raw) {
   // ゲームの登場人物は、役割で答える
   const npc = asking && /誰|だれ|何者|って何|ってなに|どんな/.test(text) && Object.keys(NPC_ROLE).find((n) => text.includes(n));
   if (npc) return { type: 'answer', text: `${npc}は、${NPC_ROLE[npc]}` };
-  const special = asking ? clockAnswer(text) || calendarAnswer(text) || listAnswer(text) || howtoAnswer(text) : null;
+  const special = asking ? ecoAnswer(text) || clockAnswer(text) || calendarAnswer(text) || listAnswer(text) || howtoAnswer(text) : null;
   if (special) return { type: 'answer', text: special };
   const answer = answerAny(text);
   if (answer) return { type: 'answer', text: answer };

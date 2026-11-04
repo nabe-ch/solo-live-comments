@@ -17,7 +17,8 @@ const FOOD_EAT_RE = /食べ|たべ|おいし|美味し|うまい|味|料理|調�
 const FOOD_DANGER_RE = /危な|危険|あぶな|毒|噛|刺さ|刺す|凶暴|狂暴|怖い|こわい/;
 function foodAnswer(rawText) {
   const text = rawText.slice(-30);
-  const wantEat = FOOD_EAT_RE.test(text);
+  // 「何を食べるの」は、生き物の餌の話なので料理とは分ける
+  const wantEat = FOOD_EAT_RE.test(text) && !/(何|なに)を?食べ/.test(text);
   const wantDanger = FOOD_DANGER_RE.test(text);
   if (!wantEat && !wantDanger) return null;
   const hit = foodEntries.find((f) => f.re.test(text));
